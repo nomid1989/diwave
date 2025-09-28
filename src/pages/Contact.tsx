@@ -50,7 +50,7 @@ const Contact: React.FC<Props> = ({ locale }) => {
               <p className="opacity-70 text-sm">Або скористайтеся формою — повідомлення потрапить у наш Telegram‑бот.</p>
             </div>
             <div className="glass rounded-xl p-6 border border-cyan-400/20 bg-black/40">
-              <ContactForm />
+              <ContactForm locale={locale} />
             </div>
           </div>
         </div>

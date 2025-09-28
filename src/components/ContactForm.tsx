@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { sendTelegram } from '@/lib/telegram';
 import { motion } from 'framer-motion';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const ContactForm: React.FC = () => {
+const ContactForm: React.FC<{ locale?: 'uk' | 'en' }> = ({ locale }) => {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const effectiveLocale: 'uk' | 'en' = locale ?? (pathname.startsWith('/en') ? 'en' : 'uk');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -20,10 +24,16 @@ const ContactForm: React.FC = () => {
         `<b>Email:</b> ${email}\n` +
         `<b>Message:</b>\n${message}`;
       await sendTelegram(text);
+      // Analytics
+      try {
+        // @ts-ignore
+        window.dataLayer?.push({ event: 'form_submit', form: 'contact', locale: effectiveLocale });
+      } catch {}
       setSent('ok');
       setName('');
       setEmail('');
       setMessage('');
+      navigate(effectiveLocale === 'en' ? '/en/thank-you' : '/thank-you', { replace: true });
     } catch (e) {
       console.error(e);
       setSent('err');

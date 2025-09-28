@@ -118,7 +118,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-6xl font-semibold text-white tracking-tight"
           >
-            {t('hero.h1')}
+            {locale === 'en' ? t('hero.h1') : 'Майбутнє бізнесу — це самообслуговування'}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -126,7 +126,9 @@ const Home: React.FC<Props> = ({ locale }) => {
             transition={{ delay: 0.2, duration: 0.4 }}
             className="mt-5 text-lg text-gray-300 max-w-3xl"
           >
-            {t('hero.subtitle')}
+            {locale === 'en'
+              ? t('hero.subtitle')
+              : 'Ми створюємо бізнеси самообслуговування з нуля: від обладнання і будівництва до програмного забезпечення та повної автоматизації процесів.'}
           </motion.p>
 
           <motion.div
@@ -139,13 +141,13 @@ const Home: React.FC<Props> = ({ locale }) => {
               href={`${locale === 'en' ? '/en' : ''}/contact`}
               className="inline-flex items-center rounded-md px-6 py-3 bg-white text-black font-semibold hover:bg-white/90 transition"
             >
-              {t('hero.cta')}
+              {locale === 'en' ? 'Get consultation' : 'Отримати консультацію'}
             </a>
             <a
-              href={`${locale === 'en' ? '/en' : ''}/solutions`}
+              href={`${locale === 'en' ? '/en' : ''}/projects`}
               className="inline-flex items-center rounded-md px-6 py-3 border border-white/30 text-white hover:bg-white/10 transition"
             >
-              {locale === 'en' ? 'Explore solutions' : 'Переглянути рішення'}
+              {locale === 'en' ? 'View projects' : 'Дивитися проєкти'}
             </a>
           </motion.div>
 
@@ -162,6 +164,69 @@ const Home: React.FC<Props> = ({ locale }) => {
           </motion.div>
         </div>
       </section>
+
+      {/* Нові секції для української версії */}
+      {locale === 'uk' && (
+        <>
+          {/* Секція 1. Self-Service Solutions */}
+          <section className="mx-auto max-w-7xl px-6 py-16">
+            <h2 className="text-white text-2xl md:text-3xl font-semibold mb-4">
+              Бізнеси, що працюють самі
+            </h2>
+            <p className="text-gray-300">
+              Мийки самообслуговування, вендингові автомати, роботизовані рішення — ми допомагаємо підприємцям запускати та масштабувати сучасні формати бізнесу.
+            </p>
+            <ul className="mt-4 list-disc pl-5 text-gray-300 space-y-1">
+              <li>Автомийки самообслуговування</li>
+              <li>Вендингові апарати (напої, пиво, пилососи, хімчистка)</li>
+              <li>Роботизовані модулі для сервісів майбутнього</li>
+            </ul>
+          </section>
+
+          {/* Секція 2. Дрони та аероспорт */}
+          <section className="mx-auto max-w-7xl px-6 py-16">
+            <h2 className="text-white text-2xl md:text-3xl font-semibold mb-4">
+              Інновації та оборона
+            </h2>
+            <p className="text-gray-300">
+              Ми створюємо власні дрони, розвиваємо спільноту пілотів та організовуємо змагання.
+              В умовах війни це не лише спорт, а й стратегічний напрямок для країни.
+            </p>
+            <ul className="mt-4 list-disc pl-5 text-gray-300 space-y-1">
+              <li>Виробництво FPV-дронів</li>
+              <li>Змагання та тренування пілотів</li>
+              <li>Партнерські оборонні проекти</li>
+            </ul>
+          </section>
+
+          {/* Секція 3. Автоматизація та софт */}
+          <section className="mx-auto max-w-7xl px-6 py-16">
+            <h2 className="text-white text-2xl md:text-3xl font-semibold mb-4">
+              Технології для контролю та зростання
+            </h2>
+            <p className="text-gray-300">
+              Керуйте бізнесом із будь-якої точки світу. Наші програмні рішення автоматизують процеси, інтегрують платежі та забезпечують онлайн-моніторинг.
+            </p>
+            <ul className="mt-4 list-disc pl-5 text-gray-300 space-y-1">
+              <li>CRM та мобільні додатки</li>
+              <li>Онлайн-оплата (LiqPay, банки, картки)</li>
+              <li>Моніторинг і аналітика в реальному часі</li>
+              <li>Використання AI для автоматизації процесів</li>
+            </ul>
+          </section>
+
+          {/* Секція 4. Про нас */}
+          <section className="mx-auto max-w-7xl px-6 py-16">
+            <h2 className="text-white text-2xl md:text-3xl font-semibold mb-4">
+              Досвід, перевірений практикою
+            </h2>
+            <p className="text-gray-300">
+              Ми не стартап на ідеях — ми команда, що вже реалізувала десятки проектів.
+              Від автомийок у Львові до дронових змагань по всій Україні — наш досвід об’єднує інженерію, ІТ та підприємництво.
+            </p>
+          </section>
+        </>
+      )}
 
       {/* SOLUTIONS: Клікабельні картки з iOS‑склом */}
       <section className="mx-auto max-w-7xl px-6 py-16">
