@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ring: rgba(34,211,238,0.35);
+}
+
+.glass {
+  @apply bg-iosGlass backdrop-blur-md border border-iosBorder;
+}
+
+.hero-gradient {
+  background: radial-gradient(ellipse at top, rgba(34,211,238,0.2), rgba(0,0,0,1));
+}
