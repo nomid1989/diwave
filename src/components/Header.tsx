@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
@@ -27,6 +27,7 @@ const Header: React.FC = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const locale = useLocale();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const switchLocale = (target: 'uk' | 'en') => {
     if (target === locale) return;
@@ -92,8 +93,49 @@ const Header: React.FC = () => {
               EN
             </button>
           </div>
+          <button
+            type="button"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-cyan-400/30 text-cyan-300 hover:text-white hover:bg-cyan-400/10 transition"
+            aria-label="Меню"
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((v) => !v)}
+          >
+            {/* Іконка бургер/хрестик */}
+            {mobileOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3.75 5.75A.75.75 0 014.5 5h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75zm0 6A.75.75 0 014.5 11h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75zm0 6A.75.75 0 014.5 17h15a.75.75 0 010 1.5h-15a.75.75 0 01-.75-.75z" />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
+      {mobileOpen && (
+        <div className="md:hidden border-t border-cyan-400/20 bg-black/60 backdrop-blur">
+          <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex flex-col gap-2">
+            {NAV.map((item) => {
+              const href = makeLink(item.to, locale);
+              const active = pathname === href;
+              return (
+                <Link
+                  key={item.to}
+                  to={href}
+                  onClick={() => setMobileOpen(false)}
+                  className={classNames(
+                    'rounded-md px-3 py-2 transition-colors',
+                    active ? 'bg-white/10 text-white' : 'text-gray-300 hover:text-white hover:bg-white/5'
+                  )}
+                >
+                  {t(item.key)}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
