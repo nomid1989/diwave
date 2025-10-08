@@ -88,12 +88,14 @@ const About: React.FC<Props> = ({ locale }) => {
         jsonLd={jsonLd}
       />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <SmartImage srcFolder="/images/about" alt="About Diwave" asBackground className="absolute inset-0 opacity-35" />
+      {/* Hero - iOS 26 style gradient */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0a0f1c] via-[#1a1f3a] to-[#0f1419]">
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(1200px_600px_at_20%_10%,rgba(99,102,241,0.15),transparent),radial-gradient(1000px_500px_at_80%_20%,rgba(236,72,153,0.12),transparent),radial-gradient(800px_400px_at_50%_80%,rgba(56,189,248,0.08),transparent)]" />
+        <div className="absolute inset-0 opacity-30" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)', backgroundSize: '40px 40px'}} aria-hidden />
         <div className="mx-auto max-w-7xl px-6 py-20 relative">
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">About</h1>
-          <p className="text-gray-300 max-w-3xl">{description}</p>
+          <SmartImage srcFolder="/images/about" alt="About Diwave Team" className="w-full max-w-4xl mx-auto mb-8 rounded-xl border border-white/10" imgClassName="w-full h-96 object-cover rounded-xl" />
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 text-center">About Diwave</h1>
+          <p className="text-gray-300 max-w-3xl mx-auto text-center">{description}</p>
         </div>
       </section>
 

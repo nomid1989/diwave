@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
+import ThemeToggle from './ThemeToggle';
 
 const NAV = [
   { to: '/', key: 'nav.home' },
@@ -39,9 +40,9 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-cyan-400/20 bg-black/50 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-cyan-400/20 dark:border-cyan-400/20 light:border-blue-200/40 bg-black/50 dark:bg-black/50 light:bg-white/80 backdrop-blur transition-colors">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link to={makeLink('/', locale)} className="text-cyan-300 font-bold tracking-wide text-lg hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]">
+        <Link to={makeLink('/', locale)} className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 font-bold tracking-wide text-lg hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.8)] dark:hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.8)] light:hover:text-blue-700 transition-colors">
           {t('brand')}
         </Link>
 
@@ -55,7 +56,7 @@ const Header: React.FC = () => {
                 to={href}
                 className={classNames(
                   'transition-colors',
-                  active ? 'text-white' : 'text-gray-300 hover:text-white'
+                  active ? 'text-white dark:text-white light:text-blue-700 font-semibold' : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-blue-600'
                 )}
               >
                 {t(item.key)}
@@ -65,6 +66,7 @@ const Header: React.FC = () => {
         </nav>
 
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Link
             to={makeLink('/contact', locale)}
             className="hidden md:inline-block px-3 py-2 rounded-md bg-emerald-500 text-black font-semibold shadow-[0_0_16px_rgba(16,185,129,0.5)] hover:bg-emerald-400 hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] transition-all"

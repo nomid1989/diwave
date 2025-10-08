@@ -37,8 +37,9 @@ const Contact: React.FC<Props> = ({ locale }) => {
           }
         ]}
       />
-      <section className="relative overflow-hidden">
-        <SmartImage sources={["/images/contacts/1D55D514-B7F2-4D0E-BAD2-65604AA99AF2_1_105_c.jpg"]} alt="Contact Diwave" asBackground className="absolute inset-0 opacity-30" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0a0f1c] via-[#1a1f3a] to-[#0f1419]">
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(1200px_600px_at_20%_10%,rgba(99,102,241,0.15),transparent),radial-gradient(1000px_500px_at_80%_20%,rgba(236,72,153,0.12),transparent),radial-gradient(800px_400px_at_50%_80%,rgba(56,189,248,0.08),transparent)]" />
+        <div className="absolute inset-0 opacity-30" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)', backgroundSize: '40px 40px'}} aria-hidden />
         <div className="mx-auto max-w-7xl px-6 py-16 relative">
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-8">Contact</h1>
           <div className="grid md:grid-cols-2 gap-8">
@@ -71,6 +72,20 @@ const Contact: React.FC<Props> = ({ locale }) => {
             <div className="glass rounded-xl p-6 border border-cyan-400/20 bg-black/40">
               <ContactForm />
             </div>
+          </div>
+
+          {/* Google Maps */}
+          <div className="mt-8 rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.1771845266857!2d23.993652976756956!3d49.83846027148373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae7e6e3d3a3d3%3A0x3d3b3e3f3f3f3f3f!2z0LLRg9C70LjRhtGPINCS0LXQvdC40YfQtdC90LrQsCwgMzAsINCb0YzQstC40LIsINCb0YzQstGW0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjA!5e0!3m2!1sen!2sua!4v1234567890123!5m2!1sen!2sua"
+              width="100%"
+              height="400"
+              style={{border:0}}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Diwave Office Location - вул. Венiченка 30, Львів"
+            />
           </div>
         </div>
       </section>

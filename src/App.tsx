@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 const App: React.FC<React.PropsWithChildren> = ({ children }) => {
-  useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-1">{children}</main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen flex flex-col bg-black dark:bg-black light:bg-gradient-to-br light:from-gray-50 light:via-blue-50/30 light:to-purple-50/20 transition-colors duration-300">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 };
 
