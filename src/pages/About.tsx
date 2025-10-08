@@ -57,9 +57,20 @@ const About: React.FC<Props> = ({ locale }) => {
     }
   ];
 
-  // Фікс команди: визначення масиву, щоб уникнути ReferenceError
-  const teamMembers: Array<{ fileBase: string; name: string }> = [
-    { fileBase: 'dmytro-kravets-cto-diwave', name: 'Dmytro Kravets' }
+  // Команда Diwave
+  const teamMembers: Array<{ fileBase: string; name: string; role?: string }> = [
+    { fileBase: 'dimon', name: 'Dmytro Kravets', role: 'CTO & Founder' },
+    { fileBase: 'artem', name: 'Artem', role: 'Developer' },
+    { fileBase: 'danik', name: 'Danik', role: 'Developer' },
+    { fileBase: 'denus', name: 'Denus', role: 'Engineer' },
+    { fileBase: 'denys', name: 'Denys', role: 'Developer' },
+    { fileBase: 'diana', name: 'Diana', role: 'Designer' },
+    { fileBase: 'edik', name: 'Edik', role: 'Engineer' },
+    { fileBase: 'ira', name: 'Ira', role: 'Manager' },
+    { fileBase: 'mykola', name: 'Mykola', role: 'Developer' },
+    { fileBase: 'slavik', name: 'Slavik', role: 'Developer' },
+    { fileBase: 'tamila', name: 'Tamila', role: 'Marketing' },
+    { fileBase: 'ylia', name: 'Yulia', role: 'Designer' }
   ];
 
   return (
@@ -193,16 +204,16 @@ const About: React.FC<Props> = ({ locale }) => {
         <p className="text-gray-300 mb-6">Невелика частина людей, що допомагають клієнтам масштабувати бізнес завдяки технологіям.</p>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {teamMembers.map((m) => (
-            <div key={m.fileBase} className="rounded-xl overflow-hidden border border-cyan-400/20 bg-black/40">
+            <div key={m.fileBase} className="rounded-xl overflow-hidden border border-cyan-400/20 bg-black/40 hover:border-cyan-400/60 transition-all group">
               <SmartImage
-                sources={[`/images/team/${m.fileBase}.webp`, `/images/team/${m.fileBase}.jpg`]}
+                sources={[`/images/team/${m.fileBase}.jpg`]}
                 alt={`${m.name} — команда Diwave`}
                 className="w-full h-56"
                 imgClassName="w-full h-56 object-cover object-center"
               />
-              <div className="p-3 text-gray-200">
-                <div className="font-semibold">{m.name}</div>
-                <div className="text-xs text-gray-400">Diwave</div>
+              <div className="p-3 text-center">
+                <div className="text-white font-medium">{m.name}</div>
+                {m.role && <div className="text-cyan-300 text-sm mt-1">{m.role}</div>}
               </div>
             </div>
           ))}

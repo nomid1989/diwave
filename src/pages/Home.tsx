@@ -171,7 +171,7 @@ const Home: React.FC<Props> = ({ locale }) => {
           {/* Картка 1: Автомийки SamWash */}
           <div className="product-card rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur hover:border-red-400/40 hover:bg-white/10 transition">
             <SmartImage
-              sources={["/images/industries/pro.samwash/main/webp/samwash_logo.webp","/images/industries/pro.samwash/main/samwash_logo.png","/images/home/carwash-main.webp","/images/home/design2.jpeg","/images/home/equipment.jpeg"]}
+              sources={["/images/industries/pro.samwash/main/samwash_logo.webp","/images/industries/pro.samwash/main/samwash_logo.png","/images/home/design2.jpg","/images/home/equipment.jpg"]}
               alt="Автомийки самообслуговування SamWash"
               className="w-full h-44"
               imgClassName="w-full h-44 object-cover"
@@ -186,7 +186,7 @@ const Home: React.FC<Props> = ({ locale }) => {
           {/* Картка 2: Пилососи-вендінги */}
           <div className="product-card rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur hover:border-red-400/40 hover:bg-white/10 transition">
             <SmartImage
-              sources={["/images/home/vacuum-cleaner/vacuum-3.webp","/images/home/design2.jpeg","/images/home/equipment.jpeg"]}
+              sources={["/images/home/vacuum-cleaner/vacuum-main.jpg","/images/home/vacuum-cleaner/vacuum-2.jpg","/images/home/design2.jpg","/images/home/equipment.jpg"]}
               alt="Пилососи-вендінги з 19'' екраном"
               className="w-full h-44"
               imgClassName="w-full h-44 object-cover"
@@ -210,24 +210,83 @@ const Home: React.FC<Props> = ({ locale }) => {
         </div>
       </section>
 
-      {/* PROJECTS: клікабельні кейси з фото з public/images */}
+      {/* PROJECTS SHOWCASE: Реальні проєкти з фото */}
       <section className="mx-auto max-w-7xl px-6 pb-8">
         <SectionHeader overline={t('headings.projects')} title={projects.title} subtitle={projects.intro} />
-        <div className="grid md:grid-cols-3 gap-6 mt-8">
-          {projects.items.map((p) => (
+
+        {/* Великі featured проєкти */}
+        <div className="grid md:grid-cols-2 gap-6 mt-8">
+          <motion.a
+            href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="group relative rounded-xl overflow-hidden border border-white/10 bg-black/40 hover:border-cyan-300/40 transition-all"
+          >
+            <SmartImage
+              sources={['/images/projects/Samwash_Full.jpg']}
+              alt="SamWash - Автомийки самообслуговування"
+              className="w-full h-80"
+              imgClassName="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+              <div className="absolute bottom-0 p-6">
+                <h3 className="text-white text-2xl font-bold mb-2">SamWash</h3>
+                <p className="text-gray-300 text-sm mb-3">Автомийки самообслуговування з IoT/SCADA та платіжними інтеграціями</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">70% EBITDA</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">IoT/SCADA</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30">Telemetry</span>
+                </div>
+              </div>
+            </div>
+          </motion.a>
+
+          <motion.a
+            href={`${locale === 'en' ? '/en' : ''}/projects/ecommerce`}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="group relative rounded-xl overflow-hidden border border-white/10 bg-black/40 hover:border-cyan-300/40 transition-all"
+          >
+            <SmartImage
+              sources={['/images/projects/Rozkriy_Full.jpg']}
+              alt="E-commerce проєкти"
+              className="w-full h-80"
+              imgClassName="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+              <div className="absolute bottom-0 p-6">
+                <h3 className="text-white text-2xl font-bold mb-2">E-commerce</h3>
+                <p className="text-gray-300 text-sm mb-3">Розробка інтернет-магазинів з повною автоматизацією</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">Без кол-центру</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">React</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30">SEO</span>
+                </div>
+              </div>
+            </div>
+          </motion.a>
+        </div>
+
+        {/* Менші проєкти */}
+        <div className="grid md:grid-cols-3 gap-6 mt-6">
+          {projects.items.slice(0, 3).map((p, idx) => (
             <motion.a
               key={p.slug}
               href={`${locale === 'en' ? '/en' : ''}/projects/${p.slug}`}
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="block rounded-xl overflow-hidden border border-white/10 bg-black/40 hover:border-cyan-300/40 transition-colors"
+              transition={{ delay: idx * 0.1 }}
+              className="block rounded-xl overflow-hidden border border-white/10 bg-black/40 hover:border-cyan-300/40 transition-colors group"
             >
               <SmartImage
                 srcFolder={p.imgFolder}
                 alt={p.imgAlt}
                 className="w-full h-48"
-                imgClassName="w-full h-48 object-cover"
+                imgClassName="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="p-4">
                 <div className="text-white font-semibold">{p.title}</div>
@@ -246,6 +305,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             </motion.a>
           ))}
         </div>
+
         <div className="mt-8 flex justify-center">
           <a
             href={`${locale === 'en' ? '/en' : ''}/projects`}
@@ -256,14 +316,50 @@ const Home: React.FC<Props> = ({ locale }) => {
         </div>
       </section>
 
+      {/* DESIGN GALLERY: Наші роботи */}
+      <section className="design-gallery mx-auto max-w-7xl px-6 py-16">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">Наші роботи</h2>
+        <p className="text-gray-300 mb-8 max-w-2xl">Від промислових автомийок до інтер'єрного дизайну — ми створюємо комплексні рішення.</p>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {[
+            { src: '/images/home/design.jpg', alt: 'Дизайн інтер\'єру 1' },
+            { src: '/images/home/design2.jpg', alt: 'Дизайн інтер\'єру 2' },
+            { src: '/images/home/design3.jpg', alt: 'Дизайн інтер\'єру 3' },
+            { src: '/images/home/design4.jpg', alt: 'Дизайн інтер\'єру 4' },
+            { src: '/images/home/desing1.jpg', alt: 'Дизайн проєкту' },
+            { src: '/images/home/equipment.jpg', alt: 'Обладнання' }
+          ].map((img, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="relative group overflow-hidden rounded-lg border border-white/10 hover:border-cyan-300/40 transition-all"
+            >
+              <SmartImage
+                sources={[img.src]}
+                alt={img.alt}
+                className="w-full h-48 md:h-64"
+                imgClassName="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute bottom-3 left-3 text-white text-sm font-medium">{img.alt}</div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* ABOUT: Хто ми? */}
       <section id="about" className="about-section mx-auto max-w-7xl px-6 py-16">
         <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8">Хто ми?</h2>
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <SmartImage
-            srcFolder="/images/team"
-            alt="Команда Diwave"
-            className="w-full h-72 object-cover rounded-xl border border-white/10"
+            sources={["/images/home/FPF team with Diwave.jpg"]}
+            alt="Команда Diwave з FPF"
+            className="w-full h-72 rounded-xl border border-white/10"
+            imgClassName="w-full h-72 object-cover"
           />
           <div>
             <p className="text-gray-300 leading-relaxed">

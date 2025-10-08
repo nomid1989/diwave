@@ -67,7 +67,7 @@ const Header: React.FC = () => {
         <div className="flex items-center gap-3">
           <Link
             to={makeLink('/contact', locale)}
-            className="px-3 py-2 rounded-md bg-emerald-500 text-black font-semibold shadow-[0_0_16px_rgba(16,185,129,0.5)] hover:bg-emerald-400 hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] transition-all"
+            className="hidden md:inline-block px-3 py-2 rounded-md bg-emerald-500 text-black font-semibold shadow-[0_0_16px_rgba(16,185,129,0.5)] hover:bg-emerald-400 hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] transition-all"
           >
             {t('cta.discuss')}
           </Link>

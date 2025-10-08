@@ -14,7 +14,7 @@ const Contact: React.FC<Props> = ({ locale }) => {
         title="Diwave — Contact"
         description="Get in touch with Diwave."
         url={url}
-        image={`${baseUrl}/images/contacts/1D55D514-B7F2-4D0E-BAD2-65604AA99AF2_1_105_c.jpeg`}
+        image={`${baseUrl}/images/contacts/1D55D514-B7F2-4D0E-BAD2-65604AA99AF2_1_105_c.jpg`}
         locale={locale}
         alternates={[
           { hrefLang: 'uk', href: `${baseUrl}/contact` },
@@ -38,7 +38,7 @@ const Contact: React.FC<Props> = ({ locale }) => {
         ]}
       />
       <section className="relative overflow-hidden">
-        <SmartImage sources={["/images/contacts/1D55D514-B7F2-4D0E-BAD2-65604AA99AF2_1_105_c.jpeg"]} alt="Contact Diwave" asBackground className="absolute inset-0 opacity-30" />
+        <SmartImage sources={["/images/contacts/1D55D514-B7F2-4D0E-BAD2-65604AA99AF2_1_105_c.jpg"]} alt="Contact Diwave" asBackground className="absolute inset-0 opacity-30" />
         <div className="mx-auto max-w-7xl px-6 py-16 relative">
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-8">Contact</h1>
           <div className="grid md:grid-cols-2 gap-8">
