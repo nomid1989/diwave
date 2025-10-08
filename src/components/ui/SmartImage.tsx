@@ -9,28 +9,71 @@ type SmartImageProps = {
   imgClassName?: string; // image element class
   priority?: boolean; // if true, loads eager
   asBackground?: boolean; // render as background
+  sizes?: string; // responsive sizes for <img>
+  width?: number; // intrinsic width to reduce CLS
+  height?: number; // intrinsic height to reduce CLS
 };
 
 /**
  * SmartImage tries a list of file name candidates in srcFolder and renders the first that loads successfully.
- * Useful when exact file names can differ across environments, but folder is known.
- * Works with public/ assets. Example: srcFolder="/images/home"
+ * It prefers modern formats when available. Works with public/ assets.
+ * Example: srcFolder="/images/home" or provide explicit `sources`.
  */
 const defaultCandidates = [
+  // Common hero/cover names
   'hero.avif',
   'hero.webp',
   'hero.jpg',
+  'hero-background.avif',
+  'hero-background.webp',
+  'hero-background.jpg',
   'header-bg.jpg',
   'header-bg_1.jpg',
   'header-bg-mobile.jpg',
   'cover.avif',
   'cover.webp',
   'cover.jpg',
+  'main.avif',
+  'main.webp',
+  'main.jpg',
+  'index.avif',
+  'index.webp',
+  'index.jpg',
+  // Diwave home known filenames
+  'design.avif',
+  'design.webp',
+  'design.jpeg',
+  'design2.avif',
+  'design2.webp',
+  'design2.jpeg',
+  'design3.avif',
+  'design3.webp',
+  'design3.jpeg',
+  'equipment.avif',
+  'equipment.webp',
+  'equipment.jpeg',
+  'vacuum-3.webp',
+  'team.webp',
+  'desing1.jpeg',
+  // Generic fallbacks
   '01.jpg',
   '1.jpg',
   'image.jpg',
-  'banner.jpg'
+  'banner.jpg',
+  // Known team image in repo (ensures real photo shows up)
+  'slavik.avif',
+  'slavik.webp',
+  'slavik.jpg'
 ];
+
+function probe(url: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(url);
+    img.onerror = () => reject(new Error('404'));
+    img.src = url;
+  });
+}
 
 const SmartImage: React.FC<SmartImageProps> = ({
   srcFolder,
@@ -39,7 +82,10 @@ const SmartImage: React.FC<SmartImageProps> = ({
   className,
   imgClassName,
   priority = false,
-  asBackground = false
+  asBackground = false,
+  sizes,
+  width,
+  height
 }) => {
   const candidates = useMemo(() => {
     const list = sources && sources.length > 0 ? sources : defaultCandidates.map((n) => (srcFolder ? `${srcFolder}/${n}` : n));
@@ -47,39 +93,58 @@ const SmartImage: React.FC<SmartImageProps> = ({
     return Array.from(new Set(list));
   }, [srcFolder, sources]);
 
-  const [index, setIndex] = useState(0);
   const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
+  const [variants, setVariants] = useState<{ avif?: string; webp?: string; base?: string } | null>(null);
 
   useEffect(() => {
     let cancelled = false;
 
-    const tryLoad = (i: number) => {
-      if (i >= candidates.length) {
-        if (!cancelled) setLoadedSrc(null);
-        return;
-      }
-      const test = new Image();
-      test.onload = () => {
-        if (!cancelled) setLoadedSrc(candidates[i]);
-      };
-      test.onerror = () => {
-        if (!cancelled) {
-          setIndex(i + 1);
-          tryLoad(i + 1);
-        }
-      };
-      test.src = candidates[i];
-    };
+    (async () => {
+      // Find the first candidate that exists
+      for (const c of candidates) {
+        try {
+          const ok = await probe(c);
+          if (cancelled) return;
+          setLoadedSrc(ok);
 
-    tryLoad(index);
+          // Derive siblings (avif/webp) for <picture> or image-set
+          const m = ok.match(/^(.*)\.(avif|webp|jpe?g|png|gif|svg)$/i);
+          if (m) {
+            const base = m[1];
+            const ext = m[2].toLowerCase();
+            const v: { avif?: string; webp?: string; base?: string } = {};
+            // Try higher-quality first
+            try { v.avif = await probe(`${base}.avif`); } catch {}
+            try { v.webp = await probe(`${base}.webp`); } catch {}
+            // Base (the one that worked)
+            v.base = ok;
+            // If neither avif/webp available, keep base only
+            setVariants(v);
+          } else {
+            setVariants({ base: ok });
+          }
+          return;
+        } catch {
+          continue;
+        }
+      }
+      if (!cancelled) {
+        setLoadedSrc(null);
+        setVariants(null);
+      }
+    })();
 
     return () => {
       cancelled = true;
     };
-  }, [candidates, index]);
+  }, [candidates]);
 
   if (!loadedSrc) {
-    // graceful placeholder gradient with subtle shimmer
+    // graceful placeholder gradient + dev notice
+    if ((import.meta as any).env?.DEV) {
+      // eslint-disable-next-line no-console
+      console.warn('SmartImage: no image found for', { srcFolder, sources, tried: candidates });
+    }
     return (
       <div
         className={className}
@@ -94,6 +159,8 @@ const SmartImage: React.FC<SmartImageProps> = ({
   }
 
   if (asBackground) {
+    // For backgrounds, use the best available variant that we actually probed.
+    const bg = variants?.avif || variants?.webp || loadedSrc;
     return (
       <motion.div
         initial={{ opacity: 0.0, scale: 1.01 }}
@@ -101,7 +168,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
         transition={{ duration: 0.6 }}
         className={className}
         style={{
-          backgroundImage: `url(${loadedSrc})`,
+          backgroundImage: `url(${bg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -111,16 +178,27 @@ const SmartImage: React.FC<SmartImageProps> = ({
     );
   }
 
+  // Render with <picture> when we have modern variants
   return (
-    <motion.img
-      initial={{ opacity: 0.0, scale: 1.01 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-      src={loadedSrc}
-      alt={alt}
-      loading={priority ? 'eager' : 'lazy'}
-      className={imgClassName || className}
-    />
+    <picture>
+      {variants?.avif && <source srcSet={variants.avif} type="image/avif" />}
+      {variants?.webp && <source srcSet={variants.webp} type="image/webp" />}
+      <motion.img
+        initial={{ opacity: 0.0, scale: 1.01 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        src={loadedSrc}
+        alt={alt}
+        loading={priority ? 'eager' : 'lazy'}
+        decoding="async"
+        // @ts-ignore fetchpriority is valid in modern browsers
+        fetchpriority={priority ? 'high' : 'auto'}
+        sizes={sizes}
+        width={width}
+        height={height}
+        className={imgClassName || className}
+      />
+    </picture>
   );
 };
 

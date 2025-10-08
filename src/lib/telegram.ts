@@ -7,14 +7,31 @@ export async function sendTelegram(text: string): Promise<void> {
     return;
   }
 
-  const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'HTML' })
-  });
+  // Many browsers block Telegram Bot API with CORS if using JSON POST.
+  // Use a CORS-safe strategy: fire-and-forget GET with mode=no-cors (no preflight),
+  // and fallback to POST with FormData and no custom headers.
+  const base = `https://api.telegram.org/bot${token}/sendMessage`;
+  const url = `${base}?chat_id=${encodeURIComponent(chatId)}&text=${encodeURIComponent(text)}&parse_mode=HTML`;
 
-  if (!res.ok) {
-    const body = await res.text().catch(() => '');
-    throw new Error(`Telegram error: ${res.status} ${body}`);
+  try {
+    await fetch(url, { method: 'GET', mode: 'no-cors', keepalive: true });
+    // Response will be opaque; we cannot read status but the request is sent.
+    return;
+  } catch (e) {
+    console.warn('Telegram GET no-cors failed, trying FormData POST');
+  }
+
+  const form = new FormData();
+  form.append('chat_id', chatId);
+  form.append('text', text);
+  form.append('parse_mode', 'HTML');
+  // Fire-and-forget POST with FormData (no headers → no preflight)
+  try {
+    await fetch(base, { method: 'POST', mode: 'no-cors', body: form, keepalive: true });
+  } catch {
+    // one more very short retry
+    try {
+      await fetch(base, { method: 'POST', mode: 'no-cors', body: form, keepalive: true });
+    } catch {}
   }
 }

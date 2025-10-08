@@ -41,7 +41,9 @@ import LogisticsIndustry from './pages/industries/Logistics';
 import IoTIndustry from './pages/industries/IoT';
 import MarketingIndustry from './pages/industries/Marketing';
 import ErrorPage from './pages/ErrorPage';
-import ThankYouPage from './pages/ThankYouPage';
+import Audit from './pages/Audit';
+import ThankYou from './pages/ThankYou';
+import Book from './pages/Book';
 
 const withLayout = (element: React.ReactNode) => <App>{element}</App>;
 
@@ -58,7 +60,9 @@ export const router = createBrowserRouter([
       { path: 'industries', element: withLayout(<Industries locale="uk" />) },
       { path: 'contact', element: withLayout(<Contact locale="uk" />) },
       { path: 'qr', element: withLayout(<QR locale="uk" />) },
-      { path: 'thank-you', element: withLayout(<ThankYouPage locale="uk" />) },
+      { path: 'audit', element: withLayout(<Audit locale="uk" />) },
+      { path: 'thank-you', element: withLayout(<ThankYou />) },
+      { path: 'book', element: withLayout(<Book locale="uk" />) },
 
       // Детальні сторінки (UK)
       { path: 'solutions/samwash-qr', element: withLayout(<SamwashQR />) },
@@ -104,7 +108,9 @@ export const router = createBrowserRouter([
       { path: 'industries', element: withLayout(<Industries locale="en" />) },
       { path: 'contact', element: withLayout(<Contact locale="en" />) },
       { path: 'qr', element: withLayout(<QR locale="en" />) },
-      { path: 'thank-you', element: withLayout(<ThankYouPage locale="en" />) },
+      { path: 'audit', element: withLayout(<Audit locale="en" />) },
+      { path: 'thank-you', element: withLayout(<ThankYou />) },
+      { path: 'book', element: withLayout(<Book locale="en" />) },
 
       // Детальні сторінки (EN prefix)
       { path: 'solutions/samwash-qr', element: withLayout(<SamwashQR />) },

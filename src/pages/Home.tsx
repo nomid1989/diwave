@@ -26,6 +26,7 @@ const Home: React.FC<Props> = ({ locale }) => {
   const url = `${baseUrl}${locale === 'en' ? '/en' : ''}`;
 
   const projects = getProjects(locale);
+  const [openFaq, setOpenFaq] = React.useState<number | null>(0);
 
   const jsonLd = [
     {
@@ -118,7 +119,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-6xl font-semibold text-white tracking-tight"
           >
-            {locale === 'en' ? t('hero.h1') : 'Майбутнє бізнесу — це самообслуговування'}
+            Автоматизуємо бізнес та підключаємо обладнання до інтернету.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -126,9 +127,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             transition={{ delay: 0.2, duration: 0.4 }}
             className="mt-5 text-lg text-gray-300 max-w-3xl"
           >
-            {locale === 'en'
-              ? t('hero.subtitle')
-              : 'Ми створюємо бізнеси самообслуговування з нуля: від обладнання і будівництва до програмного забезпечення та повної автоматизації процесів.'}
+            E-commerce, CRM/SCADA, IoT, AI-SEO, платіжні інтеграції та аналітика.
           </motion.p>
 
           <motion.div
@@ -141,13 +140,13 @@ const Home: React.FC<Props> = ({ locale }) => {
               href={`${locale === 'en' ? '/en' : ''}/contact`}
               className="inline-flex items-center rounded-md px-6 py-3 bg-white text-black font-semibold hover:bg-white/90 transition"
             >
-              {locale === 'en' ? 'Get consultation' : 'Отримати консультацію'}
+              {t('hero.cta')}
             </a>
             <a
-              href={`${locale === 'en' ? '/en' : ''}/projects`}
+              href={`${locale === 'en' ? '/en' : ''}/solutions`}
               className="inline-flex items-center rounded-md px-6 py-3 border border-white/30 text-white hover:bg-white/10 transition"
             >
-              {locale === 'en' ? 'View projects' : 'Дивитися проєкти'}
+              {locale === 'en' ? 'Explore solutions' : 'Переглянути рішення'}
             </a>
           </motion.div>
 
@@ -165,98 +164,49 @@ const Home: React.FC<Props> = ({ locale }) => {
         </div>
       </section>
 
-      {/* Нові секції для української версії */}
-      {locale === 'uk' && (
-        <>
-          {/* Секція 1. Self-Service Solutions */}
-          <section className="mx-auto max-w-7xl px-6 py-16">
-            <h2 className="text-white text-2xl md:text-3xl font-semibold mb-4">
-              Бізнеси, що працюють самі
-            </h2>
-            <p className="text-gray-300">
-              Мийки самообслуговування, вендингові автомати, роботизовані рішення — ми допомагаємо підприємцям запускати та масштабувати сучасні формати бізнесу.
-            </p>
-            <ul className="mt-4 list-disc pl-5 text-gray-300 space-y-1">
-              <li>Автомийки самообслуговування</li>
-              <li>Вендингові апарати (напої, пиво, пилососи, хімчистка)</li>
-              <li>Роботизовані модулі для сервісів майбутнього</li>
-            </ul>
-          </section>
+      {/* PRODUCTS: Наші рішення, які працюють на вас */}
+      <section className="products-section mx-auto max-w-7xl px-6 py-16">
+        <h2 className="text-center text-2xl md:text-3xl font-semibold text-white">Наші рішення, які працюють на вас.</h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          {/* Картка 1: Автомийки SamWash */}
+          <div className="product-card rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur hover:border-red-400/40 hover:bg-white/10 transition">
+            <SmartImage
+              sources={["/images/industries/pro.samwash/main/webp/samwash_logo.webp","/images/industries/pro.samwash/main/samwash_logo.png","/images/home/carwash-main.webp","/images/home/design2.jpeg","/images/home/equipment.jpeg"]}
+              alt="Автомийки самообслуговування SamWash"
+              className="w-full h-44"
+              imgClassName="w-full h-44 object-cover"
+            />
+            <div className="p-5">
+              <h3 className="text-white font-semibold text-lg">Автомийки SamWash.</h3>
+              <p className="text-gray-300 text-sm mt-2">Повністю автоматизовані комплекси з платіжними інтеграціями та дистанційним керуванням.</p>
+              <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex mt-4 px-4 py-2 rounded-md border border-white/20 text-white hover:bg-white/10 transition">Дізнатися більше</a>
+            </div>
+          </div>
 
-          {/* Секція 2. Дрони та аероспорт */}
-          <section className="mx-auto max-w-7xl px-6 py-16">
-            <h2 className="text-white text-2xl md:text-3xl font-semibold mb-4">
-              Інновації та оборона
-            </h2>
-            <p className="text-gray-300">
-              Ми створюємо власні дрони, розвиваємо спільноту пілотів та організовуємо змагання.
-              В умовах війни це не лише спорт, а й стратегічний напрямок для країни.
-            </p>
-            <ul className="mt-4 list-disc pl-5 text-gray-300 space-y-1">
-              <li>Виробництво FPV-дронів</li>
-              <li>Змагання та тренування пілотів</li>
-              <li>Партнерські оборонні проекти</li>
-            </ul>
-          </section>
+          {/* Картка 2: Пилососи-вендінги */}
+          <div className="product-card rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur hover:border-red-400/40 hover:bg-white/10 transition">
+            <SmartImage
+              sources={["/images/home/vacuum-cleaner/vacuum-3.webp","/images/home/design2.jpeg","/images/home/equipment.jpeg"]}
+              alt="Пилососи-вендінги з 19'' екраном"
+              className="w-full h-44"
+              imgClassName="w-full h-44 object-cover"
+            />
+            <div className="p-5">
+              <h3 className="text-white font-semibold text-lg">Пилососи-вендінги з 19'' екраном.</h3>
+              <p className="text-gray-300 text-sm mt-2">Ефективне вендингове обладнання, що ідеально поєднується з електрозарядними станціями.</p>
+              <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="inline-flex mt-4 px-4 py-2 rounded-md border border-white/20 text-white hover:bg-white/10 transition">Дізнатися більше</a>
+            </div>
+          </div>
 
-          {/* Секція 3. Автоматизація та софт */}
-          <section className="mx-auto max-w-7xl px-6 py-16">
-            <h2 className="text-white text-2xl md:text-3xl font-semibold mb-4">
-              Технології для контролю та зростання
-            </h2>
-            <p className="text-gray-300">
-              Керуйте бізнесом із будь-якої точки світу. Наші програмні рішення автоматизують процеси, інтегрують платежі та забезпечують онлайн-моніторинг.
-            </p>
-            <ul className="mt-4 list-disc pl-5 text-gray-300 space-y-1">
-              <li>CRM та мобільні додатки</li>
-              <li>Онлайн-оплата (LiqPay, банки, картки)</li>
-              <li>Моніторинг і аналітика в реальному часі</li>
-              <li>Використання AI для автоматизації процесів</li>
-            </ul>
-          </section>
-
-          {/* Секція 4. Про нас */}
-          <section className="mx-auto max-w-7xl px-6 py-16">
-            <h2 className="text-white text-2xl md:text-3xl font-semibold mb-4">
-              Досвід, перевірений практикою
-            </h2>
-            <p className="text-gray-300">
-              Ми не стартап на ідеях — ми команда, що вже реалізувала десятки проектів.
-              Від автомийок у Львові до дронових змагань по всій Україні — наш досвід об’єднує інженерію, ІТ та підприємництво.
-            </p>
-          </section>
-        </>
-      )}
-
-      {/* SOLUTIONS: Клікабельні картки з iOS‑склом */}
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <SectionHeader overline={t('headings.products')} title="" />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-2">
-          {products.map(({ icon: Icon, title, href }) => (
-            <motion.a
-              key={title}
-              href={href}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="group block rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:border-cyan-300/40 hover:bg-white/10 transition-colors"
-            >
-              <Icon className="text-cyan-300" />
-              <div className="mt-3 font-semibold text-white">{title}</div>
-              <div className="mt-1 text-sm text-gray-300 opacity-90 group-hover:opacity-100 transition-opacity">
-                {locale === 'en'
-                  ? 'Click to learn more'
-                  : 'Перейти до розділу'}
-              </div>
-            </motion.a>
-          ))}
-          {/* Плитка «Усі рішення» */}
-          <a
-            href={`${locale === 'en' ? '/en' : ''}/solutions`}
-            className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:border-cyan-300/40 hover:bg-white/10 transition-colors flex items-center justify-center text-white/90 font-semibold"
-          >
-            {locale === 'en' ? 'All solutions →' : 'Усі рішення →'}
-          </a>
+          {/* Картка 3: Алкогольний вендинг */}
+          <div className="product-card rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur hover:border-red-400/40 hover:bg-white/10 transition">
+            <div className="w-full h-44 bg-white/5 flex items-center justify-center text-gray-300 text-sm">Фото скоро</div>
+            <div className="p-5">
+              <h3 className="text-white font-semibold text-lg">Вендинг-автомати для алкогольних напоїв.</h3>
+              <p className="text-gray-300 text-sm mt-2">Інноваційні рішення для HoReCa та рітейлу з контролем віку.</p>
+              <a href={`${locale === 'en' ? '/en' : ''}/solutions/alcohol-vending`} className="inline-flex mt-4 px-4 py-2 rounded-md border border-white/20 text-white hover:bg-white/10 transition">Дізнатися більше</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -303,6 +253,50 @@ const Home: React.FC<Props> = ({ locale }) => {
           >
             {locale === 'en' ? 'All projects' : 'Усі проєкти'}
           </a>
+        </div>
+      </section>
+
+      {/* ABOUT: Хто ми? */}
+      <section id="about" className="about-section mx-auto max-w-7xl px-6 py-16">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8">Хто ми?</h2>
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <SmartImage
+            srcFolder="/images/team"
+            alt="Команда Diwave"
+            className="w-full h-72 object-cover rounded-xl border border-white/10"
+          />
+          <div>
+            <p className="text-gray-300 leading-relaxed">
+              Diwave — інженерна команда, що поєднує апаратні рішення, програмне забезпечення та аналітику. Ми автоматизуємо бізнес‑процеси, підключаємо обладнання (IoT/SCADA), інтегруємо платежі та запускаємо e‑commerce, CRM/лояльність і AI‑SEO. Працюємо від Discovery і дизайну до запуску та подальшого зростання.
+            </p>
+            <a href={`${locale === 'en' ? '/en' : ''}/about`} className="inline-flex mt-6 px-5 py-2 rounded-md border border-white/20 text-white hover:bg-white/10 transition">Дізнатися про нас більше</a>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="faq-section mx-auto max-w-3xl px-6 py-16">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white text-center">FAQ</h2>
+        <div className="mt-6 divide-y divide-white/10 rounded-xl border border-white/10 overflow-hidden">
+          {[{q:'Як швидко стартуємо?', a:'Залежно від складності: від 2–4 тижнів для MVP до 2–3 місяців для повноцінного запуску. Починаємо з Discovery, узгоджуємо KPI та план.'}, {q:'Які технології?', a:'TypeScript/React, Node.js/PHP, інтеграції з платіжними провайдерами, IoT/SCADA, аналітика, AI‑SEO. Інфраструктура: Docker, CI/CD, моніторинг.'}].map((item, idx) => (
+            <div key={idx} className="bg-white/5">
+              <button
+                className="w-full text-left px-5 py-4 flex items-center justify-between hover:bg-white/10 transition"
+                aria-expanded={openFaq===idx}
+                onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+              >
+                <h3 className="text-white font-medium">{item.q}</h3>
+                <span className="text-gray-300">{openFaq===idx ? '−' : '+'}</span>
+              </button>
+              {openFaq===idx && (
+                <div className="px-5 pb-5 text-gray-300 text-sm">{item.a}</div>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 text-center">
+          <div className="text-white text-lg">Готові розв'язати вузьке місце у вашому бізнесі?</div>
+          <a href={`${locale === 'en' ? '/en' : ''}/contact`} className="inline-flex mt-4 px-6 py-3 rounded-md bg-white text-black font-semibold hover:bg-white/90 transition">Зв’язатися</a>
         </div>
       </section>
 
