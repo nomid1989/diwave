@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { sendTelegram } from '@/lib/telegram';
 import { sendEmail } from '@/lib/email';
+import { formatPageHistory } from '@/lib/pageHistory';
 import { motion } from 'framer-motion';
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState('');
+  const [contactType, setContactType] = useState<'email' | 'phone'>('email');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
   const [honeypot, setHoneypot] = useState('');
   const [sending, setSending] = useState(false);
@@ -48,6 +51,7 @@ const ContactForm: React.FC = () => {
           if (okCount > 0) {
             setName('');
             setEmail('');
+            setPhone('');
             setMessage('');
             localStorage.setItem('contact:last', String(Date.now()));
             const status = tgOk && emOk ? 'both' : tgOk ? 'tg' : emOk ? 'email' : 'none';
@@ -61,14 +65,17 @@ const ContactForm: React.FC = () => {
       }
 
       // Fallback: client-only Telegram and Email
+      const contactInfo = contactType === 'email' ? `<b>Email:</b> ${email}` : `<b>Phone:</b> ${phone}`;
+      const pageHistory = formatPageHistory();
       const text =
         `<b>New contact request</b>\n` +
         `<b>Name:</b> ${name}\n` +
-        `<b>Email:</b> ${email}\n` +
-        `<b>Message:</b>\n${message}`;
+        contactInfo + `\n` +
+        `<b>Message:</b>\n${message}\n\n` +
+        `<b>Page History:</b>\n${pageHistory}`;
       const results = await Promise.allSettled([
         sendTelegram(text),
-        sendEmail({ name, email, message })
+        sendEmail({ name, email: contactType === 'email' ? email : phone, message })
       ]);
       const tgOk = results[0].status === 'fulfilled';
       const emOk = results[1].status === 'fulfilled';
@@ -79,6 +86,7 @@ const ContactForm: React.FC = () => {
       if (okCount > 0) {
         setName('');
         setEmail('');
+        setPhone('');
         setMessage('');
         localStorage.setItem('contact:last', String(Date.now()));
         const status = tgOk && emOk ? 'both' : tgOk ? 'tg' : emOk ? 'email' : 'none';
@@ -107,36 +115,79 @@ const ContactForm: React.FC = () => {
           <input value={honeypot} onChange={(e) => setHoneypot(e.target.value)} tabIndex={-1} autoComplete="off" />
         </label>
       </div>
+
       <div>
-        <label className="block text-sm text-gray-300 mb-1">Name</label>
+        <label className="block text-sm text-gray-300 mb-1">
+          {locale === 'uk' ? "Ім'я" : 'Name'}
+        </label>
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
           className="w-full rounded-md bg-gray-900 border border-cyan-400/20 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-cyan-400"
-          placeholder="Your name"
+          placeholder={locale === 'uk' ? "Ваше ім'я" : 'Your name'}
         />
       </div>
+
       <div>
-        <label className="block text-sm text-gray-300 mb-1">Email</label>
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          required
-          className="w-full rounded-md bg-gray-900 border border-cyan-400/20 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-cyan-400"
-          placeholder="you@example.com"
-        />
+        <label className="block text-sm text-gray-300 mb-2">
+          {locale === 'uk' ? 'Спосіб зв\'язку' : 'Contact method'}
+        </label>
+        <div className="flex gap-4 mb-3">
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="radio"
+              value="email"
+              checked={contactType === 'email'}
+              onChange={(e) => setContactType(e.target.value as 'email' | 'phone')}
+              className="w-4 h-4 text-cyan-400 bg-gray-900 border-cyan-400/20 focus:ring-cyan-400"
+            />
+            <span className="text-gray-300">Email</span>
+          </label>
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="radio"
+              value="phone"
+              checked={contactType === 'phone'}
+              onChange={(e) => setContactType(e.target.value as 'email' | 'phone')}
+              className="w-4 h-4 text-cyan-400 bg-gray-900 border-cyan-400/20 focus:ring-cyan-400"
+            />
+            <span className="text-gray-300">{locale === 'uk' ? 'Телефон' : 'Phone'}</span>
+          </label>
+        </div>
+
+        {contactType === 'email' ? (
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            required
+            className="w-full rounded-md bg-gray-900 border border-cyan-400/20 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-cyan-400"
+            placeholder="you@example.com"
+          />
+        ) : (
+          <input
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            type="tel"
+            required
+            className="w-full rounded-md bg-gray-900 border border-cyan-400/20 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-cyan-400"
+            placeholder="+380 50 123 4567"
+          />
+        )}
       </div>
+
       <div>
-        <label className="block text-sm text-gray-300 mb-1">Message</label>
+        <label className="block text-sm text-gray-300 mb-1">
+          {locale === 'uk' ? 'Короткий опис' : 'Brief description'}
+        </label>
         <textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           required
-          rows={5}
+          rows={4}
           className="w-full rounded-md bg-gray-900 border border-cyan-400/20 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-cyan-400"
-          placeholder="Tell us about your project"
+          placeholder={locale === 'uk' ? 'Розкажіть про ваш проєкт' : 'Tell us about your project'}
         />
       </div>
       <div className="flex items-center gap-3">
@@ -145,11 +196,26 @@ const ContactForm: React.FC = () => {
           disabled={sending}
           className="px-4 py-2 rounded-md bg-emerald-500 text-black font-semibold shadow-[0_0_16px_rgba(16,185,129,0.5)] hover:bg-emerald-400 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          {sending ? 'Sending…' : 'Send'}
+          {sending
+            ? (locale === 'uk' ? 'Надсилання…' : 'Sending…')
+            : (locale === 'uk' ? 'Надіслати' : 'Send')
+          }
         </button>
-        {sent === 'ok' && <span className="text-emerald-400">Sent (Email + Telegram)!</span>}
-        {sent === 'partial' && <span className="text-yellow-400">Sent via one channel. Check email and Telegram.</span>}
-        {sent === 'err' && <span className="text-red-400">Error. Try again.</span>}
+        {sent === 'ok' && (
+          <span className="text-emerald-400">
+            {locale === 'uk' ? 'Надіслано!' : 'Sent (Email + Telegram)!'}
+          </span>
+        )}
+        {sent === 'partial' && (
+          <span className="text-yellow-400">
+            {locale === 'uk' ? 'Надіслано одним каналом' : 'Sent via one channel'}
+          </span>
+        )}
+        {sent === 'err' && (
+          <span className="text-red-400">
+            {locale === 'uk' ? 'Помилка. Спробуйте ще раз.' : 'Error. Try again.'}
+          </span>
+        )}
       </div>
     </motion.form>
   );

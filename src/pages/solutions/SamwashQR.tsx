@@ -118,13 +118,93 @@ export default function SamwashQR() {
 
         {/* How it works */}
         <section className="mx-auto max-w-7xl px-6 pb-12">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-            <h2 className="text-white text-xl font-semibold">Як це працює</h2>
-            <ol className="mt-4 grid md:grid-cols-3 gap-4 list-decimal list-inside text-gray-200">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
+            <h2 className="text-white text-2xl md:text-3xl font-semibold mb-6">Як це працює</h2>
+            <ol className="grid md:grid-cols-3 gap-4 list-decimal list-inside text-gray-200 mb-6">
               <li className="rounded-xl border border-white/10 bg-black/20 p-4">Скануєте QR‑код на локації.</li>
               <li className="rounded-xl border border-white/10 bg-black/20 p-4">Обираєте послугу і оплачуєте зі смартфона.</li>
               <li className="rounded-xl border border-white/10 bg-black/20 p-4">Система запускає програму на обладнанні.</li>
             </ol>
+
+            {/* Video Tutorial */}
+            <div className="mt-6 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-3xl">📱</span>
+                <h3 className="text-white font-semibold text-lg">Відео інструкція</h3>
+              </div>
+              <p className="text-gray-300 text-sm mb-4">
+                Дивіться коротке відео про те, як користуватись додатком SamWash для оплати послуг автомийки через QR-код
+              </p>
+              <a
+                href="https://vm.tiktok.com/ZMAP3rGX8/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-gradient-to-r from-pink-500 to-cyan-500 text-white font-medium hover:from-pink-600 hover:to-cyan-600 transition shadow-lg"
+              >
+                🎥 Дивитись на TikTok
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Photo Gallery */}
+        <section className="mx-auto max-w-7xl px-6 py-12">
+          <h2 className="text-2xl md:text-4xl font-semibold text-white mb-8 text-center">
+            📸 Скріншоти додатку SamPay
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
+              <img
+                src="/images/solutions/samwash-qr/5582F1D0-BC9B-4D6A-8B1D-389DB639C31A_1_201_a.jpeg"
+                alt="SamPay додаток"
+                className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
+              <img
+                src="/images/solutions/samwash-qr/95319261-59A2-4791-9199-C5B6C2658E21_1_201_a.jpeg"
+                alt="SamPay оплата"
+                className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
+              <img
+                src="/images/solutions/samwash-qr/9C63F51B-23FC-42EB-8A15-B0FD19ED9646_1_201_a.jpeg"
+                alt="SamPay функції"
+                className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
+              <img
+                src="/images/solutions/samwash-qr/9FB083C6-DCF4-414C-A4CC-C676C7CB3908_1_201_a.jpeg"
+                alt="SamPay інтерфейс"
+                className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
+              <img
+                src="/images/solutions/samwash-qr/A94E3411-7E20-40F9-B58A-CFB7B7174069_1_201_a.jpeg"
+                alt="SamPay QR код"
+                className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
+              <img
+                src="/images/solutions/samwash-qr/C634410E-48EE-48D5-98F9-35D3199297C5_1_201_a.jpeg"
+                alt="SamPay мобільна версія"
+                className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
+              <img
+                src="/images/solutions/samwash-qr/EEA41C16-78E2-4CC5-8F5D-278338A9F065_1_201_a.jpeg"
+                alt="SamPay система"
+                className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
           </div>
         </section>
 
