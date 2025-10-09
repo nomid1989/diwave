@@ -200,8 +200,8 @@ const Home: React.FC<Props> = ({ locale }) => {
               <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-purple-500/90 text-white text-xs font-semibold backdrop-blur">IoT</div>
             </div>
             <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">Вендінгові апарати з 19'' сенсорним екраном</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4 flex-1">Ефективне вендингове обладнання з великим вертикальним дисплеєм для автомийок, EV-станцій та зон скупчення людей</p>
+              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">Вендингові апарати з сенсорним екраном та ступенем захисту IP 65</h3>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4 flex-1">Ефективний пилосос самообслуговування потужністю 6 кВт 380V з великим вертикальним дисплеєм для автомийок, EV-станцій та зон скупчення автомобілей</p>
               <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-purple-300 text-white dark:text-white light:text-purple-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-purple-50 transition group-hover:border-purple-400/60">
                 Дізнатися більше
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
