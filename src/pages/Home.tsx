@@ -177,7 +177,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             </div>
             <div className="p-6">
               <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">Автомийки самообслуговування SamWash</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">Повністю автоматизовані комплекси з платіжними інтеграціями та дистанційним керуванням</p>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">Повністю автоматизовані комплекси з готівковими, безготівковими та монетними платіжними інтеграціями та дистанційним керуванням та обслуговуванням. Ти спиш а бізнес працює 24/7 з EBITDA 70%</p>
               <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-blue-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition group-hover:border-cyan-400/60">
                 Дізнатися більше
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -191,7 +191,7 @@ const Home: React.FC<Props> = ({ locale }) => {
           <div className="product-card group rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-purple-400/50 dark:hover:border-purple-400/50 light:hover:border-purple-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-xl transition-all duration-300 hover:scale-[1.02] flex flex-col">
             <div className="relative h-80 overflow-hidden bg-gradient-to-br from-purple-900/20 to-pink-900/20">
               <SmartImage
-                sources={["/images/industries/vending/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg"]}
+                sources={["/images/industries/vending/vacuum-main.jpg"]}
                 alt="Вендінгові апарати з 19'' екраном"
                 className="w-full h-80"
                 imgClassName="w-full h-80 object-contain group-hover:scale-105 transition-transform duration-500"
@@ -343,6 +343,67 @@ const Home: React.FC<Props> = ({ locale }) => {
         </div>
       </section>
 
+      {/* FEATURED PROJECT: Вендинговий апарат */}
+      <section className="mx-auto max-w-7xl px-6 py-16 bg-transparent">
+        <div className="rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 p-8 md:p-12 backdrop-blur overflow-hidden">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Text Content */}
+            <div>
+              <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30">
+                <span className="text-lg">🏪</span>
+                <span className="text-sm text-cyan-300 font-medium">Вендингові рішення</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Вендингові апарати з сенсорним екраном
+              </h2>
+              <p className="text-gray-300 text-lg mb-6">
+                Захист <strong className="text-cyan-400">IP65</strong> — повна захищеність від пилу та водяних бризок.
+                Ідеально підходить для зовнішньої установки у будь-яких погодних умовах.
+              </p>
+              <ul className="space-y-3 text-gray-300 mb-6">
+                <li className="flex items-start gap-2">
+                  <span className="text-cyan-400 mt-1">✓</span>
+                  <span>Сенсорний екран 19" високої яскравості для роботи на вулиці</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-cyan-400 mt-1">✓</span>
+                  <span>Безконтактна оплата (NFC, QR-коди, картки)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-cyan-400 mt-1">✓</span>
+                  <span>Віддалений моніторинг та контроль через IoT</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-cyan-400 mt-1">✓</span>
+                  <span>Система охолодження/нагріву продукції</span>
+                </li>
+              </ul>
+              <a
+                href="/solutions/alcohol-vending"
+                className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-cyan-500 text-white font-semibold hover:bg-cyan-600 transition shadow-lg shadow-cyan-500/25"
+              >
+                Дізнатись більше
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="opacity-80">
+                  <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </div>
+
+            {/* Image */}
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-400/20 to-blue-400/20 blur-2xl" aria-hidden />
+              <div className="relative rounded-2xl overflow-hidden border border-cyan-500/30 bg-black/20">
+                <img
+                  src="/images/projects/img_3.png"
+                  alt="Вендинговий апарат з сенсорним екраном та захистом IP65"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* DESIGN GALLERY: Наші роботи */}
       <section className="design-gallery mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/40">
         <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-3">Наші роботи</h2>
@@ -352,11 +413,10 @@ const Home: React.FC<Props> = ({ locale }) => {
             { src: '/images/projects/0D836EDC-DDF3-49DC-A654-BC4BB803C72C_1_105_c.jpeg', alt: 'Дизайн екстер\'єру автомийки', category: 'Design' },
             { src: '/images/projects/img.png', alt: 'Комплексні IoT рішення', category: 'IoT' },
             { src: '/images/projects/img_1.png', alt: 'Промислове обладнання', category: 'Hardware' },
-            { src: '/images/projects/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg', alt: 'Пилосос 6 кВт з 19" екраном', category: 'Vending' },
-            { src: '/public/images/solutions/car-washes/2F00D20A-A2AE-46A7-875B-EF2CDB18B66E_1_105_c.jpeg', alt: 'Технологічні рішення', category: 'Tech' },
+            { src: '/images/solutions/car-washes/2F00D20A-A2AE-46A7-875B-EF2CDB18B66E_1_105_c.jpeg', alt: 'Технологічні рішення', category: 'Tech' },
             { src: '/images/industries/drones/741ADB82-E672-4F57-95E6-790CD07D8C92_1_105_c.jpeg', alt: 'Дрон-технології', category: 'Drones' },
             { src: '/images/projects/img_2.png', alt: 'Вендингові системи', category: 'Software' },
-            { src: '/images/projects/img_3.png', alt: 'Автомийки самообслуговування', category: 'Car Wash' }
+            { src: '/images/projects/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg', alt: 'Пилосос 6 кВт з 19" екраном', category: 'Vacuum' }
           ].map((img, idx) => (
             <motion.div
               key={idx}

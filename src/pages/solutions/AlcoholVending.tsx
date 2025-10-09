@@ -45,23 +45,32 @@ export default function AlcoholVending() {
         <section className="mx-auto max-w-7xl px-6 pt-16">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
+              <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30">
+                <span className="text-lg">🏪</span>
+                <span className="text-sm text-cyan-300 font-medium">Вендингові рішення</span>
+              </div>
               <h1 className="text-3xl md:text-5xl font-semibold text-white tracking-tight">
-                Алко‑вендинг (hardware + software, KYC)
+                Алко‑вендинг з KYC верифікацією
               </h1>
-              <p className="mt-4 text-gray-300">{description}</p>
+              <p className="mt-4 text-gray-300 text-lg">{description}</p>
+
+              <div className="mt-6 rounded-xl border border-cyan-500/30 bg-cyan-500/5 p-4 backdrop-blur">
+                <p className="text-white font-semibold mb-2">Захист IP65</p>
+                <p className="text-gray-300 text-sm">Повна захищеність від пилу та водяних бризок. Сенсорний екран 19" високої яскравості для установки на вулиці.</p>
+              </div>
+
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="/solutions" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-white/90 text-black font-medium hover:bg-white transition">До каталогу рішень</a>
-                <a href="/projects" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 border border-white/30 text-white hover:bg-white/10 transition">Кейси</a>
+                <a href="/contact" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-cyan-500 text-white font-medium hover:bg-cyan-600 transition shadow-lg shadow-cyan-500/25">Замовити консультацію</a>
+                <a href="/solutions" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 border border-white/30 text-white hover:bg-white/10 transition">До каталогу рішень</a>
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-400/20 to-fuchsia-400/20 blur-2xl" aria-hidden />
-              <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
-                <SmartImage
-                  srcFolder="/images/solutions/alcohol-vending"
-                  alt="Алко‑вендинг — рішення Diwave"
-                  className="w-full h-[420px]"
-                  imgClassName="w-full h-[420px] object-cover"
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-400/20 to-blue-400/20 blur-2xl" aria-hidden />
+              <div className="relative rounded-2xl overflow-hidden border border-cyan-500/30 bg-black/20">
+                <img
+                  src="/images/projects/img_3.png"
+                  alt="Вендинговий апарат з сенсорним екраном та захистом IP65"
+                  className="w-full h-auto object-contain"
                 />
               </div>
             </div>
