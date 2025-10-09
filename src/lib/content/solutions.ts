@@ -49,7 +49,7 @@ export const getSolutions = (locale: 'uk' | 'en'): { title: string; intro: strin
       {
         slug: 'ecommerce',
         title: t('E‑commerce та сайти (B2B/B2C)', 'E‑commerce and websites (B2B/B2C)'),
-        description: t('CMS/ERP інтеграції, SEO/GEO‑SEO, конверсії.', 'CMS/ERP integrations, SEO/GEO‑SEO, conversions.'),
+        description: t('CMS/ERP інтеграції, SEO/GEO‑SEO, конверсії. Кейс Plantpol: -75% штату, 5000+ SKU.', 'CMS/ERP integrations, SEO/GEO‑SEO, conversions. Plantpol case: -75% staff, 5000+ SKU.'),
         imgFolder: '/images/solutions/ecommerce',
         imgAlt: t('E‑commerce', 'E‑commerce')
       },

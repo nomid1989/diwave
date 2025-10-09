@@ -221,6 +221,49 @@ const About: React.FC<Props> = ({ locale }) => {
           ))}
         </div>
       </section>
+
+      {/* CTA Section - iOS 26 Style */}
+      <section className="mx-auto max-w-7xl px-6 py-12 mb-12">
+        <div className="relative overflow-hidden rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-12 text-center backdrop-blur-xl">
+          {/* iOS 26 mesh gradient background */}
+          <div className="absolute inset-0 opacity-30 pointer-events-none">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.3),transparent_50%)]" />
+            <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_60%,rgba(236,72,153,0.2),transparent_50%)]" />
+            <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(56,189,248,0.25),transparent_50%)]" />
+          </div>
+
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Готові обговорити ваш проєкт?
+            </h2>
+            <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+              Отримайте безкоштовну консультацію від команди Diwave. Ми допоможемо визначити технологічний стек, розрахувати ROI та побудувати дорожню карту проєкту.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold hover:from-cyan-600 hover:to-blue-600 transition shadow-lg shadow-cyan-500/25 text-lg"
+              >
+                <span>📧</span>
+                Зв'язатись з нами
+              </a>
+              <a
+                href="tel:+380505923772"
+                className="inline-flex items-center gap-2 rounded-full px-8 py-4 border-2 border-white/30 text-white hover:bg-white/10 transition text-lg font-semibold backdrop-blur"
+              >
+                <span>📞</span>
+                +380 50 592 3772
+              </a>
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-white/10">
+              <p className="text-gray-400 text-sm">
+                Відповідь протягом 24 годин • Безкоштовна консультація • NDA за запитом
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

@@ -34,40 +34,52 @@ export default function EcommerceProject() {
         <section className="mx-auto max-w-7xl px-6 pt-16">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h1 className="text-3xl md:text-5xl font-semibold text-white tracking-tight">E‑commerce інтеграції</h1>
-              <p className="mt-4 text-gray-300">{description}</p>
+              <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30">
+                <span className="text-lg">🌱</span>
+                <span className="text-sm text-emerald-300 font-medium">Кейс: Plantpol</span>
+              </div>
+              <h1 className="text-3xl md:text-5xl font-semibold text-white tracking-tight">
+                B2B-портал для гіганта агротехнологій
+              </h1>
+              <p className="mt-4 text-gray-300 text-lg">
+                <strong className="text-white">Plantpol</strong> — один з найбільших українських дистриб'юторів насіння, ЗЗР та агрохімії.
+                Ми створили B2B-портал з інтеграцією 1С, що автоматизував роботу з <strong className="text-emerald-400">5000+ SKU</strong> та скоротив операційні витрати на <strong className="text-emerald-400">75%</strong>.
+              </p>
+
+              {/* Key Stats */}
+              <div className="grid grid-cols-3 gap-4 mt-6">
+                <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 text-center">
+                  <div className="text-3xl font-bold text-emerald-400">5000+</div>
+                  <div className="text-xs text-gray-400 mt-1">SKU в каталозі</div>
+                </div>
+                <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 text-center">
+                  <div className="text-3xl font-bold text-emerald-400">-75%</div>
+                  <div className="text-xs text-gray-400 mt-1">витрат на штат</div>
+                </div>
+                <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 text-center">
+                  <div className="text-3xl font-bold text-emerald-400">24/7</div>
+                  <div className="text-xs text-gray-400 mt-1">автоматизація</div>
+                </div>
+              </div>
+
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="/solutions/ecommerce" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-white/90 text-black font-medium hover:bg-white transition">Перейти до рішення</a>
-                <a href="#results" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 border border-white/30 text-white hover:bg-white/10 transition">Результати</a>
+                <a href="#plantpol-details" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-emerald-500/90 text-white font-medium hover:bg-emerald-500 transition">Детальніше про кейс</a>
+                <a href="https://plantpol.com.ua" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 border border-white/30 text-white hover:bg-white/10 transition">
+                  plantpol.com.ua →
+                </a>
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-400/20 to-fuchsia-400/20 blur-2xl" aria-hidden />
-              <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
-                <SmartImage srcFolder="/images/projects/ecommerce" alt="Кейс: e‑commerce" className="w-full h-[420px]" imgClassName="w-full h-[420px] object-cover" />
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-emerald-400/20 to-cyan-400/20 blur-2xl" aria-hidden />
+              <div className="relative rounded-3xl overflow-hidden border border-emerald-500/20 bg-white/5 backdrop-blur">
+                <img src="/images/projects/plantpol.png" alt="Plantpol B2B портал" className="w-full h-[420px] object-cover" />
               </div>
             </div>
           </div>
         </section>
-        <section id="results" className="mx-auto max-w-7xl px-6 py-12">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-            <h2 className="text-white text-xl font-semibold">Результати</h2>
-            <div className="mt-4 grid md:grid-cols-3 gap-4">
-              {[
-                { m: '↑', t: 'Конверсії' },
-                { m: '↑', t: 'Швидкодія' },
-                { m: '↓', t: 'Вартість підтримки' }
-              ].map((r) => (
-                <div key={r.t} className="rounded-xl border border-white/10 bg-black/20 p-4 text-center">
-                  <div className="text-2xl text-white font-semibold">{r.m}</div>
-                  <div className="text-xs text-gray-300">{r.t}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-        {/* Plantpol Case Study */}
-        <section className="mx-auto max-w-7xl px-6 py-12">
+
+        {/* Plantpol Case Study - Detailed */}
+        <section id="plantpol-details" className="mx-auto max-w-7xl px-6 py-12">
           <div className="rounded-3xl border border-emerald-500/20 bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 p-8 md:p-12 backdrop-blur">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-4xl">🌱</span>
@@ -139,10 +151,23 @@ export default function EcommerceProject() {
             </div>
 
             <div className="border-t border-white/10 pt-6">
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-300 text-sm mb-6">
                 <strong className="text-white">Професійна оцінка:</strong> Plantpol проявив себе як інноваційний лідер у традиційній сфері агротехнологій.
                 Рішення інвестувати у складний B2B-портал замість постійного найму персоналу було стратегічним і далекоглядним кроком.
               </p>
+
+              {/* CTA for similar projects */}
+              <div className="rounded-xl bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/30 p-6 text-center">
+                <p className="text-white font-semibold mb-3">Хочете подібний результат для вашого бізнесу?</p>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <a href="/contact" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-emerald-500 text-white font-medium hover:bg-emerald-600 transition text-sm">
+                    Отримати безкоштовну консультацію
+                  </a>
+                  <a href="/solutions/ecommerce" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 border border-white/30 text-white hover:bg-white/10 transition text-sm">
+                    Дізнатись більше про рішення
+                  </a>
+                </div>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 mt-6">
@@ -257,50 +282,126 @@ export default function EcommerceProject() {
                 headless architecture та predictive analytics. Ми допомагаємо бізнесу бути на крок попереду конкурентів.
               </p>
             </div>
+
+            {/* CTA Block */}
+            <div className="mt-8 rounded-xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 p-8 text-center">
+              <h3 className="text-2xl font-semibold text-white mb-3">Готові створити свій e-commerce проєкт?</h3>
+              <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+                Отримайте детальну консультацію від нашої команди. Ми допоможемо підібрати оптимальне рішення для вашого бізнесу та розрахуємо ROI.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <a href="/contact" className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-cyan-500 text-white font-medium hover:bg-cyan-600 transition shadow-lg shadow-cyan-500/25">
+                  <span>📧</span>
+                  Замовити консультацію
+                </a>
+                <a href="/contact" className="inline-flex items-center gap-2 rounded-full px-6 py-3 border border-white/30 text-white hover:bg-white/10 transition">
+                  <span>💬</span>
+                  Обговорити проєкт
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Implementation Details & Tech Stack */}
+        <section className="mx-auto max-w-7xl px-6 py-12">
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Implementation Details */}
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+              <h2 className="text-white text-xl font-semibold mb-4">Як ми реалізуємо e‑commerce</h2>
+              <ul className="space-y-3 text-sm text-gray-200">
+                <li className="flex items-start gap-2">
+                  <span className="text-cyan-400 mt-0.5">▸</span>
+                  <div><b className="text-white">Discovery та KPI:</b> спільно з клієнтом — скорочення витрат, підвищення конверсії та AOV.</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-cyan-400 mt-0.5">▸</span>
+                  <div><b className="text-white">Каталог і пошук:</b> швидке фільтрування, варіанти, залишки, оптові прайси.</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-cyan-400 mt-0.5">▸</span>
+                  <div><b className="text-white">Кошик і чек‑аут:</b> мінімум кроків, промокоди, різні способи оплати.</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-cyan-400 mt-0.5">▸</span>
+                  <div><b className="text-white">ERP/CRM інтеграції:</b> синхронізація замовлень, клієнтів і складу; нотифікації.</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-cyan-400 mt-0.5">▸</span>
+                  <div><b className="text-white">SEO/перформанс:</b> швидкі сторінки, структуровані дані, мікророзмітка.</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-cyan-400 mt-0.5">▸</span>
+                  <div><b className="text-white">Маркетинг:</b> email/SMS, ремаркетинг, UTM‑аналітика, контент.</div>
+                </li>
+              </ul>
+            </div>
+
+            {/* Tech Stack */}
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+              <h2 className="text-white text-xl font-semibold mb-4">Технічний стек</h2>
+              <ul className="space-y-3 text-sm text-gray-200">
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-400 mt-0.5">▸</span>
+                  <div><b className="text-white">Frontend:</b> React 18, Angular, TypeScript, Tailwind, i18n.</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-400 mt-0.5">▸</span>
+                  <div><b className="text-white">Backend:</b> Node.js, PHP (Laravel), REST/GraphQL, кеші та черги.</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-400 mt-0.5">▸</span>
+                  <div><b className="text-white">Платежі:</b> картки, Apple/Google Pay, безпечні вебхуки та звірка.</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-400 mt-0.5">▸</span>
+                  <div><b className="text-white">ERP/CRM:</b> 1С інтеграція, двобічна синхронізація, антифрод‑правила.</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-purple-400 mt-0.5">▸</span>
+                  <div><b className="text-white">DevOps:</b> Docker, CI/CD, моніторинг, алерти, CDN/WAF, бекапи.</div>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
         {/* Other Partners */}
         <section className="mx-auto max-w-7xl px-6 pb-12">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-            <h2 className="text-white text-xl font-semibold">Інші партнери</h2>
-            <ul className="mt-3 space-y-2 text-sm text-gray-200">
-              <li>
-                <a href="https://lembergflowers.com.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">Lemberg Flowers — роздріб/опт рослин, озеленення інтер'єрів</a>
-                <span className="text-gray-400"> · </span>
-                <a href="https://www.instagram.com/lembergflowers/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">Instagram</a>
-                <span className="text-gray-400"> · </span>
-                <a href="https://www.facebook.com/lembergflowers.ltd/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">Facebook</a>
-              </li>
-            </ul>
-          </div>
-        </section>
+            <h2 className="text-white text-xl font-semibold mb-4">Наші партнери в e-commerce</h2>
+            <div className="space-y-4">
+              {/* Plantpol */}
+              <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xl">🌱</span>
+                  <a href="https://plantpol.com.ua" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-white hover:text-emerald-300">
+                    Plantpol
+                  </a>
+                </div>
+                <p className="text-gray-300 text-sm mb-2">Агротехнології: насіння, ЗЗР, агрохімія. B2B-портал з 5000+ SKU та інтеграцією 1С.</p>
+                <div className="flex flex-wrap gap-3 text-sm">
+                  <a href="https://www.instagram.com/plantpol_ukraina/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">Instagram</a>
+                  <a href="https://www.facebook.com/plantpol.ukraine/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">Facebook</a>
+                  <a href="https://www.youtube.com/@plantpol_ukraina" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">YouTube</a>
+                </div>
+              </div>
 
-        <section className="mx-auto max-w-7xl px-6 pb-12">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-            <h2 className="text-white text-xl font-semibold">Деталі реалізації e‑commerce з нуля</h2>
-            <ul className="mt-3 space-y-2 text-sm text-gray-200">
-              <li><b>Discovery та KPI:</b> спільно з клієнтом — скорочення витрат на підтримку, підвищення конверсії та AOV.</li>
-              <li><b>Каталог і пошук:</b> швидке фільтрування, варіанти, залишки, оптові прайси.</li>
-              <li><b>Кошик і чек‑аут:</b> мінімум кроків, застосунок промокодів, різні способи оплати.</li>
-              <li><b>ERP/CRM інтеграції:</b> синхронізація замовлень, клієнтів і складу; нотифікації.</li>
-              <li><b>SEO/перформанс:</b> швидкі сторінки, структуровані дані, мікророзмітка, кешування.</li>
-              <li><b>Операції:</b> звіти, ролі/права, SLA, журнал подій, підтримка без простоїв.</li>
-              <li><b>Маркетинг:</b> email/SMS, ремаркетинг, UTM‑аналітика, контент, партнерські інтеграції.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-6 pb-12">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-            <h2 className="text-white text-xl font-semibold">Технічний стек та інтеграції</h2>
-            <ul className="mt-3 space-y-2 text-sm text-gray-200">
-              <li><b>Frontend:</b> React 18, TypeScript, Tailwind, i18n.</li>
-              <li><b>Backend:</b> Node.js/PHP, REST/GraphQL, кеші та черги.</li>
-              <li><b>Платежі:</b> картки, Apple/Google Pay, безпечні вебхуки та звірка.</li>
-              <li><b>ERP/CRM:</b> двобічна синхронізація, оновлення статусів, антифрод‑правила.</li>
-              <li><b>DevOps:</b> Docker, CI/CD, моніторинг, алерти, CDN/WAF, бекапи.</li>
-            </ul>
+              {/* Lemberg Flowers */}
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xl">🌺</span>
+                  <a href="https://lembergflowers.com.ua" target="_blank" rel="noopener noreferrer" className="text-lg font-semibold text-white hover:text-cyan-300">
+                    Lemberg Flowers
+                  </a>
+                </div>
+                <p className="text-gray-300 text-sm mb-2">Роздріб/опт рослин, озеленення інтер'єрів. B2C e-commerce з каталогом та доставкою.</p>
+                <div className="flex flex-wrap gap-3 text-sm">
+                  <a href="https://www.instagram.com/lembergflowers/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">Instagram</a>
+                  <a href="https://www.facebook.com/lembergflowers.ltd/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">Facebook</a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -49,6 +49,31 @@ export default function Ecommerce() {
                 E‑commerce та сайти (B2B/B2C)
               </h1>
               <p className="mt-4 text-gray-300">{description}</p>
+
+              {/* Plantpol Highlight */}
+              <div className="mt-6 rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 p-6 backdrop-blur">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-2xl">🌱</span>
+                  <h3 className="text-lg font-semibold text-white">Кейс: Plantpol</h3>
+                </div>
+                <p className="text-gray-300 text-sm mb-3">
+                  Один з найбільших дистриб'юторів агротехнологій в Україні. Ми розробили B2B-портал з інтеграцією 1С, що автоматизував роботу з <strong className="text-emerald-400">5000+ SKU</strong> і скоротив штат менеджерів на <strong className="text-emerald-400">75%</strong> (з 20 до 5 осіб).
+                </p>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="rounded-lg bg-white/5 p-3 text-center">
+                    <div className="text-2xl font-bold text-emerald-400">5000+</div>
+                    <div className="text-xs text-gray-400">SKU в каталозі</div>
+                  </div>
+                  <div className="rounded-lg bg-white/5 p-3 text-center">
+                    <div className="text-2xl font-bold text-emerald-400">-75%</div>
+                    <div className="text-xs text-gray-400">операційних витрат</div>
+                  </div>
+                </div>
+                <a href="/projects/ecommerce" className="inline-flex items-center gap-2 mt-4 text-cyan-300 hover:text-cyan-200 text-sm font-medium">
+                  Детальніше про кейс →
+                </a>
+              </div>
+
               <div className="mt-6 flex flex-wrap gap-3">
                 <a href="/solutions" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-white/90 text-black font-medium hover:bg-white transition">До каталогу рішень</a>
                 <a href="/projects" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 border border-white/30 text-white hover:bg-white/10 transition">Кейси</a>
