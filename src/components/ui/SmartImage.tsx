@@ -64,9 +64,9 @@ const defaultCandidates = [
   'image.jpg',
   'banner.jpg',
   // Known team image in repo (ensures real photo shows up)
-  'slavik.avif',
-  'slavik.webp',
-  'slavik.jpg'
+  'dmytro.avif',
+  'dmytro.webp',
+  'dmytro.jpg'
 ];
 
 function probe(url: string): Promise<string> {

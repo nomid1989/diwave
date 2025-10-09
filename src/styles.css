@@ -6,10 +6,36 @@
   --ring: rgba(34,211,238,0.35);
 }
 
+/* Dark theme (default) */
+body {
+  @apply bg-black text-white;
+}
+
+/* Light theme */
+.light body {
+  @apply bg-white text-gray-900;
+}
+
+.light {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
 .glass {
   @apply bg-iosGlass backdrop-blur-md border border-iosBorder;
 }
 
+.light .glass {
+  @apply bg-white/80 backdrop-blur-md border border-gray-200;
+}
+
 .hero-gradient {
   background: radial-gradient(ellipse at top, rgba(34,211,238,0.2), rgba(0,0,0,1));
+}
+
+.light .hero-gradient {
+  background: radial-gradient(ellipse at top, rgba(59,130,246,0.15), rgba(249,250,251,1));
 }

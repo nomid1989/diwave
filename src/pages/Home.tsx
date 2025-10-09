@@ -159,19 +159,19 @@ const Home: React.FC<Props> = ({ locale }) => {
       </section>
 
       {/* PRODUCTS: Наші рішення, які працюють на вас */}
-      <section className="products-section mx-auto max-w-7xl px-6 py-16">
+      <section className="products-section mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/50">
         <h2 className="text-center text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900">Наші рішення, які працюють на вас.</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {/* Картка 1: Автомийки SamWash */}
           <div className="product-card rounded-xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-cyan-400/40 dark:hover:border-cyan-400/40 light:hover:border-blue-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-lg transition">
             <SmartImage
-              sources={["/images/solutions/car-washes/54B4B143-1C71-4DDD-8F62-E7003B7B47D5_1_105_c.jpeg","/images/solutions/car-washes/0D836EDC-DDF3-49DC-A654-BC4BB803C72M_1_105_c.jpeg","/images/industries/self-car-wash/54B4B143-1C71-4DDD-8F62-E7003B7B47D5_1_105_c.jpeg"]}
+              sources={["/images/solutions/car-washes/66D5DCD7-862F-4C47-BE60-E608374543E8_1_105_c.jpg","/images/solutions/car-washes/66D5DCD7-862F-4C47-BE60-E608374543E8_1_105_c.jpg","/images/industries/self-car-wash/66D5DCD7-862F-4C47-BE60-E608374543E8_1_105_c.jpg"]}
               alt="Автомийки самообслуговування SamWash"
               className="w-full h-44"
               imgClassName="w-full h-44 object-cover"
             />
             <div className="p-5">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-lg">Автомийки SamWash.</h3>
+              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-lg">Автомийки самообслуговування SamWash.</h3>
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm mt-2">Повністю автоматизовані комплекси з платіжними інтеграціями та дистанційним керуванням.</p>
               <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex mt-4 px-4 py-2 rounded-md border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-blue-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition">Дізнатися більше</a>
             </div>
@@ -181,15 +181,15 @@ const Home: React.FC<Props> = ({ locale }) => {
           <div className="product-card rounded-xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-purple-400/40 dark:hover:border-purple-400/40 light:hover:border-purple-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-lg transition flex flex-col">
             <div className="relative h-56 overflow-hidden">
               <SmartImage
-                sources={["/images/industries/vending/6F6E356D-C461-4940-A259-6E0313BFF143_4_5005_c.jpeg","/images/industries/vending/69388334-71AF-43DB-9DE1-6DC3EE5E93E4_1_105_c.jpeg","/images/industries/vending/2E82D060-D258-42B7-AB2A-9508D20FF771_1_105_c.jpeg"]}
+                sources={["/images/industries/vending/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg","/images/industries/vending/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg","/images/industries/vending/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg"]}
                 alt="Вендінгові апарати з 19'' екраном"
                 className="w-full h-56"
                 imgClassName="w-full h-56 object-contain bg-gradient-to-b from-purple-900/20 to-black/40"
               />
             </div>
             <div className="p-5 flex-1">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-lg">Вендінгові апарати з 19'' екраном.</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm mt-2">Ефективне вендингове обладнання з великим вертикальним дисплеєм для автомийок та EV-станцій.</p>
+              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-lg">Вендингові апарати з 19'' сенсорним екраном.</h3>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm mt-2">Ефективне вендингове обладнання з великим вертикальним або горизонтальним дисплеєм для автомийок, EV-станцій та зон скупчення людей.</p>
               <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="inline-flex mt-4 px-4 py-2 rounded-md border border-white/20 dark:border-white/20 light:border-purple-300 text-white dark:text-white light:text-purple-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-purple-50 transition">Дізнатися більше</a>
             </div>
           </div>
@@ -197,7 +197,7 @@ const Home: React.FC<Props> = ({ locale }) => {
           {/* Картка 3: Дрони FPV та Українська асоціація пілотів дронів (Гніздо) */}
           <div className="product-card rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur hover:border-emerald-400/40 hover:bg-white/10 transition">
             <SmartImage
-              sources={["/images/industries/drones/3361D8C0-36B5-44B3-90F7-0B2A7D558300_1_105_c.jpeg","/images/industries/drones/741ADB82-E672-4F57-95E6-790CD07D8C92_1_105_c.jpeg","/images/industries/drones/C23FC16A-3AB2-466E-A477-E7407FC5ACFB_1_105_c.jpeg"]}
+              sources={["/images/industries/drones/img.png","/images/industries/drones/img.png","/images/industries/drones/img.png"]}
               alt="Дрони FPV та Українська асоціація пілотів дронів"
               className="w-full h-44"
               imgClassName="w-full h-44 object-cover"
@@ -212,7 +212,7 @@ const Home: React.FC<Props> = ({ locale }) => {
       </section>
 
       {/* PROJECTS SHOWCASE: Реальні проєкти з фото */}
-      <section className="mx-auto max-w-7xl px-6 pb-8">
+      <section className="mx-auto max-w-7xl px-6 pb-8 bg-transparent dark:bg-transparent light:bg-white/30">
         <SectionHeader overline={t('headings.projects')} title={projects.title} subtitle={projects.intro} />
 
         {/* Великі featured проєкти */}
@@ -225,7 +225,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             className="group relative rounded-xl overflow-hidden border border-white/10 bg-black/40 hover:border-cyan-300/40 transition-all"
           >
             <SmartImage
-              sources={['/images/projects/Samwash_Full.jpg']}
+              sources={['/images/projects/img_2.png']}
               alt="SamWash - Автомийки самообслуговування"
               className="w-full h-80"
               imgClassName="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
@@ -252,7 +252,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             className="group relative rounded-xl overflow-hidden border border-white/10 bg-black/40 hover:border-cyan-300/40 transition-all"
           >
             <SmartImage
-              sources={['/images/projects/Rozkriy_Full.jpg']}
+              sources={['/images/projects/plantpol.png']}
               alt="E-commerce проєкти"
               className="w-full h-80"
               imgClassName="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
@@ -318,19 +318,19 @@ const Home: React.FC<Props> = ({ locale }) => {
       </section>
 
       {/* DESIGN GALLERY: Наші роботи */}
-      <section className="design-gallery mx-auto max-w-7xl px-6 py-16">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">Наші роботи</h2>
-        <p className="text-gray-300 mb-8 max-w-2xl">Від промислових автомийок до інтер'єрного дизайну — ми створюємо комплексні рішення.</p>
+      <section className="design-gallery mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/40">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-4">Наші роботи</h2>
+        <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 mb-8 max-w-2xl">Від промислових автомийок та вендингових автоматів самообслуговування до організації змагань на дронах — ми створюємо комплексні рішення.</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { src: '/designes/2A1F0930-AF60-4539-9205-6A4368526064_1_105_c.jpeg', alt: 'Дизайн інтер\'єру автомийки' },
-            { src: '/designes/C059CC60-9DA0-45EF-B3BC-F775910AA83A_1_105_c.jpeg', alt: 'Комплексні IoT рішення' },
-            { src: '/designes/35961E9D-FA67-436D-87EE-4A8EB43F7849_1_105_c.jpeg', alt: 'Промислове обладнання' },
-            { src: '/designes/A57EA7EE-CD32-415A-AF8B-4E714FADBFE2_1_105_c.jpeg', alt: 'Системи автоматизації' },
-            { src: '/designes/8CF8AFA5-AE38-42C3-8394-95F89E371E25_1_105_c.jpeg', alt: 'Технологічні рішення' },
-            { src: '/designes/C82E83B0-C1F7-4CB6-993D-F1E1DDB683AD_1_105_c.jpeg', alt: 'Вендингові системи' },
-            { src: '/images/solutions/car-washes/26138E0C-961F-4B85-865D-7A30D2EAEEF2_1_105_c.jpeg', alt: 'Автомийки самообслуговування' },
-            { src: '/images/industries/drones/741ADB82-E672-4F57-95E6-790CD07D8C92_1_105_c.jpeg', alt: 'Дрон-технології' }
+            { src: '/images/projects/0D836EDC-DDF3-49DC-A654-BC4BB803C72C_1_105_c.jpeg', alt: 'Дизайн екстер\'єру автомийки' },
+              { src: '/images/projects/img.png', alt: 'Комплексні IoT рішення' },
+              { src: '/images/projects/img_1.png', alt: 'Промислове обладнання' },
+              { src: '/images/projects/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg', alt: 'Порохотяг 6 кВт самообслуговування з 19 дюймовим сенсорним екраном' },
+              { src: '/images/projects/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.jpeg', alt: 'Технологічні рішення' },
+              { src: '/images/industries/drones/741ADB82-E672-4F57-95E6-790CD07D8C92_1_105_c.jpeg', alt: 'Дрон-технології' },
+              { src: '/images/projects/img_2.png', alt: 'Вендингові системи' },
+              { src: '/images/projects/img_3.png', alt: 'Автомийки самообслуговування' }
           ].map((img, idx) => (
             <motion.div
               key={idx}
@@ -355,8 +355,8 @@ const Home: React.FC<Props> = ({ locale }) => {
       </section>
 
       {/* ABOUT: Хто ми? */}
-      <section id="about" className="about-section mx-auto max-w-7xl px-6 py-16">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8">Хто ми?</h2>
+      <section id="about" className="about-section mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/50">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-8">Хто ми?</h2>
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <SmartImage
             sources={["/images/home/FPF team with Diwave.jpg"]}
@@ -365,37 +365,37 @@ const Home: React.FC<Props> = ({ locale }) => {
             imgClassName="w-full h-72 object-cover"
           />
           <div>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed">
               Diwave — інженерна команда, що поєднує апаратні рішення, програмне забезпечення та аналітику. Ми автоматизуємо бізнес‑процеси, підключаємо обладнання (IoT/SCADA), інтегруємо платежі та запускаємо e‑commerce, CRM/лояльність і AI‑SEO. Працюємо від Discovery і дизайну до запуску та подальшого зростання.
             </p>
-            <a href={`${locale === 'en' ? '/en' : ''}/about`} className="inline-flex mt-6 px-5 py-2 rounded-md border border-white/20 text-white hover:bg-white/10 transition">Дізнатися про нас більше</a>
+            <a href={`${locale === 'en' ? '/en' : ''}/about`} className="inline-flex mt-6 px-5 py-2 rounded-md border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-blue-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition">Дізнатися про нас більше</a>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="faq-section mx-auto max-w-3xl px-6 py-16">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white text-center">FAQ</h2>
-        <div className="mt-6 divide-y divide-white/10 rounded-xl border border-white/10 overflow-hidden">
+      <section className="faq-section mx-auto max-w-3xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/40">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 text-center">FAQ</h2>
+        <div className="mt-6 divide-y divide-white/10 dark:divide-white/10 light:divide-gray-200 rounded-xl border border-white/10 dark:border-white/10 light:border-gray-200 overflow-hidden">
           {[{q:'Як швидко стартуємо?', a:'Залежно від складності: від 2–4 тижнів для MVP до 2–3 місяців для повноцінного запуску. Починаємо з Discovery, узгоджуємо KPI та план.'}, {q:'Які технології?', a:'TypeScript/React, Node.js/PHP, інтеграції з платіжними провайдерами, IoT/SCADA, аналітика, AI‑SEO. Інфраструктура: Docker, CI/CD, моніторинг.'}].map((item, idx) => (
-            <div key={idx} className="bg-white/5">
+            <div key={idx} className="bg-white/5 dark:bg-white/5 light:bg-white">
               <button
-                className="w-full text-left px-5 py-4 flex items-center justify-between hover:bg-white/10 transition"
+                className="w-full text-left px-5 py-4 flex items-center justify-between hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-gray-50 transition"
                 aria-expanded={openFaq===idx}
                 onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
               >
-                <h3 className="text-white font-medium">{item.q}</h3>
-                <span className="text-gray-300">{openFaq===idx ? '−' : '+'}</span>
+                <h3 className="text-white dark:text-white light:text-gray-900 font-medium">{item.q}</h3>
+                <span className="text-gray-300 dark:text-gray-300 light:text-gray-600">{openFaq===idx ? '−' : '+'}</span>
               </button>
               {openFaq===idx && (
-                <div className="px-5 pb-5 text-gray-300 text-sm">{item.a}</div>
+                <div className="px-5 pb-5 text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">{item.a}</div>
               )}
             </div>
           ))}
         </div>
         <div className="mt-6 text-center">
-          <div className="text-white text-lg">Готові розв'язати вузьке місце у вашому бізнесі?</div>
-          <a href={`${locale === 'en' ? '/en' : ''}/contact`} className="inline-flex mt-4 px-6 py-3 rounded-md bg-white text-black font-semibold hover:bg-white/90 transition">Зв’язатися</a>
+          <div className="text-white dark:text-white light:text-gray-900 text-lg">Готові розв'язати вузьке місце у вашому бізнесі?</div>
+          <a href={`${locale === 'en' ? '/en' : ''}/contact`} className="inline-flex mt-4 px-6 py-3 rounded-md bg-white dark:bg-white light:bg-blue-600 text-black dark:text-black light:text-white font-semibold hover:bg-white/90 dark:hover:bg-white/90 light:hover:bg-blue-700 transition">Зв'язатися</a>
         </div>
       </section>
 
