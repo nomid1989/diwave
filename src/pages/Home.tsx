@@ -160,52 +160,78 @@ const Home: React.FC<Props> = ({ locale }) => {
 
       {/* PRODUCTS: Наші рішення, які працюють на вас */}
       <section className="products-section mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/50">
-        <h2 className="text-center text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900">Наші рішення, які працюють на вас.</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {/* Картка 1: Автомийки SamWash */}
-          <div className="product-card rounded-xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-cyan-400/40 dark:hover:border-cyan-400/40 light:hover:border-blue-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-lg transition">
-            <SmartImage
-              sources={["/images/solutions/car-washes/66D5DCD7-862F-4C47-BE60-E608374543E8_1_105_c.jpg","/images/solutions/car-washes/66D5DCD7-862F-4C47-BE60-E608374543E8_1_105_c.jpg","/images/industries/self-car-wash/66D5DCD7-862F-4C47-BE60-E608374543E8_1_105_c.jpg"]}
-              alt="Автомийки самообслуговування SamWash"
-              className="w-full h-44"
-              imgClassName="w-full h-44 object-cover"
-            />
-            <div className="p-5">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-lg">Автомийки самообслуговування SamWash.</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm mt-2">Повністю автоматизовані комплекси з платіжними інтеграціями та дистанційним керуванням.</p>
-              <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex mt-4 px-4 py-2 rounded-md border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-blue-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition">Дізнатися більше</a>
-            </div>
-          </div>
-
-          {/* Картка 2: Пилососи-вендінги з вертикальним 19'' дисплеєм */}
-          <div className="product-card rounded-xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-purple-400/40 dark:hover:border-purple-400/40 light:hover:border-purple-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-lg transition flex flex-col">
-            <div className="relative h-56 overflow-hidden">
+        <h2 className="text-center text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-3">Наші рішення, які працюють на вас</h2>
+        <p className="text-center text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto mb-8">Комплексні бізнес-рішення з IoT, платіжними інтеграціями та повною автоматизацією</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          {/* Картка 1: Автомийки SamWash - горизонтальна */}
+          <div className="product-card group rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-blue-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="relative h-64 overflow-hidden bg-gradient-to-br from-cyan-900/20 to-blue-900/20">
               <SmartImage
-                sources={["/images/industries/vending/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg","/images/industries/vending/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg","/images/industries/vending/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg"]}
-                alt="Вендінгові апарати з 19'' екраном"
-                className="w-full h-56"
-                imgClassName="w-full h-56 object-contain bg-gradient-to-b from-purple-900/20 to-black/40"
+                sources={["/images/solutions/car-washes/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.jpeg"]}
+                alt="Автомийки самообслуговування SamWash"
+                className="w-full h-64"
+                imgClassName="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-cyan-500/90 text-white text-xs font-semibold backdrop-blur">Популярне</div>
             </div>
-            <div className="p-5 flex-1">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-lg">Вендингові апарати з 19'' сенсорним екраном.</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm mt-2">Ефективне вендингове обладнання з великим вертикальним або горизонтальним дисплеєм для автомийок, EV-станцій та зон скупчення людей.</p>
-              <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="inline-flex mt-4 px-4 py-2 rounded-md border border-white/20 dark:border-white/20 light:border-purple-300 text-white dark:text-white light:text-purple-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-purple-50 transition">Дізнатися більше</a>
+            <div className="p-6">
+              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">Автомийки самообслуговування SamWash</h3>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">Повністю автоматизовані комплекси з платіжними інтеграціями та дистанційним керуванням</p>
+              <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-blue-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition group-hover:border-cyan-400/60">
+                Дізнатися більше
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
             </div>
           </div>
 
-          {/* Картка 3: Дрони FPV та Українська асоціація пілотів дронів (Гніздо) */}
-          <div className="product-card rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur hover:border-emerald-400/40 hover:bg-white/10 transition">
-            <SmartImage
-              sources={["/images/industries/drones/img.png","/images/industries/drones/img.png","/images/industries/drones/img.png"]}
-              alt="Дрони FPV та Українська асоціація пілотів дронів"
-              className="w-full h-44"
-              imgClassName="w-full h-44 object-cover"
-            />
-            <div className="p-5">
-              <h3 className="text-white font-semibold text-lg">Дрони FPV • Гніздо (UAPD).</h3>
-              <p className="text-gray-300 text-sm mt-2">Українська асоціація пілотів дронів: навчання, виробництво та розвиток drone-технологій.</p>
-              <a href={`${locale === 'en' ? '/en' : ''}/solutions/drones`} className="inline-flex mt-4 px-4 py-2 rounded-md border border-white/20 text-white hover:bg-white/10 transition">Дізнатися більше</a>
+          {/* Картка 2: Вендінгові апарати - вертикальна */}
+          <div className="product-card group rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-purple-400/50 dark:hover:border-purple-400/50 light:hover:border-purple-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-xl transition-all duration-300 hover:scale-[1.02] flex flex-col">
+            <div className="relative h-80 overflow-hidden bg-gradient-to-br from-purple-900/20 to-pink-900/20">
+              <SmartImage
+                sources={["/images/industries/vending/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg"]}
+                alt="Вендінгові апарати з 19'' екраном"
+                className="w-full h-80"
+                imgClassName="w-full h-80 object-contain group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-purple-500/90 text-white text-xs font-semibold backdrop-blur">IoT</div>
+            </div>
+            <div className="p-6 flex-1 flex flex-col">
+              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">Вендінгові апарати з 19'' сенсорним екраном</h3>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4 flex-1">Ефективне вендингове обладнання з великим вертикальним дисплеєм для автомийок, EV-станцій та зон скупчення людей</p>
+              <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-purple-300 text-white dark:text-white light:text-purple-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-purple-50 transition group-hover:border-purple-400/60">
+                Дізнатися більше
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Картка 3: Дрони FPV */}
+          <div className="product-card group rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-emerald-400/50 dark:hover:border-emerald-400/50 light:hover:border-emerald-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+            <div className="relative h-64 overflow-hidden bg-gradient-to-br from-emerald-900/20 to-teal-900/20">
+              <SmartImage
+                sources={["/images/industries/drones/img.png"]}
+                alt="Дрони FPV та Українська асоціація пілотів дронів"
+                className="w-full h-64"
+                imgClassName="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-emerald-500/90 text-white text-xs font-semibold backdrop-blur">Новинка</div>
+            </div>
+            <div className="p-6">
+              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">Дрони FPV • Гніздо (UAPD)</h3>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">Українська асоціація пілотів дронів: навчання, виробництво та розвиток drone-технологій</p>
+              <a href={`${locale === 'en' ? '/en' : ''}/solutions/drones`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-emerald-300 text-white dark:text-white light:text-emerald-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-emerald-50 transition group-hover:border-emerald-400/60">
+                Дізнатися більше
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -319,35 +345,45 @@ const Home: React.FC<Props> = ({ locale }) => {
 
       {/* DESIGN GALLERY: Наші роботи */}
       <section className="design-gallery mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/40">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-4">Наші роботи</h2>
-        <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 mb-8 max-w-2xl">Від промислових автомийок та вендингових автоматів самообслуговування до організації змагань на дронах — ми створюємо комплексні рішення.</p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-3">Наші роботи</h2>
+        <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 mb-10 max-w-2xl">Від промислових автомийок та вендингових автоматів самообслуговування до організації змагань на дронах — ми створюємо комплексні рішення</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
-            { src: '/images/projects/0D836EDC-DDF3-49DC-A654-BC4BB803C72C_1_105_c.jpeg', alt: 'Дизайн екстер\'єру автомийки' },
-              { src: '/images/projects/img.png', alt: 'Комплексні IoT рішення' },
-              { src: '/images/projects/img_1.png', alt: 'Промислове обладнання' },
-              { src: '/images/projects/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg', alt: 'Порохотяг 6 кВт самообслуговування з 19 дюймовим сенсорним екраном' },
-              { src: '/images/projects/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.jpeg', alt: 'Технологічні рішення' },
-              { src: '/images/industries/drones/741ADB82-E672-4F57-95E6-790CD07D8C92_1_105_c.jpeg', alt: 'Дрон-технології' },
-              { src: '/images/projects/img_2.png', alt: 'Вендингові системи' },
-              { src: '/images/projects/img_3.png', alt: 'Автомийки самообслуговування' }
+            { src: '/images/projects/0D836EDC-DDF3-49DC-A654-BC4BB803C72C_1_105_c.jpeg', alt: 'Дизайн екстер\'єру автомийки', category: 'Design' },
+            { src: '/images/projects/img.png', alt: 'Комплексні IoT рішення', category: 'IoT' },
+            { src: '/images/projects/img_1.png', alt: 'Промислове обладнання', category: 'Hardware' },
+            { src: '/images/projects/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg', alt: 'Пилосос 6 кВт з 19" екраном', category: 'Vending' },
+            { src: '/public/images/solutions/car-washes/2F00D20A-A2AE-46A7-875B-EF2CDB18B66E_1_105_c.jpeg', alt: 'Технологічні рішення', category: 'Tech' },
+            { src: '/images/industries/drones/741ADB82-E672-4F57-95E6-790CD07D8C92_1_105_c.jpeg', alt: 'Дрон-технології', category: 'Drones' },
+            { src: '/images/projects/img_2.png', alt: 'Вендингові системи', category: 'Software' },
+            { src: '/images/projects/img_3.png', alt: 'Автомийки самообслуговування', category: 'Car Wash' }
           ].map((img, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="relative group overflow-hidden rounded-lg border border-white/10 hover:border-cyan-300/40 transition-all"
+              transition={{ delay: idx * 0.08, duration: 0.5 }}
+              className="relative group overflow-hidden rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 hover:border-cyan-400/60 dark:hover:border-cyan-400/60 light:hover:border-blue-400 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-cyan-500/20"
             >
-              <SmartImage
-                sources={[img.src]}
-                alt={img.alt}
-                className="w-full h-48 md:h-64"
-                imgClassName="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="absolute bottom-3 left-3 text-white text-sm font-medium">{img.alt}</div>
+              <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-gray-900/50 to-black/50">
+                <SmartImage
+                  sources={[img.src]}
+                  alt={img.alt}
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+
+                {/* Category badge */}
+                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-cyan-500/90 dark:bg-cyan-500/90 light:bg-blue-600/90 text-white text-xs font-semibold backdrop-blur transform group-hover:scale-110 transition-transform">
+                  {img.category}
+                </div>
+
+                {/* Title on hover */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <p className="text-white dark:text-white light:text-white font-semibold text-sm leading-snug drop-shadow-lg">{img.alt}</p>
+                </div>
               </div>
             </motion.div>
           ))}

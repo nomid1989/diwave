@@ -7,21 +7,32 @@
 }
 
 /* Dark theme (default) */
+html,
 body {
-  @apply bg-black text-white;
+  @apply bg-black text-white transition-colors duration-300;
 }
 
 /* Light theme */
-.light body {
+html.light,
+html.light body {
   @apply bg-white text-gray-900;
 }
 
-.light {
+html.light {
   color-scheme: light;
 }
 
-.dark {
+html.dark {
   color-scheme: dark;
+}
+
+/* Додатково для iOS 26 стиль */
+html.light {
+  background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
+}
+
+html.dark {
+  background: #000000;
 }
 
 .glass {

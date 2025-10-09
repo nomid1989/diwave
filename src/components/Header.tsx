@@ -69,17 +69,19 @@ const Header: React.FC = () => {
           <ThemeToggle />
           <Link
             to={makeLink('/contact', locale)}
-            className="hidden md:inline-block px-3 py-2 rounded-md bg-emerald-500 text-black font-semibold shadow-[0_0_16px_rgba(16,185,129,0.5)] hover:bg-emerald-400 hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] transition-all"
+            className="hidden md:inline-block px-3 py-2 rounded-md bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 text-black dark:text-black light:text-white font-semibold shadow-[0_0_16px_rgba(16,185,129,0.5)] dark:shadow-[0_0_16px_rgba(16,185,129,0.5)] light:shadow-[0_0_16px_rgba(37,99,235,0.5)] hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] dark:hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] light:hover:shadow-[0_0_24px_rgba(37,99,235,0.7)] transition-all"
           >
             {t('cta.discuss')}
           </Link>
-          <div className="flex rounded-md overflow-hidden border border-cyan-400/30">
+          <div className="flex rounded-md overflow-hidden border border-cyan-400/30 dark:border-cyan-400/30 light:border-blue-300">
             <button
               aria-label="UA"
               onClick={() => switchLocale('uk')}
               className={classNames(
-                'px-2 py-1 text-sm',
-                locale === 'uk' ? 'bg-cyan-500 text-black' : 'text-cyan-300 hover:bg-cyan-400/10'
+                'px-2 py-1 text-sm transition',
+                locale === 'uk'
+                  ? 'bg-cyan-500 dark:bg-cyan-500 light:bg-blue-600 text-black dark:text-black light:text-white'
+                  : 'text-cyan-300 dark:text-cyan-300 light:text-blue-600 hover:bg-cyan-400/10 dark:hover:bg-cyan-400/10 light:hover:bg-blue-50'
               )}
             >
               UA
@@ -88,8 +90,10 @@ const Header: React.FC = () => {
               aria-label="EN"
               onClick={() => switchLocale('en')}
               className={classNames(
-                'px-2 py-1 text-sm',
-                locale === 'en' ? 'bg-cyan-500 text-black' : 'text-cyan-300 hover:bg-cyan-400/10'
+                'px-2 py-1 text-sm transition',
+                locale === 'en'
+                  ? 'bg-cyan-500 dark:bg-cyan-500 light:bg-blue-600 text-black dark:text-black light:text-white'
+                  : 'text-cyan-300 dark:text-cyan-300 light:text-blue-600 hover:bg-cyan-400/10 dark:hover:bg-cyan-400/10 light:hover:bg-blue-50'
               )}
             >
               EN
@@ -97,7 +101,7 @@ const Header: React.FC = () => {
           </div>
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-cyan-400/30 text-cyan-300 hover:text-white hover:bg-cyan-400/10 transition"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-cyan-400/30 dark:border-cyan-400/30 light:border-blue-300 text-cyan-300 dark:text-cyan-300 light:text-blue-600 hover:text-white dark:hover:text-white light:hover:text-blue-700 hover:bg-cyan-400/10 dark:hover:bg-cyan-400/10 light:hover:bg-blue-50 transition"
             aria-label="Меню"
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
@@ -116,7 +120,7 @@ const Header: React.FC = () => {
         </div>
       </div>
       {mobileOpen && (
-        <div className="md:hidden border-t border-cyan-400/20 bg-black/60 backdrop-blur">
+        <div className="md:hidden border-t border-cyan-400/20 dark:border-cyan-400/20 light:border-blue-200 bg-black/60 dark:bg-black/60 light:bg-white/95 backdrop-blur">
           <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex flex-col gap-2">
             {NAV.map((item) => {
               const href = makeLink(item.to, locale);
@@ -128,7 +132,9 @@ const Header: React.FC = () => {
                   onClick={() => setMobileOpen(false)}
                   className={classNames(
                     'rounded-md px-3 py-2 transition-colors',
-                    active ? 'bg-white/10 text-white' : 'text-gray-300 hover:text-white hover:bg-white/5'
+                    active
+                      ? 'bg-white/10 dark:bg-white/10 light:bg-blue-100 text-white dark:text-white light:text-blue-700 font-semibold'
+                      : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-blue-600 hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-blue-50'
                   )}
                 >
                   {t(item.key)}

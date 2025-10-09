@@ -6,9 +6,9 @@ import { ThemeProvider } from './contexts/ThemeContext';
 const App: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <ThemeProvider>
-      <div className="min-h-screen flex flex-col bg-black dark:bg-black light:bg-white transition-colors duration-300">
+      <div className="min-h-screen flex flex-col bg-black dark:bg-black light:bg-gradient-to-b light:from-[#f8f9fa] light:to-[#e9ecef] transition-colors duration-300">
         <Header />
-        <main className="flex-1 bg-black dark:bg-black light:bg-gradient-to-br light:from-gray-50 light:via-blue-50/40 light:to-purple-50/30">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
       </div>
     </ThemeProvider>
