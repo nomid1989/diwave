@@ -143,15 +143,9 @@ const Projects: React.FC<Props> = ({ locale }) => {
 
       <section className="mx-auto max-w-7xl px-6 pb-16">
         <ProjectsQRSection />
-        <nav className="mt-4">
+        <nav className="mt-6 text-sm text-gray-400 dark:text-gray-400 light:text-gray-600">
           <p>
-            Детальна сторінка кейсу: <a href="/projects/samwash-qr">/projects/samwash-qr</a>
-          </p>
-          <p>
-            SEO‑лендинг QR‑оплат: <a href="/qr">/qr</a>
-          </p>
-          <p>
-            Перейти до інших каталогів: <a href="/solutions">Рішення</a> · <a href="/industries">Індустрії</a>
+            Інші каталоги: <a href="/solutions" className="text-cyan-400 dark:text-cyan-400 light:text-blue-600 hover:underline">Рішення</a> · <a href="/industries" className="text-cyan-400 dark:text-cyan-400 light:text-blue-600 hover:underline">Індустрії</a>
           </p>
         </nav>
       </section>

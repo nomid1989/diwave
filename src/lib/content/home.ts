@@ -200,8 +200,8 @@ export const getHomeContent = (locale: Locale): HomeContent => {
           }
         ],
         cta: {
-          question: 'Готові розв'язати вузьке місце у вашому бізнесі?',
-          button: 'Зв'язатися'
+          question: 'Готові розв\'язати вузьке місце у вашому бізнесі?',
+          button: 'Зв\'язатися'
         }
       },
       howItWorks: {
@@ -226,7 +226,7 @@ export const getHomeContent = (locale: Locale): HomeContent => {
           bio: 'Ми поєднуємо апаратні рішення, програмне забезпечення та аналітику: автомийки, вендинг, дрони, e‑commerce, платежі, лояльність та енергетику. Автоматизуємо процеси за допомогою AI, щоб бізнес працював ефективніше.'
         },
         form: {
-          title: 'Зв'язатися з нами',
+          title: 'Зв\'язатися з нами',
           location: 'Ukraine & EU'
         },
         discuss: 'Обговорити проєкт'

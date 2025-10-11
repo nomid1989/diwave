@@ -204,5 +204,15 @@ npm run optimize:images  # Оптимізація всіх зображень
 ---
 
 **Розробник**: Diwave Team
-**Контакт**: kravets.lviv@gmail.com
+**Контакт**: info@diwave.company
+**Tech Lead**: Dmytro Kravets (dmytro@diwave.company)
 **Сайт**: https://diwave.company
+
+---
+
+## 📚 Додаткова Документація
+
+- **[ARCHITECTURE_AUDIT_2025.md](./ARCHITECTURE_AUDIT_2025.md)** - Комплексний аудит архітектури проєкту
+- **[OPTIMIZATION_GUIDE.md](./OPTIMIZATION_GUIDE.md)** - Покрокова інструкція оптимізації швидкості
+- **[NAVIGATION_AUDIT.md](./NAVIGATION_AUDIT.md)** - Аудит навігації та посилань
+- **[/src/lib/content/README.md](./src/lib/content/README.md)** - Документація i18n структури

@@ -37,10 +37,11 @@ const ContactForm: React.FC<Props> = ({ locale: propLocale }) => {
       // Try serverless API first for reliable delivery (Telegram + SMTP)
       try {
         const endpoint = (import.meta.env.VITE_CONTACT_ENDPOINT as string | undefined) || '/api/contact';
+        const contactValue = contactType === 'email' ? email : phone;
         const api = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, message, honeypot })
+          body: JSON.stringify({ name, email: contactValue, contactType, phone: contactType === 'phone' ? phone : undefined, message, honeypot })
         });
         if (api.ok) {
           const data = await api.json().catch(() => ({}));
@@ -75,9 +76,10 @@ const ContactForm: React.FC<Props> = ({ locale: propLocale }) => {
         contactInfo + `\n` +
         `<b>Message:</b>\n${message}\n\n` +
         `<b>Page History:</b>\n${pageHistory}`;
+      const contactValue = contactType === 'email' ? email : phone;
       const results = await Promise.allSettled([
         sendTelegram(text),
-        sendEmail({ name, email: contactType === 'email' ? email : phone, message })
+        sendEmail({ name, email: contactValue, message })
       ]);
       const tgOk = results[0].status === 'fulfilled';
       const emOk = results[1].status === 'fulfilled';

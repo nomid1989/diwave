@@ -21,7 +21,7 @@ async function sendTelegramServer(text: string): Promise<boolean> {
   return !!data?.ok;
 }
 
-async function sendEmailServer({ name, email, message }: { name: string; email: string; message: string; }): Promise<boolean> {
+async function sendEmailServer({ name, email, message, contactType, phone }: { name: string; email: string; message: string; contactType?: string; phone?: string; }): Promise<boolean> {
   const host = env('SMTP_HOST');
   const port = Number(env('SMTP_PORT', '465')) || 465;
   const user = env('SMTP_USER');
@@ -38,12 +38,16 @@ async function sendEmailServer({ name, email, message }: { name: string; email: 
     auth: { user, pass }
   });
 
+  // Determine contact label and value
+  const contactLabel = contactType === 'phone' && phone ? 'Phone' : 'Email';
+  const contactValue = contactType === 'phone' && phone ? phone : email;
+
   const html = `
     <div style="font-family:Inter,Arial,sans-serif;line-height:1.5;color:#0b0b0b">
       <h2 style="margin:0 0 12px">New contact — diwave.company</h2>
       <table style="border-collapse:collapse">
         <tr><td style="padding:4px 8px;color:#555">Name</td><td style="padding:4px 8px"><b>${escapeHtml(name)}</b></td></tr>
-        <tr><td style="padding:4px 8px;color:#555">Email</td><td style="padding:4px 8px">${escapeHtml(email)}</td></tr>
+        <tr><td style="padding:4px 8px;color:#555">${contactLabel}</td><td style="padding:4px 8px">${escapeHtml(contactValue)}</td></tr>
         <tr><td style="padding:4px 8px;color:#555">Message</td><td style="padding:4px 8px;white-space:pre-wrap">${escapeHtml(message)}</td></tr>
       </table>
     </div>`;
@@ -82,7 +86,7 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const { name = '', email = '', message = '', honeypot = '' } = (req.body || {});
+    const { name = '', email = '', message = '', honeypot = '', contactType = 'email', phone = '' } = (req.body || {});
 
     // Basic validation
     if (typeof honeypot === 'string' && honeypot.trim().length > 0) {
@@ -93,11 +97,16 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ ok: false, error: 'Missing fields' });
     }
 
-    const tgText = `<b>New contact request</b>\n<b>Name:</b> ${escapeHtml(name)}\n<b>Email:</b> ${escapeHtml(email)}\n<b>Message:</b>\n${escapeHtml(message)}`;
+    // Determine contact info based on type
+    const contactInfo = contactType === 'phone' && phone
+      ? `<b>Phone:</b> ${escapeHtml(phone)}`
+      : `<b>Email:</b> ${escapeHtml(email)}`;
+
+    const tgText = `<b>New contact request</b>\n<b>Name:</b> ${escapeHtml(name)}\n${contactInfo}\n<b>Message:</b>\n${escapeHtml(message)}`;
 
     const [tgOk, emOk] = await Promise.all([
       sendTelegramServer(tgText).catch(() => false),
-      sendEmailServer({ name, email, message }).catch(() => false)
+      sendEmailServer({ name, email, message, contactType, phone }).catch(() => false)
     ]);
 
     const ok = tgOk || emOk;

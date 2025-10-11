@@ -1,107 +1,173 @@
-import sharp from 'sharp';
-import { readdir, mkdir, rename, unlink } from 'fs/promises';
-import { join, extname, dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { existsSync } from 'fs';
+/**
+ * Image Optimization Script для Diwave
+ *
+ * Конвертує великі PNG/JPG в AVIF та WebP формати
+ * для покращення швидкості завантаження сайту.
+ *
+ * Використання:
+ *   npm install --save-dev sharp
+ *   node scripts/optimize-images.js
+ */
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const publicDir = join(__dirname, '../public');
+const sharp = require('sharp');
+const fs = require('fs');
+const path = require('path');
+const { promisify } = require('util');
 
-const QUALITY = {
-  webp: 85,
-  jpeg: 85,
-  png: 90
+const readdir = promisify(fs.readdir);
+const stat = promisify(fs.stat);
+
+// Налаштування якості
+const QUALITY_SETTINGS = {
+  avif: 80,  // Найкраще стиснення
+  webp: 85,  // Для старіших браузерів
+  jpeg: 85   // Якщо потрібна JPG версія
 };
 
-const SIZES = {
-  thumbnail: 400,
-  medium: 800,
-  large: 1920,
-  hero: 2560
+// Мінімальний розмір для оптимізації (KB)
+const MIN_SIZE_KB = 100;
+
+// Статистика
+let stats = {
+  total: 0,
+  optimized: 0,
+  skipped: 0,
+  errors: 0,
+  savedBytes: 0
 };
 
-async function processImage(inputPath, outputDir) {
-  const ext = extname(inputPath).toLowerCase();
-  if (!['.jpg', '.jpeg', '.png'].includes(ext)) return;
-
-  const filename = inputPath.split('/').pop().replace(/\.(jpg|jpeg|png)$/i, '');
-
-  try {
-    const image = sharp(inputPath);
-    const metadata = await image.metadata();
-
-    console.log(`Processing: ${filename}${ext} (${metadata.width}x${metadata.height})`);
-
-    // Create WebP version (best compression)
-    await image
-      .webp({ quality: QUALITY.webp, effort: 6 })
-      .toFile(join(outputDir, `${filename}.webp`));
-
-    // Create responsive sizes for large images (before replacing source)
-    if (metadata.width > 1200) {
-      await sharp(inputPath)
-        .resize(SIZES.medium, null, { withoutEnlargement: true })
-        .webp({ quality: QUALITY.webp })
-        .toFile(join(outputDir, `${filename}-medium.webp`));
-    }
-
-    // Create optimized JPEG/PNG as fallback
-    if (['.jpg', '.jpeg'].includes(ext)) {
-      const tempFile = join(outputDir, `${filename}.temp.jpg`);
-      await sharp(inputPath)
-        .jpeg({ quality: QUALITY.jpeg, mozjpeg: true })
-        .toFile(tempFile);
-      await unlink(inputPath);
-      await rename(tempFile, join(outputDir, `${filename}.jpg`));
-    } else if (ext === '.png') {
-      const tempFile = join(outputDir, `${filename}.temp.png`);
-      await sharp(inputPath)
-        .png({ quality: QUALITY.png, compressionLevel: 9 })
-        .toFile(tempFile);
-      await unlink(inputPath);
-      await rename(tempFile, join(outputDir, `${filename}.png`));
-    }
-
-    console.log(`✓ Optimized: ${filename}`);
-  } catch (error) {
-    console.error(`✗ Error processing ${filename}:`, error.message);
-  }
-}
-
-async function walkDirectory(dir, callback) {
-  const files = await readdir(dir, { withFileTypes: true });
+/**
+ * Рекурсивно знаходить всі зображення в директорії
+ */
+async function findImages(dir, fileList = []) {
+  const files = await readdir(dir);
 
   for (const file of files) {
-    const path = join(dir, file.name);
-    if (file.isDirectory() && !file.name.startsWith('.')) {
-      await walkDirectory(path, callback);
-    } else if (file.isFile()) {
-      await callback(path, dir);
+    const filePath = path.join(dir, file);
+    const fileStat = await stat(filePath);
+
+    if (fileStat.isDirectory()) {
+      await findImages(filePath, fileList);
+    } else if (/\.(png|jpe?g)$/i.test(file)) {
+      fileList.push(filePath);
     }
   }
+
+  return fileList;
 }
 
-async function main() {
-  console.log('🖼️  Starting image optimization...\n');
+/**
+ * Оптимізує одне зображення
+ */
+async function optimizeImage(imagePath) {
+  const fileStat = await stat(imagePath);
+  const sizeKB = fileStat.size / 1024;
 
-  const imageDirs = [
-    'images/home',
-    'images/about',
-    'images/contacts',
-    'images/team',
-    'images/projects',
-    'images/industries'
-  ];
-
-  for (const dir of imageDirs) {
-    const fullPath = join(publicDir, dir);
-    if (!existsSync(fullPath)) continue;
-
-    console.log(`\n📁 Processing: ${dir}`);
-    await walkDirectory(fullPath, (file, outputDir) => processImage(file, outputDir));
+  // Пропускаємо маленькі файли
+  if (sizeKB < MIN_SIZE_KB) {
+    console.log(`⏭️  Skipped (${Math.round(sizeKB)}KB): ${path.basename(imagePath)}`);
+    stats.skipped++;
+    return;
   }
 
-  console.log('\n✅ Image optimization complete!');
+  const ext = path.extname(imagePath);
+  const base = imagePath.slice(0, -ext.length);
+
+  try {
+    // Перевіряємо чи вже існують оптимізовані версії
+    const avifExists = fs.existsSync(`${base}.avif`);
+    const webpExists = fs.existsSync(`${base}.webp`);
+
+    if (avifExists && webpExists) {
+      console.log(`✓  Already optimized: ${path.basename(imagePath)}`);
+      stats.skipped++;
+      return;
+    }
+
+    const image = sharp(imagePath);
+    const metadata = await image.metadata();
+
+    // Генеруємо AVIF (найсучасніший формат, найкраще стиснення)
+    if (!avifExists) {
+      await image
+        .avif({ quality: QUALITY_SETTINGS.avif, effort: 6 })
+        .toFile(`${base}.avif`);
+    }
+
+    // Генеруємо WebP (для більшої сумісності)
+    if (!webpExists) {
+      await image
+        .webp({ quality: QUALITY_SETTINGS.webp, effort: 6 })
+        .toFile(`${base}.webp`);
+    }
+
+    // Статистика
+    const avifStat = await stat(`${base}.avif`);
+    const webpStat = await stat(`${base}.webp`);
+
+    const originalSize = fileStat.size;
+    const newSize = Math.min(avifStat.size, webpStat.size);
+    const saved = originalSize - newSize;
+    const savedPercent = ((saved / originalSize) * 100).toFixed(1);
+
+    stats.optimized++;
+    stats.savedBytes += saved;
+
+    console.log(
+      `✅ ${path.basename(imagePath)} (${Math.round(sizeKB)}KB → ${Math.round(newSize / 1024)}KB, -${savedPercent}%)`
+    );
+  } catch (err) {
+    console.error(`❌ Error processing ${imagePath}:`, err.message);
+    stats.errors++;
+  }
 }
 
-main().catch(console.error);
+/**
+ * Головна функція
+ */
+async function main() {
+  console.log('🚀 Diwave Image Optimization\n');
+  console.log(`Settings:`);
+  console.log(`  AVIF quality: ${QUALITY_SETTINGS.avif}`);
+  console.log(`  WebP quality: ${QUALITY_SETTINGS.webp}`);
+  console.log(`  Min file size: ${MIN_SIZE_KB}KB\n`);
+
+  const imagesDir = path.join(__dirname, '..', 'public', 'images');
+
+  console.log(`📁 Scanning: ${imagesDir}\n`);
+
+  const images = await findImages(imagesDir);
+  stats.total = images.length;
+
+  console.log(`Found ${images.length} images\n`);
+  console.log('───────────────────────────────────────────────\n');
+
+  // Обробляємо зображення паралельно (по 5 одночасно)
+  const BATCH_SIZE = 5;
+  for (let i = 0; i < images.length; i += BATCH_SIZE) {
+    const batch = images.slice(i, i + BATCH_SIZE);
+    await Promise.all(batch.map(optimizeImage));
+  }
+
+  console.log('\n───────────────────────────────────────────────');
+  console.log('\n📊 Statistics:\n');
+  console.log(`  Total images:     ${stats.total}`);
+  console.log(`  Optimized:        ${stats.optimized}`);
+  console.log(`  Skipped:          ${stats.skipped}`);
+  console.log(`  Errors:           ${stats.errors}`);
+  console.log(`  Space saved:      ${(stats.savedBytes / 1024 / 1024).toFixed(2)} MB`);
+
+  if (stats.savedBytes > 0) {
+    const avgReduction = ((stats.savedBytes / stats.optimized / 1024)).toFixed(0);
+    console.log(`  Avg reduction:    ${avgReduction} KB per image`);
+  }
+
+  console.log('\n✅ Done!\n');
+  console.log('💡 SmartImage component буде автоматично використовувати AVIF/WebP версії.\n');
+}
+
+// Запускаємо
+main().catch(err => {
+  console.error('Fatal error:', err);
+  process.exit(1);
+});
