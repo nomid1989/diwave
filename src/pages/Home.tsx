@@ -28,6 +28,21 @@ const Home: React.FC<Props> = ({ locale }) => {
   const projects = getProjects(locale);
   const [openFaq, setOpenFaq] = React.useState<number | null>(0);
 
+  const seoContent = {
+    uk: {
+      title: 'Diwave — Автоматизація Бізнесу | IoT, E-commerce, CRM, Платежі, AI-SEO',
+      description: 'Автоматизуємо бізнес та підключаємо обладнання до інтернету. Комплексні рішення: автомийки SamWash (EBITDA 70%), вендинг з IoT, e-commerce Plantpol (-75% штату), дрони Gnizdo, платіжні інтеграції, CRM/SCADA, AI-SEO. 14+ років досвіду. Працюємо з Україною та ЄС. Від Discovery і дизайну до запуску та зростання.',
+      keywords: 'Diwave автоматизація бізнесу, IoT SCADA Україна, автомийки SamWash, вендинг з сенсорним екраном, e-commerce CRM інтеграції, платіжні системи, AI SEO оптимізація, дрони FPV Gnizdo, телеметрія обладнання, безготівкові платежі'
+    },
+    en: {
+      title: 'Diwave — Business Automation | IoT, E-commerce, CRM, Payments, AI-SEO',
+      description: 'We automate business and connect equipment to the internet. Comprehensive solutions: SamWash car washes (70% EBITDA), IoT vending, Plantpol e-commerce (-75% staff), Gnizdo drones, payment integrations, CRM/SCADA, AI-SEO. 14+ years experience. Working with Ukraine & EU. From Discovery and design to launch and growth.',
+      keywords: 'Diwave business automation, IoT SCADA Ukraine, SamWash car wash, touchscreen vending, e-commerce CRM integrations, payment systems, AI SEO optimization, FPV drones Gnizdo, equipment telemetry, cashless payments'
+    }
+  };
+
+  const seo = seoContent[locale];
+
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -35,13 +50,33 @@ const Home: React.FC<Props> = ({ locale }) => {
       name: 'Diwave',
       url,
       areaServed: ['UA', 'EU'],
-      logo: `${baseUrl}/favicon.ico`
+      logo: `${baseUrl}/favicon.ico`,
+      founder: {
+        '@type': 'Person',
+        name: 'Dmytro Kravets',
+        email: 'dmytro@diwave.company',
+        jobTitle: 'Founder & Tech Lead',
+        sameAs: [
+          'https://linkedin.com/in/dmytrokravets',
+          'https://upwork.com/freelancers/stevark'
+        ]
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+380505923772',
+        email: 'info@diwave.company',
+        contactType: 'sales',
+        areaServed: ['UA', 'EU']
+      },
+      description: seo.description
     },
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'Diwave',
-      url
+      url,
+      description: seo.description,
+      inLanguage: locale === 'uk' ? 'uk-UA' : 'en-US'
     },
     {
       '@context': 'https://schema.org',
@@ -49,23 +84,45 @@ const Home: React.FC<Props> = ({ locale }) => {
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'Do you deliver end-to-end?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Yes. From idea and hardware to software, launch and growth.' }
+          name: locale === 'uk' ? 'Як швидко стартуємо?' : 'How quickly do we start?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: locale === 'uk'
+              ? 'Залежно від складності: від 2–4 тижнів для MVP до 2–3 місяців для повноцінного запуску. Починаємо з Discovery, узгоджуємо KPI та план.'
+              : 'Depending on complexity: from 2-4 weeks for MVP to 2-3 months for full launch. We start with Discovery, agree on KPIs and plan.'
+          }
         },
         {
           '@type': 'Question',
-          name: 'Do you support IoT/SCADA?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Yes, we connect devices, collect data and automate.' }
+          name: locale === 'uk' ? 'Які технології використовуєте?' : 'What technologies do you use?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: locale === 'uk'
+              ? 'TypeScript/React, Node.js/PHP, інтеграції з платіжними провайдерами, IoT/SCADA, аналітика, AI-SEO. Інфраструктура: Docker, CI/CD, моніторинг.'
+              : 'TypeScript/React, Node.js/PHP, payment provider integrations, IoT/SCADA, analytics, AI-SEO. Infrastructure: Docker, CI/CD, monitoring.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: locale === 'uk' ? 'Чи підтримуєте IoT/SCADA?' : 'Do you support IoT/SCADA?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: locale === 'uk'
+              ? 'Так, ми підключаємо пристрої, збираємо дані та автоматизуємо процеси.'
+              : 'Yes, we connect devices, collect data and automate processes.'
+          }
         }
       ]
     },
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      itemListElement: projects.items.map((p, i) => ({
+      name: locale === 'uk' ? 'Проєкти Diwave' : 'Diwave Projects',
+      itemListElement: projects.items.slice(0, 6).map((p, i) => ({
         '@type': 'ListItem',
         position: i + 1,
-        name: p.title
+        name: p.title,
+        url: `${baseUrl}${locale === 'en' ? '/en' : ''}/projects/${p.slug}`
       }))
     }
   ];
@@ -89,11 +146,12 @@ const Home: React.FC<Props> = ({ locale }) => {
   return (
     <>
       <SEO
-        title="Diwave — Software, IoT, car wash, vending, drones | Diwave"
-        description={t('hero.subtitle')}
+        title={seo.title}
+        description={seo.description}
         url={url}
         image={`${baseUrl}/images/home/hero.webp`}
         locale={locale}
+        keywords={seo.keywords}
         alternates={[
           { hrefLang: 'uk', href: `${baseUrl}/` },
           { hrefLang: 'en', href: `${baseUrl}/en` }
@@ -681,7 +739,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                   <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <a href="mailto:kravets.lviv@gmail.com" className="hover:text-white dark:hover:text-white light:hover:text-blue-600 text-cyan-300 dark:text-cyan-300 light:text-blue-700 font-medium">kravets.lviv@gmail.com</a>
+                  <a href="mailto:info@diwave.company" className="hover:text-white dark:hover:text-white light:hover:text-blue-600 text-cyan-300 dark:text-cyan-300 light:text-blue-700 font-medium">info@diwave.company</a>
                 </li>
                 <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
                   <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">

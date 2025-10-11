@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import ThemeToggle from './ThemeToggle';
+
+// Scroll to top helper
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
 const NAV = [
   { to: '/', key: 'nav.home' },
@@ -30,6 +35,11 @@ const Header: React.FC = () => {
   const locale = useLocale();
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Scroll to top on route change
+  useEffect(() => {
+    scrollToTop();
+  }, [pathname]);
+
   const switchLocale = (target: 'uk' | 'en') => {
     if (target === locale) return;
     const segs = pathname.split('/').filter(Boolean);
@@ -39,10 +49,20 @@ const Header: React.FC = () => {
     navigate(nextPath || '/', { replace: true });
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    navigate(makeLink('/', locale));
+    scrollToTop();
+  };
+
   return (
     <header className="sticky top-0 z-40 border-b border-cyan-400/20 dark:border-cyan-400/20 light:border-blue-200/40 bg-black/50 dark:bg-black/50 light:bg-white/80 backdrop-blur transition-colors">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link to={makeLink('/', locale)} className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 font-bold tracking-wide text-lg hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.8)] dark:hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.8)] light:hover:text-blue-700 transition-colors">
+        <Link
+          to={makeLink('/', locale)}
+          onClick={handleLogoClick}
+          className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 font-bold tracking-wide text-lg hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.8)] dark:hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.8)] light:hover:text-blue-700 transition-colors cursor-pointer"
+        >
           {t('brand')}
         </Link>
 
