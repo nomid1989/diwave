@@ -24,6 +24,31 @@ export const getProjects = (locale: 'uk' | 'en'): { title: string; intro: string
       'Selected case studies: telemetry, payments, automation, e‑commerce and analytics.'
     ),
     items: [
+      // ✅ ПОВНІСТЮ ЗАПОВНЕНІ - детальні сторінки з багатьма даними
+      {
+        slug: 'plantpol',
+        title: t('PlantPol Ukraine — B2B портал', 'PlantPol Ukraine — B2B portal'),
+        description: t('E-commerce зі складною логістикою для агротехнологій. 5000+ SKU, інтеграція 1С.', 'E-commerce with complex logistics for agritech. 5000+ SKU, 1C integration.'),
+        highlights: [t('5000+ SKU', '5000+ SKU'), t('-75% штату', '-75% staff'), 'B2B'],
+        imgFolder: '/images/projects/ecommerce',
+        imgAlt: t('PlantPol B2B портал', 'PlantPol B2B portal'),
+        details: {
+          challenge: t(
+            'Потреба цифрової платформи для заміни ручного управління замовленнями з можливістю замовлення товарів наперед на фіксовані дати доставки.',
+            'Need for digital platform to replace manual order management with ability to pre-order goods for fixed delivery dates.'
+          ),
+          solution: t(
+            'Створено повноцінний інтернет-магазин з кастомним рушієм та унікальною системою логістики замовлень на палетах з плануванням на 1-2 роки.',
+            'Built full-featured online store with custom engine and unique pallet order logistics system with 1-2 year planning.'
+          ),
+          results: [
+            t('Скорочення штату менеджерів на 75% (з 20 до 5)', '75% staff reduction (from 20 to 5 managers)'),
+            t('Стабільне зростання органічного трафіку за 3 роки', 'Steady organic traffic growth over 3 years'),
+            t('Автоматизація складних B2B замовлень', 'Complex B2B order automation')
+          ],
+          tech: ['Angular', 'Laravel', '1C Integration', 'B2B Logic', 'SEO']
+        }
+      },
       {
         slug: 'car-wash',
         title: t('Платформа для автомийок самообслуговування', 'Self‑service car wash platform'),
@@ -124,54 +149,6 @@ export const getProjects = (locale: 'uk' | 'en'): { title: string; intro: string
             t('Єдина клієнтська 360‑картина', 'Unified 360‑customer view')
           ],
           tech: ['CDP', 'ESP', 'ETL', 'Analytics']
-        }
-      },
-      {
-        slug: 'ecommerce',
-        title: t('E‑commerce інтеграції', 'E‑commerce integration'),
-        description: t('Каталог, кошик, чек‑аут, ERP, аналітика.', 'Catalog, cart, checkout, ERP, analytics.'),
-        highlights: ['CMS', 'ERP', 'Analytics'],
-        imgFolder: '/images/projects/ecommerce',
-        imgAlt: t('Інтернет‑магазин', 'Online store'),
-        details: {
-          challenge: t(
-            'Повільний чек‑аут, неузгоджені запаси, відсутність наскрізної аналітики.',
-            'Slow checkout, inconsistent stock, lack of end‑to‑end analytics.'
-          ),
-          solution: t(
-            'Швидкий чек‑аут у 1–2 кроки, інтеграції з ERP/WMS/кур\'єрами, персональні промо, GEO‑SEO та наскрізна аналітика.',
-            'Fast 1–2 step checkout, integrations with ERP/WMS/couriers, personalized promos, GEO‑SEO and end‑to‑end analytics.'
-          ),
-          results: [
-            t('Конверсія +10–25%', 'Conversion +10–25%'),
-            t('Менше відмов на етапі оплати', 'Lower checkout drop‑off'),
-            t('Більше органічного трафіку', 'More organic traffic')
-          ],
-          tech: ['React', 'Headless CMS', 'ERP', 'PSP', 'GA4/ETL']
-        }
-      },
-      {
-        slug: 'plantpol',
-        title: t('PlantPol Ukraine — B2B портал', 'PlantPol Ukraine — B2B portal'),
-        description: t('E-commerce зі складною логістикою для агротехнологій. 5000+ SKU, інтеграція 1С.', 'E-commerce with complex logistics for agritech. 5000+ SKU, 1C integration.'),
-        highlights: [t('5000+ SKU', '5000+ SKU'), t('-75% штату', '-75% staff'), 'B2B'],
-        imgFolder: '/images/projects/ecommerce',
-        imgAlt: t('PlantPol B2B портал', 'PlantPol B2B portal'),
-        details: {
-          challenge: t(
-            'Потреба цифрової платформи для заміни ручного управління замовленнями з можливістю замовлення товарів наперед на фіксовані дати доставки.',
-            'Need for digital platform to replace manual order management with ability to pre-order goods for fixed delivery dates.'
-          ),
-          solution: t(
-            'Створено повноцінний інтернет-магазин з кастомним рушієм та унікальною системою логістики замовлень на палетах з плануванням на 1-2 роки.',
-            'Built full-featured online store with custom engine and unique pallet order logistics system with 1-2 year planning.'
-          ),
-          results: [
-            t('Скорочення штату менеджерів на 75% (з 20 до 5)', '75% staff reduction (from 20 to 5 managers)'),
-            t('Стабільне зростання органічного трафіку за 3 роки', 'Steady organic traffic growth over 3 years'),
-            t('Автоматизація складних B2B замовлень', 'Complex B2B order automation')
-          ],
-          tech: ['Angular', 'Laravel', '1C Integration', 'B2B Logic', 'SEO']
         }
       },
       {
@@ -292,6 +269,31 @@ export const getProjects = (locale: 'uk' | 'en'): { title: string; intro: string
             t('Миттєві нотифікації власнику', 'Instant owner notifications')
           ],
           tech: ['Booking System', 'Payment Integration', 'Notifications', 'CRM']
+        }
+      },
+      // ⚠️ ПОТРЕБУЮТЬ ДООПРАЦЮВАННЯ - базові описи
+      {
+        slug: 'ecommerce',
+        title: t('E‑commerce інтеграції', 'E‑commerce integration'),
+        description: t('Каталог, кошик, чек‑аут, ERP, аналітика.', 'Catalog, cart, checkout, ERP, analytics.'),
+        highlights: ['CMS', 'ERP', 'Analytics'],
+        imgFolder: '/images/projects/ecommerce',
+        imgAlt: t('Інтернет‑магазин', 'Online store'),
+        details: {
+          challenge: t(
+            'Повільний чек‑аут, неузгоджені запаси, відсутність наскрізної аналітики.',
+            'Slow checkout, inconsistent stock, lack of end‑to‑end analytics.'
+          ),
+          solution: t(
+            'Швидкий чек‑аут у 1–2 кроки, інтеграції з ERP/WMS/кур\'єрами, персональні промо, GEO‑SEO та наскрізна аналітика.',
+            'Fast 1–2 step checkout, integrations with ERP/WMS/couriers, personalized promos, GEO‑SEO and end‑to‑end analytics.'
+          ),
+          results: [
+            t('Конверсія +10–25%', 'Conversion +10–25%'),
+            t('Менше відмов на етапі оплати', 'Lower checkout drop‑off'),
+            t('Більше органічного трафіку', 'More organic traffic')
+          ],
+          tech: ['React', 'Headless CMS', 'ERP', 'PSP', 'GA4/ETL']
         }
       },
       {

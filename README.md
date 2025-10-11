@@ -31,7 +31,7 @@ VITE_TELEGRAM_BOT_TOKEN=your_bot_token
 VITE_TELEGRAM_CHAT_ID=your_chat_id
 
 # Email
-VITE_TO_EMAIL=your@email.com
+VITE_TO_EMAIL=dmytro@diwave.company
 
 # Site URL
 VITE_SITE_URL=https://diwave.company

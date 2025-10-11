@@ -185,6 +185,6 @@ Disallow: /
 # МЕТА-ІНФОРМАЦІЯ
 # ====================================
 # Host: https://diwave.company
-# Email: kravets.lviv@gmail.com
+# Email: info@diwave.company
 # Supported Languages: uk (default), en
 # Last Updated: 2025-01-11

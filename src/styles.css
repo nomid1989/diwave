@@ -514,14 +514,27 @@ html.light .glass {
 
 /* Hero CTA buttons - Dark theme */
 .hero-cta-primary {
-  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-  color: #1C1C1E;
+  background: linear-gradient(135deg,
+    rgba(6, 182, 212, 1) 0%,
+    rgba(59, 130, 246, 1) 50%,
+    rgba(139, 92, 246, 1) 100%
+  );
+  color: #FFFFFF !important;
   box-shadow:
-    0 4px 15px rgba(0, 0, 0, 0.2),
-    0 1px 3px rgba(255, 255, 255, 0.3) inset;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+    0 10px 30px rgba(6, 182, 212, 0.4),
+    0 2px 8px rgba(59, 130, 246, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
+}
+
+.hero-cta-primary span {
+  color: #FFFFFF !important;
+}
+
+.hero-cta-primary svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
 }
 
 .hero-cta-primary::before {
@@ -607,15 +620,22 @@ html.light .hero-glass-overlay {
   backdrop-filter: blur(60px) saturate(180%);
 }
 
-/* Light theme typography */
+/* Light theme typography - максимальний контраст */
 html.light .hero-title {
-  color: #1C1C1E;
-  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.8);
+  color: #1C1C1E !important;
+  text-shadow:
+    0 2px 4px rgba(255, 255, 255, 1),
+    0 4px 8px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6);
+  font-weight: 800 !important;
 }
 
 html.light .hero-subtitle {
-  color: #3A3A3C;
-  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.5);
+  color: #1C1C1E !important;
+  text-shadow:
+    0 1px 3px rgba(255, 255, 255, 0.9),
+    0 2px 6px rgba(255, 255, 255, 0.6);
+  font-weight: 600 !important;
 }
 
 /* Light theme CTA buttons з перламутровим ефектом */
@@ -625,12 +645,21 @@ html.light .hero-cta-primary {
     #764ba2 50%,
     #f093fb 100%
   );
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   box-shadow:
     0 10px 30px rgba(102, 126, 234, 0.4),
     0 2px 8px rgba(102, 126, 234, 0.3),
     0 0 0 1px rgba(255, 255, 255, 0.5) inset;
   border: none;
+}
+
+html.light .hero-cta-primary span {
+  color: #FFFFFF !important;
+}
+
+html.light .hero-cta-primary svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
 }
 
 html.light .hero-cta-primary:hover {
@@ -683,7 +712,61 @@ html.light .hero-tag:hover {
 /* ============================================ */
 
 html.light .products-section {
-  background: #F9F9F9 !important;
+  background: #FFFFFF !important;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Заголовки секцій - світла тема */
+html.light .products-section h2,
+html.light .products-section p {
+  color: #1C1C1E !important;
+}
+
+html.light .products-section p {
+  color: #3A3A3C !important;
+}
+
+/* Product cards у світлій темі */
+html.light .product-card {
+  background: #FFFFFF !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light .product-card:hover {
+  border-color: rgba(0, 122, 255, 0.3) !important;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 8px 32px rgba(0, 122, 255, 0.15) !important;
+}
+
+/* Текст на картках */
+html.light .product-card h3 {
+  color: #1C1C1E !important;
+}
+
+html.light .product-card p {
+  color: #3A3A3C !important;
+}
+
+/* Кнопки "Дізнатися більше" */
+html.light .product-card a {
+  color: #007AFF !important;
+  border-color: rgba(0, 122, 255, 0.2) !important;
+}
+
+html.light .product-card a:hover {
+  background: rgba(0, 122, 255, 0.08) !important;
+  border-color: rgba(0, 122, 255, 0.4) !important;
+}
+
+/* Бейджі "Популярне", "IoT", "Новинка" */
+html.light .product-card .absolute.top-3 {
+  background: rgba(0, 122, 255, 0.95) !important;
+  color: #FFFFFF !important;
 }
 
 /* ============================================ */
@@ -691,16 +774,75 @@ html.light .products-section {
 /* ============================================ */
 
 html.light .design-gallery {
-  background: #FFFFFF !important;
+  background: #F9F9F9 !important;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+html.light .design-gallery h2 {
+  color: #1C1C1E !important;
+}
+
+html.light .design-gallery p {
+  color: #3A3A3C !important;
 }
 
 /* ============================================ */
 /* ABOUT, FAQ, CTA SECTIONS */
 /* ============================================ */
 
-html.light .about-section,
+html.light .about-section {
+  background: #FFFFFF !important;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+html.light .about-section h2 {
+  color: #1C1C1E !important;
+}
+
+html.light .about-section p {
+  color: #3A3A3C !important;
+}
+
+html.light .about-section a {
+  color: #007AFF !important;
+  border-color: rgba(0, 122, 255, 0.2) !important;
+}
+
+html.light .about-section a:hover {
+  background: rgba(0, 122, 255, 0.08) !important;
+  border-color: rgba(0, 122, 255, 0.4) !important;
+}
+
 html.light .faq-section {
   background: #F9F9F9 !important;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+html.light .faq-section h2,
+html.light .faq-section h3 {
+  color: #1C1C1E !important;
+}
+
+html.light .faq-section p,
+html.light .faq-section div {
+  color: #3A3A3C !important;
+}
+
+/* FAQ кнопки */
+html.light .faq-section button {
+  background: #FFFFFF !important;
+}
+
+html.light .faq-section button:hover {
+  background: #F9F9F9 !important;
+}
+
+/* FAQ відповіді */
+html.light .faq-section .px-5.pb-5 {
+  color: #3A3A3C !important;
 }
 
 /* ============================================ */
@@ -787,4 +929,325 @@ html.light .rounded-2xl.border.bg-white\/5 {
   background: #FFFFFF !important;
   border-color: rgba(0, 0, 0, 0.08) !important;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ============================================ */
+/* UNIVERSAL BUTTONS & LINKS - Світла тема */
+/* ============================================ */
+
+/* Всі кнопки та посилання */
+html.light a,
+html.light button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Primary buttons (білий текст на синьому) */
+html.light a.bg-white,
+html.light button.bg-white {
+  background: #007AFF !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+}
+
+html.light a.bg-white:hover,
+html.light button.bg-white:hover {
+  background: #0056D4 !important;
+  box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
+}
+
+/* Secondary buttons (outline) */
+html.light a.border-white\/30,
+html.light button.border-white\/30 {
+  border-color: rgba(0, 122, 255, 0.3) !important;
+  color: #007AFF !important;
+  background: transparent !important;
+}
+
+html.light a.border-white\/30:hover,
+html.light button.border-white\/30:hover {
+  background: rgba(0, 122, 255, 0.08) !important;
+  border-color: rgba(0, 122, 255, 0.5) !important;
+}
+
+/* Text links */
+html.light a.text-cyan-300,
+html.light a.text-cyan-400 {
+  color: #007AFF !important;
+}
+
+html.light a.text-cyan-300:hover,
+html.light a.text-cyan-400:hover {
+  color: #0056D4 !important;
+  text-decoration: underline;
+}
+
+/* ============================================ */
+/* CONTACT SECTION - Максимальна читабельність */
+/* ============================================ */
+
+html.light section:has(.text-center.text-sm.tracking-widest) {
+  background: #FFFFFF !important;
+}
+
+html.light section:has(.text-center.text-sm.tracking-widest) h2 {
+  color: #1C1C1E !important;
+}
+
+html.light section:has(.text-center.text-sm.tracking-widest) p,
+html.light section:has(.text-center.text-sm.tracking-widest) li {
+  color: #3A3A3C !important;
+}
+
+html.light section:has(.text-center.text-sm.tracking-widest) a {
+  color: #007AFF !important;
+}
+
+html.light section:has(.text-center.text-sm.tracking-widest) a:hover {
+  color: #0056D4 !important;
+}
+
+/* ============================================ */
+/* SECTION HEADERS (SectionHeader component) */
+/* ============================================ */
+
+html.light section h2,
+html.light section h3 {
+  color: #1C1C1E !important;
+}
+
+html.light section p {
+  color: #3A3A3C !important;
+}
+
+/* Overline text (малі заголовки) */
+html.light .text-sm.tracking-widest {
+  color: #6C6C70 !important;
+}
+
+/* ============================================ */
+/* INDUSTRIES SECTION */
+/* ============================================ */
+
+html.light section:has(a[href*="/industries/"]) {
+  background: #F9F9F9 !important;
+}
+
+/* ============================================ */
+/* CONTACT PAGE - iOS 26 Transparency & Glass */
+/* ============================================ */
+
+html.light .contact-card {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(60px) saturate(200%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.03),
+    0 8px 40px rgba(0, 0, 0, 0.05),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset !important;
+}
+
+html.dark .contact-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(60px) saturate(150%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 8px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset !important;
+}
+
+/* Contact Form - iOS 26 Glassy inputs */
+html.light .contact-card input,
+html.light .contact-card textarea {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  color: #1C1C1E !important;
+}
+
+html.light .contact-card input::placeholder,
+html.light .contact-card textarea::placeholder {
+  color: #8E8E93 !important;
+}
+
+html.dark .contact-card input,
+html.dark .contact-card textarea {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px) !important;
+  color: #FFFFFF !important;
+}
+
+html.dark .contact-card input::placeholder,
+html.dark .contact-card textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Contact form wrapper - більша прозорість */
+html.light .contact-card form {
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(40px) !important;
+}
+
+html.dark .contact-card form {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(40px) !important;
+}
+
+/* ============================================ */
+/* MOBILE OPTIMIZATION - Touch targets */
+/* ============================================ */
+
+@media (max-width: 768px) {
+  html.light button,
+  html.light a.inline-flex {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  html.light .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  html.light .hero-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   Catalog Pages iOS 26 Transparency Design
+   ============================================ */
+
+/* Dark Theme - Catalog Cards */
+html.dark article.group {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(60px) saturate(150%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 8px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset !important;
+}
+
+html.dark article.group:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(6, 182, 212, 0.4) !important;
+  box-shadow:
+    0 8px 30px rgba(6, 182, 212, 0.15),
+    0 12px 50px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(6, 182, 212, 0.1) inset !important;
+  transform: scale(1.02) translateZ(0) !important;
+}
+
+/* Light Theme - Catalog Cards */
+html.light article.group {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(60px) saturate(200%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.03),
+    0 8px 40px rgba(0, 0, 0, 0.05),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset !important;
+}
+
+html.light article.group:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  box-shadow:
+    0 8px 30px rgba(59, 130, 246, 0.12),
+    0 12px 50px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(59, 130, 246, 0.15) inset !important;
+  transform: scale(1.02) translateZ(0) !important;
+}
+
+/* Image Overlay Gradients */
+html.dark article.group .bg-gradient-to-t {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent) !important;
+}
+
+html.light article.group .bg-gradient-to-t {
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.4), transparent) !important;
+}
+
+/* Catalog Buttons - Dark Theme */
+html.dark article.group a[class*="rounded-full"] {
+  background: rgba(6, 182, 212, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  border-color: rgba(6, 182, 212, 0.4) !important;
+  color: rgb(165, 243, 252) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+html.dark article.group a[class*="rounded-full"]:hover {
+  background: rgba(6, 182, 212, 0.25) !important;
+  border-color: rgba(6, 182, 212, 0.7) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3) !important;
+}
+
+/* Catalog Buttons - Light Theme */
+html.light article.group a[class*="rounded-full"] {
+  background: rgba(59, 130, 246, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  border-color: rgba(59, 130, 246, 0.6) !important;
+  color: rgb(29, 78, 216) !important;
+}
+
+html.light article.group a[class*="rounded-full"]:hover {
+  background: rgb(59, 130, 246) !important;
+  border-color: rgb(59, 130, 246) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+}
+
+html.light article.group a[class*="rounded-full"]:hover span {
+  color: #FFFFFF !important;
+}
+
+/* Highlight Tags - Dark Theme */
+html.dark article.group span[class*="rounded-full"] {
+  background: rgba(6, 182, 212, 0.1) !important;
+  border-color: rgba(6, 182, 212, 0.2) !important;
+  color: rgb(165, 243, 252) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* Highlight Tags - Light Theme */
+html.light article.group span[class*="rounded-full"] {
+  background: rgba(59, 130, 246, 0.1) !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+  color: rgb(29, 78, 216) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* Text Readability */
+html.dark article.group h3 {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+html.light article.group h3 {
+  color: rgb(17, 24, 39) !important;
+  font-weight: 600;
+}
+
+html.dark article.group p {
+  color: rgb(209, 213, 219) !important;
+}
+
+html.light article.group p {
+  color: rgb(55, 65, 81) !important;
+}
+
+/* Smooth Transitions */
+article.group {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: transform, box-shadow;
+}
+
+article.group img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+article.group svg {
+  transition: transform 0.3s ease !important;
 }

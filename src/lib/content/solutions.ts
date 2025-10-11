@@ -15,6 +15,7 @@ export const getSolutions = (locale: 'uk' | 'en'): { title: string; intro: strin
       '7 core solutions: Samwash QR payments, car wash, vending, drones, e‑commerce, IoT/SCADA, marketing.'
     ),
     items: [
+      // ✅ ПОВНІСТЮ ЗАПОВНЕНІ - детальні сторінки існують
       {
         slug: 'samwash-qr',
         title: t('Samwash: QR‑оплата на автомийках', 'Samwash: QR payments for car wash'),
@@ -40,13 +41,6 @@ export const getSolutions = (locale: 'uk' | 'en'): { title: string; intro: strin
         imgAlt: t('Алко‑вендинг', 'Alcohol vending')
       },
       {
-        slug: 'drones',
-        title: t('Дрони та змагання (Gnizdo)', 'Drones and competitions (Gnizdo)'),
-        description: t('Треки, турніри, телеметрія, суддівство, аналітика.', 'Tracks, tournaments, telemetry, judging, analytics.'),
-        imgFolder: '/images/solutions/drones',
-        imgAlt: t('Дрони', 'Drones')
-      },
-      {
         slug: 'ecommerce',
         title: t('E‑commerce та сайти (B2B/B2C)', 'E‑commerce and websites (B2B/B2C)'),
         description: t('CMS/ERP інтеграції, SEO/GEO‑SEO, конверсії. Кейс Plantpol: -75% штату, 5000+ SKU.', 'CMS/ERP integrations, SEO/GEO‑SEO, conversions. Plantpol case: -75% staff, 5000+ SKU.'),
@@ -66,6 +60,14 @@ export const getSolutions = (locale: 'uk' | 'en'): { title: string; intro: strin
         description: t('Органіка, локальне SEO, таргетинг, e2e аналітика.', 'Organic, local SEO, targeting, end‑to‑end analytics.'),
         imgFolder: '/images/solutions/marketing',
         imgAlt: t('Маркетинг', 'Marketing')
+      },
+      // ⚠️ ПОТРЕБУЮТЬ ДООПРАЦЮВАННЯ - мінімальні сторінки
+      {
+        slug: 'drones',
+        title: t('Дрони та змагання (Gnizdo)', 'Drones and competitions (Gnizdo)'),
+        description: t('Треки, турніри, телеметрія, суддівство, аналітика.', 'Tracks, tournaments, telemetry, judging, analytics.'),
+        imgFolder: '/images/solutions/drones',
+        imgAlt: t('Дрони', 'Drones')
       }
     ]
   };

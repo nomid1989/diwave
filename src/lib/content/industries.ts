@@ -19,6 +19,7 @@ export const getIndustries = (locale: 'uk' | 'en'): { title: string; items: Indu
   return {
     title: t('Індустрії', 'Industries'),
     items: [
+      // ✅ ПОВНІСТЮ ЗАПОВНЕНІ - детальні сторінки з багато контенту
       {
         slug: 'automotive',
         title: t('Автомийки та Automotive', 'Automotive & Car Wash'),
@@ -220,6 +221,7 @@ export const getIndustries = (locale: 'uk' | 'en'): { title: string; items: Indu
           ]
         }
       },
+      // ⚠️ ПОТРЕБУЮТЬ ДООПРАЦЮВАННЯ - базові описи, немає детальних сторінок
       {
         slug: 'ai-ml',
         title: t('AI/ML та Generative AI', 'AI/ML & Generative AI'),

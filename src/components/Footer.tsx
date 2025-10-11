@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <span className="text-gray-500">✉️</span>
-                <a href="mailto:kravets.lviv@gmail.com" className="text-cyan-400 hover:text-cyan-300 transition break-all">kravets.lviv@gmail.com</a>
+                <a href="mailto:info@diwave.company" className="text-cyan-400 hover:text-cyan-300 transition break-all">info@diwave.company</a>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <span className="text-gray-500">📍</span>

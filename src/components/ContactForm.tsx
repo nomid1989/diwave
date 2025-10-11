@@ -5,7 +5,9 @@ import { sendEmail } from '@/lib/email';
 import { formatPageHistory } from '@/lib/pageHistory';
 import { motion } from 'framer-motion';
 
-const ContactForm: React.FC = () => {
+type Props = { locale?: 'uk' | 'en' };
+
+const ContactForm: React.FC<Props> = ({ locale: propLocale }) => {
   const [name, setName] = useState('');
   const [contactType, setContactType] = useState<'email' | 'phone'>('email');
   const [email, setEmail] = useState('');
@@ -16,7 +18,7 @@ const ContactForm: React.FC = () => {
   const [sent, setSent] = useState<null | 'ok' | 'partial' | 'err'>(null);
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const locale: 'uk' | 'en' = pathname.startsWith('/en') ? 'en' : 'uk';
+  const locale: 'uk' | 'en' = propLocale || (pathname.startsWith('/en') ? 'en' : 'uk');
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -104,7 +106,7 @@ const ContactForm: React.FC = () => {
   return (
     <motion.form
       onSubmit={onSubmit}
-      className="space-y-4 p-6 rounded-xl border border-cyan-400/20 bg-black/40"
+      className="space-y-4 p-6 rounded-xl border border-white/10 dark:border-white/10 light:border-gray-200/60 bg-white/3 dark:bg-white/3 light:bg-white/50 backdrop-blur-2xl shadow-lg"
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
     >
@@ -117,20 +119,20 @@ const ContactForm: React.FC = () => {
       </div>
 
       <div>
-        <label className="block text-sm text-gray-300 mb-1">
+        <label className="block text-sm text-white dark:text-white light:text-gray-700 mb-1 font-medium">
           {locale === 'uk' ? "Ім'я" : 'Name'}
         </label>
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="w-full rounded-md bg-gray-900 border border-cyan-400/20 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-cyan-400"
+          className="w-full rounded-lg bg-white/10 dark:bg-white/10 light:bg-white border border-white/20 dark:border-white/20 light:border-gray-300 px-4 py-2.5 text-white dark:text-white light:text-gray-900 placeholder-gray-400 dark:placeholder-gray-400 light:placeholder-gray-500 focus:outline-none focus:border-cyan-400 dark:focus:border-cyan-400 light:focus:border-blue-500 focus:ring-2 focus:ring-cyan-400/20 dark:focus:ring-cyan-400/20 light:focus:ring-blue-500/20 backdrop-blur-sm transition-all"
           placeholder={locale === 'uk' ? "Ваше ім'я" : 'Your name'}
         />
       </div>
 
       <div>
-        <label className="block text-sm text-gray-300 mb-2">
+        <label className="block text-sm text-white dark:text-white light:text-gray-700 mb-2 font-medium">
           {locale === 'uk' ? 'Спосіб зв\'язку' : 'Contact method'}
         </label>
         <div className="flex gap-4 mb-3">
@@ -140,9 +142,9 @@ const ContactForm: React.FC = () => {
               value="email"
               checked={contactType === 'email'}
               onChange={(e) => setContactType(e.target.value as 'email' | 'phone')}
-              className="w-4 h-4 text-cyan-400 bg-gray-900 border-cyan-400/20 focus:ring-cyan-400"
+              className="w-4 h-4 text-cyan-400 dark:text-cyan-400 light:text-blue-600 bg-white/10 dark:bg-white/10 light:bg-white border-white/20 dark:border-white/20 light:border-gray-300 focus:ring-cyan-400 dark:focus:ring-cyan-400 light:focus:ring-blue-600"
             />
-            <span className="text-gray-300">Email</span>
+            <span className="text-white dark:text-white light:text-gray-700 font-medium">Email</span>
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -150,9 +152,9 @@ const ContactForm: React.FC = () => {
               value="phone"
               checked={contactType === 'phone'}
               onChange={(e) => setContactType(e.target.value as 'email' | 'phone')}
-              className="w-4 h-4 text-cyan-400 bg-gray-900 border-cyan-400/20 focus:ring-cyan-400"
+              className="w-4 h-4 text-cyan-400 dark:text-cyan-400 light:text-blue-600 bg-white/10 dark:bg-white/10 light:bg-white border-white/20 dark:border-white/20 light:border-gray-300 focus:ring-cyan-400 dark:focus:ring-cyan-400 light:focus:ring-blue-600"
             />
-            <span className="text-gray-300">{locale === 'uk' ? 'Телефон' : 'Phone'}</span>
+            <span className="text-white dark:text-white light:text-gray-700 font-medium">{locale === 'uk' ? 'Телефон' : 'Phone'}</span>
           </label>
         </div>
 
@@ -162,23 +164,31 @@ const ContactForm: React.FC = () => {
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             required
-            className="w-full rounded-md bg-gray-900 border border-cyan-400/20 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-cyan-400"
-            placeholder="you@example.com"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            className="w-full rounded-lg bg-white/10 dark:bg-white/10 light:bg-white border border-white/20 dark:border-white/20 light:border-gray-300 px-4 py-2.5 text-white dark:text-white light:text-gray-900 placeholder-gray-400 dark:placeholder-gray-400 light:placeholder-gray-500 focus:outline-none focus:border-cyan-400 dark:focus:border-cyan-400 light:focus:border-blue-500 focus:ring-2 focus:ring-cyan-400/20 dark:focus:ring-cyan-400/20 light:focus:ring-blue-500/20 backdrop-blur-sm transition-all"
+            placeholder={locale === 'uk' ? 'you@example.com' : 'you@example.com'}
+            title={locale === 'uk' ? 'Введіть дійсну email адресу' : 'Enter a valid email address'}
           />
         ) : (
           <input
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => {
+              // International phone mask - allow +, digits, spaces, hyphens, parentheses
+              const cleaned = e.target.value.replace(/[^\d+\s()-]/g, '');
+              setPhone(cleaned);
+            }}
             type="tel"
             required
-            className="w-full rounded-md bg-gray-900 border border-cyan-400/20 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-cyan-400"
-            placeholder="+380 50 123 4567"
+            pattern="[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,5}[-\s\.]?[0-9]{1,5}"
+            className="w-full rounded-lg bg-white/10 dark:bg-white/10 light:bg-white border border-white/20 dark:border-white/20 light:border-gray-300 px-4 py-2.5 text-white dark:text-white light:text-gray-900 placeholder-gray-400 dark:placeholder-gray-400 light:placeholder-gray-500 focus:outline-none focus:border-cyan-400 dark:focus:border-cyan-400 light:focus:border-blue-500 focus:ring-2 focus:ring-cyan-400/20 dark:focus:ring-cyan-400/20 light:focus:ring-blue-500/20 backdrop-blur-sm transition-all"
+            placeholder={locale === 'uk' ? '+380 50 123 4567' : '+380 50 123 4567'}
+            title={locale === 'uk' ? 'Введіть міжнародний номер телефону (напр: +380 50 123 4567)' : 'Enter international phone number (e.g: +380 50 123 4567)'}
           />
         )}
       </div>
 
       <div>
-        <label className="block text-sm text-gray-300 mb-1">
+        <label className="block text-sm text-white dark:text-white light:text-gray-700 mb-1 font-medium">
           {locale === 'uk' ? 'Короткий опис' : 'Brief description'}
         </label>
         <textarea
@@ -186,7 +196,7 @@ const ContactForm: React.FC = () => {
           onChange={(e) => setMessage(e.target.value)}
           required
           rows={4}
-          className="w-full rounded-md bg-gray-900 border border-cyan-400/20 px-3 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-cyan-400"
+          className="w-full rounded-lg bg-white/10 dark:bg-white/10 light:bg-white border border-white/20 dark:border-white/20 light:border-gray-300 px-4 py-2.5 text-white dark:text-white light:text-gray-900 placeholder-gray-400 dark:placeholder-gray-400 light:placeholder-gray-500 focus:outline-none focus:border-cyan-400 dark:focus:border-cyan-400 light:focus:border-blue-500 focus:ring-2 focus:ring-cyan-400/20 dark:focus:ring-cyan-400/20 light:focus:ring-blue-500/20 backdrop-blur-sm transition-all resize-none"
           placeholder={locale === 'uk' ? 'Розкажіть про ваш проєкт' : 'Tell us about your project'}
         />
       </div>
@@ -194,12 +204,12 @@ const ContactForm: React.FC = () => {
         <button
           type="submit"
           disabled={sending}
-          className="px-4 py-2 rounded-md bg-emerald-500 text-black font-semibold shadow-[0_0_16px_rgba(16,185,129,0.5)] hover:bg-emerald-400 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+          className="px-6 py-3 rounded-xl bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 font-bold shadow-lg hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 transition-all disabled:opacity-60 disabled:cursor-not-allowed hover:scale-105"
         >
-          {sending
+          <span className="text-white">{sending
             ? (locale === 'uk' ? 'Надсилання…' : 'Sending…')
             : (locale === 'uk' ? 'Надіслати' : 'Send')
-          }
+          }</span>
         </button>
         {sent === 'ok' && (
           <span className="text-emerald-400">
