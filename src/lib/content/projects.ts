@@ -139,7 +139,7 @@ export const getProjects = (locale: 'uk' | 'en'): { title: string; intro: string
             'Slow checkout, inconsistent stock, lack of end‑to‑end analytics.'
           ),
           solution: t(
-            'Швидкий чек‑аут у 1–2 кроки, інтеграції з ERP/WMS/кур’єрами, персональні промо, GEO‑SEO та наскрізна аналітика.',
+            'Швидкий чек‑аут у 1–2 кроки, інтеграції з ERP/WMS/кур\'єрами, персональні промо, GEO‑SEO та наскрізна аналітика.',
             'Fast 1–2 step checkout, integrations with ERP/WMS/couriers, personalized promos, GEO‑SEO and end‑to‑end analytics.'
           ),
           results: [
@@ -148,6 +148,150 @@ export const getProjects = (locale: 'uk' | 'en'): { title: string; intro: string
             t('Більше органічного трафіку', 'More organic traffic')
           ],
           tech: ['React', 'Headless CMS', 'ERP', 'PSP', 'GA4/ETL']
+        }
+      },
+      {
+        slug: 'plantpol',
+        title: t('PlantPol Ukraine — B2B портал', 'PlantPol Ukraine — B2B portal'),
+        description: t('E-commerce зі складною логістикою для агротехнологій. 5000+ SKU, інтеграція 1С.', 'E-commerce with complex logistics for agritech. 5000+ SKU, 1C integration.'),
+        highlights: [t('5000+ SKU', '5000+ SKU'), t('-75% штату', '-75% staff'), 'B2B'],
+        imgFolder: '/images/projects/ecommerce',
+        imgAlt: t('PlantPol B2B портал', 'PlantPol B2B portal'),
+        details: {
+          challenge: t(
+            'Потреба цифрової платформи для заміни ручного управління замовленнями з можливістю замовлення товарів наперед на фіксовані дати доставки.',
+            'Need for digital platform to replace manual order management with ability to pre-order goods for fixed delivery dates.'
+          ),
+          solution: t(
+            'Створено повноцінний інтернет-магазин з кастомним рушієм та унікальною системою логістики замовлень на палетах з плануванням на 1-2 роки.',
+            'Built full-featured online store with custom engine and unique pallet order logistics system with 1-2 year planning.'
+          ),
+          results: [
+            t('Скорочення штату менеджерів на 75% (з 20 до 5)', '75% staff reduction (from 20 to 5 managers)'),
+            t('Стабільне зростання органічного трафіку за 3 роки', 'Steady organic traffic growth over 3 years'),
+            t('Автоматизація складних B2B замовлень', 'Complex B2B order automation')
+          ],
+          tech: ['Angular', 'Laravel', '1C Integration', 'B2B Logic', 'SEO']
+        }
+      },
+      {
+        slug: 'lemberg-flowers',
+        title: t('Lemberg Flowers — Презентаційний сайт', 'Lemberg Flowers — Presentation site'),
+        description: t('Високошвидкісний сайт для виробництва квітів. Google Speedtest оптимізація.', 'High-speed site for flower production. Google Speedtest optimization.'),
+        highlights: ['Vue.js', 'Performance', 'B2C'],
+        imgFolder: '/images/projects/ecommerce',
+        imgAlt: t('Lemberg Flowers сайт', 'Lemberg Flowers site'),
+        details: {
+          challenge: t(
+            'Створення якісної онлайн-презентації виробництва горщикових квітів з вимогою виняткової швидкості завантаження.',
+            'Creating quality online presentation for potted flower production with exceptional loading speed requirement.'
+          ),
+          solution: t(
+            'Розроблено високопродуктивний презентаційний веб-сайт на базі Vue.js з фокусом на Google Speedtest Optimization та Core Web Vitals. Інтеграція Telegram/Email для лідогенерації.',
+            'Built high-performance presentation website on Vue.js focused on Google Speedtest Optimization and Core Web Vitals. Telegram/Email integration for lead generation.'
+          ),
+          results: [
+            t('Виняткова швидкість завантаження', 'Exceptional loading speed'),
+            t('Миттєва доставка запитів через Telegram/Email', 'Instant query delivery via Telegram/Email'),
+            t('Ефективна презентація виробництва', 'Effective production presentation')
+          ],
+          tech: ['Vue.js', 'Static Site', 'Telegram API', 'Speed Optimization']
+        }
+      },
+      {
+        slug: 'usa-ua',
+        title: t('USA.UA — Міжнародна логістика', 'USA.UA — International logistics'),
+        description: t('Система закупівлі товарів з США. Агрегатор доставки з американських сайтів.', 'US goods procurement system. Aggregator for delivery from American sites.'),
+        highlights: ['USA→UA', 'Tracking', 'Payments'],
+        imgFolder: '/images/projects/ecommerce',
+        imgAlt: t('USA.UA платформа', 'USA.UA platform'),
+        details: {
+          challenge: t(
+            'Створення складної e-commerce системи-посередника для закупівлі товарів з американських сайтів з доставкою в Україну.',
+            'Creating complex e-commerce intermediary system for purchasing goods from American sites with delivery to Ukraine.'
+          ),
+          solution: t(
+            'Платформа автоматично здійснює закупівлю, логістичне трекінгове супроводження та доставку. Інтеграція міжнародних платіжних шлюзів.',
+            'Platform automatically handles purchasing, logistics tracking and delivery. International payment gateway integration.'
+          ),
+          results: [
+            t('Автоматизація міжнародних закупівель', 'International procurement automation'),
+            t('Повне трекінгове супроводження', 'Full tracking support'),
+            t('Інтеграція складних логістичних процесів', 'Complex logistics process integration')
+          ],
+          tech: ['E-commerce', 'International PSP', 'Tracking API', 'Logistics']
+        }
+      },
+      {
+        slug: 'gnizdo',
+        title: t('Асоціація Пілотів Дронів GNIZDO', 'Drone Pilots Association GNIZDO'),
+        description: t('Веб-платформа для спортивної асоціації пілотів дронів. Спільнота, спорт, інвестори.', 'Web platform for sports drone pilots association. Community, sports, investors.'),
+        highlights: ['Community', 'Sport', 'Drones'],
+        imgFolder: '/images/projects/drones',
+        imgAlt: t('GNIZDO платформа', 'GNIZDO platform'),
+        details: {
+          challenge: t(
+            'Створення веб-сайту для Спортивної асоціації пілотів дронів «Гніздо» як початок розбудови великої мережі платформ для спільноти.',
+            'Creating website for Sports Drone Pilots Association "Gnizdo" as start of building large network of community platforms.'
+          ),
+          solution: t(
+            'Розроблено веб-платформу для нішевої спільноти пілотів дронів, що об\'єднує спорт, розробників та інвесторів.',
+            'Built web platform for niche drone pilot community uniting sports, developers and investors.'
+          ),
+          results: [
+            t('Цифрова екосистема для нішевої спільноти', 'Digital ecosystem for niche community'),
+            t('Платформа для спорту та розробників', 'Platform for sports and developers'),
+            t('База для розширення мережі', 'Foundation for network expansion')
+          ],
+          tech: ['React', 'Community Platform', 'Sports Management']
+        }
+      },
+      {
+        slug: 'lasso-ai',
+        title: t('Lasso.ai — Email SaaS', 'Lasso.ai — Email SaaS'),
+        description: t('Платформа SaaS для email-розсилок. Високо навантажені комунікаційні системи.', 'SaaS platform for email campaigns. High-load communication systems.'),
+        highlights: ['SaaS', 'Email', 'High-load'],
+        imgFolder: '/images/projects/loyalty',
+        imgAlt: t('Lasso.ai платформа', 'Lasso.ai platform'),
+        details: {
+          challenge: t(
+            'Участь у програмуванні високо навантаженого SaaS сервісу для email-розсилок.',
+            'Participation in programming high-load SaaS service for email campaigns.'
+          ),
+          solution: t(
+            'Розробка архітектури та функціоналу для масових email-розсилок з розумінням механізмів email-маркетингу.',
+            'Architecture and functionality development for mass email campaigns with understanding of email marketing mechanics.'
+          ),
+          results: [
+            t('Досвід створення високо навантажених платформ', 'Experience building high-load platforms'),
+            t('Розуміння механізмів email-маркетингу', 'Understanding of email marketing mechanics'),
+            t('SaaS архітектура та масштабування', 'SaaS architecture and scaling')
+          ],
+          tech: ['SaaS', 'Email Marketing', 'High-load', 'Queue Systems']
+        }
+      },
+      {
+        slug: 'hostel-booking',
+        title: t('Готельний Менеджмент (Хостели)', 'Hotel Management (Hostels)'),
+        description: t('Кастомна програма бронювання для хостелів. Бронювання кімнат/ліжок, оплата, нотифікації.', 'Custom booking app for hostels. Room/bed booking, payment, notifications.'),
+        highlights: ['Booking', 'Payments', 'Hostels'],
+        imgFolder: '/images/projects/loyalty',
+        imgAlt: t('Система бронювання хостелів', 'Hostel booking system'),
+        details: {
+          challenge: t(
+            'Розробка кастомної програми бронювання для трьох хостелів з унікальною логікою вибору кімнати або ліжка.',
+            'Developing custom booking app for three hostels with unique room or bed selection logic.'
+          ),
+          solution: t(
+            'Система з вибором бронювання кімнати або ліжка, автоматичним розрахунком суми, інтеграцією оплати та миттєвим сповіщенням власника.',
+            'System with room or bed booking selection, automatic amount calculation, payment integration and instant owner notification.'
+          ),
+          results: [
+            t('Автоматизація процесу бронювання', 'Booking process automation'),
+            t('Гнучка логіка кімнати/ліжка', 'Flexible room/bed logic'),
+            t('Миттєві нотифікації власнику', 'Instant owner notifications')
+          ],
+          tech: ['Booking System', 'Payment Integration', 'Notifications', 'CRM']
         }
       },
       {

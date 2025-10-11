@@ -177,7 +177,8 @@ const Home: React.FC<Props> = ({ locale }) => {
             </div>
             <div className="p-6">
               <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">Автомийки самообслуговування SamWash</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">Повністю автоматизовані комплекси з готівковими, безготівковими та монетними платіжними інтеграціями та дистанційним керуванням та обслуговуванням. Ти спиш а бізнес працює 24/7 з EBITDA 70%</p>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">Повністю автоматизовані комплекси з EBITDA 70%. Інтеграції з готівковими, безготівковими та монетними платіжними пристроями та дистанційним
+                  керуванням і обслуговуванням. <br/> Ти спиш, а бізнес працює 24/7</p>
               <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-blue-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition group-hover:border-cyan-400/60">
                 Дізнатися більше
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -200,8 +201,8 @@ const Home: React.FC<Props> = ({ locale }) => {
               <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-purple-500/90 text-white text-xs font-semibold backdrop-blur">IoT</div>
             </div>
             <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">Вендингові апарати з сенсорним екраном та ступенем захисту IP 65</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4 flex-1">Ефективний пилосос самообслуговування потужністю 6 кВт 380V з великим вертикальним дисплеєм для автомийок, EV-станцій та зон скупчення автомобілей</p>
+              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">Порохотяг самообслуговування з сенсорним екраном та ступенем захисту IP 65</h3>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4 flex-1">Ефективний порохотяг самообслуговування на 2 поста, потужністю 6 кВт 380V для автомийок, електро зарядних станцій та зон скупчення автомобілей</p>
               <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-purple-300 text-white dark:text-white light:text-purple-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-purple-50 transition group-hover:border-purple-400/60">
                 Дізнатися більше
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -285,7 +286,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
               <div className="absolute bottom-0 p-6">
-                <h3 className="text-white text-2xl font-bold mb-2">E-commerce</h3>
+                <h3 className="text-white text-2xl font-bold mb-2">Електронна комерція</h3>
                 <p className="text-gray-300 text-sm mb-3">Розробка інтернет-магазинів з повною автоматизацією</p>
                 <div className="flex flex-wrap gap-2">
                   <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">Без кол-центру</span>
@@ -394,7 +395,7 @@ const Home: React.FC<Props> = ({ locale }) => {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-400/20 to-blue-400/20 blur-2xl" aria-hidden />
               <div className="relative rounded-2xl overflow-hidden border border-cyan-500/30 bg-black/20">
                 <img
-                  src="/images/projects/img_3.png"
+                  src="/images/projects/img_2.png"
                   alt="Вендинговий апарат з сенсорним екраном та захистом IP65"
                   className="w-full h-auto object-contain"
                 />

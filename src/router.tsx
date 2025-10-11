@@ -21,6 +21,12 @@ import DronesProject from './pages/projects/Drones';
 import LoyaltyCRMProject from './pages/projects/LoyaltyCRM';
 import EcommerceProject from './pages/projects/Ecommerce';
 import EnergyProject from './pages/projects/Energy';
+import LembergFlowersProject from './pages/projects/LembergFlowers';
+import PlantPolProject from './pages/projects/PlantPol';
+import UsaUaProject from './pages/projects/UsaUa';
+import GnizdoProject from './pages/projects/Gnizdo';
+import LassoAiProject from './pages/projects/LassoAi';
+import HostelBookingProject from './pages/projects/HostelBooking';
 
 // Нові детальні сторінки рішень
 import CarWashes from './pages/solutions/CarWashes';
@@ -82,6 +88,12 @@ export const router = createBrowserRouter([
       { path: 'projects/loyalty-crm', element: withLayout(<LoyaltyCRMProject />) },
       { path: 'projects/ecommerce', element: withLayout(<EcommerceProject />) },
       { path: 'projects/energy', element: withLayout(<EnergyProject />) },
+      { path: 'projects/plantpol', element: withLayout(<PlantPolProject />) },
+      { path: 'projects/lemberg-flowers', element: withLayout(<LembergFlowersProject />) },
+      { path: 'projects/usa-ua', element: withLayout(<UsaUaProject />) },
+      { path: 'projects/gnizdo', element: withLayout(<GnizdoProject />) },
+      { path: 'projects/lasso-ai', element: withLayout(<LassoAiProject />) },
+      { path: 'projects/hostel-booking', element: withLayout(<HostelBookingProject />) },
 
       { path: 'industries/automotive/car-wash-qr', element: withLayout(<AutomotiveCarWashQR />) },
 
@@ -130,6 +142,12 @@ export const router = createBrowserRouter([
       { path: 'projects/loyalty-crm', element: withLayout(<LoyaltyCRMProject />) },
       { path: 'projects/ecommerce', element: withLayout(<EcommerceProject />) },
       { path: 'projects/energy', element: withLayout(<EnergyProject />) },
+      { path: 'projects/plantpol', element: withLayout(<PlantPolProject />) },
+      { path: 'projects/lemberg-flowers', element: withLayout(<LembergFlowersProject />) },
+      { path: 'projects/usa-ua', element: withLayout(<UsaUaProject />) },
+      { path: 'projects/gnizdo', element: withLayout(<GnizdoProject />) },
+      { path: 'projects/lasso-ai', element: withLayout(<LassoAiProject />) },
+      { path: 'projects/hostel-booking', element: withLayout(<HostelBookingProject />) },
 
       { path: 'industries/automotive/car-wash-qr', element: withLayout(<AutomotiveCarWashQR />) },
 

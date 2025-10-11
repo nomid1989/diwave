@@ -12,10 +12,11 @@ body {
   @apply bg-black text-white transition-colors duration-300;
 }
 
-/* Light theme */
+/* Light theme - iOS 26 style */
 html.light,
 html.light body {
   @apply bg-white text-gray-900;
+  background: linear-gradient(to bottom, #f5f7fa 0%, #eef1f5 100%);
 }
 
 html.light {
@@ -24,29 +25,252 @@ html.light {
 
 html.dark {
   color-scheme: dark;
-}
-
-/* Додатково для iOS 26 стиль */
-html.light {
-  background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
-}
-
-html.dark {
   background: #000000;
 }
 
+/* Текст для світлої теми - iOS 26 палітра */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  @apply text-gray-900;
+}
+
+html.light p,
+html.light span,
+html.light div {
+  @apply text-gray-800;
+}
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6,
+html.dark p,
+html.dark span,
+html.dark div {
+  @apply text-white;
+}
+
+/* Скляний ефект - iOS 26 */
 .glass {
   @apply bg-iosGlass backdrop-blur-md border border-iosBorder;
 }
 
-.light .glass {
-  @apply bg-white/80 backdrop-blur-md border border-gray-200;
+html.light .glass {
+  @apply bg-white/90 backdrop-blur-xl border border-gray-200/50;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
+/* Градієнти */
 .hero-gradient {
   background: radial-gradient(ellipse at top, rgba(34,211,238,0.2), rgba(0,0,0,1));
 }
 
-.light .hero-gradient {
+html.light .hero-gradient {
   background: radial-gradient(ellipse at top, rgba(59,130,246,0.15), rgba(249,250,251,1));
+}
+
+/* Картки та фони - iOS 26 стиль */
+html.light .bg-black {
+  @apply bg-white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+html.light .bg-white\/5 {
+  @apply bg-gray-50/90;
+  backdrop-filter: blur(20px);
+}
+
+html.light .bg-white\/10 {
+  @apply bg-gray-100/90;
+  backdrop-filter: blur(20px);
+}
+
+html.light .bg-black\/40 {
+  @apply bg-white/95;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+html.light .bg-black\/60 {
+  @apply bg-white;
+  backdrop-filter: blur(20px);
+}
+
+html.light .bg-black\/50 {
+  @apply bg-white/95;
+  backdrop-filter: blur(20px);
+}
+
+/* Текстові кольори - iOS 26 */
+html.light .text-white {
+  @apply text-gray-900;
+}
+
+html.light .text-gray-400 {
+  @apply text-gray-600;
+}
+
+html.light .text-gray-300 {
+  @apply text-gray-700;
+}
+
+html.light .text-cyan-300 {
+  @apply text-blue-600;
+}
+
+html.light .text-cyan-400 {
+  @apply text-blue-700;
+}
+
+html.light .text-cyan-200 {
+  @apply text-blue-500;
+}
+
+/* Рамки - iOS 26 */
+html.light .border-white\/10 {
+  @apply border-gray-200/60;
+}
+
+html.light .border-white\/20 {
+  @apply border-gray-300/70;
+}
+
+html.light .border-white\/30 {
+  @apply border-gray-300;
+}
+
+html.light .border-cyan-400\/20 {
+  @apply border-blue-200;
+}
+
+html.light .border-cyan-400\/30 {
+  @apply border-blue-300;
+}
+
+html.light .border-cyan-500\/20 {
+  @apply border-blue-300;
+}
+
+html.light .border-cyan-500\/30 {
+  @apply border-blue-400;
+}
+
+/* Фони з акцентами - iOS 26 */
+html.light .bg-cyan-500\/10 {
+  @apply bg-blue-50;
+}
+
+html.light .bg-cyan-400\/10 {
+  @apply bg-blue-50;
+}
+
+html.light .bg-cyan-500\/20 {
+  @apply bg-blue-100/70;
+}
+
+html.light .bg-emerald-500\/20 {
+  @apply bg-green-100/70;
+}
+
+html.light .bg-purple-500\/20 {
+  @apply bg-purple-100/70;
+}
+
+html.light .bg-cyan-500\/90 {
+  @apply bg-blue-600;
+}
+
+html.light .bg-purple-500\/90 {
+  @apply bg-purple-600;
+}
+
+html.light .bg-emerald-500\/90 {
+  @apply bg-green-600;
+}
+
+/* Бейджі та теги - iOS 26 */
+html.light .text-cyan-300,
+html.light .text-cyan-200 {
+  @apply text-blue-700;
+}
+
+html.light .text-emerald-300 {
+  @apply text-green-700;
+}
+
+html.light .text-purple-300 {
+  @apply text-purple-700;
+}
+
+html.light .border-cyan-400\/30 {
+  @apply border-blue-300;
+}
+
+html.light .border-emerald-400\/30 {
+  @apply border-green-300;
+}
+
+html.light .border-purple-400\/30 {
+  @apply border-purple-300;
+}
+
+/* Кнопки hover - iOS 26 */
+html.light .hover\:bg-white\/10:hover {
+  @apply bg-gray-100;
+}
+
+html.light .hover\:bg-white\/5:hover {
+  @apply bg-gray-50;
+}
+
+html.light .hover\:bg-cyan-400\/10:hover {
+  @apply bg-blue-100;
+}
+
+html.light .hover\:text-white:hover {
+  @apply text-gray-900;
+}
+
+/* Тіні та світіння - iOS 26 */
+html.light .hover\:border-cyan-300\/40:hover {
+  @apply border-blue-400/60;
+}
+
+html.light .hover\:border-cyan-400\/50:hover {
+  @apply border-blue-500;
+}
+
+html.light .hover\:border-cyan-400\/60:hover {
+  @apply border-blue-500;
+}
+
+html.light .hover\:shadow-cyan-500\/20:hover {
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+}
+
+/* Градієнти для секцій */
+html.light .bg-gradient-to-br.from-cyan-500\/5 {
+  @apply from-blue-50 to-indigo-50;
+}
+
+html.light .bg-gradient-to-br.from-cyan-900\/20 {
+  @apply from-blue-100/50 to-indigo-100/50;
+}
+
+html.light .bg-gradient-to-br.from-purple-900\/20 {
+  @apply from-purple-100/50 to-pink-100/50;
+}
+
+html.light .bg-gradient-to-br.from-emerald-900\/20 {
+  @apply from-green-100/50 to-teal-100/50;
+}
+
+/* Поділювачі */
+html.light .divide-white\/10 > * + * {
+  @apply border-gray-200;
 }

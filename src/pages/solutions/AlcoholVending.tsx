@@ -30,7 +30,7 @@ export default function AlcoholVending() {
         title={title}
         description={description}
         url={url}
-        image={`${baseUrl}/images/solutions/alcohol-vending/cover.jpg`}
+        image={`${baseUrl}/images/solutions/alcohol-vending/vending-mashines-snaks.png`}
         locale="uk"
         alternates={[{ hrefLang: 'uk', href: url }]}
         jsonLd={jsonLd}
@@ -68,7 +68,7 @@ export default function AlcoholVending() {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-400/20 to-blue-400/20 blur-2xl" aria-hidden />
               <div className="relative rounded-2xl overflow-hidden border border-cyan-500/30 bg-black/20">
                 <img
-                  src="/images/projects/img_3.png"
+                  src="/images/projects/alcohol/vending-mashines-snaks.png"
                   alt="Вендинговий апарат з сенсорним екраном та захистом IP65"
                   className="w-full h-auto object-contain"
                 />

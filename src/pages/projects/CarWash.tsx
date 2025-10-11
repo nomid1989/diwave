@@ -62,6 +62,101 @@ export default function CarWashProject() {
           </div>
         </section>
 
+        {/* SAMWASH Ecosystem Overview */}
+        <section className="mx-auto max-w-7xl px-6 py-12">
+          <div className="rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 p-8 md:p-12 backdrop-blur">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Екосистема SAMWASH — Трансформація Бізнесу Самообслуговування
+              </h2>
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+                Повноцінна, трирівнева цифрова екосистема, що інтегрує IoT, FinTech та потужну CRM
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              {/* Level 1: Customer Interaction */}
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-3xl">📱</span>
+                  <div>
+                    <h3 className="text-white font-semibold text-lg">Рівень 1</h3>
+                    <p className="text-cyan-400 text-sm">Взаємодія з Клієнтами</p>
+                  </div>
+                </div>
+                <div className="space-y-3 text-sm text-gray-300">
+                  <p><strong className="text-white">app.samwash.ua</strong></p>
+                  <p>Веб-додаток на React/Next.js для миттєвої оплати послуг через QR-код</p>
+                  <div className="pt-3 border-t border-white/10">
+                    <p className="text-cyan-300 font-semibold mb-2">Результат:</p>
+                    <ul className="space-y-1 text-xs">
+                      <li>✓ Безготівкова оплата</li>
+                      <li>✓ Швидке обслуговування</li>
+                      <li>✓ Маркетингові акції</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Level 2: IoT Middleware */}
+              <div className="rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 p-6 backdrop-blur">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-3xl">🔌</span>
+                  <div>
+                    <h3 className="text-white font-semibold text-lg">Рівень 2</h3>
+                    <p className="text-cyan-400 text-sm">IoT та Middleware</p>
+                  </div>
+                </div>
+                <div className="space-y-3 text-sm text-gray-300">
+                  <p><strong className="text-white">API ph.ua</strong></p>
+                  <p>Спеціалізований API — міст між веб-сервісами та фізичним обладнанням</p>
+                  <div className="pt-3 border-t border-white/10">
+                    <p className="text-cyan-300 font-semibold mb-2">Технологія:</p>
+                    <ul className="space-y-1 text-xs">
+                      <li>✓ Raspberry Pi 5 як контролер</li>
+                      <li>✓ Низька затримка</li>
+                      <li>✓ Надійність терміналів</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Level 3: Business Management */}
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-3xl">💼</span>
+                  <div>
+                    <h3 className="text-white font-semibold text-lg">Рівень 3</h3>
+                    <p className="text-cyan-400 text-sm">Управління Бізнесом</p>
+                  </div>
+                </div>
+                <div className="space-y-3 text-sm text-gray-300">
+                  <p><strong className="text-white">admin.samwash.ua</strong></p>
+                  <p>Потужна CRM для власників та менеджерів</p>
+                  <div className="pt-3 border-t border-white/10">
+                    <p className="text-cyan-300 font-semibold mb-2">Функції:</p>
+                    <ul className="space-y-1 text-xs">
+                      <li>✓ Моніторинг доходів 24/7</li>
+                      <li>✓ Управління інкасаціями</li>
+                      <li>✓ Predictive Maintenance</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-purple-500/20 bg-purple-500/5 p-6">
+              <h3 className="text-white font-semibold text-lg mb-3">🔑 Ключова Цінність</h3>
+              <p className="text-gray-300 text-sm">
+                Впровадження елементів <strong className="text-purple-300">Предиктивного Обслуговування (Predictive Maintenance)</strong>,
+                що допомагає заздалегідь прогнозувати потенційні поломки та мінімізувати простої.
+                Наша унікальність — здатність поєднувати програмне забезпечення з фізичним світом,
+                створюючи повністю керовані цифрові екосистеми.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Main Description */}
         <section className="mx-auto max-w-7xl px-6 py-12">
           <div className="max-w-4xl mx-auto">

@@ -1,25 +1,190 @@
-# robots.txt — дозволяємо індексацію для всіх пошукових та AI-ботів
+# Diwave Solutions - Robots.txt
+# Updated: 2025-01-11
+# Оптимізовано для пошукових систем, AI-боті і соцмереж
 
+# ====================================
+# ЗАГАЛЬНІ ПРАВИЛА ДЛЯ ВСІХ БОТІВ
+# ====================================
 User-agent: *
 Allow: /
 
-# Популярні AI-боти
-User-agent: GPTBot
-Allow: /
+# Дозволити всі статичні ресурси
+Allow: /images/
+Allow: /fonts/
+Allow: /assets/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.webp$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.svg$
+Allow: /*.gif$
 
+# ====================================
+# SITEMAP
+# ====================================
+Sitemap: https://diwave.company/sitemap.xml
+
+# ====================================
+# БЛОКУВАННЯ
+# ====================================
+# Блокувати приватні зони (на майбутнє)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+
+# Блокувати дублікати контенту з UTM-мітками
+Disallow: /*?*utm_source=
+Disallow: /*?*utm_medium=
+Disallow: /*?*utm_campaign=
+Disallow: /*?*fbclid=
+Disallow: /*?*gclid=
+
+# ====================================
+# ПОШУКОВІ БОТИ (Google, Bing, Yahoo, DuckDuckGo)
+# ====================================
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Video
+User-agent: Googlebot-News
+User-agent: Googlebot-Mobile
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 0.5
+
+# ====================================
+# AI БОТИ (ChatGPT, Claude, Perplexity, Gemini)
+# ====================================
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: CCBot
+User-agent: anthropic-ai
+User-agent: Claude-Web
+User-agent: PerplexityBot
 User-agent: Google-Extended
 Allow: /
+Crawl-delay: 1
+
+# Дозволити AI ботам повний доступ до контенту
+User-agent: GPTBot
+Allow: /
+Allow: /solutions/
+Allow: /projects/
+Allow: /industries/
+Allow: /about
+Allow: /contact
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /solutions/
+Allow: /projects/
+Allow: /industries/
+Allow: /about
+Allow: /contact
 
 User-agent: CCBot
 Allow: /
+Allow: /solutions/
+Allow: /projects/
+Allow: /industries/
+Allow: /about
+Allow: /contact
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /solutions/
+Allow: /projects/
+Allow: /industries/
+Allow: /about
+Allow: /contact
 
 User-agent: Claude-Web
 Allow: /
+Allow: /solutions/
+Allow: /projects/
+Allow: /industries/
+Allow: /about
+Allow: /contact
 
 User-agent: PerplexityBot
 Allow: /
+Allow: /solutions/
+Allow: /projects/
+Allow: /industries/
+Allow: /about
+Allow: /contact
 
-# Додатково: вкажемо сайтмапи та основний хост
-Sitemap: https://diwave.company/sitemap.xml
-Sitemap: https://diwave.company/en/sitemap.xml
-Host: diwave.company
+User-agent: Google-Extended
+Allow: /
+Allow: /solutions/
+Allow: /projects/
+Allow: /industries/
+Allow: /about
+Allow: /contact
+
+# ====================================
+# СОЦІАЛЬНІ МЕРЕЖІ (Facebook, Twitter, LinkedIn, Pinterest)
+# ====================================
+User-agent: facebookexternalhit
+User-agent: Twitterbot
+User-agent: LinkedInBot
+User-agent: Pinterest
+User-agent: TelegramBot
+User-agent: Slackbot
+User-agent: WhatsApp
+Allow: /
+Crawl-delay: 0.2
+
+# ====================================
+# SEO & АНАЛІТИКА БОТИ
+# ====================================
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: Screaming Frog SEO Spider
+Allow: /
+Crawl-delay: 2
+
+# ====================================
+# АРХІВНІ БОТИ
+# ====================================
+User-agent: ia_archiver
+User-agent: archive.org_bot
+Allow: /
+Crawl-delay: 5
+
+# ====================================
+# БЛОКУВАННЯ ШКІДЛИВИХ БОТІВ
+# ====================================
+User-agent: SemrushBot
+Crawl-delay: 5
+
+User-agent: AhrefsBot
+Crawl-delay: 5
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# Блокувати агресивних скреперів
+User-agent: SiteSnagger
+User-agent: WebCopier
+User-agent: WebReaper
+User-agent: WebZIP
+User-agent: HTTrack
+User-agent: Offline Explorer
+User-agent: WebStripper
+Disallow: /
+
+# ====================================
+# МЕТА-ІНФОРМАЦІЯ
+# ====================================
+# Host: https://diwave.company
+# Email: kravets.lviv@gmail.com
+# Supported Languages: uk (default), en
+# Last Updated: 2025-01-11

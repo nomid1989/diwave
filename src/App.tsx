@@ -17,7 +17,7 @@ const App: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen flex flex-col bg-black dark:bg-black light:bg-gradient-to-b light:from-[#f8f9fa] light:to-[#e9ecef] transition-colors duration-300">
+      <div className="min-h-screen flex flex-col transition-colors duration-300">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
