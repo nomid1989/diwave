@@ -101,59 +101,102 @@ const Home: React.FC<Props> = ({ locale }) => {
         jsonLd={jsonLd}
       />
 
-      {/* HERO: iOS 26 style, яскравіші кольори + світла версія */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#000428] via-[#004e92] to-[#001837] dark:from-[#000428] dark:via-[#004e92] dark:to-[#001837] light:from-blue-50 light:via-purple-50 light:to-pink-50">
-        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(1400px_700px_at_25%_15%,rgba(59,130,246,0.25),transparent),radial-gradient(1200px_600px_at_75%_25%,rgba(147,51,234,0.22),transparent),radial-gradient(900px_450px_at_50%_75%,rgba(6,182,212,0.18),transparent)] dark:bg-[radial-gradient(1400px_700px_at_25%_15%,rgba(59,130,246,0.25),transparent),radial-gradient(1200px_600px_at_75%_25%,rgba(147,51,234,0.22),transparent),radial-gradient(900px_450px_at_50%_75%,rgba(6,182,212,0.18),transparent)] light:bg-[radial-gradient(1400px_700px_at_25%_15%,rgba(59,130,246,0.15),transparent),radial-gradient(1200px_600px_at_75%_25%,rgba(147,51,234,0.12),transparent),radial-gradient(900px_450px_at_50%_75%,rgba(6,182,212,0.1),transparent)]" />
-        <div className="absolute inset-0 opacity-20 dark:opacity-20 light:opacity-10" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.08) 1px, transparent 0)', backgroundSize: '50px 50px'}} aria-hidden />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent dark:from-black/30 light:from-white/20" aria-hidden />
-        <div className="relative mx-auto max-w-7xl px-6 py-24">
-          <motion.h1
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-semibold text-white dark:text-white light:text-gray-900 tracking-tight"
-          >
-            Автоматизуємо бізнес та підключаємо обладнання до інтернету.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
-            className="mt-5 text-lg text-gray-300 dark:text-gray-300 light:text-gray-700 max-w-3xl"
-          >
-            E-commerce, CRM/SCADA, IoT, AI-SEO, платіжні інтеграції та аналітика.
-          </motion.p>
+      {/* HERO: iOS 26 style з WOW-ефектом та glassmorphism */}
+      <section className="hero-section relative overflow-hidden min-h-[600px] flex items-center">
+        {/* Анімовані градієнтні кулі */}
+        <div className="hero-orb hero-orb-1" />
+        <div className="hero-orb hero-orb-2" />
+        <div className="hero-orb hero-orb-3" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mt-8 flex flex-wrap gap-3"
-          >
-            <a
-              href={`${locale === 'en' ? '/en' : ''}/contact`}
-              className="inline-flex items-center rounded-md px-6 py-3 bg-white text-black dark:bg-white dark:text-black light:bg-blue-600 light:text-white font-semibold hover:bg-white/90 dark:hover:bg-white/90 light:hover:bg-blue-700 transition"
-            >
-              {t('hero.cta')}
-            </a>
-            <a
-              href={`${locale === 'en' ? '/en' : ''}/solutions`}
-              className="inline-flex items-center rounded-md px-6 py-3 border border-white/30 dark:border-white/30 light:border-blue-300 text-white dark:text-white light:text-blue-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition"
-            >
-              {locale === 'en' ? 'Explore solutions' : 'Переглянути рішення'}
-            </a>
-          </motion.div>
+        {/* Glassmorphism overlay */}
+        <div className="hero-glass-overlay" />
 
+        {/* Mesh gradient background */}
+        <div className="hero-mesh-gradient" />
+
+        {/* Shimmer effect */}
+        <div className="hero-shimmer" />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-24 z-10">
           <motion.div
-            initial={{ opacity: 0, y: 6 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-            className="mt-5 flex flex-wrap gap-2"
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="hero-content-wrapper"
           >
-            <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="text-sm px-3 py-1.5 rounded-full bg-white/10 text-white/90 hover:bg-white/15 border border-white/15">Car wash</a>
-            <a href={`${locale === 'en' ? '/en' : ''}/solutions/ecommerce`} className="text-sm px-3 py-1.5 rounded-full bg-white/10 text-white/90 hover:bg-white/15 border border-white/15">E‑commerce</a>
-            <a href={`${locale === 'en' ? '/en' : ''}/solutions/iot-scada`} className="text-sm px-3 py-1.5 rounded-full bg-white/10 text-white/90 hover:bg-white/15 border border-white/15">IoT/SCADA</a>
-            <a href={`${locale === 'en' ? '/en' : ''}/solutions/drones`} className="text-sm px-3 py-1.5 rounded-full bg-white/10 text-white/90 hover:bg-white/15 border border-white/15">Drones</a>
+            <motion.h1
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="hero-title text-4xl md:text-6xl font-bold text-white tracking-tight"
+            >
+              Автоматизуємо бізнес та підключаємо обладнання до інтернету.
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+              className="hero-subtitle mt-6 text-lg md:text-xl text-white/90 max-w-3xl"
+            >
+              E-commerce, CRM/SCADA, IoT, AI-SEO, платіжні інтеграції та аналітика.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="mt-10 flex flex-wrap gap-4"
+            >
+              <a
+                href={`${locale === 'en' ? '/en' : ''}/contact`}
+                className="hero-cta-primary group relative inline-flex items-center justify-center rounded-2xl px-8 py-4 font-semibold shadow-2xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_20px_50px_rgba(0,122,255,0.5)]"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  {t('hero.cta')}
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </a>
+
+              <a
+                href={`${locale === 'en' ? '/en' : ''}/solutions`}
+                className="hero-cta-secondary group inline-flex items-center justify-center rounded-2xl px-8 py-4 font-semibold transition-all duration-300 hover:scale-105"
+              >
+                <span className="flex items-center gap-2">
+                  {locale === 'en' ? 'Explore solutions' : 'Переглянути рішення'}
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="mt-8 flex flex-wrap gap-3"
+            >
+              {[
+                { href: '/solutions/car-washes', label: 'Car wash' },
+                { href: '/solutions/ecommerce', label: 'E‑commerce' },
+                { href: '/solutions/iot-scada', label: 'IoT/SCADA' },
+                { href: '/solutions/drones', label: 'Drones' }
+              ].map((tag, idx) => (
+                <motion.a
+                  key={tag.label}
+                  href={`${locale === 'en' ? '/en' : ''}${tag.href}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.7 + idx * 0.05 }}
+                  className="hero-tag text-sm px-4 py-2 rounded-full font-medium transition-all duration-300 hover:scale-110"
+                >
+                  {tag.label}
+                </motion.a>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
       </section>
