@@ -51,7 +51,7 @@ const Contact: React.FC<Props> = ({ locale }) => {
             },
             address: {
               '@type': 'PostalAddress',
-              streetAddress: 'вул. Венiченка 30',
+              streetAddress: 'вул. Винниченка 30',
               addressLocality: 'Львів',
               addressCountry: 'UA'
             },
