@@ -13,7 +13,7 @@ export default function AgritechIndustry({ locale }: Props) {
       description: 'Дрони та сенсори, NDVI/карти полів, аналітика вологості/живлення, планування внесень.',
       heading: 'Agritech & Precision Farming',
       btnSolutions: 'Рішення',
-      btnContact: 'Зв'язатись'
+      btnContact: 'Зв\'язатись'
     },
     en: {
       title: 'Agritech & Precision Farming | Diwave Industries',
