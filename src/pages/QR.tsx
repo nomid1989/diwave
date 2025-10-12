@@ -74,21 +74,21 @@ const QR: React.FC<Props> = ({ locale }) => {
         />
         <div className="mt-6 flex flex-wrap gap-3">
           <a
-            href="/solutions/samwash-qr"
+            href={`${locale === 'en' ? '/en' : ''}/solutions/samwash-qr`}
             onClick={() => track('cta_click', 'solutions_samwash_qr')}
             className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-white/90 text-black font-medium hover:bg-white transition"
           >
             {t('Перейти до рішення', 'View solution')}
           </a>
           <a
-            href="/projects/samwash-qr"
+            href={`${locale === 'en' ? '/en' : ''}/projects/samwash-qr`}
             onClick={() => track('cta_click', 'projects_samwash_qr')}
             className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 border border-white/30 text-white hover:bg-white/10 transition"
           >
             {t('Дивитися кейс', 'View case')}
           </a>
           <a
-            href="/industries/automotive/car-wash-qr"
+            href={`${locale === 'en' ? '/en' : ''}/industries/automotive/car-wash-qr`}
             onClick={() => track('cta_click', 'industries_car_wash_qr')}
             className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 border border-white/30 text-white hover:bg-white/10 transition"
           >

@@ -28,7 +28,7 @@ const About: React.FC<Props> = ({ locale }) => {
       founderTitle: 'Засновник та Організатор',
       founderName: 'Дмитро Кравець',
       founderRole: 'Founder & CTO',
-      founderBio: 'Tech Entrepreneur із 14+ роками досвіду трансформації традиційного бізнесу. Будує end-to-end технологічні екосистеми від ідеї до масштабування. Експерт у фіскалізації, e-commerce, IoT та AI-автоматизації.',
+      founderBio: 'Tech Entrepreneur із 14+ роками досвіду трансформації традиційного бізнесу. Засновник Samwash — мережі автомийок самообслуговування з EBITDA 70%, що працюють повністю автоматично. Створив Plantpol — один з найбільших B2B e-commerce магазинів розсади в Україні з повною автоматизацією без кол-центру. Організатор і техлід Української Асоціації Пілотів Дронів (UAPD/Gnizdo). Будує end-to-end технологічні екосистеми: від апаратної частини та ПЗ до фіскалізації, платежів, запуску та масштабування. Експерт у IoT/SCADA, e-commerce, fintech та AI-автоматизації.',
       founderExpertise: [
         'Technology Strategy & R&D',
         'Full-Stack Development (PHP, Python, Node.js, TypeScript)',
@@ -52,8 +52,13 @@ const About: React.FC<Props> = ({ locale }) => {
           link: 'https://plantpol.com.ua'
         },
         {
+          name: 'Гніздо (UAPD)',
+          desc: 'Українська Асоціація Пілотів Дронів: навчання, виробництво FPV, телеметрія, організація змагань',
+          link: 'https://gnizdo.org.ua'
+        },
+        {
           name: 'IoT Solutions',
-          desc: 'Інтеграція обладнання: вендингові автомати, автомийки, зарядні станції EV, дрони'
+          desc: 'Інтеграція обладнання: вендингові автомати з сенсорними екранами IP65, автомийки з телеметрією, зарядні станції EV'
         }
       ],
       teamTitle: 'Наша Команда',
@@ -80,7 +85,7 @@ const About: React.FC<Props> = ({ locale }) => {
       founderTitle: 'Founder and Organizer',
       founderName: 'Dmytro Kravets',
       founderRole: 'Founder & CTO',
-      founderBio: 'Tech Entrepreneur with 14+ years of experience transforming traditional businesses. Builds end-to-end tech ecosystems from idea to scaling. Expert in fiscalization, e-commerce, IoT and AI automation.',
+      founderBio: 'Tech Entrepreneur with 14+ years of experience transforming traditional businesses. Founder of Samwash — self-service car wash network with 70% EBITDA operating fully automatically. Created Plantpol — one of Ukraine\'s largest B2B e-commerce plant nursery stores with full automation without call center. Organizer and tech lead of Ukrainian Association of Drone Pilots (UAPD/Gnizdo). Builds end-to-end tech ecosystems: from hardware and software to fiscalization, payments, launch and scaling. Expert in IoT/SCADA, e-commerce, fintech and AI automation.',
       founderExpertise: [
         'Technology Strategy & R&D',
         'Full-Stack Development (PHP, Python, Node.js, TypeScript)',
@@ -104,8 +109,13 @@ const About: React.FC<Props> = ({ locale }) => {
           link: 'https://plantpol.com.ua'
         },
         {
+          name: 'Gnizdo (UAPD)',
+          desc: 'Ukrainian Association of Drone Pilots: training, FPV production, telemetry, competition organization',
+          link: 'https://gnizdo.org.ua'
+        },
+        {
           name: 'IoT Solutions',
-          desc: 'Hardware integration: vending machines, car washes, EV charging stations, drones'
+          desc: 'Hardware integration: IP65 touchscreen vending machines, car washes with telemetry, EV charging stations'
         }
       ],
       teamTitle: 'Our Team',
@@ -257,8 +267,7 @@ const About: React.FC<Props> = ({ locale }) => {
           >
             <div className="rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 backdrop-blur-2xl shadow-xl">
               <SmartImage
-                srcFolder="/images/about"
-                sources={['fpv-team.jpg']}
+                sources={['/images/about/fpv-team.jpg', '/images/about/fpv-team.webp']}
                 alt="Diwave Team - FPV Drone Development"
                 className="w-full h-80"
                 imgClassName="w-full h-80 object-cover"
@@ -266,8 +275,7 @@ const About: React.FC<Props> = ({ locale }) => {
             </div>
             <div className="rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 backdrop-blur-2xl shadow-xl">
               <SmartImage
-                srcFolder="/images/about"
-                sources={['fpv-working-testing.jpeg']}
+                sources={['/images/about/fpv-working-testing.jpeg']}
                 alt="Diwave Team - Working and Testing"
                 className="w-full h-80"
                 imgClassName="w-full h-80 object-cover"
@@ -345,8 +353,7 @@ const About: React.FC<Props> = ({ locale }) => {
             <div className="rounded-2xl overflow-hidden border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-white/5 dark:bg-white/5 light:bg-white p-6 backdrop-blur-xl shadow-2xl">
               <div className="rounded-xl overflow-hidden mb-4">
                 <SmartImage
-                  srcFolder="/images/team"
-                  sources={['dmytro.jpg']}
+                  sources={['/images/about/DmytroKravetsFamaly.jpeg', '/images/about/dmytroandfamaly.jpeg']}
                   alt="Dmytro Kravets — Founder & CTO, Diwave"
                   className="w-full h-96"
                   imgClassName="w-full h-96 object-cover"
@@ -447,7 +454,7 @@ const About: React.FC<Props> = ({ locale }) => {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {teamMembers.filter(m => !m.featured).map((member, i) => (
             <motion.div
               key={member.fileBase}
@@ -455,94 +462,131 @@ const About: React.FC<Props> = ({ locale }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="rounded-xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-blue-400 transition-all group backdrop-blur-xl shadow-lg hover:shadow-xl"
+              className="group text-center"
             >
-              <SmartImage
-                sources={[`/images/team/${member.fileBase}.jpg`]}
-                alt={`${member.name} — ${member.role}`}
-                className="w-full h-56"
-                imgClassName="w-full h-56 object-cover object-center group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="p-4 text-center">
-                <div className="text-white dark:text-white light:text-gray-900 font-semibold mb-1">
-                  {member.name}
+              {/* Circular photo with iOS 26 glassmorphism */}
+              <div className="relative mx-auto w-40 h-40 mb-4">
+                <div className="absolute inset-0 rounded-full border-2 border-white/20 dark:border-white/20 light:border-gray-300 bg-white/5 dark:bg-white/5 light:bg-white/60 backdrop-blur-xl shadow-xl group-hover:border-cyan-400/50 dark:group-hover:border-cyan-400/50 light:group-hover:border-blue-400 group-hover:shadow-2xl transition-all duration-300">
+                  <SmartImage
+                    sources={[`/images/team/${member.fileBase}.jpg`]}
+                    alt={`${member.name} — ${member.role}`}
+                    className="w-full h-full rounded-full"
+                    imgClassName="w-full h-full object-cover object-center rounded-full group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <div className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 text-sm">
-                  {member.role}
-                </div>
+              </div>
+              <div className="text-white dark:text-white light:text-gray-900 font-semibold mb-1">
+                {member.name}
+              </div>
+              <div className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 text-sm">
+                {member.role}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Learning Photo */}
+        {/* Learning Photos Grid */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 backdrop-blur-xl shadow-xl"
+          className="mt-12 grid md:grid-cols-2 gap-6"
         >
-          <SmartImage
-            srcFolder="/images/about"
-            sources={['learning2025.jpeg']}
-            alt="Diwave Team - Learning and Development 2025"
-            className="w-full h-96"
-            imgClassName="w-full h-96 object-cover"
-          />
-          <div className="p-6 text-center">
-            <p className="text-gray-300 dark:text-gray-300 light:text-gray-700">
-              {locale === 'en'
-                ? 'Continuous learning and development — our team in 2025'
-                : 'Постійне навчання та розвиток — наша команда у 2025'}
-            </p>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="relative overflow-hidden rounded-3xl border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 dark:from-cyan-500/10 dark:via-blue-500/10 dark:to-purple-500/10 light:from-blue-100 light:via-indigo-100 light:to-purple-100 p-12 text-center backdrop-blur-xl shadow-2xl"
-        >
-          {/* iOS 26 mesh gradient */}
-          <div className="absolute inset-0 opacity-30 dark:opacity-30 light:opacity-20 pointer-events-none">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.3),transparent_50%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(236,72,153,0.2),transparent_50%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(56,189,248,0.25),transparent_50%)]" />
-          </div>
-
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
-              {t.ctaTitle}
-            </h2>
-            <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-lg mb-8 max-w-2xl mx-auto">
-              {t.ctaText}
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <a
-                href={`${locale === 'en' ? '/en' : ''}/contact`}
-                className="inline-flex items-center gap-2 rounded-full px-8 py-4 bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 font-semibold hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 transition shadow-lg text-lg"
-              >
-                <span className="text-white">📧 {t.ctaButton}</span>
-              </a>
-              <a
-                href="tel:+380505923772"
-                className="inline-flex items-center gap-2 rounded-full px-8 py-4 border-2 border-white/30 dark:border-white/30 light:border-gray-400 text-white dark:text-white light:text-gray-900 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-gray-100 transition text-lg font-semibold backdrop-blur"
-              >
-                📞 +380 50 592 3772
-              </a>
+          <div className="rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 backdrop-blur-xl shadow-xl">
+            <SmartImage
+              sources={['/images/about/learning2025.jpeg']}
+              alt="Diwave Team - Learning and Development 2025"
+              className="w-full h-80"
+              imgClassName="w-full h-80 object-cover"
+            />
+            <div className="p-6 text-center">
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700">
+                {locale === 'en'
+                  ? 'Continuous learning and development — our team in 2025'
+                  : 'Постійне навчання та розвиток — наша команда у 2025'}
+              </p>
             </div>
-
-            <div className="mt-8 pt-8 border-t border-white/10 dark:border-white/10 light:border-gray-300">
-              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm">
-                {t.ctaNote}
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 backdrop-blur-xl shadow-xl">
+            <SmartImage
+              sources={['/images/about/learning2025-1.png']}
+              alt="Diwave Team - Training Session 2025"
+              className="w-full h-80"
+              imgClassName="w-full h-80 object-cover"
+            />
+            <div className="p-6 text-center">
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700">
+                {locale === 'en'
+                  ? 'Team training and knowledge sharing sessions'
+                  : 'Командні тренінги та обмін досвідом'}
               </p>
             </div>
           </div>
         </motion.div>
+      </section>
+
+      {/* CTA Section with Team Photo */}
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          {/* Team Contact Photo */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl overflow-hidden border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur-xl shadow-2xl"
+          >
+            <SmartImage
+              sources={['/images/about/1D55D514-B7F2-4D0E-BAD2-65604AA99AF2_1_105_c.webp']}
+              alt="Diwave Team - Ready to help with your project"
+              className="w-full h-full"
+              imgClassName="w-full h-full object-cover"
+            />
+          </motion.div>
+
+          {/* CTA Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-3xl border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 dark:from-cyan-500/10 dark:via-blue-500/10 dark:to-purple-500/10 light:from-blue-100 light:via-indigo-100 light:to-purple-100 p-8 md:p-10 backdrop-blur-xl shadow-2xl"
+          >
+            {/* iOS 26 mesh gradient */}
+            <div className="absolute inset-0 opacity-30 dark:opacity-30 light:opacity-20 pointer-events-none">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.3),transparent_50%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(236,72,153,0.2),transparent_50%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(56,189,248,0.25),transparent_50%)]" />
+            </div>
+
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
+                {t.ctaTitle}
+              </h2>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-lg mb-8">
+                {t.ctaText}
+              </p>
+              <div className="flex flex-col gap-4">
+                <a
+                  href={`${locale === 'en' ? '/en' : ''}/contact`}
+                  className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 font-semibold hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 transition shadow-lg text-lg"
+                >
+                  <span className="text-white">📧 {t.ctaButton}</span>
+                </a>
+                <a
+                  href="tel:+380505923772"
+                  className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 border-2 border-white/30 dark:border-white/30 light:border-gray-400 text-white dark:text-white light:text-gray-900 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-gray-100 transition text-lg font-semibold backdrop-blur"
+                >
+                  📞 +380 50 592 3772
+                </a>
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-white/10 dark:border-white/10 light:border-gray-300">
+                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm">
+                  {t.ctaNote}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
     </>
   );

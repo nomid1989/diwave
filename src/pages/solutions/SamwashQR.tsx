@@ -4,19 +4,169 @@ import SmartImage from '@/components/ui/SmartImage';
 
 const baseUrl = (import.meta.env.VITE_SITE_URL as string) || window.location.origin;
 
-export default function SamwashQR() {
-  const title = 'Автоматизація оплати послуг мережі автомийок Samwash через QR-код | Diwave Solutions';
-  const description =
-    'Оплата зі смартфона без терміналів: Samwash QR — AI-адаптація за регіоном, двомовність, швидка інтеграція. Система автоматично враховує локацію та синхронізується з обладнанням.';
-  const url = `${baseUrl}/solutions/samwash-qr`;
+type Props = { locale: 'uk' | 'en' };
+
+export default function SamwashQR({ locale }: Props) {
+  const content = {
+    uk: {
+      title: 'Автоматизація оплати послуг мережі автомийок Samwash через QR-код | Diwave Solutions',
+      description: 'Оплата зі смартфона без терміналів: Samwash QR — AI-адаптація за регіоном, двомовність, швидка інтеграція. Система автоматично враховує локацію та синхронізується з обладнанням.',
+      heading: 'QR‑оплата Samwash для мереж автомийок',
+      demoButton: 'Замовити демо',
+      caseButton: 'Дивитися кейс',
+      metricTime: 'час обслуговування',
+      metricPayments: 'безготівкові платежі',
+      metricUptime: 'робота під навантаженням',
+      features: [
+        { t: 'AI‑адаптація', d: 'Контент і способи оплати під регіон клієнта.' },
+        { t: 'Двомовність', d: 'UA/EN інтерфейси для різних аудиторій.' },
+        { t: 'Швидка інтеграція', d: 'Впровадження як модуль/віджет або окреме рішення.' }
+      ],
+      howItWorksTitle: 'Як це працює',
+      howItWorksSteps: [
+        'Скануєте QR‑код на локації.',
+        'Обираєте послугу і оплачуєте зі смартфона.',
+        'Система запускає програму на обладнанні.'
+      ],
+      videoTitle: 'Відео інструкція',
+      videoDesc: 'Дивіться коротке відео про те, як користуватись додатком SamWash для оплати послуг автомийки через QR-код',
+      videoButton: '🎥 Дивитись на TikTok',
+      galleryTitle: '📸 Скріншоти додатку SamPay',
+      altApp: 'SamPay додаток',
+      altPayment: 'SamPay оплата',
+      altFunctions: 'SamPay функції',
+      altInterface: 'SamPay інтерфейс',
+      altQR: 'SamPay QR код',
+      altMobile: 'SamPay мобільна версія',
+      altSystem: 'SamPay система',
+      navSolutions: '← До каталогу Рішень',
+      navCase: 'Кейс Samwash',
+      navIndustries: 'Для індустрій',
+      officialLinksTitle: 'Офіційні посилання Samwash',
+      oldWebsite: 'Старий вебсайт: ism-wash.com',
+      newWebsite: 'Новий вебсайт: samwash.ua',
+      onlineShop: 'Інтернет‑магазин: shop.samwash.ua',
+      paymentSystem: 'Система оплати послуг автомийки самообслуговування, робот мийки та пилососа: app.samwash.ua',
+      socialTitle: 'Соцмережі Samwash',
+      partnersTitle: 'Партнери та друзі',
+      partner1: 'Plantpol — інтернет‑магазин квіткового господарства',
+      partner2: 'Lemberg Flowers — партнер',
+      partner3: 'Rozkriy — фрезерна порізка матеріалів',
+      partner4: 'ГНІЗДО — УАПД "Гніздо"',
+      madeFromScratchTitle: 'Що зроблено з нуля та моя роль',
+      madeFromScratchItems: [
+        '<b>Комунікація та постановка задач:</b> зібрав вимоги, узгодив KPI та GTM.',
+        '<b>Дизайн і UX:</b> побудував разом із дизайнерами зручний потік оплати, контент і двомовність.',
+        '<b>Архітектура та інтеграції:</b> IoT/SCADA, платіжні провайдери, телеметрія, захищені вебхуки.',
+        '<b>Розробка:</b> фронтенд/бекенд, синхронізація з мийкою/роботом/пилососом, кабінет клієнта.',
+        '<b>Інфраструктура:</b> CI/CD, контейнеризація, логування, моніторинг, SLA.',
+        '<b>Запуск і маркетинг:</b> контент та рекламні кампанії, аналітика, оптимізація конверсій.'
+      ],
+      techStackTitle: 'Технічний стек',
+      techStackItems: [
+        '<b>Frontend:</b> TypeScript, React 18, Tailwind, i18n.',
+        '<b>Backend:</b> Node.js/PHP, REST API, інтеграції з платіжними сервісами та обладнанням.',
+        '<b>Інтеграції:</b> платежі, CRM/лояльність, телеметрія.',
+        '<b>DevOps:</b> Docker, CI/CD, моніторинг/алерти, CDN/WAF, бекапи.'
+      ],
+      researchTitle: 'Що показує аналіз відкритих джерел',
+      researchItems: [
+        'Samwash — мережа автомийок самообслуговування, що мігрувала на новий сайт samwash.ua; активно веде соцмережі та має широку географію локацій.',
+        'Plantpol — квіткове господарство із садовим центром та онлайн‑магазином; комунікації ведуться через Instagram та Facebook.',
+        'Lemberg Flowers — роздріб/опт рослин, озеленення інтер\'єрів; активна присутність у Instagram та Facebook.',
+        'Rozkriy — фігурна порізка/фрезерування різних матеріалів із чистими краями без нагару; присутність у Facebook.',
+        'ГНІЗДО — об\'єднання пілотів дронів; інформаційна платформа та навчальна/спільнотна діяльність.'
+      ],
+      ctaTitle: 'Готові спробувати?',
+      ctaDesc: 'Залиште контакт — допоможемо обрати конфігурацію та швидко впровадити.',
+      ctaButton: 'Написати'
+    },
+    en: {
+      title: 'Samwash Car Wash Network QR-Code Payment Automation | Diwave Solutions',
+      description: 'Smartphone payments without terminals: Samwash QR — AI-powered regional adaptation, bilingual interface, fast integration. System automatically accounts for location and syncs with equipment.',
+      heading: 'Samwash QR Payment for Car Wash Networks',
+      demoButton: 'Request Demo',
+      caseButton: 'View Case Study',
+      metricTime: 'service time',
+      metricPayments: 'cashless payments',
+      metricUptime: 'uptime under load',
+      features: [
+        { t: 'AI Adaptation', d: 'Content and payment methods tailored to customer region.' },
+        { t: 'Bilingual', d: 'UA/EN interfaces for different audiences.' },
+        { t: 'Fast Integration', d: 'Deploy as module/widget or standalone solution.' }
+      ],
+      howItWorksTitle: 'How It Works',
+      howItWorksSteps: [
+        'Scan QR code at location.',
+        'Select service and pay from smartphone.',
+        'System launches program on equipment.'
+      ],
+      videoTitle: 'Video Tutorial',
+      videoDesc: 'Watch a short video on how to use the SamWash app for car wash service payments via QR code',
+      videoButton: '🎥 Watch on TikTok',
+      galleryTitle: '📸 SamPay App Screenshots',
+      altApp: 'SamPay application',
+      altPayment: 'SamPay payment',
+      altFunctions: 'SamPay functions',
+      altInterface: 'SamPay interface',
+      altQR: 'SamPay QR code',
+      altMobile: 'SamPay mobile version',
+      altSystem: 'SamPay system',
+      navSolutions: '← Back to Solutions',
+      navCase: 'Samwash Case Study',
+      navIndustries: 'For Industries',
+      officialLinksTitle: 'Official Samwash Links',
+      oldWebsite: 'Legacy website: ism-wash.com',
+      newWebsite: 'New website: samwash.ua',
+      onlineShop: 'Online shop: shop.samwash.ua',
+      paymentSystem: 'Self-service car wash, robot wash, and vacuum payment system: app.samwash.ua',
+      socialTitle: 'Samwash Social Media',
+      partnersTitle: 'Partners & Friends',
+      partner1: 'Plantpol — flower farming online store',
+      partner2: 'Lemberg Flowers — partner',
+      partner3: 'Rozkriy — CNC material cutting',
+      partner4: 'GNIZDO — UAV Pilots Association',
+      madeFromScratchTitle: 'What Was Built From Scratch and My Role',
+      madeFromScratchItems: [
+        '<b>Communication & Requirements:</b> Gathered requirements, aligned KPIs and GTM.',
+        '<b>Design & UX:</b> Built convenient payment flow with designers, content and bilingual support.',
+        '<b>Architecture & Integrations:</b> IoT/SCADA, payment providers, telemetry, secure webhooks.',
+        '<b>Development:</b> Frontend/backend, synchronization with wash/robot/vacuum equipment, customer portal.',
+        '<b>Infrastructure:</b> CI/CD, containerization, logging, monitoring, SLA.',
+        '<b>Launch & Marketing:</b> Content and ad campaigns, analytics, conversion optimization.'
+      ],
+      techStackTitle: 'Technology Stack',
+      techStackItems: [
+        '<b>Frontend:</b> TypeScript, React 18, Tailwind, i18n.',
+        '<b>Backend:</b> Node.js/PHP, REST API, integrations with payment services and equipment.',
+        '<b>Integrations:</b> Payments, CRM/loyalty, telemetry.',
+        '<b>DevOps:</b> Docker, CI/CD, monitoring/alerts, CDN/WAF, backups.'
+      ],
+      researchTitle: 'What Open Source Analysis Shows',
+      researchItems: [
+        'Samwash — self-service car wash network that migrated to new website samwash.ua; actively manages social media and has wide geographic coverage.',
+        'Plantpol — flower farming with garden center and online store; communications via Instagram and Facebook.',
+        'Lemberg Flowers — plant retail/wholesale, interior landscaping; active presence on Instagram and Facebook.',
+        'Rozkriy — CNC cutting/milling of various materials with clean edges; presence on Facebook.',
+        'GNIZDO — drone pilots association; information platform and educational/community activities.'
+      ],
+      ctaTitle: 'Ready to Try?',
+      ctaDesc: 'Leave your contact — we\'ll help you choose the right configuration and deploy quickly.',
+      ctaButton: 'Contact Us'
+    }
+  };
+
+  const t = content[locale];
+  const url = `${baseUrl}${locale === 'en' ? '/en' : ''}/solutions/samwash-qr`;
 
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
       name: 'Samwash: QR-оплата на автомийках',
-      description:
-        'Оплата послуг автомийки зі смартфона без терміналів. AI-адаптація контенту за регіоном, двомовність, автоматична синхронізація з обладнанням.',
+      description: locale === 'uk'
+        ? 'Оплата послуг автомийки зі смартфона без терміналів. AI-адаптація контенту за регіоном, двомовність, автоматична синхронізація з обладнанням.'
+        : 'Car wash service payments from smartphone without terminals. AI-powered content adaptation by region, bilingual, automatic equipment synchronization.',
       provider: { '@type': 'Organization', name: 'Diwave Solutions', url: baseUrl },
       areaServed: ['UA', 'EU'],
       inLanguage: ['uk', 'en'],
@@ -27,12 +177,11 @@ export default function SamwashQR() {
   return (
     <>
       <SEO
-        title={title}
-        description={description}
+        title={t.title}
+        description={t.description}
         url={url}
         image={`${baseUrl}/images/solutions/samwash-qr/cover.jpg`}
-        locale="uk"
-        alternates={[{ hrefLang: 'uk', href: url }]}
+        locale={locale}
         jsonLd={jsonLd}
       />
 
@@ -48,40 +197,40 @@ export default function SamwashQR() {
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <h1 className="text-3xl md:text-5xl font-semibold text-white tracking-tight">
-                QR‑оплата Samwash для мереж автомийок
+                {t.heading}
               </h1>
-              <p className="mt-4 text-gray-300">{description}</p>
+              <p className="mt-4 text-gray-300">{t.description}</p>
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <a
                   href="#contact"
                   className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-white/90 text-black font-medium hover:bg-white transition"
                 >
-                  Замовити демо
+                  {t.demoButton}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </a>
                 <a
-                  href="/projects/samwash-qr"
+                  href={`${locale === 'en' ? '/en' : ''}/projects/samwash-qr`}
                   className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 border border-white/30 text-white hover:bg-white/10 transition"
                 >
-                  Дивитися кейс
+                  {t.caseButton}
                 </a>
               </div>
 
               <div className="mt-6 grid grid-cols-3 gap-4 text-center">
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
                   <div className="text-2xl text-white font-semibold">-40%</div>
-                  <div className="text-xs text-gray-300">час обслуговування</div>
+                  <div className="text-xs text-gray-300">{t.metricTime}</div>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
                   <div className="text-2xl text-white font-semibold">+30%</div>
-                  <div className="text-xs text-gray-300">безготівкові платежі</div>
+                  <div className="text-xs text-gray-300">{t.metricPayments}</div>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
                   <div className="text-2xl text-white font-semibold">24/7</div>
-                  <div className="text-xs text-gray-300">робота під навантаженням</div>
+                  <div className="text-xs text-gray-300">{t.metricUptime}</div>
                 </div>
               </div>
             </div>
@@ -91,7 +240,7 @@ export default function SamwashQR() {
               <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
                 <SmartImage
                   srcFolder="/images/solutions/samwash-qr"
-                  alt="Samwash QR — мобільна оплата на автомийці"
+                  alt={locale === 'uk' ? 'Samwash QR — мобільна оплата на автомийці' : 'Samwash QR — mobile car wash payment'}
                   className="w-full h-[420px]"
                   imgClassName="w-full h-[420px] object-cover"
                 />
@@ -103,11 +252,7 @@ export default function SamwashQR() {
         {/* Features */}
         <section className="mx-auto max-w-7xl px-6 py-12">
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { t: 'AI‑адаптація', d: 'Контент і способи оплати під регіон клієнта.' },
-              { t: 'Двомовність', d: 'UA/EN інтерфейси для різних аудиторій.' },
-              { t: 'Швидка інтеграція', d: 'Впровадження як модуль/віджет або окреме рішення.' }
-            ].map((f) => (
+            {t.features.map((f) => (
               <div key={f.t} className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
                 <div className="text-white font-medium">{f.t}</div>
                 <div className="text-gray-300 text-sm mt-1">{f.d}</div>
@@ -119,21 +264,21 @@ export default function SamwashQR() {
         {/* How it works */}
         <section className="mx-auto max-w-7xl px-6 pb-12">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
-            <h2 className="text-white text-2xl md:text-3xl font-semibold mb-6">Як це працює</h2>
+            <h2 className="text-white text-2xl md:text-3xl font-semibold mb-6">{t.howItWorksTitle}</h2>
             <ol className="grid md:grid-cols-3 gap-4 list-decimal list-inside text-gray-200 mb-6">
-              <li className="rounded-xl border border-white/10 bg-black/20 p-4">Скануєте QR‑код на локації.</li>
-              <li className="rounded-xl border border-white/10 bg-black/20 p-4">Обираєте послугу і оплачуєте зі смартфона.</li>
-              <li className="rounded-xl border border-white/10 bg-black/20 p-4">Система запускає програму на обладнанні.</li>
+              {t.howItWorksSteps.map((step, i) => (
+                <li key={i} className="rounded-xl border border-white/10 bg-black/20 p-4">{step}</li>
+              ))}
             </ol>
 
             {/* Video Tutorial */}
             <div className="mt-6 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-6">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-3xl">📱</span>
-                <h3 className="text-white font-semibold text-lg">Відео інструкція</h3>
+                <h3 className="text-white font-semibold text-lg">{t.videoTitle}</h3>
               </div>
               <p className="text-gray-300 text-sm mb-4">
-                Дивіться коротке відео про те, як користуватись додатком SamWash для оплати послуг автомийки через QR-код
+                {t.videoDesc}
               </p>
               <a
                 href="https://vm.tiktok.com/ZMAP3rGX8/"
@@ -141,7 +286,7 @@ export default function SamwashQR() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-gradient-to-r from-pink-500 to-cyan-500 text-white font-medium hover:from-pink-600 hover:to-cyan-600 transition shadow-lg"
               >
-                🎥 Дивитись на TikTok
+                {t.videoButton}
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
@@ -153,55 +298,55 @@ export default function SamwashQR() {
         {/* Photo Gallery */}
         <section className="mx-auto max-w-7xl px-6 py-12">
           <h2 className="text-2xl md:text-4xl font-semibold text-white mb-8 text-center">
-            📸 Скріншоти додатку SamPay
+            {t.galleryTitle}
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
               <img
                 src="/images/solutions/samwash-qr/5582F1D0-BC9B-4D6A-8B1D-389DB639C31A_1_201_a.jpeg"
-                alt="SamPay додаток"
+                alt={t.altApp}
                 className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
               <img
                 src="/images/solutions/samwash-qr/95319261-59A2-4791-9199-C5B6C2658E21_1_201_a.jpeg"
-                alt="SamPay оплата"
+                alt={t.altPayment}
                 className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
               <img
                 src="/images/solutions/samwash-qr/9C63F51B-23FC-42EB-8A15-B0FD19ED9646_1_201_a.jpeg"
-                alt="SamPay функції"
+                alt={t.altFunctions}
                 className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
               <img
                 src="/images/solutions/samwash-qr/9FB083C6-DCF4-414C-A4CC-C676C7CB3908_1_201_a.jpeg"
-                alt="SamPay інтерфейс"
+                alt={t.altInterface}
                 className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
               <img
                 src="/images/solutions/samwash-qr/A94E3411-7E20-40F9-B58A-CFB7B7174069_1_201_a.jpeg"
-                alt="SamPay QR код"
+                alt={t.altQR}
                 className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
               <img
                 src="/images/solutions/samwash-qr/C634410E-48EE-48D5-98F9-35D3199297C5_1_201_a.jpeg"
-                alt="SamPay мобільна версія"
+                alt={t.altMobile}
                 className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <div className="relative group rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
               <img
                 src="/images/solutions/samwash-qr/EEA41C16-78E2-4CC5-8F5D-278338A9F065_1_201_a.jpeg"
-                alt="SamPay система"
+                alt={t.altSystem}
                 className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -212,22 +357,22 @@ export default function SamwashQR() {
         <section className="mx-auto max-w-7xl px-6 pb-20">
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href="/solutions"
+              href={`${locale === 'en' ? '/en' : ''}/solutions`}
               className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20 text-white hover:bg-white/10"
             >
-              ← До каталогу Рішень
+              {t.navSolutions}
             </a>
             <a
-              href="/projects/samwash-qr"
+              href={`${locale === 'en' ? '/en' : ''}/projects/samwash-qr`}
               className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20 text-white hover:bg-white/10"
             >
-              Кейс Samwash
+              {t.navCase}
             </a>
             <a
-              href="/industries/automotive/car-wash-qr"
+              href={`${locale === 'en' ? '/en' : ''}/industries/automotive/car-wash-qr`}
               className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20 text-white hover:bg-white/10"
             >
-              Для індустрій
+              {t.navIndustries}
             </a>
           </div>
         </section>
@@ -236,25 +381,25 @@ export default function SamwashQR() {
         <section className="mx-auto max-w-7xl px-6 pb-12">
           <div className="grid md:grid-cols-3 gap-6">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-              <h3 className="text-white font-semibold">Офіційні посилання Samwash</h3>
+              <h3 className="text-white font-semibold">{t.officialLinksTitle}</h3>
               <ul className="mt-3 space-y-2 text-sm">
                 <li>
-                  <a href="https://ism-wash.com" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">Старий вебсайт: ism-wash.com</a>
+                  <a href="https://ism-wash.com" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">{t.oldWebsite}</a>
                 </li>
                 <li>
-                  <a href="https://samwash.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">Новий вебсайт: samwash.ua</a>
+                  <a href="https://samwash.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">{t.newWebsite}</a>
                 </li>
                 <li>
-                  <a href="https://shop.samwash.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">Інтернет‑магазин: shop.samwash.ua</a>
+                  <a href="https://shop.samwash.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">{t.onlineShop}</a>
                 </li>
                 <li>
-                  <a href="https://app.samwash.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">Система оплати послуг автомийки самообслуговування, робот мийки та пилососа: app.samwash.ua</a>
+                  <a href="https://app.samwash.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">{t.paymentSystem}</a>
                 </li>
               </ul>
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-              <h3 className="text-white font-semibold">Соцмережі Samwash</h3>
+              <h3 className="text-white font-semibold">{t.socialTitle}</h3>
               <ul className="mt-3 space-y-2 text-sm">
                 <li><a href="https://www.facebook.com/samwashcarwash/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">Facebook</a></li>
                 <li><a href="https://www.instagram.com/samwash_carwash/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">Instagram</a></li>
@@ -264,29 +409,29 @@ export default function SamwashQR() {
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-              <h3 className="text-white font-semibold">Партнери та друзі</h3>
+              <h3 className="text-white font-semibold">{t.partnersTitle}</h3>
               <ul className="mt-3 space-y-2 text-sm">
                 <li>
-                  <a href="https://plantpol.com.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">Plantpol — інтернет‑магазин квіткового господарства</a>
+                  <a href="https://plantpol.com.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">{t.partner1}</a>
                   <span className="text-gray-400"> · </span>
                   <a href="https://www.instagram.com/plantpol_ukraina/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">Instagram</a>
                   <span className="text-gray-400"> · </span>
                   <a href="https://www.facebook.com/plantpol.ukraine/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">Facebook</a>
                 </li>
                 <li>
-                  <a href="https://lembergflowers.com.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">Lemberg Flowers — партнер</a>
+                  <a href="https://lembergflowers.com.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">{t.partner2}</a>
                   <span className="text-gray-400"> · </span>
                   <a href="https://www.instagram.com/lembergflowers/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">Instagram</a>
                   <span className="text-gray-400"> · </span>
                   <a href="https://www.facebook.com/lembergflowers.ltd/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">Facebook</a>
                 </li>
                 <li>
-                  <a href="https://rozkriy.com.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">Rozkriy — фрезерна порізка матеріалів</a>
+                  <a href="https://rozkriy.com.ua" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">{t.partner3}</a>
                   <span className="text-gray-400"> · </span>
                   <a href="https://www.facebook.com/rozkriy.com.ua/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">Facebook</a>
                 </li>
                 <li>
-                  <a href="https://gnizdoteam.com" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">ГНІЗДО — УАПД “Гніздо”</a>
+                  <a href="https://gnizdoteam.com" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200 underline underline-offset-4">{t.partner4}</a>
                   <span className="text-gray-400"> · </span>
                   <a href="https://www.instagram.com/gnizdoteam/" target="_blank" rel="noopener noreferrer" className="text-cyan-300 hover:text-cyan-200">Instagram</a>
                   <span className="text-gray-400"> · </span>
@@ -300,14 +445,11 @@ export default function SamwashQR() {
         {/* Made from scratch & roles */}
         <section className="mx-auto max-w-7xl px-6 pb-12">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-            <h3 className="text-white font-semibold">Що зроблено з нуля та моя роль</h3>
+            <h3 className="text-white font-semibold">{t.madeFromScratchTitle}</h3>
             <ul className="mt-3 space-y-2 text-sm text-gray-200">
-              <li><b>Комунікація та постановка задач:</b> зібрав вимоги, узгодив KPI та GTM.</li>
-              <li><b>Дизайн і UX:</b> побудував разом із дизайнерами зручний потік оплати, контент і двомовність.</li>
-              <li><b>Архітектура та інтеграції:</b> IoT/SCADA, платіжні провайдери, телеметрія, захищені вебхуки.</li>
-              <li><b>Розробка:</b> фронтенд/бекенд, синхронізація з мийкою/роботом/пилососом, кабінет клієнта.</li>
-              <li><b>Інфраструктура:</b> CI/CD, контейнеризація, логування, моніторинг, SLA.</li>
-              <li><b>Запуск і маркетинг:</b> контент та рекламні кампанії, аналітика, оптимізація конверсій.</li>
+              {t.madeFromScratchItems.map((item, i) => (
+                <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+              ))}
             </ul>
           </div>
         </section>
@@ -315,26 +457,23 @@ export default function SamwashQR() {
         {/* Tech stack */}
         <section className="mx-auto max-w-7xl px-6 pb-12">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-            <h3 className="text-white font-semibold">Технічний стек</h3>
+            <h3 className="text-white font-semibold">{t.techStackTitle}</h3>
             <ul className="mt-3 space-y-2 text-sm text-gray-200">
-              <li><b>Frontend:</b> TypeScript, React 18, Tailwind, i18n.</li>
-              <li><b>Backend:</b> Node.js/PHP, REST API, інтеграції з платіжними сервісами та обладнанням.</li>
-              <li><b>Інтеграції:</b> платежі, CRM/лояльність, телеметрія.</li>
-              <li><b>DevOps:</b> Docker, CI/CD, моніторинг/алерти, CDN/WAF, бекапи.</li>
+              {t.techStackItems.map((item, i) => (
+                <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+              ))}
             </ul>
           </div>
         </section>
 
-        {/* Research-based insights (kept) */}
+        {/* Research-based insights */}
         <section className="mx-auto max-w-7xl px-6 pb-12">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-            <h3 className="text-white font-semibold">Що показує аналіз відкритих джерел</h3>
+            <h3 className="text-white font-semibold">{t.researchTitle}</h3>
             <ul className="mt-3 space-y-2 text-sm text-gray-200">
-              <li>Samwash — мережа автомийок самообслуговування, що мігрувала на новий сайт samwash.ua; активно веде соцмережі та має широку географію локацій.</li>
-              <li>Plantpol — квіткове господарство із садовим центром та онлайн‑магазином; комунікації ведуться через Instagram та Facebook.</li>
-              <li>Lemberg Flowers — роздріб/опт рослин, озеленення інтер’єрів; активна присутність у Instagram та Facebook.</li>
-              <li>Rozkriy — фігурна порізка/фрезерування різних матеріалів із чистими краями без нагару; присутність у Facebook.</li>
-              <li>ГНІЗДО — об’єднання пілотів дронів; інформаційна платформа та навчальна/спільнотна діяльність.</li>
+              {t.researchItems.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
             </ul>
           </div>
         </section>
@@ -342,13 +481,13 @@ export default function SamwashQR() {
         {/* Contact anchor */}
         <section id="contact" className="mx-auto max-w-3xl px-6 pb-24">
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur text-center">
-            <h3 className="text-white text-lg font-semibold">Готові спробувати?</h3>
-            <p className="text-gray-300 mt-1">Залиште контакт — допоможемо обрати конфігурацію та швидко впровадити.</p>
+            <h3 className="text-white text-lg font-semibold">{t.ctaTitle}</h3>
+            <p className="text-gray-300 mt-1">{t.ctaDesc}</p>
             <a
               href="mailto:kravets.lviv@gmail.com"
               className="mt-4 inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-white/90 text-black font-medium hover:bg-white"
             >
-              Написати
+              {t.ctaButton}
             </a>
           </div>
         </section>

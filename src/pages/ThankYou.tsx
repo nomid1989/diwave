@@ -15,16 +15,26 @@ const ThankYou: React.FC = () => {
 
   const params = new URLSearchParams(search);
   const s = params.get('s'); // both|email|tg|none
+  const name = params.get('n') || ''; // client name
+  const contactType = params.get('ct') || 'email'; // email|phone
+
   const channelText =
     s === 'both' ? (locale === 'en' ? 'email and Telegram' : 'e‑mail і Telegram') :
     s === 'email' ? 'e‑mail' :
     s === 'tg' ? 'Telegram' :
     locale === 'en' ? 'unknown' : 'невідомо';
 
-  const title = locale === 'en' ? 'Thank you!' : 'Дякуємо!';
+  const contactMethod = contactType === 'phone'
+    ? (locale === 'en' ? 'phone' : 'телефону')
+    : (locale === 'en' ? 'email' : 'e‑mail');
+
+  const title = name
+    ? (locale === 'en' ? `Thank you, ${name}!` : `Дякуємо, ${name}!`)
+    : (locale === 'en' ? 'Thank you!' : 'Дякуємо!');
+
   const desc = locale === 'en'
-    ? `We received your message via ${channelText}. We will get back shortly.`
-    : `Ми отримали ваше повідомлення через ${channelText}. Ми звʼяжемося найближчим часом.`;
+    ? `We received your message via ${channelText}. ${name ? `We'll contact you by ${contactMethod} as you requested.` : 'We will get back shortly.'}`
+    : `Ми отримали ваше повідомлення через ${channelText}. ${name ? `Ми зв'яжемося з вами через ${contactMethod}, як ви просили.` : 'Ми звʼяжемося найближчим часом.'}`;
 
   return (
     <>
@@ -74,16 +84,10 @@ const ThankYou: React.FC = () => {
               </svg>
             </Link>
             <Link
-              to={locale === 'en' ? '/en/contact' : '/contact'}
+              to={locale === 'en' ? '/en/solutions' : '/solutions'}
               className="inline-flex items-center gap-2 rounded-full px-6 py-3 border border-white/30 text-white hover:bg-white/10 transition backdrop-blur"
             >
-              {locale === 'en' ? 'Send another message' : 'Надіслати ще одне'}
-            </Link>
-            <Link
-              to={locale === 'en' ? '/en/book' : '/book'}
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 border border-emerald-400/40 text-emerald-300 hover:bg-emerald-400/10 transition"
-            >
-              📅 {locale === 'en' ? 'Book a call' : 'Записатися в календар'}
+              {locale === 'en' ? 'Explore solutions' : 'Переглянути рішення'}
             </Link>
           </div>
 

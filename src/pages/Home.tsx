@@ -21,9 +21,213 @@ type Props = { locale: 'uk' | 'en' };
 
 const baseUrl = (import.meta.env.VITE_SITE_URL as string) || window.location.origin;
 
+const content = {
+  uk: {
+    hero: {
+      title: 'Автоматизуємо бізнес та підключаємо обладнання до інтернету.',
+      subtitle: 'E-commerce, CRM/SCADA, IoT, AI-SEO, платіжні інтеграції та аналітика.',
+      ctaExplore: 'Переглянути рішення'
+    },
+    solutions: {
+      title: 'Наші рішення, які працюють на вас',
+      subtitle: 'Комплексні бізнес-рішення з IoT, платіжними інтеграціями та повною автоматизацією',
+      carWash: {
+        badge: 'Популярне',
+        title: 'Автомийки самообслуговування SamWash',
+        description: 'Повністю автоматизовані комплекси з EBITDA 70%. Інтеграції з готівковими, безготівковими та монетними платіжними пристроями та дистанційним керуванням і обслуговуванням. Ти спиш, а бізнес працює 24/7',
+        cta: 'Дізнатися більше'
+      },
+      vacuum: {
+        badge: 'IoT',
+        title: 'Порохотяг самообслуговування з сенсорним екраном та ступенем захисту IP 65',
+        description: 'Ефективний порохотяг самообслуговування на 2 поста, потужністю 6 кВт 380V для автомийок, електро зарядних станцій та зон скупчення автомобілей',
+        cta: 'Дізнатися більше'
+      },
+      drones: {
+        badge: 'Новинка',
+        title: 'Дрони FPV • Гніздо (UAPD)',
+        description: 'Українська асоціація пілотів дронів: навчання, виробництво та розвиток drone-технологій',
+        cta: 'Дізнатися більше'
+      }
+    },
+    featuredProject: {
+      badge: 'Вендингові рішення',
+      title: 'Вендингові апарати з сенсорним екраном',
+      description: 'Захист IP65 — повна захищеність від пилу та водяних бризок. Ідеально підходить для зовнішньої установки у будь-яких погодних умовах.',
+      features: [
+        'Сенсорний екран 19" високої яскравості для роботи на вулиці',
+        'Безконтактна оплата (NFC, QR-коди, картки)',
+        'Віддалений моніторинг та контроль через IoT',
+        'Система охолодження/нагріву продукції'
+      ],
+      cta: 'Дізнатись більше'
+    },
+    projects: {
+      ecommerce: {
+        title: 'Електронна комерція',
+        description: 'Розробка інтернет-магазинів з повною автоматизацією',
+        tag1: 'Без кол-центру',
+        tag2: 'React',
+        tag3: 'SEO'
+      },
+      allProjects: 'Усі проєкти'
+    },
+    gallery: {
+      title: 'Наші роботи',
+      subtitle: 'Від промислових автомийок та вендингових автоматів самообслуговування до організації змагань на дронах — ми створюємо комплексні рішення'
+    },
+    about: {
+      title: 'Хто ми?',
+      description: 'Diwave — інженерна команда, що поєднує апаратні рішення, програмне забезпечення та аналітику. Ми автоматизуємо бізнес‑процеси, підключаємо обладнання (IoT/SCADA), інтегруємо платежі та запускаємо e‑commerce, CRM/лояльність і AI‑SEO. Працюємо від Discovery і дизайну до запуску та подальшого зростання.',
+      cta: 'Дізнатися про нас більше'
+    },
+    faq: {
+      title: 'FAQ',
+      items: [
+        {
+          question: 'Як швидко стартуємо?',
+          answer: 'Залежно від складності: від 2–4 тижнів для MVP до 2–3 місяців для повноцінного запуску. Починаємо з Discovery, узгоджуємо KPI та план.'
+        },
+        {
+          question: 'Які технології?',
+          answer: 'TypeScript/React, Node.js/PHP, інтеграції з платіжними провайдерами, IoT/SCADA, аналітика, AI‑SEO. Інфраструктура: Docker, CI/CD, моніторинг.'
+        }
+      ],
+      ctaTitle: 'Готові розв\'язати вузьке місце у вашому бізнесі?',
+      ctaButton: 'Зв\'язатися'
+    },
+    howItWorks: {
+      bookCall: 'Записатись на дзвінок'
+    },
+    industries: {
+      overline: 'Індустрії',
+      allIndustries: 'Усі індустрії',
+      automotive: 'Автомобільна',
+      vending: 'Вендинг',
+      fintech: 'Фінтех',
+      energy: 'Енергетика',
+      retail: 'Рітейл',
+      logistics: 'Логістика',
+      iot: 'IoT',
+      marketing: 'Маркетинг'
+    },
+    cta: {
+      title: 'Є ідея або проєкт?',
+      subtitle: 'Від Discovery та дизайну — до запуску і зростання.',
+      discussProject: 'Обговорити проєкт',
+      seeSolutions: 'Дивитись рішення'
+    },
+    contact: {
+      title: 'Зв\'язатися з нами',
+      description: 'Ми поєднуємо апаратні рішення, програмне забезпечення та аналітику: автомийки, вендинг, дрони, e‑commerce, платежі, лояльність та енергетику. Автоматизуємо процеси за допомогою AI, щоб бізнес працював ефективніше.'
+    }
+  },
+  en: {
+    hero: {
+      title: 'Automating business and connecting equipment to the internet.',
+      subtitle: 'E-commerce, CRM/SCADA, IoT, AI-SEO, payment integrations and analytics.',
+      ctaExplore: 'Explore solutions'
+    },
+    solutions: {
+      title: 'Our solutions that work for you',
+      subtitle: 'Comprehensive business solutions with IoT, payment integrations and full automation',
+      carWash: {
+        badge: 'Popular',
+        title: 'SamWash Self-Service Car Washes',
+        description: 'Fully automated complexes with 70% EBITDA. Integrations with cash, cashless and coin payment devices with remote management and maintenance. You sleep while business runs 24/7',
+        cta: 'Learn more'
+      },
+      vacuum: {
+        badge: 'IoT',
+        title: 'Self-Service Vacuum Cleaner with Touch Screen and IP65 Protection',
+        description: 'Efficient 2-post self-service vacuum cleaner, 6 kW 380V power for car washes, electric charging stations and vehicle gathering zones',
+        cta: 'Learn more'
+      },
+      drones: {
+        badge: 'New',
+        title: 'FPV Drones • Gnizdo (UAPD)',
+        description: 'Ukrainian Association of Drone Pilots: training, production and development of drone technologies',
+        cta: 'Learn more'
+      }
+    },
+    featuredProject: {
+      badge: 'Vending Solutions',
+      title: 'Vending Machines with Touch Screen',
+      description: 'IP65 protection — complete protection from dust and water splashes. Perfect for outdoor installation in any weather conditions.',
+      features: [
+        '19" high-brightness touch screen for outdoor use',
+        'Contactless payment (NFC, QR codes, cards)',
+        'Remote monitoring and control via IoT',
+        'Product cooling/heating system'
+      ],
+      cta: 'Learn more'
+    },
+    projects: {
+      ecommerce: {
+        title: 'E-commerce',
+        description: 'Development of online stores with full automation',
+        tag1: 'No call center',
+        tag2: 'React',
+        tag3: 'SEO'
+      },
+      allProjects: 'All projects'
+    },
+    gallery: {
+      title: 'Our Work',
+      subtitle: 'From industrial car washes and self-service vending machines to organizing drone competitions — we create comprehensive solutions'
+    },
+    about: {
+      title: 'Who are we?',
+      description: 'Diwave is an engineering team combining hardware solutions, software and analytics. We automate business processes, connect equipment (IoT/SCADA), integrate payments and launch e-commerce, CRM/loyalty and AI-SEO. We work from Discovery and design to launch and further growth.',
+      cta: 'Learn more about us'
+    },
+    faq: {
+      title: 'FAQ',
+      items: [
+        {
+          question: 'How quickly do we start?',
+          answer: 'Depending on complexity: from 2-4 weeks for MVP to 2-3 months for full launch. We start with Discovery, agree on KPIs and plan.'
+        },
+        {
+          question: 'What technologies?',
+          answer: 'TypeScript/React, Node.js/PHP, payment provider integrations, IoT/SCADA, analytics, AI-SEO. Infrastructure: Docker, CI/CD, monitoring.'
+        }
+      ],
+      ctaTitle: 'Ready to solve your business bottleneck?',
+      ctaButton: 'Contact us'
+    },
+    howItWorks: {
+      bookCall: 'Book a call'
+    },
+    industries: {
+      overline: 'Industries',
+      allIndustries: 'All industries',
+      automotive: 'Automotive',
+      vending: 'Vending',
+      fintech: 'Fintech',
+      energy: 'Energy',
+      retail: 'Retail',
+      logistics: 'Logistics',
+      iot: 'IoT',
+      marketing: 'Marketing'
+    },
+    cta: {
+      title: 'Have a project in mind?',
+      subtitle: 'From discovery and design to launch and growth.',
+      discussProject: 'Discuss project',
+      seeSolutions: 'See solutions'
+    },
+    contact: {
+      title: 'Contact us',
+      description: 'We combine hardware solutions, software and analytics: car washes, vending, drones, e-commerce, payments, loyalty and energy. We automate processes using AI to make business more efficient.'
+    }
+  }
+};
+
 const Home: React.FC<Props> = ({ locale }) => {
   const { t } = useTranslation();
   const url = `${baseUrl}${locale === 'en' ? '/en' : ''}`;
+  const c = content[locale];
 
   const projects = getProjects(locale);
   const [openFaq, setOpenFaq] = React.useState<number | null>(0);
@@ -188,7 +392,7 @@ const Home: React.FC<Props> = ({ locale }) => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="hero-title text-4xl md:text-6xl font-bold text-white tracking-tight"
             >
-              Автоматизуємо бізнес та підключаємо обладнання до інтернету.
+              {c.hero.title}
             </motion.h1>
 
             <motion.p
@@ -197,7 +401,7 @@ const Home: React.FC<Props> = ({ locale }) => {
               transition={{ delay: 0.4, duration: 0.4 }}
               className="hero-subtitle mt-6 text-lg md:text-xl text-white/90 max-w-3xl"
             >
-              E-commerce, CRM/SCADA, IoT, AI-SEO, платіжні інтеграції та аналітика.
+              {c.hero.subtitle}
             </motion.p>
 
             <motion.div
@@ -223,7 +427,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 className="hero-cta-secondary group inline-flex items-center justify-center rounded-2xl px-8 py-4 font-semibold transition-all duration-300 hover:scale-105"
               >
                 <span className="flex items-center gap-2">
-                  {locale === 'en' ? 'Explore solutions' : 'Переглянути рішення'}
+                  {c.hero.ctaExplore}
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
@@ -261,8 +465,8 @@ const Home: React.FC<Props> = ({ locale }) => {
 
       {/* PRODUCTS: Наші рішення, які працюють на вас */}
       <section className="products-section mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/50">
-        <h2 className="text-center text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-3">Наші рішення, які працюють на вас</h2>
-        <p className="text-center text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto mb-8">Комплексні бізнес-рішення з IoT, платіжними інтеграціями та повною автоматизацією</p>
+        <h2 className="text-center text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-3">{c.solutions.title}</h2>
+        <p className="text-center text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto mb-8">{c.solutions.subtitle}</p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {/* Картка 1: Автомийки SamWash - горизонтальна */}
           <div className="product-card group rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-blue-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
@@ -274,14 +478,13 @@ const Home: React.FC<Props> = ({ locale }) => {
                 imgClassName="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-cyan-500/90 text-white text-xs font-semibold backdrop-blur">Популярне</div>
+              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-cyan-500/90 text-white text-xs font-semibold backdrop-blur">{c.solutions.carWash.badge}</div>
             </div>
             <div className="p-6">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">Автомийки самообслуговування SamWash</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">Повністю автоматизовані комплекси з EBITDA 70%. Інтеграції з готівковими, безготівковими та монетними платіжними пристроями та дистанційним
-                  керуванням і обслуговуванням. <br/> Ти спиш, а бізнес працює 24/7</p>
-              <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-blue-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition group-hover:border-cyan-400/60">
-                Дізнатися більше
+              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">{c.solutions.carWash.title}</h3>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">{c.solutions.carWash.description}</p>
+              <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition group-hover:border-cyan-400/60">
+                {c.solutions.carWash.cta}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -299,13 +502,13 @@ const Home: React.FC<Props> = ({ locale }) => {
                 imgClassName="w-full h-80 object-contain group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-purple-500/90 text-white text-xs font-semibold backdrop-blur">IoT</div>
+              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-purple-500/90 text-white text-xs font-semibold backdrop-blur">{c.solutions.vacuum.badge}</div>
             </div>
             <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">Порохотяг самообслуговування з сенсорним екраном та ступенем захисту IP 65</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4 flex-1">Ефективний порохотяг самообслуговування на 2 поста, потужністю 6 кВт 380V для автомийок, електро зарядних станцій та зон скупчення автомобілей</p>
-              <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-purple-300 text-white dark:text-white light:text-purple-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-purple-50 transition group-hover:border-purple-400/60">
-                Дізнатися більше
+              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">{c.solutions.vacuum.title}</h3>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4 flex-1">{c.solutions.vacuum.description}</p>
+              <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-purple-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-purple-50 transition group-hover:border-purple-400/60">
+                {c.solutions.vacuum.cta}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -317,19 +520,19 @@ const Home: React.FC<Props> = ({ locale }) => {
           <div className="product-card group rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-emerald-400/50 dark:hover:border-emerald-400/50 light:hover:border-emerald-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
             <div className="relative h-64 overflow-hidden bg-gradient-to-br from-emerald-900/20 to-teal-900/20">
               <SmartImage
-                sources={["/images/industries/drones/img.png"]}
+                sources={["/images/industries/drones/learning2025-1.png"]}
                 alt="Дрони FPV та Українська асоціація пілотів дронів"
                 className="w-full h-64"
                 imgClassName="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-emerald-500/90 text-white text-xs font-semibold backdrop-blur">Новинка</div>
+              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-emerald-500/90 text-white text-xs font-semibold backdrop-blur">{c.solutions.drones.badge}</div>
             </div>
             <div className="p-6">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">Дрони FPV • Гніздо (UAPD)</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">Українська асоціація пілотів дронів: навчання, виробництво та розвиток drone-технологій</p>
-              <a href={`${locale === 'en' ? '/en' : ''}/solutions/drones`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-emerald-300 text-white dark:text-white light:text-emerald-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-emerald-50 transition group-hover:border-emerald-400/60">
-                Дізнатися більше
+              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">{c.solutions.drones.title}</h3>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">{c.solutions.drones.description}</p>
+              <a href={`${locale === 'en' ? '/en' : ''}/solutions/drones`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-emerald-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-emerald-50 transition group-hover:border-emerald-400/60">
+                {c.solutions.drones.cta}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -387,12 +590,12 @@ const Home: React.FC<Props> = ({ locale }) => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
               <div className="absolute bottom-0 p-6">
-                <h3 className="text-white text-2xl font-bold mb-2">Електронна комерція</h3>
-                <p className="text-gray-300 text-sm mb-3">Розробка інтернет-магазинів з повною автоматизацією</p>
+                <h3 className="text-white text-2xl font-bold mb-2">{c.projects.ecommerce.title}</h3>
+                <p className="text-gray-300 text-sm mb-3">{c.projects.ecommerce.description}</p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">Без кол-центру</span>
-                  <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">React</span>
-                  <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30">SEO</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">{c.projects.ecommerce.tag1}</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">{c.projects.ecommerce.tag2}</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30">{c.projects.ecommerce.tag3}</span>
                 </div>
               </div>
             </div>
@@ -440,7 +643,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             href={`${locale === 'en' ? '/en' : ''}/projects`}
             className="inline-flex items-center rounded-md px-5 py-2 border border-white/20 text-white hover:bg-white/10 transition"
           >
-            {locale === 'en' ? 'All projects' : 'Усі проєкти'}
+            {c.projects.allProjects}
           </a>
         </div>
       </section>
@@ -453,38 +656,27 @@ const Home: React.FC<Props> = ({ locale }) => {
             <div className="vending-block">
               <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-cyan-500/10 dark:bg-cyan-500/10 light:bg-blue-600/20 border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-600/50">
                 <span className="text-lg">🏪</span>
-                <span className="text-sm text-cyan-300 dark:text-cyan-300 light:text-blue-700 font-medium">Вендингові рішення</span>
+                <span className="text-sm text-cyan-300 dark:text-cyan-300 light:text-blue-700 font-medium">{c.featuredProject.badge}</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
-                Вендингові апарати з сенсорним екраном
+                {c.featuredProject.title}
               </h2>
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-lg mb-6">
-                Захист <strong className="text-cyan-400 dark:text-cyan-400 light:text-blue-700">IP65</strong> — повна захищеність від пилу та водяних бризок.
-                Ідеально підходить для зовнішньої установки у будь-яких погодних умовах.
+                {c.featuredProject.description}
               </p>
               <ul className="space-y-3 text-gray-300 dark:text-gray-300 light:text-gray-700 mb-6">
-                <li className="flex items-start gap-2">
-                  <span className="text-cyan-400 dark:text-cyan-400 light:text-blue-600 mt-1 font-bold">✓</span>
-                  <span>Сенсорний екран 19" високої яскравості для роботи на вулиці</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-cyan-400 dark:text-cyan-400 light:text-blue-600 mt-1 font-bold">✓</span>
-                  <span>Безконтактна оплата (NFC, QR-коди, картки)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-cyan-400 dark:text-cyan-400 light:text-blue-600 mt-1 font-bold">✓</span>
-                  <span>Віддалений моніторинг та контроль через IoT</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-cyan-400 dark:text-cyan-400 light:text-blue-600 mt-1 font-bold">✓</span>
-                  <span>Система охолодження/нагріву продукції</span>
-                </li>
+                {c.featuredProject.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <span className="text-cyan-400 dark:text-cyan-400 light:text-blue-600 mt-1 font-bold">✓</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
               </ul>
               <a
-                href="/solutions/alcohol-vending"
+                href={`${locale === 'en' ? '/en' : ''}/solutions/alcohol-vending`}
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 bg-cyan-500 dark:bg-cyan-500 light:bg-blue-600 text-white font-semibold hover:bg-cyan-600 dark:hover:bg-cyan-600 light:hover:bg-blue-700 transition shadow-lg shadow-cyan-500/25 dark:shadow-cyan-500/25 light:shadow-blue-500/25"
               >
-                <span className="text-white">Дізнатись більше</span>
+                <span className="text-white">{c.featuredProject.cta}</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="opacity-90">
                   <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -495,10 +687,11 @@ const Home: React.FC<Props> = ({ locale }) => {
             <div className="relative">
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-400/20 to-blue-400/20 blur-2xl" aria-hidden />
               <div className="relative rounded-2xl overflow-hidden border border-cyan-500/30 bg-black/20">
-                <img
-                  src="/images/projects/img_2.png"
+                <SmartImage
+                  sources={['/images/solutions/alcohol-vending/vending-mashines-coffe.png', '/images/solutions/alcohol-vending/vending-mashines-snaks.png']}
                   alt="Вендинговий апарат з сенсорним екраном та захистом IP65"
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto"
+                  imgClassName="w-full h-auto object-contain"
                 />
               </div>
             </div>
@@ -508,15 +701,16 @@ const Home: React.FC<Props> = ({ locale }) => {
 
       {/* DESIGN GALLERY: Наші роботи */}
       <section className="design-gallery mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/40">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-3">Наші роботи</h2>
-        <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 mb-10 max-w-2xl">Від промислових автомийок та вендингових автоматів самообслуговування до організації змагань на дронах — ми створюємо комплексні рішення</p>
+        <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-3">{c.gallery.title}</h2>
+        <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 mb-10 max-w-2xl">{c.gallery.subtitle}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
             { src: '/images/projects/0D836EDC-DDF3-49DC-A654-BC4BB803C72C_1_105_c.jpeg', alt: 'Дизайн екстер\'єру автомийки', category: 'Design' },
-            { src: '/images/projects/img.png', alt: 'Комплексні IoT рішення', category: 'IoT' },
+            { src: '/images/projects/learning2025-1.png', alt: 'Комплексні IoT рішення', category: 'IoT' },
             { src: '/images/projects/img_1.png', alt: 'Промислове обладнання', category: 'Hardware' },
             { src: '/images/solutions/car-washes/2F00D20A-A2AE-46A7-875B-EF2CDB18B66E_1_105_c.jpeg', alt: 'Технологічні рішення', category: 'Tech' },
             { src: '/images/industries/drones/741ADB82-E672-4F57-95E6-790CD07D8C92_1_105_c.jpeg', alt: 'Дрон-технології', category: 'Drones' },
+            { src: '/images/about/fpv-working-testing.jpeg', alt: 'Команда за роботою - тестування FPV дронів', category: 'Team' },
             { src: '/images/projects/img_2.png', alt: 'Вендингові системи', category: 'Software' },
             { src: '/images/projects/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg', alt: 'Пилосос 6 кВт з 19" екраном', category: 'Vacuum' }
           ].map((img, idx) => (
@@ -554,7 +748,7 @@ const Home: React.FC<Props> = ({ locale }) => {
 
       {/* ABOUT: Хто ми? */}
       <section id="about" className="about-section mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/50">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-8">Хто ми?</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-8">{c.about.title}</h2>
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <SmartImage
             sources={["/images/home/FPF team with Diwave.jpg"]}
@@ -564,37 +758,37 @@ const Home: React.FC<Props> = ({ locale }) => {
           />
           <div>
             <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed">
-              Diwave — інженерна команда, що поєднує апаратні рішення, програмне забезпечення та аналітику. Ми автоматизуємо бізнес‑процеси, підключаємо обладнання (IoT/SCADA), інтегруємо платежі та запускаємо e‑commerce, CRM/лояльність і AI‑SEO. Працюємо від Discovery і дизайну до запуску та подальшого зростання.
+              {c.about.description}
             </p>
-            <a href={`${locale === 'en' ? '/en' : ''}/about`} className="inline-flex mt-6 px-5 py-2 rounded-md border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-blue-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition">Дізнатися про нас більше</a>
+            <a href={`${locale === 'en' ? '/en' : ''}/about`} className="inline-flex mt-6 px-5 py-2 rounded-md border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition">{c.about.cta}</a>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="faq-section mx-auto max-w-3xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/40">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 text-center">FAQ</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 text-center">{c.faq.title}</h2>
         <div className="mt-6 divide-y divide-white/10 dark:divide-white/10 light:divide-gray-200 rounded-xl border border-white/10 dark:border-white/10 light:border-gray-200 overflow-hidden">
-          {[{q:'Як швидко стартуємо?', a:'Залежно від складності: від 2–4 тижнів для MVP до 2–3 місяців для повноцінного запуску. Починаємо з Discovery, узгоджуємо KPI та план.'}, {q:'Які технології?', a:'TypeScript/React, Node.js/PHP, інтеграції з платіжними провайдерами, IoT/SCADA, аналітика, AI‑SEO. Інфраструктура: Docker, CI/CD, моніторинг.'}].map((item, idx) => (
+          {c.faq.items.map((item, idx) => (
             <div key={idx} className="bg-white/5 dark:bg-white/5 light:bg-white">
               <button
                 className="w-full text-left px-5 py-4 flex items-center justify-between hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-gray-50 transition"
                 aria-expanded={openFaq===idx}
                 onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
               >
-                <h3 className="text-white dark:text-white light:text-gray-900 font-medium">{item.q}</h3>
+                <h3 className="text-white dark:text-white light:text-gray-900 font-medium">{item.question}</h3>
                 <span className="text-gray-300 dark:text-gray-300 light:text-gray-600">{openFaq===idx ? '−' : '+'}</span>
               </button>
               {openFaq===idx && (
-                <div className="px-5 pb-5 text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">{item.a}</div>
+                <div className="px-5 pb-5 text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">{item.answer}</div>
               )}
             </div>
           ))}
         </div>
         <div className="mt-6 text-center">
-          <div className="text-white dark:text-white light:text-gray-900 text-lg">Готові розв'язати вузьке місце у вашому бізнесі?</div>
+          <div className="text-white dark:text-white light:text-gray-900 text-lg">{c.faq.ctaTitle}</div>
           <a href={`${locale === 'en' ? '/en' : ''}/contact`} className="inline-flex mt-4 px-6 py-3 rounded-md bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 font-semibold hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 transition shadow-lg">
-            <span className="text-white">Зв'язатися</span>
+            <span className="text-white">{c.faq.ctaButton}</span>
           </a>
         </div>
       </section>
@@ -619,7 +813,7 @@ const Home: React.FC<Props> = ({ locale }) => {
               </div>
               <div className="mt-3 font-semibold text-white">{title}</div>
               <div className="text-xs text-gray-300 opacity-90 group-hover:opacity-100">
-                {locale === 'en' ? 'Book a call' : 'Записатись на дзвінок'}
+                {c.howItWorks.bookCall}
               </div>
             </motion.a>
           ))}
@@ -628,17 +822,17 @@ const Home: React.FC<Props> = ({ locale }) => {
 
       {/* INDUSTRIES: навігація за індустріями з фото з public/images */}
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <SectionHeader overline={locale === 'en' ? 'Industries' : 'Індустрії'} title="" />
+        <SectionHeader overline={c.industries.overline} title="" />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-2">
           {[
-            { slug: 'automotive', titleUk: 'Автомобільна', titleEn: 'Automotive', img: '/images/industries/automotive', alt: 'Automotive' },
-            { slug: 'vending', titleUk: 'Вендинг', titleEn: 'Vending', img: '/images/industries/vending', alt: 'Vending' },
-            { slug: 'fintech', titleUk: 'Фінтех', titleEn: 'Fintech', img: '/images/industries/fintech', alt: 'Fintech' },
-            { slug: 'energy', titleUk: 'Енергетика', titleEn: 'Energy', img: '/images/industries/energy', alt: 'Energy' },
-            { slug: 'retail', titleUk: 'Рітейл', titleEn: 'Retail', img: '/images/industries/retail', alt: 'Retail' },
-            { slug: 'logistics', titleUk: 'Логістика', titleEn: 'Logistics', img: '/images/industries/logistics', alt: 'Logistics' },
-            { slug: 'iot', titleUk: 'IoT', titleEn: 'IoT', img: '/images/industries/iot', alt: 'IoT' },
-            { slug: 'marketing', titleUk: 'Маркетинг', titleEn: 'Marketing', img: '/images/industries/marketing', alt: 'Marketing' }
+            { slug: 'automotive', img: '/images/industries/automotive', alt: 'Automotive' },
+            { slug: 'vending', img: '/images/industries/vending', alt: 'Vending' },
+            { slug: 'fintech', img: '/images/industries/fintech', alt: 'Fintech' },
+            { slug: 'energy', img: '/images/industries/energy', alt: 'Energy' },
+            { slug: 'retail', img: '/images/industries/retail', alt: 'Retail' },
+            { slug: 'logistics', img: '/images/industries/logistics', alt: 'Logistics' },
+            { slug: 'iot', img: '/images/industries/iot', alt: 'IoT' },
+            { slug: 'marketing', img: '/images/industries/marketing', alt: 'Marketing' }
           ].map((i) => (
             <motion.a
               key={i.slug}
@@ -657,7 +851,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3 text-white font-bold text-lg drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-                  {locale === 'en' ? i.titleEn : i.titleUk}
+                  {c.industries[i.slug as keyof typeof c.industries]}
                 </div>
               </div>
             </motion.a>
@@ -668,7 +862,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             href={`${locale === 'en' ? '/en' : ''}/industries`}
             className="inline-flex items-center rounded-md px-5 py-2 border border-white/20 text-white hover:bg-white/10 transition"
           >
-            {locale === 'en' ? 'All industries' : 'Усі індустрії'}
+            {c.industries.allIndustries}
           </a>
         </div>
       </section>
@@ -678,12 +872,10 @@ const Home: React.FC<Props> = ({ locale }) => {
         <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <div className="text-white text-lg font-semibold">
-              {locale === 'en' ? 'Have a project in mind?' : 'Є ідея або проєкт?'}
+              {c.cta.title}
             </div>
             <div className="text-gray-300 text-sm">
-              {locale === 'en'
-                ? 'From discovery and design to launch and growth.'
-                : 'Від Discovery та дизайну — до запуску і зростання.'}
+              {c.cta.subtitle}
             </div>
           </div>
           <div className="flex gap-3">
@@ -691,13 +883,13 @@ const Home: React.FC<Props> = ({ locale }) => {
               href={`${locale === 'en' ? '/en' : ''}/contact`}
               className="inline-flex items-center rounded-md px-5 py-2 bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 font-semibold hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 transition shadow-md"
             >
-              <span className="text-white">{locale === 'en' ? 'Discuss project' : 'Обговорити проєкт'}</span>
+              <span className="text-white">{c.cta.discussProject}</span>
             </a>
             <a
               href={`${locale === 'en' ? '/en' : ''}/solutions`}
-              className="inline-flex items-center rounded-md px-5 py-2 border border-white/30 dark:border-white/30 light:border-blue-300 text-white dark:text-white light:text-blue-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition"
+              className="inline-flex items-center rounded-md px-5 py-2 border border-white/30 dark:border-white/30 light:border-blue-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition"
             >
-              {locale === 'en' ? 'See solutions' : 'Дивитись рішення'}
+              {c.cta.seeSolutions}
             </a>
           </div>
         </div>
@@ -719,15 +911,13 @@ const Home: React.FC<Props> = ({ locale }) => {
             <div className="mt-6">
               <div className="text-white dark:text-white light:text-gray-900 font-bold text-xl mb-3">Dmytro Kravets — Founder, Diwave</div>
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-base leading-relaxed">
-                Ми поєднуємо апаратні рішення, програмне забезпечення та аналітику: автомийки,
-                вендинг, дрони, e‑commerce, платежі, лояльність та енергетику. Автоматизуємо
-                процеси за допомогою AI, щоб бізнес працював ефективніше.
+                {c.contact.description}
               </p>
             </div>
           </div>
           <div className="contact-card rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white p-8 backdrop-blur shadow-xl flex flex-col justify-between">
             <div>
-              <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-2xl mb-6">Зв'язатися з нами</h3>
+              <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-2xl mb-6">{c.contact.title}</h3>
               <ul className="text-gray-300 dark:text-gray-300 light:text-gray-700 space-y-4">
                 <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
                   <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

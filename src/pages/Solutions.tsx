@@ -3,7 +3,7 @@ import SEO from '@/components/SEO';
 import SmartImage from '@/components/ui/SmartImage';
 import SectionHeader from '@/components/sections/SectionHeader';
 import { getSolutions } from '@/lib/content/solutions';
-import { SolutionsQRSection } from '@/content/QRSections';
+import { SolutionsSection } from "@/content/CatalogSections";
 
 type Props = { locale: 'uk' | 'en' };
 
@@ -134,10 +134,10 @@ const Solutions: React.FC<Props> = ({ locale }) => {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-16">
-        <SolutionsQRSection />
+        <SolutionsSection locale={locale} />
         <nav className="mt-6 text-sm text-gray-400 dark:text-gray-400 light:text-gray-600">
           <p>
-            Інші каталоги: <a href="/projects" className="text-cyan-400 dark:text-cyan-400 light:text-blue-600 hover:underline">Проєкти</a> · <a href="/industries" className="text-cyan-400 dark:text-cyan-400 light:text-blue-600 hover:underline">Індустрії</a>
+            {locale === 'uk' ? 'Інші каталоги:' : 'Other catalogs:'} <a href={locale === 'en' ? '/en/projects' : '/projects'} className="text-cyan-400 dark:text-cyan-400 light:text-blue-600 hover:underline">{locale === 'uk' ? 'Проєкти' : 'Projects'}</a> · <a href={locale === 'en' ? '/en/industries' : '/industries'} className="text-cyan-400 dark:text-cyan-400 light:text-blue-600 hover:underline">{locale === 'uk' ? 'Індустрії' : 'Industries'}</a>
           </p>
         </nav>
       </section>

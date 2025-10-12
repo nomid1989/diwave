@@ -97,14 +97,6 @@ const Contact: React.FC<Props> = ({ locale }) => {
                     : 'Ми поєднуємо апаратні рішення, програмне забезпечення та аналітику: автомийки, вендинг, дрони, e‑commerce, платежі, лояльність та енергетику. Автоматизуємо процеси за допомогою AI, щоб бізнес працював ефективніше.'
                   }
                 </p>
-                <div className="flex flex-wrap gap-3 mb-6">
-                  <a
-                    href={`${locale === 'en' ? '/en' : ''}/book`}
-                    className="inline-flex items-center gap-2 rounded-xl px-6 py-3 bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 font-bold shadow-lg hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 hover:shadow-xl transition-all hover:scale-105"
-                  >
-                    <span className="text-white">{locale === 'en' ? 'Book a call' : 'Записатися в календар'}</span>
-                  </a>
-                </div>
               </div>
             </div>
 
@@ -190,7 +182,7 @@ const Contact: React.FC<Props> = ({ locale }) => {
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title={locale === 'en' ? 'Diwave Office Location - Venychenka St 30, Lviv' : 'Офіс Diwave - вул. Венiченка 30, Львів'}
+              title={locale === 'en' ? 'Diwave Office Location - Vynnychenko St 30, Lviv' : 'Офіс Diwave - вул. Винниченка 30, Львів'}
             />
           </div>
         </div>

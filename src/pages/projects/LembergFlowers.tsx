@@ -73,7 +73,12 @@ export default function LembergFlowersProject() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-purple-400/20 to-cyan-400/20 blur-2xl" aria-hidden />
               <div className="relative rounded-3xl overflow-hidden border border-purple-500/20 bg-white/5 backdrop-blur">
-                <img src="/images/projects/lembergflowers.png" alt="Lemberg Flowers сайт" className="w-full h-[420px] object-cover" />
+                <SmartImage
+                  sources={['/images/projects/lembergflowers.png']}
+                  alt="Lemberg Flowers сайт"
+                  className="w-full h-[420px]"
+                  imgClassName="w-full h-[420px] object-cover"
+                />
               </div>
             </div>
           </div>

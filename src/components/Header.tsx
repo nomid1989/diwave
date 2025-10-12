@@ -89,7 +89,7 @@ const Header: React.FC = () => {
           <ThemeToggle />
           <Link
             to={makeLink('/contact', locale)}
-            className="hidden md:inline-block px-3 py-2 rounded-md bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 text-black dark:text-black light:text-white font-semibold shadow-[0_0_16px_rgba(16,185,129,0.5)] dark:shadow-[0_0_16px_rgba(16,185,129,0.5)] light:shadow-[0_0_16px_rgba(37,99,235,0.5)] hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] dark:hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] light:hover:shadow-[0_0_24px_rgba(37,99,235,0.7)] transition-all"
+            className="hidden md:inline-block px-3 py-2 rounded-md bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 text-white font-semibold shadow-[0_0_16px_rgba(16,185,129,0.5)] dark:shadow-[0_0_16px_rgba(16,185,129,0.5)] light:shadow-[0_0_16px_rgba(37,99,235,0.5)] hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] dark:hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] light:hover:shadow-[0_0_24px_rgba(37,99,235,0.7)] transition-all"
           >
             {t('cta.discuss')}
           </Link>
@@ -98,9 +98,9 @@ const Header: React.FC = () => {
               aria-label="UA"
               onClick={() => switchLocale('uk')}
               className={classNames(
-                'px-2 py-1 text-sm transition',
+                'px-2 py-1 text-sm font-medium transition',
                 locale === 'uk'
-                  ? 'bg-cyan-500 dark:bg-cyan-500 light:bg-blue-600 text-black dark:text-black light:text-white'
+                  ? 'bg-cyan-500 dark:bg-cyan-500 light:bg-blue-600 text-white'
                   : 'text-cyan-300 dark:text-cyan-300 light:text-blue-600 hover:bg-cyan-400/10 dark:hover:bg-cyan-400/10 light:hover:bg-blue-50'
               )}
             >
@@ -110,9 +110,9 @@ const Header: React.FC = () => {
               aria-label="EN"
               onClick={() => switchLocale('en')}
               className={classNames(
-                'px-2 py-1 text-sm transition',
+                'px-2 py-1 text-sm font-medium transition',
                 locale === 'en'
-                  ? 'bg-cyan-500 dark:bg-cyan-500 light:bg-blue-600 text-black dark:text-black light:text-white'
+                  ? 'bg-cyan-500 dark:bg-cyan-500 light:bg-blue-600 text-white'
                   : 'text-cyan-300 dark:text-cyan-300 light:text-blue-600 hover:bg-cyan-400/10 dark:hover:bg-cyan-400/10 light:hover:bg-blue-50'
               )}
             >

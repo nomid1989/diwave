@@ -4,19 +4,53 @@ import SmartImage from '@/components/ui/SmartImage';
 
 const baseUrl = (import.meta.env.VITE_SITE_URL as string) || window.location.origin;
 
-export default function IoTSCADA() {
-  const title = 'IoT & SCADA & автоматизація | Diwave Solutions';
-  const description =
-    'Підключення пристроїв, збір і аналіз даних, дії за тригерами. SCADA для моніторингу та керування, інтеграції й безпека.';
-  const url = `${baseUrl}/solutions/iot-scada`;
+type Props = { locale: 'uk' | 'en' };
+
+export default function IoTSCADA({ locale }: Props) {
+  const content = {
+    uk: {
+      title: 'IoT & SCADA & автоматизація | Diwave Solutions',
+      description: 'Підключення пристроїв, збір і аналіз даних, дії за тригерами. SCADA для моніторингу та керування, інтеграції й безпека.',
+      heading: 'IoT & SCADA & автоматизація',
+      jsonDescription: 'Побудова IoT‑ланцюжків, SCADA, тригерні сценарії, інтеграції та безпека для підприємств.',
+      btnSolutions: 'До каталогу рішень',
+      btnCases: 'Кейси',
+      feature1Title: 'Підключення',
+      feature1Desc: 'IoT‑шлюзи, протоколи, безпечний зв\'язок.',
+      feature2Title: 'SCADA',
+      feature2Desc: 'Моніторинг станів і керування процесами.',
+      feature3Title: 'Тригери',
+      feature3Desc: 'Автоматичні дії за подіями та алгоритмами.',
+      navSolutions: '← До каталогу Рішень',
+      navIndustries: 'Індустрії'
+    },
+    en: {
+      title: 'IoT & SCADA & Automation | Diwave Solutions',
+      description: 'Device connectivity, data collection and analysis, trigger-based actions. SCADA for monitoring and control, integrations and security.',
+      heading: 'IoT & SCADA & Automation',
+      jsonDescription: 'Building IoT chains, SCADA, trigger scenarios, integrations and security for enterprises.',
+      btnSolutions: 'All Solutions',
+      btnCases: 'Case Studies',
+      feature1Title: 'Connectivity',
+      feature1Desc: 'IoT gateways, protocols, secure communication.',
+      feature2Title: 'SCADA',
+      feature2Desc: 'Status monitoring and process control.',
+      feature3Title: 'Triggers',
+      feature3Desc: 'Automated actions based on events and algorithms.',
+      navSolutions: '← Back to Solutions',
+      navIndustries: 'Industries'
+    }
+  };
+
+  const t = content[locale];
+  const url = `${baseUrl}${locale === 'en' ? '/en' : ''}/solutions/iot-scada`;
 
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: 'IoT & SCADA & автоматизація',
-      description:
-        'Побудова IoT‑ланцюжків, SCADA, тригерні сценарії, інтеграції та безпека для підприємств.',
+      name: t.heading,
+      description: t.jsonDescription,
       provider: { '@type': 'Organization', name: 'Diwave Solutions', url: baseUrl },
       areaServed: ['UA', 'EU'],
       inLanguage: ['uk', 'en'],
@@ -27,12 +61,12 @@ export default function IoTSCADA() {
   return (
     <>
       <SEO
-        title={title}
-        description={description}
+        title={t.title}
+        description={t.description}
         url={url}
         image={`${baseUrl}/images/solutions/iot/cover.jpg`}
-        locale="uk"
-        alternates={[{ hrefLang: 'uk', href: url }]}
+        locale={locale}
+        alternates={[{ hrefLang: locale, href: url }]}
         jsonLd={jsonLd}
       />
 
@@ -46,12 +80,12 @@ export default function IoTSCADA() {
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <h1 className="text-3xl md:text-5xl font-semibold text-white tracking-tight">
-                IoT &amp; SCADA &amp; автоматизація
+                {t.heading}
               </h1>
-              <p className="mt-4 text-gray-300">{description}</p>
+              <p className="mt-4 text-gray-300">{t.description}</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="/solutions" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-white/90 text-black font-medium hover:bg-white transition">До каталогу рішень</a>
-                <a href="/projects" className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 border border-white/30 text-white hover:bg-white/10 transition">Кейси</a>
+                <a href={`${locale === 'en' ? '/en' : ''}/solutions`} className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-white/90 text-black font-medium hover:bg-white transition">{t.btnSolutions}</a>
+                <a href={`${locale === 'en' ? '/en' : ''}/projects`} className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 border border-white/30 text-white hover:bg-white/10 transition">{t.btnCases}</a>
               </div>
             </div>
             <div className="relative">
@@ -59,7 +93,7 @@ export default function IoTSCADA() {
               <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
                 <SmartImage
                   srcFolder="/images/solutions/iot"
-                  alt="IoT і SCADA — рішення Diwave"
+                  alt={locale === 'uk' ? 'IoT і SCADA — рішення Diwave' : 'IoT & SCADA — Diwave solutions'}
                   className="w-full h-[420px]"
                   imgClassName="w-full h-[420px] object-cover"
                 />
@@ -71,9 +105,9 @@ export default function IoTSCADA() {
         <section className="mx-auto max-w-7xl px-6 py-12">
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { t: 'Підключення', d: 'IoT‑шлюзи, протоколи, безпечний зв’язок.' },
-              { t: 'SCADA', d: 'Моніторинг станів і керування процесами.' },
-              { t: 'Тригери', d: 'Автоматичні дії за подіями та алгоритмами.' }
+              { t: t.feature1Title, d: t.feature1Desc },
+              { t: t.feature2Title, d: t.feature2Desc },
+              { t: t.feature3Title, d: t.feature3Desc }
             ].map((f) => (
               <div key={f.t} className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
                 <div className="text-white font-medium">{f.t}</div>
@@ -85,8 +119,8 @@ export default function IoTSCADA() {
 
         <section className="mx-auto max-w-7xl px-6 pb-24">
           <div className="flex flex-wrap items-center gap-3">
-            <a href="/solutions" className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20 text-white hover:bg-white/10">← До каталогу Рішень</a>
-            <a href="/industries" className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20 text-white hover:bg-white/10">Індустрії</a>
+            <a href={`${locale === 'en' ? '/en' : ''}/solutions`} className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20 text-white hover:bg-white/10">{t.navSolutions}</a>
+            <a href={`${locale === 'en' ? '/en' : ''}/industries`} className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20 text-white hover:bg-white/10">{t.navIndustries}</a>
           </div>
         </section>
       </main>
