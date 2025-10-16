@@ -263,23 +263,59 @@ const About: React.FC<Props> = ({ locale }) => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid md:grid-cols-2 gap-6 mb-8"
+            className="grid md:grid-cols-3 gap-6 mb-8 items-start"
           >
-            <div className="rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 backdrop-blur-2xl shadow-xl">
-              <SmartImage
-                sources={['/images/about/fpv-team.jpg', '/images/about/fpv-team.webp']}
-                alt="Diwave Team - FPV Drone Development"
-                className="w-full h-80"
-                imgClassName="w-full h-80 object-cover"
-              />
+            {/* iOS 26 Glassmorphism Cards - Блоки підлаштовуються під фото */}
+            <div className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 backdrop-blur-3xl shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20 hover:scale-[1.02] h-fit">
+              <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 rounded-3xl" />
+              <div className="relative p-4">
+                <SmartImage
+                  sources={[
+                    "/images/gnizdo-team/fpv-crafting.webp",
+                    "/images/gnizdo-team/fpv-crafting.jpeg"
+                  ]}
+                  alt="FPV Drone Crafting - Assembly and Development"
+                  className="w-full"
+                  sizes="(min-width:768px) 33vw, 100vw"
+                  imgClassName="w-full h-auto rounded-2xl"
+                  priority={true}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none" />
+              </div>
             </div>
-            <div className="rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 backdrop-blur-2xl shadow-xl">
-              <SmartImage
-                sources={['/images/about/fpv-working-testing.jpeg']}
-                alt="Diwave Team - Working and Testing"
-                className="w-full h-80"
-                imgClassName="w-full h-80 object-cover"
-              />
+            <div className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 backdrop-blur-3xl shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20 hover:scale-[1.02] h-fit">
+              <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 rounded-3xl" />
+              <div className="relative p-4">
+                <SmartImage
+                  sources={[
+                    "/images/gnizdo-team/team-meeting.webp",
+                    "/images/gnizdo-team/team-meeting.jpeg"
+                  ]}
+                  alt="Team Planning Meeting - Strategy Session"
+                  className="w-full"
+                  sizes="(min-width:768px) 33vw, 100vw"
+                  imgClassName="w-full h-auto rounded-2xl"
+                  priority={true}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none" />
+              </div>
+            </div>
+            <div className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 backdrop-blur-3xl shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20 hover:scale-[1.02] h-fit">
+              <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 rounded-3xl" />
+              <div className="relative p-4">
+                <SmartImage
+                  sources={[
+                    "/images/gnizdo-team/fpv-riding.webp",
+                    "/images/gnizdo-team/fpv-riding.jpeg"
+                  ]}
+                  alt="FPV Riding - Field Testing and Practice"
+                  className="w-full"
+                  sizes="(min-width:768px) 33vw, 100vw"
+                  imgClassName="w-full h-auto rounded-2xl"
+                  priority={true}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none" />
+              </div>
             </div>
           </motion.div>
         </div>
@@ -288,42 +324,48 @@ const About: React.FC<Props> = ({ locale }) => {
       {/* Mission & Values Section */}
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Mission */}
+          {/* Mission - iOS 26 Glassmorphism */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 p-8 backdrop-blur-xl shadow-xl"
+            className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 overflow-hidden backdrop-blur-3xl shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20"
           >
-            <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
-              {t.missionTitle}
-            </h2>
-            <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed">
-              {t.missionText}
-            </p>
+            <div className="absolute inset-0 bg-white/[0.03] dark:bg-white/[0.03] light:bg-white/90 backdrop-saturate-[180%]" />
+            <div className="relative p-8">
+              <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
+                {t.missionTitle}
+              </h2>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed">
+                {t.missionText}
+              </p>
+            </div>
           </motion.div>
 
-          {/* Values */}
+          {/* Values - iOS 26 Glassmorphism */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 p-8 backdrop-blur-xl shadow-xl"
+            className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 overflow-hidden backdrop-blur-3xl shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20"
           >
-            <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-6">
-              {t.valuesTitle}
-            </h2>
-            <div className="space-y-4">
-              {t.values.map((value, i) => (
-                <div key={i} className="border-l-4 border-cyan-500 dark:border-cyan-500 light:border-blue-600 pl-4">
-                  <h3 className="text-white dark:text-white light:text-gray-900 font-semibold mb-1">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">
-                    {value.text}
-                  </p>
-                </div>
-              ))}
+            <div className="absolute inset-0 bg-white/[0.03] dark:bg-white/[0.03] light:bg-white/90 backdrop-saturate-[180%]" />
+            <div className="relative p-8">
+              <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-6">
+                {t.valuesTitle}
+              </h2>
+              <div className="space-y-4">
+                {t.values.map((value, i) => (
+                  <div key={i} className="border-l-4 border-cyan-500 dark:border-cyan-500 light:border-blue-600 pl-4">
+                    <h3 className="text-white dark:text-white light:text-gray-900 font-semibold mb-1">
+                      {value.title}
+                    </h3>
+                    <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">
+                      {value.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
@@ -350,13 +392,18 @@ const About: React.FC<Props> = ({ locale }) => {
             viewport={{ once: true }}
             className="md:col-span-2"
           >
-            <div className="rounded-2xl overflow-hidden border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-white/5 dark:bg-white/5 light:bg-white p-6 backdrop-blur-xl shadow-2xl">
-              <div className="rounded-xl overflow-hidden mb-4">
+            <div className="rounded-2xl border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-gradient-to-br from-cyan-900/10 via-blue-900/5 to-purple-900/10 dark:from-cyan-900/10 dark:via-blue-900/5 dark:to-purple-900/10 light:from-blue-50 light:via-indigo-50 light:to-purple-50 p-6 backdrop-blur-xl shadow-2xl h-fit">
+              <div className="rounded-xl mb-4 w-full">
                 <SmartImage
-                  sources={['/images/about/DmytroKravetsFamaly.jpeg', '/images/about/dmytroandfamaly.jpeg']}
+                  sources={[
+                    "/images/gnizdo-team/dmytro-kravets.jpg",
+                    "/images/team/dmytro.jpg"
+                  ]}
                   alt="Dmytro Kravets — Founder & CTO, Diwave"
-                  className="w-full h-96"
-                  imgClassName="w-full h-96 object-cover"
+                  className="w-full"
+                  sizes="(min-width:768px) 40vw, 100vw"
+                  imgClassName="w-full h-auto rounded-xl"
+                  priority={true}
                 />
               </div>
               <h3 className="text-2xl font-bold text-white dark:text-white light:text-gray-900 mb-1">
@@ -485,20 +532,26 @@ const About: React.FC<Props> = ({ locale }) => {
           ))}
         </div>
 
-        {/* Learning Photos Grid */}
+        {/* Team Photos Grid - Блоки підлаштовуються під фото */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 grid md:grid-cols-2 gap-6"
+          className="mt-12 grid md:grid-cols-3 gap-6 items-start"
         >
-          <div className="rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 backdrop-blur-xl shadow-xl">
-            <SmartImage
-              sources={['/images/about/learning2025.jpeg']}
-              alt="Diwave Team - Learning and Development 2025"
-              className="w-full h-80"
-              imgClassName="w-full h-80 object-cover"
-            />
+          <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 h-fit">
+            <div className="p-4">
+              <SmartImage
+                sources={[
+                  "/images/about/learning2025-1-nobg.avif",
+                  "/images/about/learning2025-1-nobg.webp",
+                  "/images/about/learning2025-1-nobg.png"
+                ]}
+                alt="Diwave Team - Learning and Development 2025"
+                className="w-full"
+                imgClassName="w-full h-auto rounded-xl group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
             <div className="p-6 text-center">
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-700">
                 {locale === 'en'
@@ -507,22 +560,55 @@ const About: React.FC<Props> = ({ locale }) => {
               </p>
             </div>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 backdrop-blur-xl shadow-xl">
-            <SmartImage
-              sources={['/images/about/learning2025-1.png']}
-              alt="Diwave Team - Training Session 2025"
-              className="w-full h-80"
-              imgClassName="w-full h-80 object-cover"
-            />
+          <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 h-fit">
+            <div className="p-4">
+              <SmartImage
+                sources={[
+                  "/images/about/learning2025-2.avif",
+                  "/images/about/learning2025-2.webp",
+                  "/images/about/learning2025-2.jpeg"
+                ]}
+                alt="Diwave Team - Learning Session 2025"
+                className="w-full"
+                imgClassName="w-full h-auto rounded-xl group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
             <div className="p-6 text-center">
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-700">
                 {locale === 'en'
-                  ? 'Team training and knowledge sharing sessions'
-                  : 'Командні тренінги та обмін досвідом'}
+                  ? 'Team learning sessions and skill development'
+                  : 'Командні навчальні сесії та розвиток навичок'}
+              </p>
+            </div>
+          </div>
+          <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 h-fit">
+            <div className="p-4">
+              <SmartImage
+                sources={[
+                  "/images/about/learning2025.avif",
+                  "/images/about/learning2025.webp",
+                  "/images/about/learning2025.jpeg"
+                ]}
+                alt="Diwave Learning 2025 - Professional Growth"
+                className="w-full"
+                imgClassName="w-full h-auto rounded-xl group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-6 text-center">
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700">
+                {locale === 'en'
+                  ? 'Professional growth and knowledge sharing'
+                  : 'Професійне зростання та обмін знаннями'}
               </p>
             </div>
           </div>
         </motion.div>
+        <div className="mt-8 flex items-center gap-4">
+          <span className="text-gray-400 text-sm">{locale === 'en' ? 'Social:' : 'Соцмережі:'}</span>
+          <a href="https://www.facebook.com/DiWave.company" className="text-blue-400 hover:text-blue-300 text-sm" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.instagram.com/diwave.company/" className="text-pink-400 hover:text-pink-300 text-sm" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.youtube.com/@DigitalWaveAI" className="text-red-400 hover:text-red-300 text-sm" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
       </section>
 
       {/* CTA Section with Team Photo */}
@@ -533,13 +619,17 @@ const About: React.FC<Props> = ({ locale }) => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl overflow-hidden border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur-xl shadow-2xl"
+            className="rounded-2xl border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-gradient-to-br from-cyan-900/10 via-blue-900/5 to-purple-900/10 dark:from-cyan-900/10 dark:via-blue-900/5 dark:to-purple-900/10 light:from-blue-50 light:via-indigo-50 light:to-purple-50 p-4 backdrop-blur-xl shadow-2xl h-fit"
           >
             <SmartImage
-              sources={['/images/about/1D55D514-B7F2-4D0E-BAD2-65604AA99AF2_1_105_c.webp']}
+              sources={[
+                "/images/gnizdo-team/team-work.webp",
+                "/images/gnizdo-team/team-work.jpeg"
+              ]}
               alt="Diwave Team - Ready to help with your project"
-              className="w-full h-full"
-              imgClassName="w-full h-full object-cover"
+              className="w-full"
+              sizes="(min-width:768px) 50vw, 100vw"
+              imgClassName="w-full h-auto rounded-xl"
             />
           </motion.div>
 

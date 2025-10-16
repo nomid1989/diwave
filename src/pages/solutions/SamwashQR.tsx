@@ -271,7 +271,7 @@ export default function SamwashQR({ locale }: Props) {
               ))}
             </ol>
 
-            {/* Video Tutorial */}
+            {/* Video Tutorial - YouTube Shorts Embed */}
             <div className="mt-6 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-6">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-3xl">📱</span>
@@ -280,17 +280,43 @@ export default function SamwashQR({ locale }: Props) {
               <p className="text-gray-300 text-sm mb-4">
                 {t.videoDesc}
               </p>
-              <a
-                href="https://vm.tiktok.com/ZMAP3rGX8/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-gradient-to-r from-pink-500 to-cyan-500 text-white font-medium hover:from-pink-600 hover:to-cyan-600 transition shadow-lg"
-              >
-                {t.videoButton}
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
+
+              {/* YouTube Shorts Video Embed */}
+              <div className="relative rounded-xl overflow-hidden bg-black/20 backdrop-blur" style={{ aspectRatio: '9/16', maxWidth: '360px', margin: '0 auto' }}>
+                <iframe
+                  src="https://www.youtube.com/embed/VZXtZNfXdZ0?si=BzNYDudxHCENktTG"
+                  title="SamWash QR Payment Demo"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                  style={{ border: 'none' }}
+                />
+              </div>
+
+              <div className="mt-4 flex flex-wrap gap-3 justify-center">
+                <a
+                  href="https://youtube.com/shorts/VZXtZNfXdZ0?feature=share"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-gradient-to-r from-red-500 to-red-600 text-white font-medium hover:from-red-600 hover:to-red-700 transition shadow-lg"
+                >
+                  🎥 Дивитись на YouTube
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+                <a
+                  href="https://vm.tiktok.com/ZMAP3rGX8/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 bg-gradient-to-r from-pink-500 to-cyan-500 text-white font-medium hover:from-pink-600 hover:to-cyan-600 transition shadow-lg"
+                >
+                  {t.videoButton}
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </section>

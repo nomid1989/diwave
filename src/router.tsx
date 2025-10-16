@@ -1,57 +1,69 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 import App from './App';
-import Home from './pages/Home';
-import About from './pages/About';
-import Solutions from './pages/Solutions';
-import Projects from './pages/Projects';
-import Industries from './pages/Industries';
-import Contact from './pages/Contact';
-import QR from './pages/QR';
+import LoadingSpinner from './components/LoadingSpinner';
 
-// Детальні сторінки
-import SamwashQR from './pages/solutions/SamwashQR';
-import SamwashQRProject from './pages/projects/SamwashQR';
-import AutomotiveCarWashQR from './pages/industries/AutomotiveCarWashQR';
+// Eager load critical pages (Home, Error)
+import Home from './pages/Home';
+import ErrorPage from './pages/ErrorPage';
+
+// Lazy load all other pages for better performance
+const About = lazy(() => import('./pages/About'));
+const Solutions = lazy(() => import('./pages/Solutions'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Industries = lazy(() => import('./pages/Industries'));
+const Contact = lazy(() => import('./pages/Contact'));
+const QR = lazy(() => import('./pages/QR'));
+const Audit = lazy(() => import('./pages/Audit'));
+const ThankYou = lazy(() => import('./pages/ThankYou'));
+const Book = lazy(() => import('./pages/Book'));
+
+// Детальні сторінки рішень
+const SamwashQR = lazy(() => import('./pages/solutions/SamwashQR'));
+const CarWashes = lazy(() => import('./pages/solutions/CarWashes'));
+const AlcoholVending = lazy(() => import('./pages/solutions/AlcoholVending'));
+const Drones = lazy(() => import('./pages/solutions/Drones'));
+const Ecommerce = lazy(() => import('./pages/solutions/Ecommerce'));
+const IoTSCADA = lazy(() => import('./pages/solutions/IoTSCADA'));
+const Marketing = lazy(() => import('./pages/solutions/Marketing'));
+const ProjectSourcing = lazy(() => import('./pages/solutions/ProjectSourcing'));
 
 // Детальні сторінки проєктів
-import CarWashProject from './pages/projects/CarWash';
-import VendingProject from './pages/projects/Vending';
-import DronesProject from './pages/projects/Drones';
-import LoyaltyCRMProject from './pages/projects/LoyaltyCRM';
-import EcommerceProject from './pages/projects/Ecommerce';
-import EnergyProject from './pages/projects/Energy';
-import LembergFlowersProject from './pages/projects/LembergFlowers';
-import PlantPolProject from './pages/projects/PlantPol';
-import UsaUaProject from './pages/projects/UsaUa';
-import GnizdoProject from './pages/projects/Gnizdo';
-import LassoAiProject from './pages/projects/LassoAi';
-import HostelBookingProject from './pages/projects/HostelBooking';
-
-// Нові детальні сторінки рішень
-import CarWashes from './pages/solutions/CarWashes';
-import AlcoholVending from './pages/solutions/AlcoholVending';
-import Drones from './pages/solutions/Drones';
-import Ecommerce from './pages/solutions/Ecommerce';
-import IoTSCADA from './pages/solutions/IoTSCADA';
-import Marketing from './pages/solutions/Marketing';
-import ProjectSourcing from './pages/solutions/ProjectSourcing';
+const SamwashQRProject = lazy(() => import('./pages/projects/SamwashQR'));
+const CarWashProject = lazy(() => import('./pages/projects/CarWash'));
+const VendingProject = lazy(() => import('./pages/projects/Vending'));
+const DronesProject = lazy(() => import('./pages/projects/Drones'));
+const LoyaltyCRMProject = lazy(() => import('./pages/projects/LoyaltyCRM'));
+const EcommerceProject = lazy(() => import('./pages/projects/Ecommerce'));
+const EnergyProject = lazy(() => import('./pages/projects/Energy'));
+const LembergFlowersProject = lazy(() => import('./pages/projects/LembergFlowers'));
+const PlantPolProject = lazy(() => import('./pages/projects/PlantPol'));
+const UsaUaProject = lazy(() => import('./pages/projects/UsaUa'));
+const GnizdoProject = lazy(() => import('./pages/projects/Gnizdo'));
+const LassoAiProject = lazy(() => import('./pages/projects/LassoAi'));
+const HostelBookingProject = lazy(() => import('./pages/projects/HostelBooking'));
+const AreasCodeProject = lazy(() => import('./pages/projects/AreasCode'));
+const GustEnergyProject = lazy(() => import('./pages/projects/GustEnergy'));
+const PaollaProject = lazy(() => import('./pages/projects/Paolla'));
 
 // Детальні сторінки індустрій
-import AutomotiveIndustry from './pages/industries/Automotive';
-import VendingIndustry from './pages/industries/Vending';
-import FintechIndustry from './pages/industries/Fintech';
-import EnergyIndustry from './pages/industries/Energy';
-import RetailIndustry from './pages/industries/Retail';
-import LogisticsIndustry from './pages/industries/Logistics';
-import IoTIndustry from './pages/industries/IoT';
-import MarketingIndustry from './pages/industries/Marketing';
-import ErrorPage from './pages/ErrorPage';
-import Audit from './pages/Audit';
-import ThankYou from './pages/ThankYou';
-import Book from './pages/Book';
+const AutomotiveCarWashQR = lazy(() => import('./pages/industries/AutomotiveCarWashQR'));
+const AutomotiveIndustry = lazy(() => import('./pages/industries/Automotive'));
+const VendingIndustry = lazy(() => import('./pages/industries/Vending'));
+const FintechIndustry = lazy(() => import('./pages/industries/Fintech'));
+const EnergyIndustry = lazy(() => import('./pages/industries/Energy'));
+const RetailIndustry = lazy(() => import('./pages/industries/Retail'));
+const LogisticsIndustry = lazy(() => import('./pages/industries/Logistics'));
+const IoTIndustry = lazy(() => import('./pages/industries/IoT'));
+const MarketingIndustry = lazy(() => import('./pages/industries/Marketing'));
 
-const withLayout = (element: React.ReactNode) => <App>{element}</App>;
+const withLayout = (element: React.ReactNode) => (
+  <App>
+    <Suspense fallback={<LoadingSpinner />}>
+      {element}
+    </Suspense>
+  </App>
+);
 
 export const router = createBrowserRouter([
   {
@@ -94,6 +106,9 @@ export const router = createBrowserRouter([
       { path: 'projects/gnizdo', element: withLayout(<GnizdoProject locale="uk" />) },
       { path: 'projects/lasso-ai', element: withLayout(<LassoAiProject locale="uk" />) },
       { path: 'projects/hostel-booking', element: withLayout(<HostelBookingProject locale="uk" />) },
+      { path: 'projects/areascode', element: withLayout(<AreasCodeProject locale="uk" />) },
+      { path: 'projects/gust-energy', element: withLayout(<GustEnergyProject locale="uk" />) },
+      { path: 'projects/paolla', element: withLayout(<PaollaProject locale="uk" />) },
 
       { path: 'industries/automotive/car-wash-qr', element: withLayout(<AutomotiveCarWashQR locale="uk" />) },
 
@@ -148,6 +163,9 @@ export const router = createBrowserRouter([
       { path: 'projects/gnizdo', element: withLayout(<GnizdoProject locale="en" />) },
       { path: 'projects/lasso-ai', element: withLayout(<LassoAiProject locale="en" />) },
       { path: 'projects/hostel-booking', element: withLayout(<HostelBookingProject locale="en" />) },
+      { path: 'projects/areascode', element: withLayout(<AreasCodeProject locale="en" />) },
+      { path: 'projects/gust-energy', element: withLayout(<GustEnergyProject locale="en" />) },
+      { path: 'projects/paolla', element: withLayout(<PaollaProject locale="en" />) },
 
       { path: 'industries/automotive/car-wash-qr', element: withLayout(<AutomotiveCarWashQR locale="en" />) },
 

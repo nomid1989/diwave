@@ -28,8 +28,47 @@ const SEO: React.FC<SEOProps> = ({
   author = 'Diwave Solutions',
   type = 'website'
 }) => {
-  const defaultImage = image || 'https://diwave.company/images/og-default.jpg';
   const siteName = 'Diwave Solutions';
+  const siteUrl = (import.meta as any).env?.VITE_SITE_URL || (typeof window !== 'undefined' ? window.location.origin : '');
+  const defaultImage = image && image.startsWith('http') ? image : `${siteUrl}${image || '/images/og-default.jpg'}`;
+
+  // Map hreflang to OG locale codes
+  const mapOgLocale = (hl: string) => {
+    const code = hl.toLowerCase();
+    if (code === 'uk' || code === 'uk-ua') return 'uk_UA';
+    if (code === 'en' || code === 'en-us' || code === 'en-ua') return 'en_US';
+    return undefined;
+  };
+
+  // Default JSON-LD for Organization and WebSite to help SEO/AI
+  const defaultJsonLdObjects: any[] = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: siteName,
+      url: siteUrl,
+      logo: `${siteUrl}/images/logo.png`,
+      sameAs: [
+        'https://www.facebook.com/DiWave.company',
+        'https://www.instagram.com/diwave.company/',
+        'https://www.youtube.com/@DigitalWaveAI'
+      ]
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: siteName,
+      url: siteUrl,
+      inLanguage: locale === 'uk' ? 'uk-UA' : 'en-US',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: `${siteUrl}/?s={search_term_string}`,
+        'query-input': 'required name=search_term_string'
+      }
+    }
+  ];
+
+  const allJsonLd = [...defaultJsonLdObjects, ...jsonLd];
 
   return (
     <>
@@ -45,6 +84,14 @@ const SEO: React.FC<SEOProps> = ({
         {alternates.map((a) => (
           <link key={a.hrefLang} rel="alternate" hrefLang={a.hrefLang} href={a.href} />
         ))}
+
+        {/* OG Locale Alternates */}
+        {alternates
+          .map((a) => mapOgLocale(a.hrefLang))
+          .filter(Boolean)
+          .map((code, i) => (
+            <meta key={`og-alt-${i}`} property="og:locale:alternate" content={code as string} />
+          ))}
 
         {/* Robots & Indexing - 2025 Best Practices */}
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -105,7 +152,7 @@ const SEO: React.FC<SEOProps> = ({
       </Helmet>
 
       {/* JSON-LD Structured Data */}
-      {jsonLd.map((obj, i) => (
+      {allJsonLd.map((obj, i) => (
         <Helmet key={i}>
           <script type="application/ld+json">{JSON.stringify(obj)}</script>
         </Helmet>

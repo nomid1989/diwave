@@ -1251,3 +1251,342 @@ article.group img {
 article.group svg {
   transition: transform 0.3s ease !important;
 }
+
+/* ============================================ */
+/* IMAGE OPTIMIZATION - Full Display & iOS 26 Style */
+/* ============================================ */
+
+/* Базові стилі для всіх зображень - повне відображення */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-position: center;
+}
+
+/* Зображення в картках - iOS 26 з прозорістю */
+html.light .rounded-xl img,
+html.light .rounded-2xl img,
+html.light .rounded-3xl img {
+  border-radius: inherit;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+html.dark .rounded-xl img,
+html.dark .rounded-2xl img,
+html.dark .rounded-3xl img {
+  border-radius: inherit;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero зображення - повна висота з glassmorphism */
+.hero-section img,
+section img[class*="h-["] {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent;
+}
+
+/* Галерея зображень - рівномірне відображення */
+.grid img {
+  object-fit: cover;
+  width: 100%;
+  height: 240px;
+}
+
+/* Product cards images - iOS 26 стиль */
+.product-card img {
+  object-fit: contain;
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+}
+
+html.light .product-card img {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+}
+
+html.dark .product-card img {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+}
+
+/* Google Gemini Material Design 3 - Container shapes */
+html.light img {
+  border-radius: 12px;
+}
+
+/* Hover effects - Material 3 elevation */
+html.light .group:hover img,
+html.light article:hover img {
+  transform: scale(1.02);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.08),
+    0 12px 48px rgba(0, 0, 0, 0.12);
+}
+
+html.dark .group:hover img,
+html.dark article:hover img {
+  transform: scale(1.02);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.5),
+    0 12px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* SmartImage component - повне відображення */
+picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Зображення у розділах проектів */
+section[class*="project"] img,
+section[class*="solution"] img {
+  object-fit: cover;
+  width: 100%;
+  background: transparent;
+}
+
+html.light section[class*="project"] img,
+html.light section[class*="solution"] img {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(40px) saturate(180%);
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.04),
+    0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+html.dark section[class*="project"] img,
+html.dark section[class*="solution"] img {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(40px) saturate(150%);
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.5),
+    0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================ */
+/* GEMINI MATERIAL DESIGN 3 - Surface Colors */
+/* ============================================ */
+
+/* Surface-1 (Elevated) */
+html.light .bg-white\/5,
+html.light .bg-white\/10,
+html.light .rounded-2xl.border {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(249, 249, 249, 0.88) 100%
+  ) !important;
+  backdrop-filter: blur(60px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Surface-2 (Higher elevation) */
+html.light .glass,
+html.light .rounded-3xl.border {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(252, 252, 252, 0.90) 100%
+  ) !important;
+  backdrop-filter: blur(80px) saturate(200%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+}
+
+/* Container borders - Material 3 outline */
+html.light .border-white\/10,
+html.light .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ============================================ */
+/* MOBILE RESPONSIVE - Full Image Display */
+/* ============================================ */
+
+@media (max-width: 768px) {
+  img {
+    object-fit: contain;
+    max-height: 100vh;
+  }
+
+  .grid img {
+    aspect-ratio: 4/3;
+  }
+
+  /* Hero на мобільних */
+  section img[class*="h-["] {
+    height: auto !important;
+    max-height: 60vh;
+  }
+}
+
+/* ============================================ */
+/* MOBILE MENU - iOS 26 Frosted Glass Effect */
+/* ============================================ */
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height для мобільних */
+  z-index: 1000;
+  overflow: hidden;
+
+  /* Dark Mode: ДУЖЕ прозорий з сильним blur для видимості фону */
+  background-color: rgba(10, 10, 15, 0.40);
+
+  /* ПОТУЖНИЙ Frosted Glass iOS 26 */
+  backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+  -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+
+  /* Тонка межа для глибини */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* М'які тіні iOS */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 0 1px rgba(255, 255, 255, 0.1) inset;
+
+  /* Плавна анімація відкриття (iOS cubic-bezier) */
+  animation: menuSlideIn 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@keyframes menuSlideIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px) saturate(100%) brightness(1);
+    -webkit-backdrop-filter: blur(0px) saturate(100%) brightness(1);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+    -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+  }
+}
+
+/* Light Mode: прозоре біле меню з затемненим фоном */
+html.light .mobile-menu-overlay {
+  background-color: rgba(240, 245, 255, 0.75);
+  backdrop-filter: blur(50px) saturate(200%) brightness(0.95);
+  -webkit-backdrop-filter: blur(50px) saturate(200%) brightness(0.95);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 0 1px rgba(255, 255, 255, 0.9) inset;
+}
+
+/* Menu Content - повноекранний з прокруткою */
+.mobile-menu-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  /* Запобігання bounce scroll на iOS */
+  overscroll-behavior: contain;
+}
+
+/* Menu Items - прозорі iOS картки */
+.mobile-menu-item {
+  display: flex;
+  align-items: center;
+  min-height: 54px;
+  padding: 18px 24px;
+  margin-bottom: 8px;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+
+  /* Прозорий frosted glass для кожного item */
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  /* М'які тіні */
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 0 1px rgba(255, 255, 255, 0.2) inset;
+
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.light .mobile-menu-item {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 0 1px rgba(255, 255, 255, 0.6) inset;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* iOS haptic feedback - менш агресивний */
+.mobile-menu-item:active {
+  transform: scale(0.98);
+}
+
+/* Hover/Active states з яскравими акцентами */
+.mobile-menu-item:hover,
+.mobile-menu-item-active {
+  background: rgba(0, 200, 255, 0.25);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-color: rgba(0, 200, 255, 0.4);
+  color: rgba(0, 200, 255, 1);
+  box-shadow:
+    0 8px 24px rgba(0, 200, 255, 0.2),
+    0 0 20px rgba(0, 200, 255, 0.15) inset;
+}
+
+html.light .mobile-menu-item:hover,
+html.light .mobile-menu-item-active {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-color: rgba(255, 255, 255, 0.95);
+  color: #007AFF;
+  font-weight: 600;
+  box-shadow:
+    0 8px 24px rgba(0, 122, 255, 0.15),
+    0 0 20px rgba(255, 255, 255, 0.8) inset,
+    0 0 30px rgba(0, 122, 255, 0.2);
+  text-shadow: none;
+}
+
+/* Touch feedback - м'яке світіння */
+.mobile-menu-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  pointer-events: none;
+}
+
+.mobile-menu-item:active::before {
+  opacity: 1;
+}

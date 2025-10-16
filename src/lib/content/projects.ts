@@ -319,6 +319,78 @@ export const getProjects = (locale: 'uk' | 'en'): { title: string; intro: string
           ],
           tech: ['IoT', 'Dashboards', 'Alerts', 'ML (anomaly)']
         }
+      },
+      {
+        slug: 'areascode',
+        title: t('AreasCode — Custom Software Development', 'AreasCode — Custom Software Development'),
+        description: t('Партнерство у розробці кастомних рішень. Digitalization strategy, автоматизація, MVP.', 'Partnership in custom solutions development. Digitalization strategy, automation, MVP.'),
+        highlights: ['USA/EU', 'Enterprise', 'Full-cycle'],
+        imgFolder: '/images/projects/ecommerce',
+        imgAlt: t('AreasCode Partnership', 'AreasCode Partnership'),
+        details: {
+          challenge: t(
+            'Стратегічне партнерство для реалізації складних enterprise-проєктів у Healthcare, Energy, Industry 4.0.',
+            'Strategic partnership for complex enterprise projects in Healthcare, Energy, Industry 4.0.'
+          ),
+          solution: t(
+            'Спільна розробка кастомного ПЗ, digitalization strategy, business automation, архітектурні рішення.',
+            'Joint custom software development, digitalization strategy, business automation, architectural solutions.'
+          ),
+          results: [
+            t('Реалізація складних enterprise-проєктів', 'Complex enterprise projects delivery'),
+            t('Цифрова трансформація процесів', 'Digital transformation of processes'),
+            t('Масштабовані архітектурні рішення', 'Scalable architectural solutions')
+          ],
+          tech: ['Custom Development', 'Cloud', 'Mobile', 'Architecture']
+        }
+      },
+      {
+        slug: 'gust-energy',
+        title: t('Gust Energy — Енергетичні Рішення', 'Gust Energy — Energy Solutions'),
+        description: t('Цифрові рішення для енергетики Туреччини. Smart meters, IoT, аналітика.', 'Digital solutions for Turkish energy sector. Smart meters, IoT, analytics.'),
+        highlights: ['Turkey', 'Energy', 'IoT'],
+        imgFolder: '/images/projects/energy',
+        imgAlt: t('Gust Energy Platform', 'Gust Energy Platform'),
+        details: {
+          challenge: t(
+            'Розробка цифрових енергетичних технологій та систем моніторингу для турецького ринку.',
+            'Development of digital energy technologies and monitoring systems for Turkish market.'
+          ),
+          solution: t(
+            'Системи моніторингу енергоспоживання, smart meters інтеграції, real-time дашборди, алерти.',
+            'Energy monitoring systems, smart meters integration, real-time dashboards, alerts.'
+          ),
+          results: [
+            t('Масштабована платформа енергомоніторингу', 'Scalable energy monitoring platform'),
+            t('IoT інтеграції з лічильниками', 'IoT integrations with meters'),
+            t('Оптимізація енергоспоживання', 'Energy consumption optimization')
+          ],
+          tech: ['IoT/SCADA', 'Smart Meters', 'Real-time Analytics', 'Dashboards']
+        }
+      },
+      {
+        slug: 'paolla',
+        title: t('Paolla — E-commerce Виробника Взуття', 'Paolla — Footwear Manufacturer E-commerce'),
+        description: t('Цифрова платформа для українського виробника взуття з 30+ роками досвіду.', 'Digital platform for Ukrainian footwear manufacturer with 30+ years experience.'),
+        highlights: ['Manufacturing', 'E-commerce', 'Ukraine'],
+        imgFolder: '/images/projects/ecommerce',
+        imgAlt: t('Paolla Platform', 'Paolla Platform'),
+        details: {
+          challenge: t(
+            'Створення сучасної цифрової присутності для виробника з багаторічними традиціями.',
+            'Creating modern digital presence for manufacturer with long-standing traditions.'
+          ),
+          solution: t(
+            'E-commerce платформа з каталогом, система індивідуального замовлення, інтеграція з виробництвом.',
+            'E-commerce platform with catalog, custom order system, production integration.'
+          ),
+          results: [
+            t('Сучасна цифрова платформа', 'Modern digital platform'),
+            t('Система онлайн замовлення', 'Online ordering system'),
+            t('Інтеграція з виробництвом', 'Production integration')
+          ],
+          tech: ['E-commerce', 'Custom Orders', 'CRM', 'Ukrainian Market']
+        }
       }
     ]
   };

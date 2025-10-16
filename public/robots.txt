@@ -34,6 +34,13 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /*.json$
 
+# Не індексувати службові/вихідні файлові типи та службові папки з зображеннями
+Disallow: /images/*/__MACOSX/
+Disallow: /*/__MACOSX/
+Disallow: /*/._*
+Disallow: /*.ai$
+Disallow: /*.eps$
+
 # Блокувати дублікати контенту з UTM-мітками
 Disallow: /*?*utm_source=
 Disallow: /*?*utm_medium=

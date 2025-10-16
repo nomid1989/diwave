@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
@@ -35,10 +35,32 @@ const Header: React.FC = () => {
   const locale = useLocale();
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Swipe gesture refs
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
   // Scroll to top on route change
   useEffect(() => {
     scrollToTop();
   }, [pathname]);
+
+  // Swipe gesture handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const swipeDistance = touchStartX.current - touchEndX.current;
+
+    // Swipe left (>75px) or right (>75px) - close menu
+    if (Math.abs(swipeDistance) > 75) {
+      setMobileOpen(false);
+    }
+  };
 
   const switchLocale = (target: 'uk' | 'en') => {
     if (target === locale) return;
@@ -56,7 +78,14 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-cyan-400/20 dark:border-cyan-400/20 light:border-blue-200/40 bg-black/50 dark:bg-black/50 light:bg-white/80 backdrop-blur transition-colors">
+    <header className="sticky top-0 z-40 border-b border-cyan-400/20 dark:border-cyan-400/20 light:border-blue-200/40 bg-black/30 dark:bg-black/30 light:bg-white/60 backdrop-blur-xl backdrop-saturate-150 transition-colors shadow-lg shadow-black/5 dark:shadow-black/5 light:shadow-blue-500/5">
+      {/* Skip to main content - Accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-cyan-500 text-white font-semibold rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+      >
+        {locale === 'en' ? 'Skip to main content' : 'Перейти до контенту'}
+      </a>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link
           to={makeLink('/', locale)}
@@ -140,29 +169,58 @@ const Header: React.FC = () => {
         </div>
       </div>
       {mobileOpen && (
-        <div className="md:hidden border-t border-cyan-400/20 dark:border-cyan-400/20 light:border-blue-200 bg-black/60 dark:bg-black/60 light:bg-white/95 backdrop-blur">
-          <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex flex-col gap-2">
-            {NAV.map((item) => {
-              const href = makeLink(item.to, locale);
-              const active = pathname === href;
-              return (
+        <>
+          {/* Frosted Glass Full-Screen Overlay - iOS 26 Style */}
+          <div
+            className="mobile-menu-overlay fixed inset-0 z-50 md:hidden flex items-center justify-center"
+            onClick={() => setMobileOpen(false)}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {/* Menu Content - центрований по вертикалі */}
+            <div
+              className="mobile-menu-content w-full max-w-md px-6 py-8"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <nav className="flex flex-col gap-3">
+                {NAV.map((item) => {
+                  const href = makeLink(item.to, locale);
+                  const active = pathname === href;
+                  return (
+                    <Link
+                      key={item.to}
+                      to={href}
+                      onClick={() => setMobileOpen(false)}
+                      className={classNames(
+                        'mobile-menu-item relative flex items-center px-6 py-4 rounded-2xl text-lg font-medium transition-all duration-300',
+                        active
+                          ? 'mobile-menu-item-active'
+                          : 'text-white dark:text-white light:text-gray-900'
+                      )}
+                    >
+                      {t(item.key)}
+                    </Link>
+                  );
+                })}
+
+                {/* CTA Button in Mobile Menu */}
                 <Link
-                  key={item.to}
-                  to={href}
+                  to={makeLink('/contact', locale)}
                   onClick={() => setMobileOpen(false)}
-                  className={classNames(
-                    'rounded-md px-3 py-2 transition-colors',
-                    active
-                      ? 'bg-white/10 dark:bg-white/10 light:bg-blue-100 text-white dark:text-white light:text-blue-700 font-semibold'
-                      : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-blue-600 hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-blue-50'
-                  )}
+                  className="mt-6 flex items-center justify-center px-8 py-5 rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-500 dark:to-cyan-500 light:from-blue-600 light:to-indigo-600 text-white font-bold text-lg shadow-2xl shadow-emerald-500/30 dark:shadow-emerald-500/30 light:shadow-blue-500/30 hover:shadow-emerald-500/50 dark:hover:shadow-emerald-500/50 light:hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 active:scale-95 backdrop-blur-xl border border-white/20"
                 >
-                  {t(item.key)}
+                  {t('cta.discuss')}
                 </Link>
-              );
-            })}
-          </nav>
-        </div>
+
+                {/* Підказка про закриття */}
+                <div className="mt-8 text-center text-sm text-gray-400 dark:text-gray-400 light:text-white/70">
+                  {locale === 'en' ? 'Tap anywhere to close' : 'Торкніться будь-де щоб закрити'}
+                </div>
+              </nav>
+            </div>
+          </div>
+        </>
       )}
     </header>
   );

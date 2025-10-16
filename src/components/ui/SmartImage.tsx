@@ -172,8 +172,9 @@ const SmartImage: React.FC<SmartImageProps> = ({
         className={className}
         style={{
           backgroundImage: `url(${bg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundSize: 'contain', // Повне відображення без обрізання
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
         }}
         aria-label={alt}
         role="img"
@@ -182,8 +183,9 @@ const SmartImage: React.FC<SmartImageProps> = ({
   }
 
   // Render with <picture> when we have modern variants
+  // iOS 26 glassmorphism + Google Gemini Material Design 3
   return (
-    <picture>
+    <picture className="relative block w-full h-full">
       {variants?.avif && <source srcSet={variants.avif} type="image/avif" />}
       {variants?.webp && <source srcSet={variants.webp} type="image/webp" />}
       <motion.img

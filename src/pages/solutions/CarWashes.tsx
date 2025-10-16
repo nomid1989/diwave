@@ -305,7 +305,7 @@ export default function CarWashes({ locale }: Props) {
             <h2 className="text-2xl md:text-4xl font-semibold text-white mb-6">
               {t.aboutTitle} <span className="text-cyan-400">{t.aboutTitleHighlight}</span>?
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="space-y-4 text-gray-300">
                 <p>
                   <strong className="text-white">SamWash</strong> — {t.aboutDesc1}
@@ -321,6 +321,95 @@ export default function CarWashes({ locale }: Props) {
                 <p>
                   {t.aboutDesc4}
                 </p>
+              </div>
+            </div>
+
+            {/* QR Payment Demo Video */}
+            <div className="rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">📱</span>
+                <h3 className="text-white font-semibold text-lg">
+                  {locale === 'uk' ? 'Як працює QR-оплата на автомийці' : 'How QR Payment Works at Car Wash'}
+                </h3>
+              </div>
+              <p className="text-gray-300 text-sm mb-6">
+                {locale === 'uk'
+                  ? 'Реальний приклад використання системи SamWash QR на автомийці самообслуговування'
+                  : 'Real example of using SamWash QR system at a self-service car wash'}
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6 items-center">
+                {/* YouTube Shorts Embed */}
+                <div className="relative rounded-xl overflow-hidden bg-black/20 backdrop-blur mx-auto" style={{ aspectRatio: '9/16', maxWidth: '320px' }}>
+                  <iframe
+                    src="https://www.youtube.com/embed/VZXtZNfXdZ0?si=BzNYDudxHCENktTG"
+                    title="SamWash QR Payment Demo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    style={{ border: 'none' }}
+                  />
+                </div>
+
+                {/* Video Features */}
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">⚡</span>
+                    <div>
+                      <h4 className="text-white font-semibold mb-1">
+                        {locale === 'uk' ? 'Швидко та зручно' : 'Fast & Convenient'}
+                      </h4>
+                      <p className="text-gray-300 text-sm">
+                        {locale === 'uk'
+                          ? 'Скануй QR-код, обирай послугу, оплачуй'
+                          : 'Scan QR code, select service, pay'}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">💰</span>
+                    <div>
+                      <h4 className="text-white font-semibold mb-1">
+                        {locale === 'uk' ? 'Безготівкова оплата' : 'Cashless Payment'}
+                      </h4>
+                      <p className="text-gray-300 text-sm">
+                        {locale === 'uk'
+                          ? 'Всі популярні методи оплати підтримуються'
+                          : 'All popular payment methods supported'}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">🚀</span>
+                    <div>
+                      <h4 className="text-white font-semibold mb-1">
+                        {locale === 'uk' ? 'Миттєвий старт' : 'Instant Start'}
+                      </h4>
+                      <p className="text-gray-300 text-sm">
+                        {locale === 'uk'
+                          ? 'Обладнання запускається одразу після оплати'
+                          : 'Equipment starts immediately after payment'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 flex flex-wrap gap-3">
+                    <a
+                      href="https://youtube.com/shorts/VZXtZNfXdZ0?feature=share"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white text-sm font-medium hover:from-red-600 hover:to-red-700 transition"
+                    >
+                      🎥 {locale === 'uk' ? 'Дивитись на YouTube' : 'Watch on YouTube'}
+                    </a>
+                    <a
+                      href={`${locale === 'en' ? '/en' : ''}/solutions/samwash-qr`}
+                      className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/30 text-white text-sm hover:bg-white/10 transition"
+                    >
+                      {locale === 'uk' ? 'Детальніше' : 'Learn More'}
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

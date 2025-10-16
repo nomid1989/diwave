@@ -55,6 +55,11 @@ const Contact: React.FC<Props> = ({ locale }) => {
               addressLocality: 'Львів',
               addressCountry: 'UA'
             },
+            sameAs: [
+              'https://www.facebook.com/DiWave.company',
+              'https://www.instagram.com/diwave.company/',
+              'https://www.youtube.com/@DigitalWaveAI'
+            ],
             founder: {
               '@type': 'Person',
               name: 'Dmytro Kravets',
@@ -79,29 +84,51 @@ const Contact: React.FC<Props> = ({ locale }) => {
             {locale === 'en' ? 'Contact Us' : 'Контакти'}
           </h1>
           <div className="grid md:grid-cols-2 gap-10">
-            {/* Left card - Contact Info with Photo */}
-            <div className="contact-card rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 p-8 backdrop-blur-2xl shadow-xl">
-              <SmartImage
-                srcFolder="/images/team"
-                alt="Dmytro Kravets — Founder, Diwave"
-                className="rounded-xl w-full h-72 mb-6"
-                imgClassName="rounded-xl w-full h-72 object-cover"
-              />
-              <div className="mt-6">
-                <div className="text-white dark:text-white light:text-gray-900 font-bold text-xl mb-3">
-                  Dmytro Kravets — {locale === 'en' ? 'Founder, Diwave' : 'Засновник, Diwave'}
+            {/* Left card - Contact Info with Photo - iOS 26 Glassmorphism */}
+            <div className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 backdrop-blur-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20 hover:border-white/20 dark:hover:border-white/20 light:hover:border-blue-300">
+              {/* Glassmorphism background */}
+              <div className="absolute inset-0 bg-white/[0.03] dark:bg-white/[0.03] light:bg-white/90 backdrop-saturate-[180%]" />
+
+              {/* Content */}
+              <div className="relative p-8">
+                {/* Photo with rounded corners and proper aspect */}
+                <div className="relative rounded-2xl overflow-hidden mb-6 shadow-lg">
+                  <SmartImage
+                    sources={["/images/team/dmytro.jpg"]}
+                    alt="Dmytro Kravets — Founder, Diwave"
+                    className="w-full aspect-[4/3]"
+                    sizes="(min-width:768px) 50vw, 100vw"
+                    imgClassName="w-full h-full object-contain"
+                  />
+                  {/* iOS 26 photo overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-base leading-relaxed mb-6">
-                  {locale === 'en'
-                    ? 'We combine hardware solutions, software, and analytics: car washes, vending machines, drones, e-commerce, payments, loyalty programs, and energy. We automate processes with AI to make businesses work more efficiently.'
-                    : 'Ми поєднуємо апаратні рішення, програмне забезпечення та аналітику: автомийки, вендинг, дрони, e‑commerce, платежі, лояльність та енергетику. Автоматизуємо процеси за допомогою AI, щоб бізнес працював ефективніше.'
-                  }
-                </p>
+
+                {/* Info section */}
+                <div className="space-y-4">
+                  <div className="text-white dark:text-white light:text-gray-900 font-bold text-2xl">
+                    Dmytro Kravets
+                  </div>
+                  <div className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 font-semibold text-lg">
+                    {locale === 'en' ? 'Founder & CTO, Diwave' : 'Засновник і CTO, Diwave'}
+                  </div>
+                  <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-base leading-relaxed">
+                    {locale === 'en'
+                      ? 'We combine hardware solutions, software, and analytics: car washes, vending machines, drones, e-commerce, payments, loyalty programs, and energy. We automate processes with AI to make businesses work more efficiently.'
+                      : 'Ми поєднуємо апаратні рішення, програмне забезпечення та аналітику: автомийки, вендинг, дрони, e‑commerce, платежі, лояльність та енергетику. Автоматизуємо процеси за допомогою AI, щоб бізнес працював ефективніше.'
+                    }
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* Right card - Contact Details */}
-            <div className="contact-card rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 p-8 backdrop-blur-2xl shadow-xl flex flex-col justify-between">
+            {/* Right card - Contact Details - iOS 26 Glassmorphism */}
+            <div className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 backdrop-blur-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20 hover:border-white/20 dark:hover:border-white/20 light:hover:border-blue-300 flex flex-col">
+              {/* Glassmorphism background */}
+              <div className="absolute inset-0 bg-white/[0.03] dark:bg-white/[0.03] light:bg-white/90 backdrop-saturate-[180%]" />
+
+              {/* Content */}
+              <div className="relative p-8 flex flex-col flex-1">
               <div>
                 <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-2xl mb-6">
                   {locale === 'en' ? 'Get in Touch' : 'Зв\'яжіться з нами'}
@@ -131,6 +158,27 @@ const Contact: React.FC<Props> = ({ locale }) => {
                     </svg>
                     <a href="https://upwork.com/freelancers/stevark" target="_blank" rel="noopener noreferrer" className="hover:text-white dark:hover:text-white light:hover:text-blue-600 text-cyan-300 dark:text-cyan-300 light:text-blue-700 font-medium">/freelancers/stevark</a>
                   </li>
+
+                  {/* Social Profiles */}
+                  <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
+                    <svg className="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                    <a href="https://www.facebook.com/DiWave.company" target="_blank" rel="noopener noreferrer" className="hover:text-white text-blue-300 font-medium" aria-label={locale === 'en' ? 'Facebook — Diwave' : 'Facebook — Diwave'}>Facebook</a>
+                  </li>
+                  <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
+                    <svg className="w-5 h-5 text-pink-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                    <a href="https://www.instagram.com/diwave.company/" target="_blank" rel="noopener noreferrer" className="hover:text-white text-pink-300 font-medium" aria-label={locale === 'en' ? 'Instagram — Diwave' : 'Instagram — Diwave'}>Instagram</a>
+                  </li>
+                  <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
+                    <svg className="w-5 h-5 text-red-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                    <a href="https://www.youtube.com/@DigitalWaveAI" target="_blank" rel="noopener noreferrer" className="hover:text-white text-red-300 font-medium" aria-label={locale === 'en' ? 'YouTube — DigitalWaveAI' : 'YouTube — DigitalWaveAI'}>YouTube</a>
+                  </li>
+
                   <li className="flex items-center gap-3 p-3 rounded-lg">
                     <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -140,23 +188,36 @@ const Contact: React.FC<Props> = ({ locale }) => {
                   </li>
                 </ul>
 
-                {/* Messengers */}
+                {/* Messengers - iOS 26 Style */}
                 <div className="mb-6">
-                  <p className="text-sm text-gray-400 dark:text-gray-400 light:text-gray-600 mb-3 font-medium">
+                  <p className="text-sm text-gray-400 dark:text-gray-400 light:text-gray-600 mb-4 font-medium">
                     {locale === 'en' ? 'Or message us:' : 'Або напишіть у месенджер:'}
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a href="tg://resolve?phone=380505923772" className="inline-flex items-center px-4 py-2.5 rounded-lg bg-cyan-500/10 dark:bg-cyan-500/10 light:bg-blue-100 border border-cyan-400/50 dark:border-cyan-400/50 light:border-blue-400 text-cyan-100 dark:text-cyan-100 light:text-blue-800 hover:bg-cyan-400/20 dark:hover:bg-cyan-400/20 light:hover:bg-blue-200 transition-all font-semibold shadow-sm hover:shadow-md" title="Open Telegram">
-                      <span className="light:text-blue-800">Telegram</span>
+                    <a
+                      href="tg://resolve?phone=380505923772"
+                      className="relative inline-flex items-center px-5 py-3 rounded-xl bg-cyan-500/[0.08] dark:bg-cyan-500/[0.08] light:bg-blue-50 border border-cyan-400/30 dark:border-cyan-400/30 light:border-blue-300 text-cyan-100 dark:text-cyan-100 light:text-blue-700 hover:bg-cyan-400/[0.15] dark:hover:bg-cyan-400/[0.15] light:hover:bg-blue-100 backdrop-blur-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-cyan-500/25 hover:scale-105 active:scale-95"
+                      title="Open Telegram"
+                    >
+                      <span className="light:text-blue-700">Telegram</span>
                     </a>
-                    <a href={locale === 'en'
-                      ? "https://wa.me/380505923772?text=Hello%20Diwave!%20I%20want%20to%20discuss%20a%20project."
-                      : "https://wa.me/380505923772?text=%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82%20Diwave!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%D0%B8%20%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82."
-                    } target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2.5 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/10 light:bg-emerald-100 border border-emerald-400/50 dark:border-emerald-400/50 light:border-emerald-500 text-emerald-100 dark:text-emerald-100 light:text-emerald-800 hover:bg-emerald-400/20 dark:hover:bg-emerald-400/20 light:hover:bg-emerald-200 transition-all font-semibold shadow-sm hover:shadow-md">
-                      <span className="light:text-emerald-800">WhatsApp</span>
+                    <a
+                      href={locale === 'en'
+                        ? "https://wa.me/380505923772?text=Hello%20Diwave!%20I%20want%20to%20discuss%20a%20project."
+                        : "https://wa.me/380505923772?text=%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82%20Diwave!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%D0%B8%20%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82."
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative inline-flex items-center px-5 py-3 rounded-xl bg-emerald-500/[0.08] dark:bg-emerald-500/[0.08] light:bg-emerald-50 border border-emerald-400/30 dark:border-emerald-400/30 light:border-emerald-400 text-emerald-100 dark:text-emerald-100 light:text-emerald-700 hover:bg-emerald-400/[0.15] dark:hover:bg-emerald-400/[0.15] light:hover:bg-emerald-100 backdrop-blur-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-emerald-500/25 hover:scale-105 active:scale-95"
+                    >
+                      <span className="light:text-emerald-700">WhatsApp</span>
                     </a>
-                    <a href="viber://chat?number=%2B380505923772" className="inline-flex items-center px-4 py-2.5 rounded-lg bg-purple-500/10 dark:bg-purple-500/10 light:bg-purple-100 border border-purple-400/50 dark:border-purple-400/50 light:border-purple-500 text-purple-100 dark:text-purple-100 light:text-purple-800 hover:bg-purple-400/20 dark:hover:bg-purple-400/20 light:hover:bg-purple-200 transition-all font-semibold shadow-sm hover:shadow-md" title="Open Viber">
-                      <span className="light:text-purple-800">Viber</span>
+                    <a
+                      href="viber://chat?number=%2B380505923772"
+                      className="relative inline-flex items-center px-5 py-3 rounded-xl bg-purple-500/[0.08] dark:bg-purple-500/[0.08] light:bg-purple-50 border border-purple-400/30 dark:border-purple-400/30 light:border-purple-400 text-purple-100 dark:text-purple-100 light:text-purple-700 hover:bg-purple-400/[0.15] dark:hover:bg-purple-400/[0.15] light:hover:bg-purple-100 backdrop-blur-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-purple-500/25 hover:scale-105 active:scale-95"
+                      title="Open Viber"
+                    >
+                      <span className="light:text-purple-700">Viber</span>
                     </a>
                   </div>
                 </div>
@@ -170,6 +231,7 @@ const Contact: React.FC<Props> = ({ locale }) => {
                 <ContactForm locale={locale} />
               </div>
             </div>
+          </div>
           </div>
 
           {/* Google Maps */}

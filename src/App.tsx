@@ -19,7 +19,7 @@ const App: React.FC<React.PropsWithChildren> = ({ children }) => {
     <ThemeProvider>
       <div className="min-h-screen flex flex-col transition-colors duration-300">
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </div>
     </ThemeProvider>

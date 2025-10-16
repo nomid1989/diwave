@@ -66,7 +66,11 @@ export default function IoTSCADA({ locale }: Props) {
         url={url}
         image={`${baseUrl}/images/solutions/iot/cover.jpg`}
         locale={locale}
-        alternates={[{ hrefLang: locale, href: url }]}
+        alternates={[
+          { hrefLang: 'uk', href: `${baseUrl}/solutions/iot-scada` },
+          { hrefLang: 'en', href: `${baseUrl}/en/solutions/iot-scada` },
+          { hrefLang: 'x-default', href: `${baseUrl}/solutions/iot-scada` }
+        ]}
         jsonLd={jsonLd}
       />
 
@@ -95,7 +99,8 @@ export default function IoTSCADA({ locale }: Props) {
                   srcFolder="/images/solutions/iot"
                   alt={locale === 'uk' ? 'IoT і SCADA — рішення Diwave' : 'IoT & SCADA — Diwave solutions'}
                   className="w-full h-[420px]"
-                  imgClassName="w-full h-[420px] object-cover"
+                  sizes="(min-width:1024px) 50vw, 100vw"
+                  imgClassName="w-full h-[420px] object-contain"
                 />
               </div>
             </div>

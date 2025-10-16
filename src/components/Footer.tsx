@@ -60,7 +60,12 @@ const Footer: React.FC = () => {
   const t = content[locale];
 
   return (
-    <footer className="border-t border-cyan-400/20 bg-gradient-to-b from-transparent to-black/20 backdrop-blur-sm">
+    <footer className="relative overflow-hidden border-t border-cyan-400/20 bg-gradient-to-b from-transparent to-black/20 backdrop-blur-sm">
+      {/* iOS 26 underlay to make transparency visible */}
+      <div className="pointer-events-none absolute inset-0 opacity-40 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(800px_400px_at_10%_-20%,rgba(34,211,238,0.18),transparent),radial-gradient(700px_350px_at_90%_-10%,rgba(168,85,247,0.16),transparent),radial-gradient(900px_450px_at_50%_120%,rgba(59,130,246,0.14),transparent)]" />
+        <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)', backgroundSize: '34px 34px'}} aria-hidden />
+      </div>
       <div className="mx-auto max-w-7xl px-6 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
@@ -157,6 +162,40 @@ const Footer: React.FC = () => {
                   </a>
                 </div>
               </div>
+
+              {/* Social Networks */}
+              <div className="pt-4">
+                <div className="text-gray-500 text-xs mb-2">{locale === 'en' ? 'Social:' : 'Соцмережі:'}</div>
+                <div className="flex gap-4">
+                  <a
+                    href="https://www.facebook.com/DiWave.company"
+                    className="text-blue-400 hover:text-blue-300 transition text-sm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={locale === 'en' ? 'Facebook — Diwave' : 'Facebook — Diwave'}
+                  >
+                    Facebook
+                  </a>
+                  <a
+                    href="https://www.instagram.com/diwave.company/"
+                    className="text-pink-400 hover:text-pink-300 transition text-sm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={locale === 'en' ? 'Instagram — Diwave' : 'Instagram — Diwave'}
+                  >
+                    Instagram
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@DigitalWaveAI"
+                    className="text-red-400 hover:text-red-300 transition text-sm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={locale === 'en' ? 'YouTube — DigitalWaveAI' : 'YouTube — DigitalWaveAI'}
+                  >
+                    YouTube
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -197,7 +236,10 @@ const Footer: React.FC = () => {
           },
           sameAs: [
             'https://t.me/diwave',
-            'https://wa.me/380505923772'
+            'https://wa.me/380505923772',
+            'https://www.facebook.com/DiWave.company',
+            'https://www.instagram.com/diwave.company/',
+            'https://www.youtube.com/@DigitalWaveAI'
           ]
         })}
       </script>

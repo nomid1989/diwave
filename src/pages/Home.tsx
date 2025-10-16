@@ -347,6 +347,7 @@ const Home: React.FC<Props> = ({ locale }) => {
     { icon: IconLoop, title: t('steps.support') }
   ];
 
+
   return (
     <>
       <SEO
@@ -464,18 +465,23 @@ const Home: React.FC<Props> = ({ locale }) => {
       </section>
 
       {/* PRODUCTS: Наші рішення, які працюють на вас */}
-      <section className="products-section mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/50">
-        <h2 className="text-center text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-3">{c.solutions.title}</h2>
+      <section className="products-section relative overflow-hidden mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/50">
+        {/* iOS 26 underlay */}
+        <div className="pointer-events-none absolute inset-0 opacity-20 -z-10">
+          <div className="absolute inset-0 bg-[radial-gradient(900px_450px_at_0%_-20%,rgba(34,211,238,0.12),transparent),radial-gradient(800px_400px_at_100%_-10%,rgba(168,85,247,0.12),transparent)]" />
+        </div>
+        <h2 className="text-center text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-4">{c.solutions.title}</h2>
         <p className="text-center text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto mb-8">{c.solutions.subtitle}</p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {/* Картка 1: Автомийки SamWash - горизонтальна */}
+          {/* Картка 1: Автомийки SamWash */}
           <div className="product-card group rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-blue-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-            <div className="relative h-64 overflow-hidden bg-gradient-to-br from-cyan-900/20 to-blue-900/20">
+            <div className="relative h-64 overflow-hidden">
               <SmartImage
                 sources={["/images/solutions/car-washes/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.jpeg"]}
                 alt="Автомийки самообслуговування SamWash"
                 className="w-full h-64"
-                imgClassName="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                imgClassName="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-cyan-500/90 text-white text-xs font-semibold backdrop-blur">{c.solutions.carWash.badge}</div>
@@ -483,7 +489,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             <div className="p-6">
               <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">{c.solutions.carWash.title}</h3>
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">{c.solutions.carWash.description}</p>
-              <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition group-hover:border-cyan-400/60">
+              <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-blue-600 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition group-hover:border-cyan-400/60">
                 {c.solutions.carWash.cta}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -494,11 +500,12 @@ const Home: React.FC<Props> = ({ locale }) => {
 
           {/* Картка 2: Вендінгові апарати - вертикальна */}
           <div className="product-card group rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-purple-400/50 dark:hover:border-purple-400/50 light:hover:border-purple-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-xl transition-all duration-300 hover:scale-[1.02] flex flex-col">
-            <div className="relative h-80 overflow-hidden bg-gradient-to-br from-purple-900/20 to-pink-900/20">
+            <div className="relative h-80 overflow-hidden">
               <SmartImage
                 sources={["/images/industries/vending/vacuum-main.jpg"]}
                 alt="Вендінгові апарати з 19'' екраном"
                 className="w-full h-80"
+                sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
                 imgClassName="w-full h-80 object-contain group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -507,7 +514,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             <div className="p-6 flex-1 flex flex-col">
               <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">{c.solutions.vacuum.title}</h3>
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4 flex-1">{c.solutions.vacuum.description}</p>
-              <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-purple-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-purple-50 transition group-hover:border-purple-400/60">
+              <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-purple-300 text-white dark:text-white light:text-purple-600 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-purple-50 transition group-hover:border-purple-400/60">
                 {c.solutions.vacuum.cta}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -518,12 +525,13 @@ const Home: React.FC<Props> = ({ locale }) => {
 
           {/* Картка 3: Дрони FPV */}
           <div className="product-card group rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-emerald-400/50 dark:hover:border-emerald-400/50 light:hover:border-emerald-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-            <div className="relative h-64 overflow-hidden bg-gradient-to-br from-emerald-900/20 to-teal-900/20">
+            <div className="relative h-64 overflow-hidden">
               <SmartImage
-                sources={["/images/industries/drones/learning2025-1.png"]}
+                sources={["/images/gnizdo-team/fpv-11.avif", "/images/gnizdo-team/fpv-11.webp", "/images/gnizdo-team/fpv-11.jpeg"]}
                 alt="Дрони FPV та Українська асоціація пілотів дронів"
                 className="w-full h-64"
-                imgClassName="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                imgClassName="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-emerald-500/90 text-white text-xs font-semibold backdrop-blur">{c.solutions.drones.badge}</div>
@@ -531,7 +539,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             <div className="p-6">
               <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">{c.solutions.drones.title}</h3>
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">{c.solutions.drones.description}</p>
-              <a href={`${locale === 'en' ? '/en' : ''}/solutions/drones`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-emerald-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-emerald-50 transition group-hover:border-emerald-400/60">
+              <a href={`${locale === 'en' ? '/en' : ''}/solutions/drones`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 dark:border-white/10 light:border-emerald-300 text-white dark:text-white light:text-emerald-600 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-emerald-50 transition group-hover:border-emerald-400/60">
                 {c.solutions.drones.cta}
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -543,7 +551,7 @@ const Home: React.FC<Props> = ({ locale }) => {
       </section>
 
       {/* PROJECTS SHOWCASE: Реальні проєкти з фото */}
-      <section className="mx-auto max-w-7xl px-6 pb-8 bg-transparent dark:bg-transparent light:bg-white/30">
+      <section className="mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/30">
         <SectionHeader overline={t('headings.projects')} title={projects.title} subtitle={projects.intro} />
 
         {/* Великі featured проєкти */}
@@ -559,7 +567,8 @@ const Home: React.FC<Props> = ({ locale }) => {
               sources={['/images/projects/img_2.png']}
               alt="SamWash - Автомийки самообслуговування"
               className="w-full h-80"
-              imgClassName="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+              sizes="(min-width:768px) 50vw, 100vw"
+              imgClassName="w-full h-80 object-contain group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
               <div className="absolute bottom-0 p-6">
@@ -586,7 +595,8 @@ const Home: React.FC<Props> = ({ locale }) => {
               sources={['/images/projects/plantpol.png']}
               alt="E-commerce проєкти"
               className="w-full h-80"
-              imgClassName="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+              sizes="(min-width:768px) 50vw, 100vw"
+              imgClassName="w-full h-80 object-contain group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
               <div className="absolute bottom-0 p-6">
@@ -618,7 +628,8 @@ const Home: React.FC<Props> = ({ locale }) => {
                 srcFolder={p.imgFolder}
                 alt={p.imgAlt}
                 className="w-full h-48"
-                imgClassName="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                imgClassName="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300"
               />
               <div className="p-4">
                 <div className="text-white font-semibold">{p.title}</div>
@@ -691,6 +702,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                   sources={['/images/solutions/alcohol-vending/vending-mashines-coffe.png', '/images/solutions/alcohol-vending/vending-mashines-snaks.png']}
                   alt="Вендинговий апарат з сенсорним екраном та захистом IP65"
                   className="w-full h-auto"
+                  sizes="(min-width:768px) 50vw, 100vw"
                   imgClassName="w-full h-auto object-contain"
                 />
               </div>
@@ -699,50 +711,147 @@ const Home: React.FC<Props> = ({ locale }) => {
         </div>
       </section>
 
-      {/* DESIGN GALLERY: Наші роботи */}
-      <section className="design-gallery mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/40">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-3">{c.gallery.title}</h2>
-        <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 mb-10 max-w-2xl">{c.gallery.subtitle}</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {[
-            { src: '/images/projects/0D836EDC-DDF3-49DC-A654-BC4BB803C72C_1_105_c.jpeg', alt: 'Дизайн екстер\'єру автомийки', category: 'Design' },
-            { src: '/images/projects/learning2025-1.png', alt: 'Комплексні IoT рішення', category: 'IoT' },
-            { src: '/images/projects/img_1.png', alt: 'Промислове обладнання', category: 'Hardware' },
-            { src: '/images/solutions/car-washes/2F00D20A-A2AE-46A7-875B-EF2CDB18B66E_1_105_c.jpeg', alt: 'Технологічні рішення', category: 'Tech' },
-            { src: '/images/industries/drones/741ADB82-E672-4F57-95E6-790CD07D8C92_1_105_c.jpeg', alt: 'Дрон-технології', category: 'Drones' },
-            { src: '/images/about/fpv-working-testing.jpeg', alt: 'Команда за роботою - тестування FPV дронів', category: 'Team' },
-            { src: '/images/projects/img_2.png', alt: 'Вендингові системи', category: 'Software' },
-            { src: '/images/projects/22B1B692-DB4B-41CB-9738-DFD3507F6708_1_105_c.jpeg', alt: 'Пилосос 6 кВт з 19" екраном', category: 'Vacuum' }
-          ].map((img, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.08, duration: 0.5 }}
-              className="relative group overflow-hidden rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 hover:border-cyan-400/60 dark:hover:border-cyan-400/60 light:hover:border-blue-400 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-cyan-500/20"
-            >
-              <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-gray-900/50 to-black/50">
-                <SmartImage
-                  sources={[img.src]}
-                  alt={img.alt}
-                  className="w-full h-full"
-                  imgClassName="w-full h-full object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-70 group-hover:opacity-85 transition-opacity duration-300" />
 
-                {/* Category badge - always white text */}
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/20 backdrop-blur text-white text-xs font-bold shadow-lg transform group-hover:scale-110 transition-transform">
-                  {img.category}
-                </div>
+      {/* BENTO BOX GALLERY: Наші роботи - iOS 26 Style */}
+      <section className="design-gallery mx-auto max-w-7xl px-6 py-20 bg-transparent dark:bg-transparent light:bg-white/40">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white light:text-gray-900 mb-4">{c.gallery.title}</h2>
+          <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-lg max-w-3xl mx-auto">{c.gallery.subtitle}</p>
+        </div>
 
-                {/* Title on hover - always white text with strong shadow */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  <p className="text-white font-bold text-sm leading-snug drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">{img.alt}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+        {/* Bento Box Grid - iOS 26 Layout */}
+        <div className="grid grid-cols-4 gap-4 auto-rows-[200px]">
+          {/* Large 2x2 - Team Work */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="col-span-2 row-span-2 relative group overflow-hidden rounded-3xl border border-white/20 dark:border-white/20 light:border-gray-300 hover:border-cyan-400/60 dark:hover:border-cyan-400/60 light:hover:border-blue-400 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-500/25"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 to-blue-900/30" />
+            <SmartImage
+              sources={["/images/gnizdo-team/team-work.avif", "/images/gnizdo-team/team-work.webp", "/images/gnizdo-team/team-work.jpeg"]}
+              alt="Командна робота Diwave"
+              className="w-full h-full"
+              imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-cyan-500/90 backdrop-blur-xl border border-white/20 text-white text-xs font-bold shadow-lg">Team</div>
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <p className="text-white font-bold text-xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">Команда Diwave за роботою</p>
+            </div>
+          </motion.div>
+
+          {/* Medium 2x1 - Car Wash */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className="col-span-2 row-span-1 relative group overflow-hidden rounded-3xl border border-white/20 dark:border-white/20 light:border-gray-300 hover:border-purple-400/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/25"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-pink-900/30" />
+            <SmartImage
+              sources={["/images/solutions/car-washes/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.avif", "/images/solutions/car-washes/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.jpeg"]}
+              alt="Автомийка SamWash"
+              className="w-full h-full"
+              imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+            <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-purple-500/90 backdrop-blur-xl border border-white/20 text-white text-xs font-bold shadow-lg">Car Wash</div>
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <p className="text-white font-bold text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Автомийка SamWash</p>
+            </div>
+          </motion.div>
+
+          {/* Medium 1x2 - FPV Drones */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="col-span-1 row-span-2 relative group overflow-hidden rounded-3xl border border-white/20 dark:border-white/20 light:border-gray-300 hover:border-emerald-400/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-emerald-500/25"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-teal-900/30" />
+            <SmartImage
+              sources={["/images/gnizdo-team/fpv-riding.avif", "/images/gnizdo-team/fpv-riding.webp", "/images/gnizdo-team/fpv-riding.jpeg"]}
+              alt="FPV дрони в польоті"
+              className="w-full h-full"
+              imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-emerald-500/90 backdrop-blur-xl border border-white/20 text-white text-[10px] font-bold shadow-lg">Drones</div>
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <p className="text-white font-bold text-sm leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">FPV Дрони</p>
+            </div>
+          </motion.div>
+
+          {/* Medium 1x2 - Vending */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="col-span-1 row-span-2 relative group overflow-hidden rounded-3xl border border-white/20 dark:border-white/20 light:border-gray-300 hover:border-pink-400/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-pink-500/25"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-pink-900/30 to-purple-900/30" />
+            <SmartImage
+              sources={["/images/industries/vending/vacuum-main.jpg"]}
+              alt="Вендинг системи"
+              className="w-full h-full"
+              imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-pink-500/90 backdrop-blur-xl border border-white/20 text-white text-[10px] font-bold shadow-lg">Vending</div>
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <p className="text-white font-bold text-sm leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Вендинг</p>
+            </div>
+          </motion.div>
+
+          {/* Medium 2x1 - E-commerce */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="col-span-2 row-span-1 relative group overflow-hidden rounded-3xl border border-white/20 dark:border-white/20 light:border-gray-300 hover:border-blue-400/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/25"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-indigo-900/30" />
+            <SmartImage
+              sources={["/images/plantpol/plantpol.avif", "/images/plantpol/plantpol.webp", "/images/plantpol/plantpol.png"]}
+              alt="E-commerce Plantpol"
+              className="w-full h-full"
+              imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+            <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-blue-500/90 backdrop-blur-xl border border-white/20 text-white text-xs font-bold shadow-lg">E-commerce</div>
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <p className="text-white font-bold text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Інтернет-магазин Plantpol</p>
+            </div>
+          </motion.div>
+
+          {/* Small 1x1 - IoT */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl border border-white/20 dark:border-white/20 light:border-gray-300 hover:border-orange-400/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-orange-500/25"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-900/30 to-red-900/30" />
+            <SmartImage
+              sources={["/images/home/equipment.avif", "/images/home/equipment.webp", "/images/home/equipment.jpg"]}
+              alt="IoT обладнання"
+              className="w-full h-full"
+              imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+            <div className="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-orange-500/90 backdrop-blur-xl border border-white/20 text-white text-[10px] font-bold shadow-lg">IoT</div>
+            <div className="absolute bottom-0 left-0 right-0 p-3">
+              <p className="text-white font-bold text-xs leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">IoT</p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -751,10 +860,11 @@ const Home: React.FC<Props> = ({ locale }) => {
         <h2 className="text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-8">{c.about.title}</h2>
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <SmartImage
-            sources={["/images/home/FPF team with Diwave.jpg"]}
+            sources={["/images/home/FPF%20team%20with%20Diwave.jpg", "/images/home/FPF team with Diwave.jpg"]}
             alt="Команда Diwave з FPF"
-            className="w-full h-72 rounded-xl border border-white/10"
-            imgClassName="w-full h-72 object-cover"
+            className="w-full h-72 rounded-2xl border border-white/10 bg-white/5 backdrop-blur overflow-hidden"
+            sizes="(min-width:768px) 50vw, 100vw"
+            imgClassName="w-full h-72 object-contain"
           />
           <div>
             <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed">
@@ -847,7 +957,8 @@ const Home: React.FC<Props> = ({ locale }) => {
                   srcFolder={i.img}
                   alt={i.alt}
                   className="w-full h-40"
-                  imgClassName="w-full h-40 object-cover"
+                  sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
+                  imgClassName="w-full h-40 object-contain"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3 text-white font-bold text-lg drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
@@ -896,19 +1007,31 @@ const Home: React.FC<Props> = ({ locale }) => {
       </section>
 
       {/* CONTACT: з реальним фото з public/images */}
-      <section className="contact-section mx-auto max-w-7xl px-6 pb-20">
+      <section className="contact-section relative overflow-hidden mx-auto max-w-7xl px-6 pb-28 md:pb-32 mb-12">
+        {/* iOS 26 underlay */}
+        <div className="pointer-events-none absolute inset-0 opacity-30 -z-10">
+          <div className="absolute inset-0 bg-[radial-gradient(1000px_500px_at_0%_0%,rgba(34,211,238,0.18),transparent),radial-gradient(800px_400px_at_100%_20%,rgba(236,72,153,0.16),transparent),radial-gradient(900px_450px_at_50%_120%,rgba(56,189,248,0.12),transparent)]" />
+          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)', backgroundSize: '36px 36px'}} aria-hidden />
+        </div>
         <h2 className="text-center text-sm tracking-widest text-gray-400 dark:text-gray-400 light:text-gray-600 mb-12 font-semibold">
           {t('headings.contact').toUpperCase()}
         </h2>
         <div className="grid md:grid-cols-2 gap-10">
           <div className="contact-card rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white p-8 backdrop-blur shadow-xl">
-            <SmartImage
-              srcFolder="/images/team"
-              alt="Dmytro Kravets — Founder, Diwave"
-              className="rounded-xl w-full h-72 mb-6"
-              imgClassName="rounded-xl w-full h-72 object-cover"
-            />
-            <div className="mt-6">
+            <div className="relative mb-6">
+              <div className="absolute -inset-[2px] rounded-2xl bg-gradient-to-tr from-cyan-400/30 via-fuchsia-400/20 to-blue-400/30 blur-sm pointer-events-none" aria-hidden />
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
+                <SmartImage
+                  sources={["/images/team/dmytro.jpg"]}
+                  alt="Dmytro Kravets — Founder, Diwave"
+                  className="w-full h-72"
+                  sizes="(min-width:768px) 50vw, 100vw"
+                  imgClassName="w-full h-72 object-contain"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
+            <div>
               <div className="text-white dark:text-white light:text-gray-900 font-bold text-xl mb-3">Dmytro Kravets — Founder, Diwave</div>
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-base leading-relaxed">
                 {c.contact.description}
@@ -951,16 +1074,83 @@ const Home: React.FC<Props> = ({ locale }) => {
                   <span className="text-gray-300 dark:text-gray-300 light:text-gray-700 font-medium">Ukraine & EU</span>
                 </li>
               </ul>
+
+              {/* Social Profiles */}
+              <div className="mt-2 grid grid-cols-1 gap-2">
+                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
+                  <svg className="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                  <a href="https://www.facebook.com/DiWave.company" target="_blank" rel="noopener noreferrer" className="hover:text-white text-blue-300 font-medium" aria-label={locale === 'en' ? 'Facebook — Diwave' : 'Facebook — Diwave'}>Facebook</a>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
+                  <svg className="w-5 h-5 text-pink-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                  <a href="https://www.instagram.com/diwave.company/" target="_blank" rel="noopener noreferrer" className="hover:text-white text-pink-300 font-medium" aria-label={locale === 'en' ? 'Instagram — Diwave' : 'Instagram — Diwave'}>Instagram</a>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
+                  <svg className="w-5 h-5 text-red-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                  <a href="https://www.youtube.com/@DigitalWaveAI" target="_blank" rel="noopener noreferrer" className="hover:text-white text-red-300 font-medium" aria-label={locale === 'en' ? 'YouTube — DigitalWaveAI' : 'YouTube — DigitalWaveAI'}>YouTube</a>
+                </div>
+              </div>
+
+              {/* Messengers - iOS 26 Style */}
+              <div className="mt-6">
+                <p className="text-sm text-gray-400 dark:text-gray-400 light:text-gray-600 mb-3 font-medium">
+                  {locale === 'en' ? 'Or message us:' : 'Або напишіть у месенджер:'}
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href="tg://resolve?phone=380505923772"
+                    className="relative inline-flex items-center px-5 py-3 rounded-xl bg-cyan-500/[0.08] dark:bg-cyan-500/[0.08] light:bg-blue-50 border border-cyan-400/30 dark:border-cyan-400/30 light:border-blue-300 text-cyan-100 dark:text-cyan-100 light:text-blue-700 hover:bg-cyan-400/[0.15] dark:hover:bg-cyan-400/[0.15] light:hover:bg-blue-100 backdrop-blur-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-cyan-500/25 hover:scale-105 active:scale-95"
+                    title="Open Telegram"
+                  >
+                    <span className="light:text-blue-700">Telegram</span>
+                  </a>
+                  <a
+                    href={locale === 'en'
+                      ? "https://wa.me/380505923772?text=Hello%20Diwave!%20I%20want%20to%20discuss%20a%20project."
+                      : "https://wa.me/380505923772?text=%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82%20Diwave!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%D0%B8%20%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82."}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative inline-flex items-center px-5 py-3 rounded-xl bg-emerald-500/[0.08] dark:bg-emerald-500/[0.08] light:bg-emerald-50 border border-emerald-400/30 dark:border-emerald-400/30 light:border-emerald-400 text-emerald-100 dark:text-emerald-100 light:text-emerald-700 hover:bg-emerald-400/[0.15] dark:hover:bg-emerald-400/[0.15] light:hover:bg-emerald-100 backdrop-blur-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-emerald-500/25 hover:scale-105 active:scale-95"
+                    aria-label={locale === 'en' ? 'Chat on WhatsApp' : 'Написати у WhatsApp'}
+                  >
+                    <span className="light:text-emerald-700">WhatsApp</span>
+                  </a>
+                  <a
+                    href="viber://chat?number=%2B380505923772"
+                    className="relative inline-flex items-center px-5 py-3 rounded-xl bg-purple-500/[0.08] dark:bg-purple-500/[0.08] light:bg-purple-50 border border-purple-400/30 dark:border-purple-400/30 light:border-purple-400 text-purple-100 dark:text-purple-100 light:text-purple-700 hover:bg-purple-400/[0.15] dark:hover:bg-purple-400/[0.15] light:hover:bg-purple-100 backdrop-blur-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-purple-500/25 hover:scale-105 active:scale-95"
+                    title="Open Viber"
+                  >
+                    <span className="light:text-purple-700">Viber</span>
+                  </a>
+                </div>
+              </div>
             </div>
-            <a
-              href={`${locale === 'en' ? '/en' : ''}/contact`}
-              className="inline-flex items-center justify-center gap-2 mt-8 px-6 py-4 rounded-xl bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 font-bold shadow-lg hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 hover:shadow-xl transition-all hover:scale-105"
-            >
-              <span className="text-white">{t('cta.discuss')}</span>
-              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+            <div className="flex flex-wrap gap-3 mt-6">
+              <a
+                href={`${locale === 'en' ? '/en' : ''}/contact`}
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 font-bold shadow-lg hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 hover:shadow-xl transition-all"
+              >
+                <span className="text-white">{t('cta.discuss')}</span>
+                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+              <a
+                href={locale === 'en' ? 'https://wa.me/380505923772?text=Hello%20Diwave!%20I%20want%20to%20discuss%20a%20project.' : 'https://wa.me/380505923772?text=%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82%20Diwave!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%D0%B8%20%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82.'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl border border-emerald-400/40 text-emerald-200 hover:bg-emerald-500/10 transition"
+                aria-label={locale === 'en' ? 'Chat on WhatsApp' : 'Написати у WhatsApp'}
+              >
+                <span>WhatsApp</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

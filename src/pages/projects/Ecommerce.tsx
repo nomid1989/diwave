@@ -227,7 +227,19 @@ export default function EcommerceProject({ locale }: Props) {
 
   return (
     <>
-      <SEO title={t.title} description={t.description} url={url} image={`${baseUrl}/images/projects/ecommerce/cover.jpg`} locale={locale} jsonLd={jsonLd} />
+      <SEO
+        title={t.title}
+        description={t.description}
+        url={url}
+        image={`${baseUrl}/images/projects/ecommerce/cover.jpg`}
+        locale={locale}
+        alternates={[
+          { hrefLang: 'uk', href: `${baseUrl}/projects/ecommerce` },
+          { hrefLang: 'en', href: `${baseUrl}/en/projects/ecommerce` },
+          { hrefLang: 'x-default', href: `${baseUrl}/projects/ecommerce` }
+        ]}
+        jsonLd={jsonLd}
+      />
       <div className="relative">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_600px_at_10%_-10%,rgba(34,211,238,0.25),transparent),radial-gradient(1000px_500px_at_90%_10%,rgba(168,85,247,0.18),transparent)]" />
         <div className="absolute inset-0 backdrop-blur-[2px]" aria-hidden />
@@ -275,7 +287,8 @@ export default function EcommerceProject({ locale }: Props) {
                   sources={['/images/projects/plantpol.png']}
                   alt={locale === 'uk' ? 'Plantpol B2B портал' : 'Plantpol B2B portal'}
                   className="w-full h-[420px]"
-                  imgClassName="w-full h-[420px] object-cover"
+                  sizes="(min-width:1024px) 50vw, 100vw"
+                  imgClassName="w-full h-[420px] object-contain"
                 />
               </div>
             </div>
@@ -360,7 +373,7 @@ export default function EcommerceProject({ locale }: Props) {
                   sources={['/images/projects/plantpol.png']}
                   alt={locale === 'uk' ? 'Plantpol B2B портал' : 'Plantpol B2B portal'}
                   className="w-full h-full"
-                  imgClassName="w-full h-full object-cover"
+                  imgClassName="w-full h-full object-contain"
                 />
               </div>
               <div className="flex flex-col justify-center gap-4">
