@@ -139,6 +139,7 @@ const Projects: React.FC<Props> = ({ locale }) => {
             );
           })}
         </div>
+
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-16">

@@ -119,10 +119,10 @@ export const ProjectsSection: React.FC<Props> = ({ locale }) => {
 
   return (
     <section className="mt-12 p-6 sm:p-8 rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200/70 bg-white/5 dark:bg-white/5 light:bg-gray-50/95 backdrop-blur-xl">
-      <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-4 tracking-tight leading-tight">{c.title}</h2>
+      <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold  dark:text-white light:text-gray-900 mb-4 tracking-tight leading-tight">{c.title}</h2>
       <p className="text-base sm:text-lg text-gray-200 dark:text-gray-200 light:text-gray-700 mb-4 leading-relaxed tracking-wide">{c.intro}</p>
-      <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white dark:text-white light:text-gray-900 mb-3 tracking-tight">{c.subtitle}</h3>
-      <ul className="space-y-3 text-base sm:text-lg text-gray-200 dark:text-gray-200 light:text-gray-700 mb-4 leading-relaxed">
+      <h3 className="text-base sm:text-lg lg:text-xl font-semibold  dark:text-white light:text-gray-900 mb-3 tracking-tight">{c.subtitle}</h3>
+      <ul className="space-y-3 text-base sm:text-lg  dark:text-gray-200 light:text-gray-700 mb-4 leading-relaxed">
         {c.results.map((r, i) => (
           <li key={i} className="tracking-wide">
             <span className="text-xl sm:text-2xl mr-2 text-emerald-400 dark:text-emerald-400 light:text-emerald-600" role="img">{r.icon}</span>

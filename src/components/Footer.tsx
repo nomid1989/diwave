@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <div className="text-white font-bold text-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">Diwave</div>
+                <div className=" font-bold text-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">Diwave</div>
                 <div className="text-gray-400 text-xs">Solutions</div>
               </div>
             </div>
@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
 
           {/* Quick Links - Solutions */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">{t.solutions}</h3>
+            <h3 className=" font-semibold mb-4 text-sm uppercase tracking-wide">{t.solutions}</h3>
             <nav className="flex flex-col gap-2">
               <a href={`${prefix}/solutions/car-washes`} className="text-gray-400 hover:text-cyan-400 transition text-sm">{t.solutionsLinks.carWashes}</a>
               <a href={`${prefix}/solutions/alcohol-vending`} className="text-gray-400 hover:text-cyan-400 transition text-sm">{t.solutionsLinks.vending}</a>
@@ -109,7 +109,7 @@ const Footer: React.FC = () => {
 
           {/* Quick Links - Company */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">{t.company}</h3>
+            <h3 className=" font-semibold mb-4 text-sm uppercase tracking-wide">{t.company}</h3>
             <nav className="flex flex-col gap-2">
               <a href={`${prefix}/about`} className="text-gray-400 hover:text-cyan-400 transition text-sm">{t.companyLinks.about}</a>
               <a href={`${prefix}/projects`} className="text-gray-400 hover:text-cyan-400 transition text-sm">{t.companyLinks.projects}</a>
@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
 
           {/* Contact & Social */}
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">{t.contacts}</h3>
+            <h3 className=" font-semibold mb-4 text-sm uppercase tracking-wide">{t.contacts}</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-sm">
                 <span className="text-gray-500">📞</span>
@@ -209,7 +209,7 @@ const Footer: React.FC = () => {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-500 text-xs text-center md:text-left">
-              © {new Date().getFullYear()} <span className="text-white font-semibold">Diwave Solutions</span>, Lviv, Ukraine • {t.copyright}
+              © {new Date().getFullYear()} <span className=" font-semibold">Diwave Solutions</span>, Lviv, Ukraine • {t.copyright}
             </div>
             <div className="flex gap-6 text-xs">
               <span className="text-gray-500">{t.madeIn}</span>

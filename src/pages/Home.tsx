@@ -68,7 +68,7 @@ const content = {
         description: 'Розробка інтернет-магазинів з повною автоматизацією',
         tag1: 'Без кол-центру',
         tag2: 'React',
-        tag3: 'SEO'
+        tag3: 'Orderv analytics'
       },
       allProjects: 'Усі проєкти'
     },
@@ -467,87 +467,89 @@ const Home: React.FC<Props> = ({ locale }) => {
 
       {/* PRODUCTS: Наші рішення, які працюють на вас */}
       <section className="products-section relative overflow-hidden mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/50">
-        {/* iOS 26 underlay */}
-        <div className="pointer-events-none absolute inset-0 opacity-20 -z-10">
-          <div className="absolute inset-0 bg-[radial-gradient(900px_450px_at_0%_-20%,rgba(34,211,238,0.12),transparent),radial-gradient(800px_400px_at_100%_-10%,rgba(168,85,247,0.12),transparent)]" />
-        </div>
-        <h2 className="text-center text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-4">{c.solutions.title}</h2>
-        <p className="text-center text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto mb-8">{c.solutions.subtitle}</p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <h2 className="text-center text-2xl md:text-3xl font-semibold text-white dark:text-white light:text-gray-900 mb-3">{c.solutions.title}</h2>
+        <p className="text-center text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto mb-12">{c.solutions.subtitle}</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* Картка 1: Автомийки SamWash */}
-          <div className="product-card group rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-blue-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-            <div className="relative h-64 overflow-hidden">
-              <SmartImage
-                sources={["/images/solutions/car-washes/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.jpeg"]}
-                alt="Автомийки самообслуговування SamWash"
-                className="w-full h-64"
-                sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-                imgClassName="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-cyan-500/90 text-white text-xs font-semibold backdrop-blur">{c.solutions.carWash.badge}</div>
+          <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="group block">
+            <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-cyan-500 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20 dark:hover:shadow-cyan-500/10 light:hover:shadow-cyan-500/30">
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <SmartImage
+                  sources={["/images/solutions/car-washes/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.jpeg"]}
+                  alt="Автомийки самообслуговування SamWash"
+                  className="w-full h-full"
+                  sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                  imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent dark:from-black/90 dark:via-black/20 light:from-black/75 light:via-black/30" />
+                <div className="absolute top-3 right-3">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-cyan-500 text-white text-xs font-semibold shadow-lg">
+                    {c.solutions.carWash.badge}
+                  </span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <div className="bg-white/5 dark:bg-black/10 light:bg-white/90 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/5 light:border-gray-200">
+                    <h3 className=" dark:text-white light:text-gray-900 font-bold text-sm mb-1 line-clamp-2">{c.solutions.carWash.title}</h3>
+                    <p className="text-gray-100 dark:text-gray-100 light:text-gray-700 text-xs leading-snug line-clamp-2">{c.solutions.carWash.description}</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="p-6">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">{c.solutions.carWash.title}</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">{c.solutions.carWash.description}</p>
-              <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-blue-600 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition group-hover:border-cyan-400/60">
-                {c.solutions.carWash.cta}
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </div>
-          </div>
+          </a>
 
-          {/* Картка 2: Вендінгові апарати - вертикальна */}
-          <div className="product-card group rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-purple-400/50 dark:hover:border-purple-400/50 light:hover:border-purple-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-xl transition-all duration-300 hover:scale-[1.02] flex flex-col">
-            <div className="relative h-80 overflow-hidden">
-              <SmartImage
-                sources={["/images/industries/vending/vacuum-main.jpg"]}
-                alt="Вендінгові апарати з 19'' екраном"
-                className="w-full h-80"
-                sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-                imgClassName="w-full h-80 object-contain group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-purple-500/90 text-white text-xs font-semibold backdrop-blur">{c.solutions.vacuum.badge}</div>
+          {/* Картка 2: Порохотяг - вертикальна */}
+          <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="group block">
+            <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-purple-400/50 dark:hover:border-purple-400/50 light:hover:border-purple-500 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 dark:hover:shadow-purple-500/10 light:hover:shadow-purple-500/30">
+              <div className="aspect-[3/4] relative overflow-hidden">
+                <SmartImage
+                  sources={["/images/industries/vending/vacuum-home.jpg", "/images/industries/vending/vacuum-home.webp", "/images/industries/vending/vacuum-home.jpeg"]}
+                  alt="Порохотяг самообслуговування"
+                  className="w-full h-full"
+                  sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                  imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent dark:from-black/90 dark:via-black/20 light:from-black/75 light:via-black/30" />
+                <div className="absolute top-3 right-3">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-purple-500 text-white text-xs font-semibold shadow-lg">
+                    {c.solutions.vacuum.badge}
+                  </span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <div className="bg-white/5 dark:bg-black/10 light:bg-white/90 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/5 light:border-gray-200">
+                    <h3 className=" dark:text-white light:text-gray-900 font-bold text-sm mb-1 line-clamp-2">{c.solutions.vacuum.title}</h3>
+                    <p className="text-gray-100 dark:text-gray-100 light:text-gray-700 text-xs leading-snug line-clamp-2">{c.solutions.vacuum.description}</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="p-6 flex-1 flex flex-col">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">{c.solutions.vacuum.title}</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4 flex-1">{c.solutions.vacuum.description}</p>
-              <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 dark:border-white/20 light:border-purple-300 text-white dark:text-white light:text-purple-600 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-purple-50 transition group-hover:border-purple-400/60">
-                {c.solutions.vacuum.cta}
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </div>
-          </div>
+          </a>
 
           {/* Картка 3: Дрони FPV */}
-          <div className="product-card group rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white backdrop-blur hover:border-emerald-400/50 dark:hover:border-emerald-400/50 light:hover:border-emerald-400 hover:bg-white/10 dark:hover:bg-white/10 light:hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-            <div className="relative h-64 overflow-hidden">
-              <SmartImage
-                sources={["/images/gnizdo-team/fpv-11.avif", "/images/gnizdo-team/fpv-11.webp", "/images/gnizdo-team/fpv-11.jpeg"]}
-                alt="Дрони FPV та Українська асоціація пілотів дронів"
-                className="w-full h-64"
-                sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-                imgClassName="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-emerald-500/90 text-white text-xs font-semibold backdrop-blur">{c.solutions.drones.badge}</div>
+          <a href={`${locale === 'en' ? '/en' : ''}/solutions/drones`} className="group block">
+            <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-emerald-400/50 dark:hover:border-emerald-400/50 light:hover:border-emerald-500 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/20 dark:hover:shadow-emerald-500/10 light:hover:shadow-emerald-500/30">
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <SmartImage
+                  sources={["/images/gnizdo-team/team-vader.avif", "/images/gnizdo-team/team-vader.webp", "/images/gnizdo-team/team-vader.jpeg"]}
+                  alt="Дрони FPV та Українська асоціація пілотів дронів"
+                  className="w-full h-full"
+                  sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+                  imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent dark:from-black/90 dark:via-black/20 light:from-black/75 light:via-black/30" />
+                <div className="absolute top-3 right-3">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-emerald-500 text-white text-xs font-semibold shadow-lg">
+                    {c.solutions.drones.badge}
+                  </span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <div className="bg-white/5 dark:bg-black/10 light:bg-white/90 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/5 light:border-gray-200">
+                    <h3 className=" dark:text-white light:text-gray-900 font-bold text-sm mb-1 line-clamp-2">{c.solutions.drones.title}</h3>
+                    <p className="text-gray-100 dark:text-gray-100 light:text-gray-700 text-xs leading-snug line-clamp-2">{c.solutions.drones.description}</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="p-6">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-xl mb-2">{c.solutions.drones.title}</h3>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-600 text-sm leading-relaxed mb-4">{c.solutions.drones.description}</p>
-              <a href={`${locale === 'en' ? '/en' : ''}/solutions/drones`} className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 dark:border-white/10 light:border-emerald-300 text-white dark:text-white light:text-emerald-600 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-emerald-50 transition group-hover:border-emerald-400/60">
-                {c.solutions.drones.cta}
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </div>
-          </div>
+          </a>
         </div>
       </section>
 
@@ -562,23 +564,25 @@ const Home: React.FC<Props> = ({ locale }) => {
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="group relative rounded-xl overflow-hidden border border-white/10 bg-black/40 hover:border-cyan-300/40 transition-all"
+            className="group relative rounded-xl overflow-hidden border border-white/10 bg-gradient-to-br from-black/30 to-black/50 hover:border-cyan-300/40 transition-all backdrop-blur-sm"
           >
-            <SmartImage
-              sources={['/images/projects/img_2.png']}
-              alt="SamWash - Автомийки самообслуговування"
-              className="w-full h-80"
-              sizes="(min-width:768px) 50vw, 100vw"
-              imgClassName="w-full h-80 object-contain group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
-              <div className="absolute bottom-0 p-6">
-                <h3 className="text-white text-2xl font-bold mb-2">SamWash</h3>
-                <p className="text-gray-300 text-sm mb-3">Автомийки самообслуговування з IoT/SCADA та платіжними інтеграціями</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">70% EBITDA</span>
-                  <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">IoT/SCADA</span>
-                  <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30">Telemetry</span>
+            <div className="relative h-80 flex items-center justify-center">
+              <SmartImage
+                sources={['/images/projects/img_2.png']}
+                alt="SamWash - Автомийки самообслуговування"
+                className="w-full h-80"
+                sizes="(min-width:768px) 50vw, 100vw"
+                imgClassName="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent">
+                <div className="absolute bottom-0 p-6">
+                  <h3 className="text-white text-2xl font-bold mb-2">Бізнес з EBITDA 70% - SamWash</h3>
+                  <p className="text-gray-300 text-sm mb-3">Автомийки самообслуговування з IoT/SCADA та платіжними інтеграціями</p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">70% EBITDA</span>
+                    <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">IoT/SCADA</span>
+                    <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30">Telemetry</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -590,23 +594,25 @@ const Home: React.FC<Props> = ({ locale }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="group relative rounded-xl overflow-hidden border border-white/10 bg-black/40 hover:border-cyan-300/40 transition-all"
+            className="group relative rounded-xl overflow-hidden border border-white/10 bg-gradient-to-br from-black/30 to-black/50 hover:border-cyan-300/40 transition-all backdrop-blur-sm"
           >
-            <SmartImage
-              sources={['/images/projects/plantpol.png']}
-              alt="E-commerce проєкти"
-              className="w-full h-80"
-              sizes="(min-width:768px) 50vw, 100vw"
-              imgClassName="w-full h-80 object-contain group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
-              <div className="absolute bottom-0 p-6">
-                <h3 className="text-white text-2xl font-bold mb-2">{c.projects.ecommerce.title}</h3>
-                <p className="text-gray-300 text-sm mb-3">{c.projects.ecommerce.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">{c.projects.ecommerce.tag1}</span>
-                  <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">{c.projects.ecommerce.tag2}</span>
-                  <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30">{c.projects.ecommerce.tag3}</span>
+            <div className="relative h-80 flex items-center justify-center">
+              <SmartImage
+                sources={['/images/agricultural-center-plantpol-ukraine/plantpol-crm-dashboard.png']}
+                alt="E-commerce проєкти"
+                className="w-full h-80"
+                sizes="(min-width:768px) 50vw, 100vw"
+                imgClassName="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent">
+                <div className="absolute bottom-0 p-6">
+                  <h3 className="text-white text-2xl font-bold mb-2">{c.projects.ecommerce.title}</h3>
+                  <p className="text-gray-300 text-sm mb-3">{c.projects.ecommerce.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">{c.projects.ecommerce.tag1}</span>
+                    <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">{c.projects.ecommerce.tag2}</span>
+                    <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30">{c.projects.ecommerce.tag3}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -623,23 +629,26 @@ const Home: React.FC<Props> = ({ locale }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="block rounded-xl overflow-hidden border border-white/10 bg-black/40 hover:border-cyan-300/40 transition-colors group"
+              className="block rounded-xl overflow-hidden border border-white/10 bg-white/5 hover:border-cyan-300/40 transition-all group backdrop-blur-sm hover:scale-[1.02]"
             >
-              <SmartImage
-                srcFolder={p.imgFolder}
-                alt={p.imgAlt}
-                className="w-full h-48"
-                sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-                imgClassName="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="p-4">
-                <div className="text-white font-semibold">{p.title}</div>
-                <div className="text-gray-400 text-sm mt-1 line-clamp-2">{p.description}</div>
-                <div className="flex flex-wrap gap-2 mt-3">
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-black/5 to-black/10">
+                <SmartImage
+                  srcFolder={p.imgFolder}
+                  alt={p.imgAlt}
+                  className="w-full h-48"
+                  sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                  imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              </div>
+              <div className="p-5 bg-gradient-to-b from-white/5 to-white/[0.02]">
+                <div className=" font-semibold text-base mb-2">{p.title}</div>
+                <div className="text-gray-300 text-sm mt-1 mb-3 line-clamp-2">{p.description}</div>
+                <div className="flex flex-wrap gap-2">
                   {p.highlights.map((h) => (
                     <span
                       key={h}
-                      className="text-xs px-2 py-1 rounded bg-cyan-400/10 text-cyan-200 border border-cyan-400/20"
+                      className="text-xs px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-400/30"
                     >
                       {h}
                     </span>
@@ -653,7 +662,7 @@ const Home: React.FC<Props> = ({ locale }) => {
         <div className="mt-8 flex justify-center">
           <a
             href={`${locale === 'en' ? '/en' : ''}/projects`}
-            className="inline-flex items-center rounded-md px-5 py-2 border border-white/20 text-white hover:bg-white/10 transition"
+            className="inline-flex items-center rounded-md px-5 py-2 border border-white/20  hover:bg-white/10 transition"
           >
             {c.projects.allProjects}
           </a>
@@ -670,7 +679,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 <span className="text-lg">🏪</span>
                 <span className="text-sm text-cyan-300 dark:text-cyan-300 light:text-blue-700 font-medium">{c.featuredProject.badge}</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold dark:text-white light:text-gray-900 mb-4">
                 {c.featuredProject.title}
               </h2>
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-lg mb-6">
@@ -700,7 +709,7 @@ const Home: React.FC<Props> = ({ locale }) => {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-400/20 to-blue-400/20 blur-2xl" aria-hidden />
               <div className="relative rounded-2xl overflow-hidden border border-cyan-500/30 bg-black/20">
                 <SmartImage
-                  sources={['/images/solutions/alcohol-vending/vending-mashines-coffe.png', '/images/solutions/alcohol-vending/vending-mashines-snaks.png']}
+                  sources={['/images/solutions/alcohol-vending/vending-mashines-alcohol.webp', '/images/solutions/vending-mashines-alcohol.png']}
                   alt="Вендинговий апарат з сенсорним екраном та захистом IP65"
                   className="w-full h-auto"
                   sizes="(min-width:768px) 50vw, 100vw"
@@ -713,16 +722,14 @@ const Home: React.FC<Props> = ({ locale }) => {
       </section>
 
 
-      {/* GALLERY: Наші роботи - класична сітка */}
-      <section className="design-gallery mx-auto max-w-7xl px-6 py-20 bg-transparent dark:bg-transparent light:bg-gray-50">
+      {/* GALLERY: Наші роботи */}
+      <section className="design-gallery mx-auto max-w-7xl px-6 py-16 bg-transparent dark:bg-transparent light:bg-white/40">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white light:text-gray-900 mb-4">{c.gallery.title}</h2>
-          <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-lg max-w-3xl mx-auto">{c.gallery.subtitle}</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-3">{c.gallery.title}</h2>
+          <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-base max-w-3xl mx-auto">{c.gallery.subtitle}</p>
         </div>
 
-        {/* Класична сітка 2x2 на desktop, vertical на mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Team Work */}
           <motion.a
             href={`${locale === 'en' ? '/en' : ''}/about`}
@@ -730,19 +737,26 @@ const Home: React.FC<Props> = ({ locale }) => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative group overflow-hidden rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 hover:border-cyan-400/60 dark:hover:border-cyan-400/60 light:hover:border-blue-500 transition-all duration-500 hover:scale-[1.02] shadow-xl hover:shadow-2xl aspect-[4/3]"
+            className="group block"
           >
-            <SmartImage
-              sources={["/images/gnizdo-team/team-work.avif", "/images/gnizdo-team/team-work.webp", "/images/gnizdo-team/team-work.jpeg"]}
-              alt="Командна робота Diwave"
-              className="w-full h-full"
-              imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-            <div className="absolute top-6 left-6 px-5 py-2.5 rounded-full bg-cyan-500/90 dark:bg-cyan-500/90 light:bg-blue-600 backdrop-blur-xl border border-white/40 text-white text-sm font-bold shadow-2xl">Team</div>
-            <div className="absolute bottom-0 left-0 right-0 p-8">
-              <p className="text-white font-bold text-2xl md:text-3xl drop-shadow-[0_4px_16px_rgba(0,0,0,1)] mb-2">Команда Diwave</p>
-              <p className="text-gray-200 text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">{locale === 'en' ? 'Learn more about us' : 'Дізнатися більше про нас'}</p>
+            <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-cyan-400/40 dark:hover:border-cyan-400/40 light:hover:border-cyan-500 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 light:hover:shadow-cyan-500/30">
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <SmartImage
+                  sources={["/images/gnizdo-team/team-meeting.avif", "/images/gnizdo-team/team-meeting.webp", "/images/gnizdo-team/team-meeting.jpeg"]}
+                  alt="Командна робота Diwave"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent dark:from-black/90 dark:via-black/20 light:from-black/75 light:via-black/30" />
+                <div className="absolute top-3 right-3">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-cyan-500 text-white text-xs font-semibold shadow-lg">Team</span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <div className="bg-white/5 dark:bg-white/5 light:bg-white/70 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/10 light:border-white/30">
+                    <h3 className=" dark:text-white light:text-black font-bold text-sm">Команда Diwave</h3>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.a>
 
@@ -753,18 +767,26 @@ const Home: React.FC<Props> = ({ locale }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="relative group overflow-hidden rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 hover:border-purple-400/60 dark:hover:border-purple-400/60 light:hover:border-purple-500 transition-all duration-500 hover:scale-[1.02] shadow-xl hover:shadow-2xl aspect-[4/3]"
+            className="group block"
           >
-            <SmartImage
-              sources={["/images/solutions/car-washes/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.avif", "/images/solutions/car-washes/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.jpeg"]}
-              alt="Автомийка SamWash"
-              className="w-full h-full"
-              imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-            <div className="absolute top-6 left-6 px-5 py-2.5 rounded-full bg-purple-500/90 dark:bg-purple-500/90 light:bg-purple-600 backdrop-blur-xl border border-white/40 text-white text-sm font-bold shadow-2xl">Car Wash</div>
-            <div className="absolute bottom-0 left-0 right-0 p-8">
-              <p className="text-white font-bold text-2xl md:text-3xl drop-shadow-[0_4px_16px_rgba(0,0,0,1)]">Автомийки SamWash</p>
+            <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-purple-400/40 dark:hover:border-purple-400/40 light:hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 light:hover:shadow-purple-500/30">
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <SmartImage
+                  sources={["/images/solutions/car-washes/home.avif", "/images/solutions/car-washes/home.jpeg", "/images/solutions/car-washes/home.webp"]}
+                  alt="Автомийка SamWash"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent dark:from-black/90 dark:via-black/20 light:from-black/75 light:via-black/30" />
+                <div className="absolute top-3 right-3">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-purple-500 text-white text-xs font-semibold shadow-lg">Car Wash</span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <div className="bg-white/5 dark:bg-white/5 light:bg-white/70 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/10 light:border-white/30">
+                    <h3 className=" dark:text-white light:text-black font-bold text-sm">Автомийки SamWash</h3>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.a>
 
@@ -775,18 +797,26 @@ const Home: React.FC<Props> = ({ locale }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="relative group overflow-hidden rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 hover:border-emerald-400/60 dark:hover:border-emerald-400/60 light:hover:border-emerald-500 transition-all duration-500 hover:scale-[1.02] shadow-xl hover:shadow-2xl aspect-[4/3]"
+            className="group block"
           >
-            <SmartImage
-              sources={["/images/gnizdo-team/fpv-riding.avif", "/images/gnizdo-team/fpv-riding.webp", "/images/gnizdo-team/fpv-riding.jpeg"]}
-              alt="FPV дрони в польоті"
-              className="w-full h-full"
-              imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-            <div className="absolute top-6 left-6 px-5 py-2.5 rounded-full bg-emerald-500/90 dark:bg-emerald-500/90 light:bg-emerald-600 backdrop-blur-xl border border-white/40 text-white text-sm font-bold shadow-2xl">Drones</div>
-            <div className="absolute bottom-0 left-0 right-0 p-8">
-              <p className="text-white font-bold text-2xl md:text-3xl drop-shadow-[0_4px_16px_rgba(0,0,0,1)]">FPV Дрони • Gnizdo</p>
+            <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-emerald-400/40 dark:hover:border-emerald-400/40 light:hover:border-emerald-500 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 light:hover:shadow-emerald-500/30">
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <SmartImage
+                  sources={["/images/gnizdo-team/fpv-riding.avif", "/images/gnizdo-team/fpv-riding.webp", "/images/gnizdo-team/fpv-riding.jpeg"]}
+                  alt="FPV дрони в польоті"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent dark:from-black/90 dark:via-black/20 light:from-black/75 light:via-black/30" />
+                <div className="absolute top-3 right-3">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-emerald-500 text-white text-xs font-semibold shadow-lg">Drones</span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <div className="bg-white/5 dark:bg-white/5 light:bg-white/70 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/10 light:border-white/30">
+                    <h3 className=" dark:text-white light:text-black font-bold text-sm">FPV Дрони • Gnizdo</h3>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.a>
 
@@ -797,21 +827,28 @@ const Home: React.FC<Props> = ({ locale }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="relative group overflow-hidden rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 hover:border-blue-400/60 dark:hover:border-blue-400/60 light:hover:border-blue-500 transition-all duration-500 hover:scale-[1.02] shadow-xl hover:shadow-2xl aspect-[4/3]"
+            className="group block"
           >
-            <SmartImage
-              sources={["/images/plantpol/plantpol.avif", "/images/plantpol/plantpol.webp", "/images/plantpol/plantpol.png"]}
-              alt="E-commerce Plantpol"
-              className="w-full h-full"
-              imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-            <div className="absolute top-6 left-6 px-5 py-2.5 rounded-full bg-blue-500/90 dark:bg-blue-500/90 light:bg-blue-600 backdrop-blur-xl border border-white/40 text-white text-sm font-bold shadow-2xl">E-commerce</div>
-            <div className="absolute bottom-0 left-0 right-0 p-8">
-              <p className="text-white font-bold text-2xl md:text-3xl drop-shadow-[0_4px_16px_rgba(0,0,0,1)]">Plantpol</p>
+            <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-blue-400/40 dark:hover:border-blue-400/40 light:hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 light:hover:shadow-blue-500/30">
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <SmartImage
+                  sources={["/images/agricultural-center-plantpol-ukraine/hero.avif", "/images/agricultural-center-plantpol-ukraine/hero.webp", "/images/agricultural-center-plantpol-ukraine/hero.png"]}
+                  alt="E-commerce Plantpol"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent dark:from-black/90 dark:via-black/20 light:from-black/75 light:via-black/30" />
+                <div className="absolute top-3 right-3">
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-blue-500 text-white text-xs font-semibold shadow-lg">E-commerce</span>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <div className="bg-white/5 dark:bg-white/5 light:bg-white/70 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/10 light:border-white/30">
+                    <h3 className=" dark:text-white light:text-black font-bold text-sm">Агрохолдинг Plantpol</h3>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.a>
-
         </div>
       </section>
 
@@ -822,15 +859,15 @@ const Home: React.FC<Props> = ({ locale }) => {
           <SmartImage
             sources={["/images/home/FPF%20team%20with%20Diwave.jpg", "/images/home/FPF team with Diwave.jpg"]}
             alt="Команда Diwave з FPF"
-            className="w-full h-72 rounded-2xl border border-white/10 bg-white/5 backdrop-blur overflow-hidden"
+            className="w-full h-96 rounded-2xl border border-white/10 bg-white/5 backdrop-blur overflow-hidden"
             sizes="(min-width:768px) 50vw, 100vw"
-            imgClassName="w-full h-72 object-contain"
+            imgClassName="w-full h-96 object-cover"
           />
           <div>
             <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed">
               {c.about.description}
             </p>
-            <a href={`${locale === 'en' ? '/en' : ''}/about`} className="inline-flex mt-6 px-5 py-2 rounded-md border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition">{c.about.cta}</a>
+            <a href={`${locale === 'en' ? '/en' : ''}/about`} className="inline-flex mt-6 px-5 py-2 rounded-md border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-600 transition">{c.about.cta}</a>
           </div>
         </div>
       </section>
@@ -881,7 +918,7 @@ const Home: React.FC<Props> = ({ locale }) => {
               <div className="flex justify-center">
                 <Icon className="text-cyan-300" />
               </div>
-              <div className="mt-3 font-semibold text-white">{title}</div>
+              <div className="mt-3 font-semibold font-bold text-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">{title}</div>
               <div className="text-xs text-gray-300 opacity-90 group-hover:opacity-100">
                 {c.howItWorks.bookCall}
               </div>
@@ -892,8 +929,10 @@ const Home: React.FC<Props> = ({ locale }) => {
 
       {/* INDUSTRIES: навігація за індустріями з фото з public/images */}
       <section className="mx-auto max-w-7xl px-6 py-16">
-        <SectionHeader overline={c.industries.overline} title="" />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-2">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold dark:text-white light:text-gray-900">{locale === 'en' ? 'Industries' : 'Індустрії'}</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
           {[
             { slug: 'automotive', img: '/images/industries/automotive', alt: 'Automotive' },
             { slug: 'vending', img: '/images/industries/vending', alt: 'Vending' },
@@ -910,28 +949,28 @@ const Home: React.FC<Props> = ({ locale }) => {
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="group block rounded-xl overflow-hidden border border-white/10 bg-black/40 hover:border-cyan-300/40 transition-colors"
+              className="group block rounded-lg overflow-hidden border border-white/10 hover:border-cyan-300/40 transition-colors"
             >
               <div className="relative">
                 <SmartImage
                   srcFolder={i.img}
                   alt={i.alt}
-                  className="w-full h-40"
+                  className="w-full h-32"
                   sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
-                  imgClassName="w-full h-40 object-contain"
+                  imgClassName="w-full h-32 object-contain"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute bottom-3 left-3 text-white font-bold text-lg drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+                <div className="absolute bottom-2 left-2 text-white font-bold text-base drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
                   {c.industries[i.slug as keyof typeof c.industries]}
                 </div>
               </div>
             </motion.a>
           ))}
         </div>
-        <div className="mt-8 flex justify-center">
+        <div className="mt-6 flex justify-center">
           <a
             href={`${locale === 'en' ? '/en' : ''}/industries`}
-            className="inline-flex items-center rounded-md px-5 py-2 border border-white/20 text-white hover:bg-white/10 transition"
+            className="inline-flex items-center rounded-md px-5 py-2 border border-white/20 dark:border-white/20 light:border-gray-300 dark:text-white light:text-gray-900 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-gray-100 transition"
           >
             {c.industries.allIndustries}
           </a>
@@ -940,12 +979,12 @@ const Home: React.FC<Props> = ({ locale }) => {
 
       {/* CTA: чіткий заклик до дії */}
       <section className="mx-auto max-w-7xl px-6 pb-16">
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white p-6 backdrop-blur flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <div className="text-white text-lg font-semibold">
+            <div className="dark:text-white light:text-gray-900 text-lg font-semibold">
               {c.cta.title}
             </div>
-            <div className="text-gray-300 text-sm">
+            <div className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">
               {c.cta.subtitle}
             </div>
           </div>
@@ -958,7 +997,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             </a>
             <a
               href={`${locale === 'en' ? '/en' : ''}/solutions`}
-              className="inline-flex items-center rounded-md px-5 py-2 border border-white/30 dark:border-white/30 light:border-blue-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-50 transition"
+              className="inline-flex items-center rounded-md px-5 py-2 border border-white/30 dark:border-white/30 light:border-blue-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-600 transition"
             >
               {c.cta.seeSolutions}
             </a>
@@ -968,7 +1007,9 @@ const Home: React.FC<Props> = ({ locale }) => {
 
       {/* CONTACT: компактний і стильний */}
       <section className="contact-section relative overflow-hidden mx-auto max-w-5xl px-6 pb-20">
-        <h2 className="text-center text-sm tracking-widest text-gray-400 dark:text-gray-400 light:text-gray-600 mb-8 font-semibold">
+        <h2 className="my-8
+        text-2xl md:text-3xl font-semibol dark:text-white light:text-gray-900 text-center
+ ">
           {t('headings.contact').toUpperCase()}
         </h2>
 
@@ -987,7 +1028,7 @@ const Home: React.FC<Props> = ({ locale }) => {
               </div>
             </div>
             <div className="flex-1">
-              <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-2xl mb-2">Dmytro Kravets</h3>
+              <h3 className="dark:text-white light:text-gray-900 font-bold text-2xl mb-2">Dmytro Kravets</h3>
               <p className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 text-sm font-semibold mb-3">Founder, Diwave</p>
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm leading-relaxed">
                 {c.contact.description}
@@ -999,7 +1040,7 @@ const Home: React.FC<Props> = ({ locale }) => {
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             {/* Колонка 1: Основні контакти */}
             <div className="space-y-3">
-              <h4 className="text-white dark:text-white light:text-gray-900 font-semibold text-sm mb-4 uppercase tracking-wide opacity-70">{locale === 'en' ? 'Contact Info' : 'Контакти'}</h4>
+              <h4 className="dark:text-white light:text-gray-900 font-semibold text-sm mb-4 uppercase tracking-wide opacity-70">{locale === 'en' ? 'Contact Info' : 'Контакти'}</h4>
               <a href="tel:+380505923772" className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-blue-50 transition-colors group">
                 <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -1034,7 +1075,7 @@ const Home: React.FC<Props> = ({ locale }) => {
 
             {/* Колонка 2: Месенджери та соцмережі */}
             <div className="space-y-3">
-              <h4 className="text-white dark:text-white light:text-gray-900 font-semibold text-sm mb-4 uppercase tracking-wide opacity-70">{locale === 'en' ? 'Messengers' : 'Месенджери'}</h4>
+              <h4 className=" dark:text-white light:text-gray-900 font-semibold text-sm mb-4 uppercase tracking-wide opacity-70">{locale === 'en' ? 'Messengers' : 'Месенджери'}</h4>
               <a href="tg://resolve?phone=380505923772" className="flex items-center gap-3 p-3 rounded-lg bg-cyan-500/10 dark:bg-cyan-500/10 light:bg-blue-50 border border-cyan-400/20 dark:border-cyan-400/20 light:border-blue-200 hover:bg-cyan-500/20 dark:hover:bg-cyan-500/20 light:hover:bg-blue-100 transition-colors group">
                 <span className="text-cyan-300 dark:text-cyan-300 light:text-blue-700 text-sm font-semibold">Telegram</span>
               </a>

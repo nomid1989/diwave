@@ -78,7 +78,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 dark:border-white/10 light:border-black/10 bg-black/20 dark:bg-black/20 light:bg-white/70 backdrop-blur-[40px] backdrop-saturate-[180%] backdrop-brightness-110 transition-colors shadow-lg shadow-black/10 dark:shadow-black/10 light:shadow-black/5">
+    <header className="sticky top-0 z-40 border-b border-white/10 dark:border-white/10 light:border-black/[0.06] dark:bg-black/20 light:bg-white/90 backdrop-blur-[40px] backdrop-saturate-[180%] backdrop-brightness-110 transition-colors shadow-lg shadow-black/10 dark:shadow-black/10 light:shadow-black/[0.03]">
       {/* Skip to main content - Accessibility */}
       <a
         href="#main-content"
@@ -106,7 +106,7 @@ const Header: React.FC = () => {
                 className={classNames(
                   'transition-colors relative',
                   active
-                    ? 'text-white dark:text-white light:text-white font-semibold light:drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] light:after:absolute light:after:inset-x-0 light:after:-bottom-1 light:after:h-0.5 light:after:bg-gradient-to-r light:after:from-blue-600 light:after:to-indigo-600 light:after:rounded-full'
+                    ? 'gradient-text dark:text-white light:text-white font-semibold light:drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] light:after:absolute light:after:inset-x-0 light:after:-bottom-1 light:after:h-0.5 light:after:bg-gradient-to-r light:after:from-blue-600 light:after:to-indigo-600 light:after:rounded-full'
                     : 'text-gray-300 dark:text-gray-300 light:text-white/90 hover:text-white dark:hover:text-white light:hover:text-white light:drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]'
                 )}
               >

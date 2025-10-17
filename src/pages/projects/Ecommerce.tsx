@@ -284,7 +284,7 @@ export default function EcommerceProject({ locale }: Props) {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-emerald-400/20 to-cyan-400/20 blur-2xl" aria-hidden />
               <div className="relative rounded-3xl overflow-hidden border border-emerald-500/20 bg-white/5 backdrop-blur">
                 <SmartImage
-                  sources={['/images/projects/plantpol.png']}
+                  sources={['/images/projects/hero.png']}
                   alt={locale === 'uk' ? 'Plantpol B2B портал' : 'Plantpol B2B portal'}
                   className="w-full h-[420px]"
                   sizes="(min-width:1024px) 50vw, 100vw"
@@ -370,7 +370,7 @@ export default function EcommerceProject({ locale }: Props) {
             <div className="grid md:grid-cols-2 gap-6 mt-6">
               <div className="rounded-xl overflow-hidden border border-emerald-500/20">
                 <SmartImage
-                  sources={['/images/projects/plantpol.png']}
+                  sources={['/images/projects/hero.png']}
                   alt={locale === 'uk' ? 'Plantpol B2B портал' : 'Plantpol B2B portal'}
                   className="w-full h-full"
                   imgClassName="w-full h-full object-contain"

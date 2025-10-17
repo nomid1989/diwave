@@ -12,7 +12,7 @@ export default function CarWashProject({ locale }: Props) {
       title: 'Samwash — Автомийки Самообслуговування з EBITDA 70% | IoT/SCADA Платформа Diwave',
       description: 'Повністю автоматизовані автомийки самообслуговування Samwash з EBITDA до 70%. IoT/SCADA платформа з Predictive Maintenance: 24/7 телеметрія обладнання, безготівкові платежі через QR-код, CRM з фіскалізацією. Бізнес працює без участі власника. Від 2 до 12+ постів, повна інтеграція з платіжними системами, віддалений моніторинг. Розробка та впровадження Diwave.',
       badge: 'IoT/SCADA Platform',
-      heroTitle: 'Diwave Proactive\nMaintenance Platform',
+      heroTitle: 'Система з моніторингу обладнання автомийки з ШІ',
       heroSubtitle: 'Технічний ROI вашого обладнання',
       ecosystemTitle: 'Екосистема SAMWASH — Трансформація Бізнесу Самообслуговування',
       ecosystemSubtitle: 'Повноцінна, трирівнева цифрова екосистема, що інтегрує IoT, FinTech та потужну CRM',
@@ -77,7 +77,7 @@ export default function CarWashProject({ locale }: Props) {
       title: 'Samwash — Self-Service Car Washes with 70% EBITDA | Diwave IoT/SCADA Platform',
       description: 'Fully automated Samwash self-service car washes with up to 70% EBITDA. IoT/SCADA platform with Predictive Maintenance: 24/7 equipment telemetry, cashless QR-code payments, CRM with fiscalization. Business operates without owner involvement. From 2 to 12+ bays, full payment system integration, remote monitoring. Developed and implemented by Diwave.',
       badge: 'IoT/SCADA Platform',
-      heroTitle: 'Diwave Proactive\nMaintenance Platform',
+      heroTitle: 'AI car wash equipment monitoring system',
       heroSubtitle: 'Technical ROI of Your Equipment',
       ecosystemTitle: 'SAMWASH Ecosystem — Transforming Self-Service Business',
       ecosystemSubtitle: 'Complete three-tier digital ecosystem integrating IoT, FinTech, and powerful CRM',
@@ -172,7 +172,7 @@ export default function CarWashProject({ locale }: Props) {
               <span className="text-lg">📡</span>
               <span className="text-sm text-cyan-300 font-medium">{t.badge}</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6" style={{ whiteSpace: 'pre-line' }}>
+            <h1 className="text-4xl md:text-6xl font-bold  tracking-tight mb-6" style={{ whiteSpace: 'pre-line' }}>
               {t.heroTitle}
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 font-light">
@@ -198,7 +198,7 @@ export default function CarWashProject({ locale }: Props) {
         <section className="mx-auto max-w-7xl px-6 py-12">
           <div className="rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 p-8 md:p-12 backdrop-blur">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold  mb-4">
                 {t.ecosystemTitle}
               </h2>
               <p className="text-gray-300 text-lg max-w-3xl mx-auto">
@@ -212,12 +212,12 @@ export default function CarWashProject({ locale }: Props) {
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-3xl">📱</span>
                   <div>
-                    <h3 className="text-white font-semibold text-lg">{t.level1}</h3>
+                    <h3 className=" font-semibold text-lg">{t.level1}</h3>
                     <p className="text-cyan-400 text-sm">{t.level1Title}</p>
                   </div>
                 </div>
                 <div className="space-y-3 text-sm text-gray-300">
-                  <p><strong className="text-white">app.samwash.ua</strong></p>
+                  <p><strong>app.samwash.ua</strong></p>
                   <p>{t.level1Desc}</p>
                   <div className="pt-3 border-t border-white/10">
                     <p className="text-cyan-300 font-semibold mb-2">{t.level1Result}</p>
@@ -233,12 +233,12 @@ export default function CarWashProject({ locale }: Props) {
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-3xl">🔌</span>
                   <div>
-                    <h3 className="text-white font-semibold text-lg">{t.level2}</h3>
+                    <h3 className=" font-semibold text-lg">{t.level2}</h3>
                     <p className="text-cyan-400 text-sm">{t.level2Title}</p>
                   </div>
                 </div>
                 <div className="space-y-3 text-sm text-gray-300">
-                  <p><strong className="text-white">API ph.ua</strong></p>
+                  <p><strong>api.samwash.ua</strong></p>
                   <p>{t.level2Desc}</p>
                   <div className="pt-3 border-t border-white/10">
                     <p className="text-cyan-300 font-semibold mb-2">{t.level2Tech}</p>
@@ -254,12 +254,12 @@ export default function CarWashProject({ locale }: Props) {
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-3xl">💼</span>
                   <div>
-                    <h3 className="text-white font-semibold text-lg">{t.level3}</h3>
+                    <h3 className=" font-semibold text-lg">{t.level3}</h3>
                     <p className="text-cyan-400 text-sm">{t.level3Title}</p>
                   </div>
                 </div>
                 <div className="space-y-3 text-sm text-gray-300">
-                  <p><strong className="text-white">admin.samwash.ua</strong></p>
+                  <p><strong>admin.samwash.ua</strong></p>
                   <p>{t.level3Desc}</p>
                   <div className="pt-3 border-t border-white/10">
                     <p className="text-cyan-300 font-semibold mb-2">{t.level3Func}</p>
@@ -272,7 +272,7 @@ export default function CarWashProject({ locale }: Props) {
             </div>
 
             <div className="rounded-xl border border-purple-500/20 bg-purple-500/5 p-6">
-              <h3 className="text-white font-semibold text-lg mb-3">{t.keyValue}</h3>
+              <h3 className=" font-semibold text-lg mb-3">{t.keyValue}</h3>
               <p className="text-gray-300 text-sm">{t.keyValueText}</p>
             </div>
           </div>
@@ -282,7 +282,7 @@ export default function CarWashProject({ locale }: Props) {
         <section className="mx-auto max-w-7xl px-6 py-12">
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
-              <p className="text-xl text-white font-semibold">{t.mainIntro}</p>
+              <p className="text-xl  font-semibold">{t.mainIntro}</p>
               <p>{t.mainDesc1}</p>
               <p>{t.mainDesc2}</p>
               <p className="text-white font-semibold">{t.mainConclusion}</p>
@@ -292,12 +292,12 @@ export default function CarWashProject({ locale }: Props) {
 
         {/* Key Features */}
         <section className="mx-auto max-w-7xl px-6 py-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">{t.featuresTitle}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold  text-center mb-12">{t.featuresTitle}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {t.features.map((feature, i) => (
               <div key={i} className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:border-cyan-500/30 transition">
                 <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-white font-semibold text-lg mb-2">{feature.title}</h3>
+                <h3 className=" font-semibold text-lg mb-2">{feature.title}</h3>
                 <p className="text-gray-300 text-sm">{feature.desc}</p>
               </div>
             ))}
@@ -307,57 +307,57 @@ export default function CarWashProject({ locale }: Props) {
         {/* Tech Stack */}
         <section className="mx-auto max-w-7xl px-6 py-12">
           <div className="rounded-3xl border border-purple-500/20 bg-gradient-to-br from-purple-500/10 to-blue-500/10 p-8 md:p-12 backdrop-blur">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">{t.techStackTitle}</h2>
+            <h2 className="text-3xl font-bold  mb-8 text-center">{t.techStackTitle}</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
+                <h3 className=" font-semibold text-lg mb-4 flex items-center gap-2">
                   <span className="text-2xl">⚡</span>
                   {t.techBackend}
                 </h3>
                 <ul className="space-y-2 text-gray-300 text-sm">
-                  <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">▸</span><span><strong className="text-white">Laravel / Node.js</strong> — API {locale === 'uk' ? 'та бізнес-логіка' : 'and business logic'}</span></li>
-                  <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">▸</span><span><strong className="text-white">MQTT</strong> — real-time {locale === 'uk' ? 'обмін даними з контролерами' : 'data exchange with controllers'}</span></li>
-                  <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">▸</span><span><strong className="text-white">Modbus TCP/IP</strong> — {locale === 'uk' ? 'комунікація з промисловими PLC' : 'communication with industrial PLCs'}</span></li>
-                  <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">▸</span><span><strong className="text-white">PostgreSQL / TimescaleDB</strong> — {locale === 'uk' ? 'зберігання телеметрії' : 'telemetry storage'}</span></li>
-                  <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">▸</span><span><strong className="text-white">Redis</strong> — {locale === 'uk' ? 'кешування та черги повідомлень' : 'caching and message queues'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">▸</span><span><strong >Laravel / Node.js</strong> — API {locale === 'uk' ? 'та бізнес-логіка' : 'and business logic'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">▸</span><span><strong >MQTT</strong> — real-time {locale === 'uk' ? 'обмін даними з контролерами' : 'data exchange with controllers'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">▸</span><span><strong >Modbus TCP/IP</strong> — {locale === 'uk' ? 'комунікація з промисловими PLC' : 'communication with industrial PLCs'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">▸</span><span><strong >PostgreSQL / TimescaleDB</strong> — {locale === 'uk' ? 'зберігання телеметрії' : 'telemetry storage'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-cyan-400 mt-1">▸</span><span><strong >Redis</strong> — {locale === 'uk' ? 'кешування та черги повідомлень' : 'caching and message queues'}</span></li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
+                <h3 className=" font-semibold text-lg mb-4 flex items-center gap-2">
                   <span className="text-2xl">💻</span>
                   {t.techFrontend}
                 </h3>
                 <ul className="space-y-2 text-gray-300 text-sm">
-                  <li className="flex items-start gap-2"><span className="text-purple-400 mt-1">▸</span><span><strong className="text-white">React / Vue</strong> — {locale === 'uk' ? 'адміністративна панель' : 'admin panel'}</span></li>
-                  <li className="flex items-start gap-2"><span className="text-purple-400 mt-1">▸</span><span><strong className="text-white">Tailwind CSS</strong> — {locale === 'uk' ? 'адаптивний UI' : 'responsive UI'}</span></li>
-                  <li className="flex items-start gap-2"><span className="text-purple-400 mt-1">▸</span><span><strong className="text-white">Recharts / Chart.js</strong> — {locale === 'uk' ? 'візуалізація даних' : 'data visualization'}</span></li>
-                  <li className="flex items-start gap-2"><span className="text-purple-400 mt-1">▸</span><span><strong className="text-white">PWA</strong> — {locale === 'uk' ? 'мобільний застосунок без установки' : 'mobile app without installation'}</span></li>
-                  <li className="flex items-start gap-2"><span className="text-purple-400 mt-1">▸</span><span><strong className="text-white">Telegram Bot API</strong> — {locale === 'uk' ? 'інстант-нотифікації' : 'instant notifications'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-purple-400 mt-1">▸</span><span><strong >React / Vue</strong> — {locale === 'uk' ? 'адміністративна панель' : 'admin panel'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-purple-400 mt-1">▸</span><span><strong >Tailwind CSS</strong> — {locale === 'uk' ? 'адаптивний UI' : 'responsive UI'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-purple-400 mt-1">▸</span><span><strong>Recharts / Chart.js</strong> — {locale === 'uk' ? 'візуалізація даних' : 'data visualization'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-purple-400 mt-1">▸</span><span><strong>PWA</strong> — {locale === 'uk' ? 'мобільний застосунок без установки' : 'mobile app without installation'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-purple-400 mt-1">▸</span><span><strong>Telegram Bot API</strong> — {locale === 'uk' ? 'інстант-нотифікації' : 'instant notifications'}</span></li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
+                <h3 className=" font-semibold text-lg mb-4 flex items-center gap-2">
                   <span className="text-2xl">🔧</span>
                   {t.techHardware}
                 </h3>
                 <ul className="space-y-2 text-gray-300 text-sm">
-                  <li className="flex items-start gap-2"><span className="text-emerald-400 mt-1">▸</span><span><strong className="text-white">Raspberry Pi</strong> — edge computing</span></li>
-                  <li className="flex items-start gap-2"><span className="text-emerald-400 mt-1">▸</span><span><strong className="text-white">Schneider PLC</strong> — {locale === 'uk' ? 'промислові контролери' : 'industrial controllers'}</span></li>
-                  <li className="flex items-start gap-2"><span className="text-emerald-400 mt-1">▸</span><span><strong className="text-white">SamWash Controller</strong> — {locale === 'uk' ? 'власні контролери автомийок' : 'proprietary car wash controllers'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-emerald-400 mt-1">▸</span><span><strong >Raspberry Pi</strong> — edge computing</span></li>
+                  <li className="flex items-start gap-2"><span className="text-emerald-400 mt-1">▸</span><span><strong >Schneider PLC</strong> — {locale === 'uk' ? 'промислові контролери' : 'industrial controllers'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-emerald-400 mt-1">▸</span><span><strong >SamWash Controller</strong> — {locale === 'uk' ? 'власні контролери автомийок' : 'proprietary car wash controllers'}</span></li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
+                <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
                   <span className="text-2xl">🔗</span>
                   {t.techIntegrations}
                 </h3>
                 <ul className="space-y-2 text-gray-300 text-sm">
-                  <li className="flex items-start gap-2"><span className="text-orange-400 mt-1">▸</span><span><strong className="text-white">REST API</strong> — {locale === 'uk' ? 'зовнішні системи' : 'external systems'}</span></li>
-                  <li className="flex items-start gap-2"><span className="text-orange-400 mt-1">▸</span><span><strong className="text-white">Email SMTP</strong> — {locale === 'uk' ? 'звітність' : 'reporting'}</span></li>
-                  <li className="flex items-start gap-2"><span className="text-orange-400 mt-1">▸</span><span><strong className="text-white">Diwave Cloud</strong> — {locale === 'uk' ? 'єдина екосистема' : 'unified ecosystem'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-orange-400 mt-1">▸</span><span><strong >REST API</strong> — {locale === 'uk' ? 'зовнішні системи' : 'external systems'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-orange-400 mt-1">▸</span><span><strong >Email SMTP</strong> — {locale === 'uk' ? 'звітність' : 'reporting'}</span></li>
+                  <li className="flex items-start gap-2"><span className="text-orange-400 mt-1">▸</span><span><strong >Diwave Cloud</strong> — {locale === 'uk' ? 'єдина екосистема' : 'unified ecosystem'}</span></li>
                 </ul>
               </div>
             </div>
@@ -366,12 +366,12 @@ export default function CarWashProject({ locale }: Props) {
 
         {/* Business Benefits */}
         <section className="mx-auto max-w-7xl px-6 py-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">{t.benefitsTitle}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold  text-center mb-12">{t.benefitsTitle}</h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {t.benefits.map((benefit, i) => (
               <div key={i} className="rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 p-6 backdrop-blur">
                 <div className="text-5xl font-bold text-cyan-400 mb-3">{benefit.metric}</div>
-                <div className="text-white font-semibold text-lg mb-2">{benefit.label}</div>
+                <div className=" font-semibold text-lg mb-2">{benefit.label}</div>
                 <p className="text-gray-300 text-sm">{benefit.desc}</p>
               </div>
             ))}
@@ -383,12 +383,12 @@ export default function CarWashProject({ locale }: Props) {
           <div className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12 backdrop-blur">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-4xl">🔗</span>
-              <h2 className="text-2xl md:text-3xl font-semibold text-white">{t.integrationTitle}</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold ">{t.integrationTitle}</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               {t.integrations.map((int, i) => (
                 <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-6">
-                  <h3 className="text-white font-semibold mb-2">{int.title}</h3>
+                  <h3 className=" font-semibold mb-2">{int.title}</h3>
                   <p className="text-gray-300 text-sm">{int.desc}</p>
                 </div>
               ))}
@@ -398,7 +398,7 @@ export default function CarWashProject({ locale }: Props) {
             <div className="rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-6">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl">📱</span>
-                <h3 className="text-white font-semibold text-lg">
+                <h3 className=" font-semibold text-lg">
                   {locale === 'uk' ? 'Демо QR-оплати SamWash' : 'SamWash QR Payment Demo'}
                 </h3>
               </div>
@@ -426,7 +426,7 @@ export default function CarWashProject({ locale }: Props) {
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">✅</span>
                     <div>
-                      <h4 className="text-white font-semibold mb-1">
+                      <h4 className=" font-semibold mb-1">
                         {locale === 'uk' ? 'Миттєва оплата' : 'Instant Payment'}
                       </h4>
                       <p className="text-gray-300 text-sm">
@@ -439,7 +439,7 @@ export default function CarWashProject({ locale }: Props) {
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">💳</span>
                     <div>
-                      <h4 className="text-white font-semibold mb-1">
+                      <h4 className=" font-semibold mb-1">
                         {locale === 'uk' ? 'Без готівки' : 'Cashless'}
                       </h4>
                       <p className="text-gray-300 text-sm">
@@ -452,7 +452,7 @@ export default function CarWashProject({ locale }: Props) {
                   <div className="flex items-start gap-3">
                     <span className="text-2xl">🎯</span>
                     <div>
-                      <h4 className="text-white font-semibold mb-1">
+                      <h4 className=" font-semibold mb-1">
                         {locale === 'uk' ? 'Автоматичний запуск' : 'Auto Start'}
                       </h4>
                       <p className="text-gray-300 text-sm">
@@ -488,7 +488,7 @@ export default function CarWashProject({ locale }: Props) {
         {/* CTA Section */}
         <section className="mx-auto max-w-7xl px-6 py-12">
           <div className="rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 p-12 text-center backdrop-blur">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t.ctaTitle}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold  mb-4">{t.ctaTitle}</h2>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">{t.ctaDesc}</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a href={`${locale === 'en' ? '/en' : ''}/contact`} className="inline-flex items-center gap-2 rounded-full px-8 py-4 bg-cyan-500 text-white font-semibold hover:bg-cyan-600 transition shadow-lg shadow-cyan-500/25 text-lg">
@@ -507,13 +507,13 @@ export default function CarWashProject({ locale }: Props) {
         {/* Navigation */}
         <section className="mx-auto max-w-7xl px-6 pb-24">
           <div className="flex flex-wrap items-center gap-3">
-            <a href={`${locale === 'en' ? '/en' : ''}/projects`} className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20 text-white hover:bg-white/10">
+            <a href={`${locale === 'en' ? '/en' : ''}/projects`} className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20  hover:bg-white/10">
               {t.navProjects}
             </a>
-            <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20 text-white hover:bg-white/10">
+            <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20  hover:bg-white/10">
               {t.navSolutions}
             </a>
-            <a href={`${locale === 'en' ? '/en' : ''}/solutions/iot-scada`} className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20 text-white hover:bg-white/10">
+            <a href={`${locale === 'en' ? '/en' : ''}/solutions/iot-scada`} className="inline-flex items-center gap-2 rounded-full px-4 py-2 border border-white/20  hover:bg-white/10">
               {t.navIoT}
             </a>
           </div>

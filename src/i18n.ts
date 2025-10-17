@@ -24,7 +24,7 @@ const uk = {
     products: 'Продукти та рішення',
     projects: 'Проєкти',
     how: 'Як це працює',
-    contact: 'Контакт'
+    contact: 'Контакти'
   },
   products: {
     payment: 'Платіжні рішення',
@@ -49,7 +49,7 @@ const en = {
     projects: 'Projects',
     industries: 'Industries',
     about: 'About',
-    contact: 'Contact'
+    contact: 'Contacts'
   },
   cta: {
     discuss: 'Discuss a project'
