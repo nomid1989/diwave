@@ -1468,10 +1468,10 @@ html.light .mobile-menu-overlay {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 
-  /* СУЦІЛЬНИЙ фон - той самий що header */
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  /* НАСИЧЕНИЙ фон для кращої читабельності */
+  background: rgba(20, 25, 35, 0.98);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
 
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 
@@ -1480,10 +1480,14 @@ html.light .mobile-menu-overlay {
 }
 
 html.light .mobile-menu-dropdown {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  /* Прозоре скло з легким відтінком */
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(40px) saturate(200%) brightness(1.05);
+  -webkit-backdrop-filter: blur(40px) saturate(200%) brightness(1.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+
+  /* Додаткова тінь для глибини */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 @keyframes dropdownSlideIn {
