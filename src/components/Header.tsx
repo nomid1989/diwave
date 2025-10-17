@@ -172,20 +172,32 @@ const Header: React.FC = () => {
       </div>
       {mobileOpen && (
         <>
-          {/* Frosted Glass Full-Screen Overlay - iOS 26 Style */}
+          {/* iOS Control Center Style - прозорий фон */}
           <div
-            className="mobile-menu-overlay fixed inset-0 z-50 md:hidden flex items-center justify-center"
+            className="mobile-menu-overlay fixed inset-0 z-50 md:hidden"
             onClick={() => setMobileOpen(false)}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            {/* Menu Content - центрований по вертикалі */}
+            {/* Компактна панель справа зверху - як iOS Control Center */}
             <div
-              className="mobile-menu-content w-full max-w-md px-6 py-8"
+              className="mobile-menu-panel"
               onClick={(e) => e.stopPropagation()}
             >
-              <nav className="flex flex-col gap-3">
+              {/* Кнопка закриття зверху */}
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="mobile-menu-close-btn"
+                aria-label={locale === 'en' ? 'Close menu' : 'Закрити меню'}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
+                </svg>
+              </button>
+
+              {/* Меню пункти */}
+              <nav className="flex flex-col gap-2.5 mt-4">
                 {NAV.map((item) => {
                   const href = makeLink(item.to, locale);
                   const active = pathname === href;
@@ -195,10 +207,8 @@ const Header: React.FC = () => {
                       to={href}
                       onClick={() => setMobileOpen(false)}
                       className={classNames(
-                        'mobile-menu-item relative flex items-center px-6 py-4 rounded-2xl text-lg font-medium transition-all duration-300',
-                        active
-                          ? 'mobile-menu-item-active'
-                          : 'text-white dark:text-white light:text-gray-900'
+                        'mobile-menu-item',
+                        active && 'mobile-menu-item-active'
                       )}
                     >
                       {t(item.key)}
@@ -206,19 +216,14 @@ const Header: React.FC = () => {
                   );
                 })}
 
-                {/* CTA Button in Mobile Menu */}
+                {/* CTA Button */}
                 <Link
                   to={makeLink('/contact', locale)}
                   onClick={() => setMobileOpen(false)}
-                  className="mt-6 flex items-center justify-center px-8 py-5 rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-500 dark:to-cyan-500 light:from-blue-600 light:to-indigo-600 text-white font-bold text-lg shadow-2xl shadow-emerald-500/30 dark:shadow-emerald-500/30 light:shadow-blue-500/30 hover:shadow-emerald-500/50 dark:hover:shadow-emerald-500/50 light:hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 active:scale-95 backdrop-blur-xl border border-white/20"
+                  className="mobile-menu-cta"
                 >
                   {t('cta.discuss')}
                 </Link>
-
-                {/* Підказка про закриття */}
-                <div className="mt-8 text-center text-sm text-gray-400 dark:text-gray-400 light:text-gray-600">
-                  {locale === 'en' ? 'Tap anywhere to close' : 'Торкніться будь-де щоб закрити'}
-                </div>
               </nav>
             </div>
           </div>
