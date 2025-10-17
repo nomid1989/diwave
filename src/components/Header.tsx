@@ -78,7 +78,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-cyan-400/20 dark:border-cyan-400/20 light:border-blue-200/40 bg-black/30 dark:bg-black/30 light:bg-white/60 backdrop-blur-xl backdrop-saturate-150 transition-colors shadow-lg shadow-black/5 dark:shadow-black/5 light:shadow-blue-500/5">
+    <header className="sticky top-0 z-40 border-b border-cyan-400/20 dark:border-cyan-400/20 light:border-blue-100/30 bg-black/30 dark:bg-black/30 light:bg-white/85 backdrop-blur-xl backdrop-saturate-150 transition-colors shadow-lg shadow-black/5 dark:shadow-black/5 light:shadow-blue-200/15">
       {/* Skip to main content - Accessibility */}
       <a
         href="#main-content"
