@@ -106,8 +106,8 @@ const Header: React.FC = () => {
                 className={classNames(
                   'transition-colors relative',
                   active
-                    ? 'text-white dark:text-white light:text-gray-900 font-semibold light:after:absolute light:after:inset-x-0 light:after:-bottom-1 light:after:h-0.5 light:after:bg-gradient-to-r light:after:from-blue-600 light:after:to-indigo-600 light:after:rounded-full'
-                    : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900'
+                    ? 'text-white dark:text-white light:text-white font-semibold light:drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] light:after:absolute light:after:inset-x-0 light:after:-bottom-1 light:after:h-0.5 light:after:bg-gradient-to-r light:after:from-blue-600 light:after:to-indigo-600 light:after:rounded-full'
+                    : 'text-gray-300 dark:text-gray-300 light:text-white/90 hover:text-white dark:hover:text-white light:hover:text-white light:drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]'
                 )}
               >
                 {t(item.key)}
@@ -172,32 +172,22 @@ const Header: React.FC = () => {
       </div>
       {mobileOpen && (
         <>
-          {/* iOS Control Center Style - прозорий фон */}
+          {/* Прозорий overlay фон */}
           <div
-            className="mobile-menu-overlay fixed inset-0 z-50 md:hidden"
+            className="mobile-menu-overlay fixed inset-0 md:hidden"
+            style={{ top: '64px' }}
             onClick={() => setMobileOpen(false)}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            {/* Компактна панель справа зверху - як iOS Control Center */}
+            {/* Dropdown меню - суцільне продовження header */}
             <div
-              className="mobile-menu-panel"
+              className="mobile-menu-dropdown"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Кнопка закриття зверху */}
-              <button
-                onClick={() => setMobileOpen(false)}
-                className="mobile-menu-close-btn"
-                aria-label={locale === 'en' ? 'Close menu' : 'Закрити меню'}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
-                </svg>
-              </button>
-
               {/* Меню пункти */}
-              <nav className="flex flex-col gap-2.5 mt-4">
+              <nav className="flex flex-col gap-2.5">
                 {NAV.map((item) => {
                   const href = makeLink(item.to, locale);
                   const active = pathname === href;
