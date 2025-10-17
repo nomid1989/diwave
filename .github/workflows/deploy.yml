@@ -1,0 +1,99 @@
+name: 🚀 Deploy to Production
+
+# Коли запускати:
+on:
+  push:
+    branches: [main]  # Запускається при push до main
+  workflow_dispatch:  # Можна запустити вручну з GitHub UI
+
+jobs:
+  deploy:
+    name: 🏗️ Build and Deploy
+    runs-on: ubuntu-latest  # GitHub створює Ubuntu машину
+
+    steps:
+      # Крок 1: Завантажити код з репозиторію
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      # Крок 2: Встановити Node.js 20
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Крок 3: Встановити залежності
+      - name: 📦 Install dependencies
+        run: npm ci  # ci швидше ніж install
+
+      # Крок 4: Оптимізувати зображення (якщо ще не зроблено)
+      - name: 🖼️ Optimize images
+        run: npm run optimize:images
+        continue-on-error: true  # Пропустити якщо вже оптимізовані
+
+      # Крок 5: Зібрати проєкт
+      - name: 🏗️ Build project
+        run: npm run build
+        env:
+          VITE_SITE_URL: https://diwave.company
+
+      # Крок 6: Архівувати build для швидшої передачі
+      - name: 📦 Create archive
+        run: tar -czf dist.tar.gz dist/
+
+      # Крок 7: Завантажити архів на сервер
+      - name: 🚀 Deploy to Server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SERVER_PORT || 22 }}
+          source: "dist.tar.gz"
+          target: "/tmp/"
+
+      # Крок 8: Розархівувати і перезапустити на сервері
+      - name: 🔄 Extract and Restart
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SERVER_PORT || 22 }}
+          script: |
+            echo "🔄 Deploying Diwave..."
+
+            # Backup старої версії
+            if [ -d /var/www/diwave/dist.backup ]; then
+              rm -rf /var/www/diwave/dist.backup
+            fi
+            if [ -d /var/www/diwave/dist ]; then
+              mv /var/www/diwave/dist /var/www/diwave/dist.backup
+            fi
+
+            # Розархівувати нову версію
+            cd /var/www/diwave
+            tar -xzf /tmp/dist.tar.gz
+            rm /tmp/dist.tar.gz
+
+            # Перезапустити Nginx
+            sudo systemctl reload nginx
+
+            echo "✅ Deployment completed!"
+            echo "🌐 Site: https://diwave.company"
+
+      # Крок 9: Повідомлення про успіх
+      - name: ✅ Deployment Success
+        if: success()
+        run: |
+          echo "🎉 Deployment completed successfully!"
+          echo "🌐 Site: https://diwave.company"
+          echo "⏰ Time: $(date)"
+
+      # Крок 10: Повідомлення про помилку
+      - name: ❌ Deployment Failed
+        if: failure()
+        run: |
+          echo "❌ Deployment failed!"
+          echo "Check logs above for details"
