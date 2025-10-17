@@ -67,7 +67,7 @@ const Header: React.FC = () => {
     const segs = pathname.split('/').filter(Boolean);
     const pathWoLocale = locale === 'en' ? '/' + segs.slice(1).join('/') : pathname;
     const nextPath = target === 'en' ? '/en' + (pathWoLocale === '/' ? '' : pathWoLocale) : pathWoLocale;
-    i18n.changeLanguage(target);
+    i18n.changeLanguage(target).catch(console.error);
     navigate(nextPath || '/', { replace: true });
   };
 
@@ -106,8 +106,8 @@ const Header: React.FC = () => {
                 className={classNames(
                   'transition-colors relative',
                   active
-                    ? 'text-white dark:text-white light:text-white font-semibold light:drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] light:after:absolute light:after:inset-x-0 light:after:-bottom-1 light:after:h-0.5 light:after:bg-gradient-to-r light:after:from-blue-600 light:after:to-indigo-600 light:after:rounded-full'
-                    : 'text-gray-300 dark:text-gray-300 light:text-white/90 hover:text-white dark:hover:text-white light:hover:text-white light:drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]'
+                    ? 'text-white dark:text-white light:text-gray-900 font-semibold light:after:absolute light:after:inset-x-0 light:after:-bottom-1 light:after:h-0.5 light:after:bg-gradient-to-r light:after:from-blue-600 light:after:to-indigo-600 light:after:rounded-full'
+                    : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-gray-900'
                 )}
               >
                 {t(item.key)}
@@ -216,7 +216,7 @@ const Header: React.FC = () => {
                 </Link>
 
                 {/* Підказка про закриття */}
-                <div className="mt-8 text-center text-sm text-gray-400 dark:text-gray-400 light:text-white/70">
+                <div className="mt-8 text-center text-sm text-gray-400 dark:text-gray-400 light:text-gray-600">
                   {locale === 'en' ? 'Tap anywhere to close' : 'Торкніться будь-де щоб закрити'}
                 </div>
               </nav>
