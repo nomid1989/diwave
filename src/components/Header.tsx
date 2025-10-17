@@ -104,8 +104,10 @@ const Header: React.FC = () => {
                 key={item.to}
                 to={href}
                 className={classNames(
-                  'transition-colors',
-                  active ? 'text-white dark:text-white light:text-blue-700 font-semibold' : 'text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-white dark:hover:text-white light:hover:text-blue-600'
+                  'transition-colors relative',
+                  active
+                    ? 'text-white dark:text-white light:text-white font-semibold light:drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] light:after:absolute light:after:inset-x-0 light:after:-bottom-1 light:after:h-0.5 light:after:bg-gradient-to-r light:after:from-blue-600 light:after:to-indigo-600 light:after:rounded-full'
+                    : 'text-gray-300 dark:text-gray-300 light:text-white/90 hover:text-white dark:hover:text-white light:hover:text-white light:drop-shadow-[0_1px_2px_rgba(0,0,0,0.2)]'
                 )}
               >
                 {t(item.key)}

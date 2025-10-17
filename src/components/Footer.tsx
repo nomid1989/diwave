@@ -72,16 +72,21 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-cyan-400/30">
-                <img
-                  src="/images/team/dmytro.jpg"
-                  alt="Dmytro Kravets - CTO Diwave Solutions"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+              <div className="w-14 h-14 flex-shrink-0">
+                <svg viewBox="0 0 100 100" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="diwave-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style={{stopColor: '#06B6D4', stopOpacity: 1}} />
+                      <stop offset="50%" style={{stopColor: '#3B82F6', stopOpacity: 1}} />
+                      <stop offset="100%" style={{stopColor: '#8B5CF6', stopOpacity: 1}} />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="50" cy="50" r="48" fill="url(#diwave-gradient)" opacity="0.1"/>
+                  <text x="50" y="65" fontFamily="Arial, sans-serif" fontSize="42" fontWeight="bold" fill="url(#diwave-gradient)" textAnchor="middle">D</text>
+                </svg>
               </div>
               <div>
-                <div className="text-white font-bold text-lg">Diwave</div>
+                <div className="text-white font-bold text-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">Diwave</div>
                 <div className="text-gray-400 text-xs">Solutions</div>
               </div>
             </div>
@@ -239,7 +244,8 @@ const Footer: React.FC = () => {
             'https://wa.me/380505923772',
             'https://www.facebook.com/DiWave.company',
             'https://www.instagram.com/diwave.company/',
-            'https://www.youtube.com/@DigitalWaveAI'
+            'https://www.youtube.com/@DigitalWaveAI',
+            'https://clutch.co/profile/diwave'
           ]
         })}
       </script>

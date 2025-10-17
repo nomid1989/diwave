@@ -76,41 +76,76 @@ const Contact: React.FC<Props> = ({ locale }) => {
           }
         ]}
       />
-      <section className="contact-page-section relative overflow-hidden bg-gradient-to-br from-[#0a0f1c] via-[#1a1f3a] to-[#0f1419] dark:from-[#0a0f1c] dark:via-[#1a1f3a] dark:to-[#0f1419] light:from-gray-50 light:via-white light:to-gray-100">
-        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(1200px_600px_at_20%_10%,rgba(99,102,241,0.15),transparent),radial-gradient(1000px_500px_at_80%_20%,rgba(236,72,153,0.12),transparent),radial-gradient(800px_400px_at_50%_80%,rgba(56,189,248,0.08),transparent)] dark:bg-[radial-gradient(1200px_600px_at_20%_10%,rgba(99,102,241,0.15),transparent),radial-gradient(1000px_500px_at_80%_20%,rgba(236,72,153,0.12),transparent),radial-gradient(800px_400px_at_50%_80%,rgba(56,189,248,0.08),transparent)] light:bg-none" />
-        <div className="absolute inset-0 opacity-30 dark:opacity-30 light:opacity-0" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)', backgroundSize: '40px 40px'}} aria-hidden />
-        <div className="mx-auto max-w-7xl px-6 py-20 relative">
-          <h1 className="text-3xl md:text-5xl font-bold text-white dark:text-white light:text-gray-900 mb-12 text-center">
+      <section className="contact-page-section relative overflow-hidden min-h-screen bg-gradient-to-br from-[#0a0f1c] via-[#1a1f3a] to-[#0f1419] dark:from-[#0a0f1c] dark:via-[#1a1f3a] dark:to-[#0f1419] light:from-white light:via-gray-50 light:to-blue-50/30">
+        {/* Gemini AI-style animated gradient mesh */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 dark:bg-blue-500/20 light:bg-blue-400/10 rounded-full blur-3xl animate-pulse" style={{animationDuration: '8s'}} />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 dark:bg-purple-500/20 light:bg-purple-400/10 rounded-full blur-3xl animate-pulse" style={{animationDuration: '10s', animationDelay: '2s'}} />
+          <div className="absolute top-1/2 left-0 w-72 h-72 bg-cyan-500/15 dark:bg-cyan-500/15 light:bg-cyan-400/8 rounded-full blur-3xl animate-pulse" style={{animationDuration: '12s', animationDelay: '4s'}} />
+        </div>
+        {/* iOS 26 grid pattern */}
+        <div className="absolute inset-0 opacity-20 dark:opacity-20 light:opacity-10" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(99,102,241,0.15) 1px, transparent 0)', backgroundSize: '48px 48px'}} aria-hidden />
+        <div className="mx-auto max-w-5xl px-6 py-16 relative">
+          {/* Mercedes-Benz inspired triple diamond header */}
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <svg className="w-8 h-8 text-cyan-400 dark:text-cyan-400 light:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L8 12l4 10 4-10z" opacity="0.6" />
+            </svg>
+            <svg className="w-10 h-10 text-cyan-400 dark:text-cyan-400 light:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L8 12l4 10 4-10z" />
+            </svg>
+            <svg className="w-8 h-8 text-cyan-400 dark:text-cyan-400 light:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L8 12l4 10 4-10z" opacity="0.6" />
+            </svg>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold text-white dark:text-white light:text-gray-900 mb-4 text-center bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 dark:from-cyan-400 dark:via-blue-500 dark:to-purple-600 light:from-blue-600 light:via-indigo-600 light:to-purple-600 bg-clip-text text-transparent">
             {locale === 'en' ? 'Contact Us' : 'Контакти'}
           </h1>
-          <div className="grid md:grid-cols-2 gap-10">
-            {/* Left card - Contact Info with Photo - iOS 26 Glassmorphism */}
-            <div className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 backdrop-blur-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20 hover:border-white/20 dark:hover:border-white/20 light:hover:border-blue-300">
-              {/* Glassmorphism background */}
-              <div className="absolute inset-0 bg-white/[0.03] dark:bg-white/[0.03] light:bg-white/90 backdrop-saturate-[180%]" />
+          <p className="text-center text-gray-300 dark:text-gray-300 light:text-gray-700 text-lg mb-12 max-w-2xl mx-auto">
+            {locale === 'en'
+              ? 'Get in touch with Diwave. We combine hardware, software, and analytics to automate your business.'
+              : 'Зв\'яжіться з Diwave. Ми поєднуємо апаратні рішення, ПЗ та аналітику для автоматизації вашого бізнесу.'
+            }
+          </p>
 
-              {/* Content */}
-              <div className="relative p-8">
-                {/* Photo with rounded corners and proper aspect */}
-                <div className="relative rounded-2xl overflow-hidden mb-6 shadow-lg">
-                  <SmartImage
-                    sources={["/images/team/dmytro.jpg"]}
-                    alt="Dmytro Kravets — Founder, Diwave"
-                    className="w-full aspect-[4/3]"
-                    sizes="(min-width:768px) 50vw, 100vw"
-                    imgClassName="w-full h-full object-contain"
-                  />
-                  {/* iOS 26 photo overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {/* Main contact card - iOS 26 ultra glassmorphism */}
+          <div className="relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/60 backdrop-blur-3xl overflow-hidden shadow-2xl mb-8">
+            {/* Ultra transparent iOS 26 background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/95 light:via-white/90 light:to-white/95 backdrop-saturate-[200%]" />
+
+            {/* Gemini-style mesh gradient overlay */}
+            <div className="absolute inset-0 opacity-20 dark:opacity-20 light:opacity-10 pointer-events-none">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/30 to-transparent blur-2xl" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-purple-500/30 to-transparent blur-2xl" />
+            </div>
+
+            <div className="relative p-8 md:p-10">
+              {/* Top section with photo and basic info */}
+              <div className="grid md:grid-cols-5 gap-8 mb-10">
+                {/* Photo */}
+                <div className="md:col-span-2">
+                  <div className="relative rounded-2xl overflow-hidden border-2 border-white/20 dark:border-white/20 light:border-blue-200 shadow-xl group">
+                    <SmartImage
+                      sources={["/images/team/dmytro.jpg"]}
+                      alt="Dmytro Kravets — Founder, Diwave"
+                      className="w-full aspect-[4/3]"
+                      sizes="(min-width:768px) 40vw, 100vw"
+                      imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
                 </div>
 
-                {/* Info section */}
-                <div className="space-y-4">
-                  <div className="text-white dark:text-white light:text-gray-900 font-bold text-2xl">
-                    Dmytro Kravets
-                  </div>
-                  <div className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 font-semibold text-lg">
-                    {locale === 'en' ? 'Founder & CTO, Diwave' : 'Засновник і CTO, Diwave'}
+                {/* Info */}
+                <div className="md:col-span-3 space-y-4">
+                  <div>
+                    <h2 className="text-white dark:text-white light:text-gray-900 font-bold text-3xl mb-2">
+                      Dmytro Kravets
+                    </h2>
+                    <p className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 font-semibold text-lg mb-4">
+                      {locale === 'en' ? 'Founder & CTO, Diwave' : 'Засновник і CTO, Diwave'}
+                    </p>
                   </div>
                   <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-base leading-relaxed">
                     {locale === 'en'
@@ -120,20 +155,15 @@ const Contact: React.FC<Props> = ({ locale }) => {
                   </p>
                 </div>
               </div>
-            </div>
 
-            {/* Right card - Contact Details - iOS 26 Glassmorphism */}
-            <div className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 backdrop-blur-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20 hover:border-white/20 dark:hover:border-white/20 light:hover:border-blue-300 flex flex-col">
-              {/* Glassmorphism background */}
-              <div className="absolute inset-0 bg-white/[0.03] dark:bg-white/[0.03] light:bg-white/90 backdrop-saturate-[180%]" />
-
-              {/* Content */}
-              <div className="relative p-8 flex flex-col flex-1">
-              <div>
-                <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-2xl mb-6">
-                  {locale === 'en' ? 'Get in Touch' : 'Зв\'яжіться з нами'}
-                </h3>
-                <ul className="text-gray-300 dark:text-gray-300 light:text-gray-700 space-y-4 mb-6">
+              {/* Contact methods in 2 columns */}
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                {/* Left column - Contact info */}
+                <div className="space-y-3">
+                  <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-xl mb-4">
+                    {locale === 'en' ? 'Contact Info' : 'Контактна інформація'}
+                  </h3>
+                  <ul className="space-y-3">
                   <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
                     <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -157,6 +187,12 @@ const Contact: React.FC<Props> = ({ locale }) => {
                       <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
                     </svg>
                     <a href="https://upwork.com/freelancers/stevark" target="_blank" rel="noopener noreferrer" className="hover:text-white dark:hover:text-white light:hover:text-blue-600 text-cyan-300 dark:text-cyan-300 light:text-blue-700 font-medium">/freelancers/stevark</a>
+                  </li>
+                  <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
+                    <svg className="w-5 h-5 text-orange-400 dark:text-orange-400 light:text-orange-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                    <a href="https://clutch.co/profile/diwave" target="_blank" rel="noopener noreferrer" className="hover:text-white dark:hover:text-white light:hover:text-blue-600 text-cyan-300 dark:text-cyan-300 light:text-blue-700 font-medium">Clutch Reviews</a>
                   </li>
 
                   {/* Social Profiles */}
@@ -187,51 +223,47 @@ const Contact: React.FC<Props> = ({ locale }) => {
                     <span className="text-gray-300 dark:text-gray-300 light:text-gray-700 font-medium">Ukraine & EU</span>
                   </li>
                 </ul>
+                </div>
 
-                {/* Messengers - iOS 26 Style */}
-                <div className="mb-6">
-                  <p className="text-sm text-gray-400 dark:text-gray-400 light:text-gray-600 mb-4 font-medium">
-                    {locale === 'en' ? 'Or message us:' : 'Або напишіть у месенджер:'}
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    <a
-                      href="tg://resolve?phone=380505923772"
-                      className="relative inline-flex items-center px-5 py-3 rounded-xl bg-cyan-500/[0.08] dark:bg-cyan-500/[0.08] light:bg-blue-50 border border-cyan-400/30 dark:border-cyan-400/30 light:border-blue-300 text-cyan-100 dark:text-cyan-100 light:text-blue-700 hover:bg-cyan-400/[0.15] dark:hover:bg-cyan-400/[0.15] light:hover:bg-blue-100 backdrop-blur-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-cyan-500/25 hover:scale-105 active:scale-95"
-                      title="Open Telegram"
-                    >
-                      <span className="light:text-blue-700">Telegram</span>
+                {/* Right column - Messengers + Social */}
+                <div className="space-y-4">
+                  <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-xl mb-4">
+                    {locale === 'en' ? 'Messengers' : 'Месенджери'}
+                  </h3>
+                  <div className="flex flex-col gap-2">
+                    <a href="tg://resolve?phone=380505923772" className="flex items-center gap-3 p-3 rounded-lg bg-cyan-500/10 dark:bg-cyan-500/10 light:bg-blue-50 border border-cyan-400/20 dark:border-cyan-400/20 light:border-blue-200 hover:bg-cyan-500/20 dark:hover:bg-cyan-500/20 light:hover:bg-blue-100 transition-all">
+                      <span className="text-cyan-300 dark:text-cyan-300 light:text-blue-700 text-sm font-semibold">Telegram</span>
                     </a>
-                    <a
-                      href={locale === 'en'
-                        ? "https://wa.me/380505923772?text=Hello%20Diwave!%20I%20want%20to%20discuss%20a%20project."
-                        : "https://wa.me/380505923772?text=%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82%20Diwave!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%D0%B8%20%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82."
-                      }
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="relative inline-flex items-center px-5 py-3 rounded-xl bg-emerald-500/[0.08] dark:bg-emerald-500/[0.08] light:bg-emerald-50 border border-emerald-400/30 dark:border-emerald-400/30 light:border-emerald-400 text-emerald-100 dark:text-emerald-100 light:text-emerald-700 hover:bg-emerald-400/[0.15] dark:hover:bg-emerald-400/[0.15] light:hover:bg-emerald-100 backdrop-blur-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-emerald-500/25 hover:scale-105 active:scale-95"
-                    >
-                      <span className="light:text-emerald-700">WhatsApp</span>
+                    <a href={locale === 'en' ? "https://wa.me/380505923772?text=Hello%20Diwave!%20I%20want%20to%20discuss%20a%20project." : "https://wa.me/380505923772?text=%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82%20Diwave!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%D0%B8%20%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82."} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/10 light:bg-emerald-50 border border-emerald-400/20 dark:border-emerald-400/20 light:border-emerald-300 hover:bg-emerald-500/20 dark:hover:bg-emerald-500/20 light:hover:bg-emerald-100 transition-all">
+                      <span className="text-emerald-300 dark:text-emerald-300 light:text-emerald-700 text-sm font-semibold">WhatsApp</span>
                     </a>
-                    <a
-                      href="viber://chat?number=%2B380505923772"
-                      className="relative inline-flex items-center px-5 py-3 rounded-xl bg-purple-500/[0.08] dark:bg-purple-500/[0.08] light:bg-purple-50 border border-purple-400/30 dark:border-purple-400/30 light:border-purple-400 text-purple-100 dark:text-purple-100 light:text-purple-700 hover:bg-purple-400/[0.15] dark:hover:bg-purple-400/[0.15] light:hover:bg-purple-100 backdrop-blur-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-purple-500/25 hover:scale-105 active:scale-95"
-                      title="Open Viber"
-                    >
-                      <span className="light:text-purple-700">Viber</span>
+                    <a href="viber://chat?number=%2B380505923772" className="flex items-center gap-3 p-3 rounded-lg bg-purple-500/10 dark:bg-purple-500/10 light:bg-purple-50 border border-purple-400/20 dark:border-purple-400/20 light:border-purple-300 hover:bg-purple-500/20 dark:hover:bg-purple-500/20 light:hover:bg-purple-100 transition-all">
+                      <span className="text-purple-300 dark:text-purple-300 light:text-purple-700 text-sm font-semibold">Viber</span>
+                    </a>
+                  </div>
+
+                  <div className="pt-2 flex gap-3">
+                    <a href="https://www.facebook.com/DiWave.company" target="_blank" rel="noopener noreferrer" className="flex-1 text-center p-2 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-100 transition-colors">
+                      <span className="text-blue-400 dark:text-blue-400 light:text-blue-600 text-xs font-medium">Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/diwave.company/" target="_blank" rel="noopener noreferrer" className="flex-1 text-center p-2 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-100 transition-colors">
+                      <span className="text-pink-400 dark:text-pink-400 light:text-pink-600 text-xs font-medium">Instagram</span>
+                    </a>
+                    <a href="https://www.youtube.com/@DigitalWaveAI" target="_blank" rel="noopener noreferrer" className="flex-1 text-center p-2 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-100 transition-colors">
+                      <span className="text-red-400 dark:text-red-400 light:text-red-600 text-xs font-medium">YouTube</span>
                     </a>
                   </div>
                 </div>
               </div>
 
               {/* Contact Form */}
-              <div className="mt-6">
-                <h4 className="text-white dark:text-white light:text-gray-900 font-semibold text-lg mb-4">
-                  {locale === 'en' ? 'Or leave a message' : 'Або залиште повідомлення'}
-                </h4>
+              <div className="mt-10">
+                <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-2xl mb-6 text-center">
+                  {locale === 'en' ? 'Send us a message' : 'Напишіть нам'}
+                </h3>
                 <ContactForm locale={locale} />
               </div>
             </div>
-          </div>
           </div>
 
           {/* Google Maps */}

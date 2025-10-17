@@ -262,7 +262,8 @@ const Home: React.FC<Props> = ({ locale }) => {
         jobTitle: 'Founder & Tech Lead',
         sameAs: [
           'https://linkedin.com/in/dmytrokravets',
-          'https://upwork.com/freelancers/stevark'
+          'https://upwork.com/freelancers/stevark',
+          'https://clutch.co/profile/diwave'
         ]
       },
       contactPoint: {
@@ -712,146 +713,105 @@ const Home: React.FC<Props> = ({ locale }) => {
       </section>
 
 
-      {/* BENTO BOX GALLERY: Наші роботи - iOS 26 Style */}
-      <section className="design-gallery mx-auto max-w-7xl px-6 py-20 bg-transparent dark:bg-transparent light:bg-white/40">
+      {/* GALLERY: Наші роботи - класична сітка */}
+      <section className="design-gallery mx-auto max-w-7xl px-6 py-20 bg-transparent dark:bg-transparent light:bg-gray-50">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white light:text-gray-900 mb-4">{c.gallery.title}</h2>
           <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-lg max-w-3xl mx-auto">{c.gallery.subtitle}</p>
         </div>
 
-        {/* Bento Box Grid - iOS 26 Layout */}
-        <div className="grid grid-cols-4 gap-4 auto-rows-[200px]">
-          {/* Large 2x2 - Team Work */}
-          <motion.div
+        {/* Класична сітка 2x2 на desktop, vertical на mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          {/* Team Work */}
+          <motion.a
+            href={`${locale === 'en' ? '/en' : ''}/about`}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="col-span-2 row-span-2 relative group overflow-hidden rounded-3xl border border-white/20 dark:border-white/20 light:border-gray-300 hover:border-cyan-400/60 dark:hover:border-cyan-400/60 light:hover:border-blue-400 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-500/25"
+            className="relative group overflow-hidden rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 hover:border-cyan-400/60 dark:hover:border-cyan-400/60 light:hover:border-blue-500 transition-all duration-500 hover:scale-[1.02] shadow-xl hover:shadow-2xl aspect-[4/3]"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 to-blue-900/30" />
             <SmartImage
               sources={["/images/gnizdo-team/team-work.avif", "/images/gnizdo-team/team-work.webp", "/images/gnizdo-team/team-work.jpeg"]}
               alt="Командна робота Diwave"
               className="w-full h-full"
               imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-            <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-cyan-500/90 backdrop-blur-xl border border-white/20 text-white text-xs font-bold shadow-lg">Team</div>
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <p className="text-white font-bold text-xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">Команда Diwave за роботою</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+            <div className="absolute top-6 left-6 px-5 py-2.5 rounded-full bg-cyan-500/90 dark:bg-cyan-500/90 light:bg-blue-600 backdrop-blur-xl border border-white/40 text-white text-sm font-bold shadow-2xl">Team</div>
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+              <p className="text-white font-bold text-2xl md:text-3xl drop-shadow-[0_4px_16px_rgba(0,0,0,1)] mb-2">Команда Diwave</p>
+              <p className="text-gray-200 text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">{locale === 'en' ? 'Learn more about us' : 'Дізнатися більше про нас'}</p>
             </div>
-          </motion.div>
+          </motion.a>
 
-          {/* Medium 2x1 - Car Wash */}
-          <motion.div
+          {/* Car Wash */}
+          <motion.a
+            href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="col-span-2 row-span-1 relative group overflow-hidden rounded-3xl border border-white/20 dark:border-white/20 light:border-gray-300 hover:border-purple-400/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/25"
+            className="relative group overflow-hidden rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 hover:border-purple-400/60 dark:hover:border-purple-400/60 light:hover:border-purple-500 transition-all duration-500 hover:scale-[1.02] shadow-xl hover:shadow-2xl aspect-[4/3]"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-pink-900/30" />
             <SmartImage
               sources={["/images/solutions/car-washes/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.avif", "/images/solutions/car-washes/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.jpeg"]}
               alt="Автомийка SamWash"
               className="w-full h-full"
               imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-            <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-purple-500/90 backdrop-blur-xl border border-white/20 text-white text-xs font-bold shadow-lg">Car Wash</div>
-            <div className="absolute bottom-0 left-0 right-0 p-4">
-              <p className="text-white font-bold text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Автомийка SamWash</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+            <div className="absolute top-6 left-6 px-5 py-2.5 rounded-full bg-purple-500/90 dark:bg-purple-500/90 light:bg-purple-600 backdrop-blur-xl border border-white/40 text-white text-sm font-bold shadow-2xl">Car Wash</div>
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+              <p className="text-white font-bold text-2xl md:text-3xl drop-shadow-[0_4px_16px_rgba(0,0,0,1)]">Автомийки SamWash</p>
             </div>
-          </motion.div>
+          </motion.a>
 
-          {/* Medium 1x2 - FPV Drones */}
-          <motion.div
+          {/* FPV Drones */}
+          <motion.a
+            href={`${locale === 'en' ? '/en' : ''}/solutions/drones`}
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="col-span-1 row-span-2 relative group overflow-hidden rounded-3xl border border-white/20 dark:border-white/20 light:border-gray-300 hover:border-emerald-400/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-emerald-500/25"
+            className="relative group overflow-hidden rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 hover:border-emerald-400/60 dark:hover:border-emerald-400/60 light:hover:border-emerald-500 transition-all duration-500 hover:scale-[1.02] shadow-xl hover:shadow-2xl aspect-[4/3]"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-teal-900/30" />
             <SmartImage
               sources={["/images/gnizdo-team/fpv-riding.avif", "/images/gnizdo-team/fpv-riding.webp", "/images/gnizdo-team/fpv-riding.jpeg"]}
               alt="FPV дрони в польоті"
               className="w-full h-full"
               imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-            <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-emerald-500/90 backdrop-blur-xl border border-white/20 text-white text-[10px] font-bold shadow-lg">Drones</div>
-            <div className="absolute bottom-0 left-0 right-0 p-4">
-              <p className="text-white font-bold text-sm leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">FPV Дрони</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+            <div className="absolute top-6 left-6 px-5 py-2.5 rounded-full bg-emerald-500/90 dark:bg-emerald-500/90 light:bg-emerald-600 backdrop-blur-xl border border-white/40 text-white text-sm font-bold shadow-2xl">Drones</div>
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+              <p className="text-white font-bold text-2xl md:text-3xl drop-shadow-[0_4px_16px_rgba(0,0,0,1)]">FPV Дрони • Gnizdo</p>
             </div>
-          </motion.div>
+          </motion.a>
 
-          {/* Medium 1x2 - Vending */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="col-span-1 row-span-2 relative group overflow-hidden rounded-3xl border border-white/20 dark:border-white/20 light:border-gray-300 hover:border-pink-400/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-pink-500/25"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-pink-900/30 to-purple-900/30" />
-            <SmartImage
-              sources={["/images/industries/vending/vacuum-main.jpg"]}
-              alt="Вендинг системи"
-              className="w-full h-full"
-              imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-            <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-pink-500/90 backdrop-blur-xl border border-white/20 text-white text-[10px] font-bold shadow-lg">Vending</div>
-            <div className="absolute bottom-0 left-0 right-0 p-4">
-              <p className="text-white font-bold text-sm leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Вендинг</p>
-            </div>
-          </motion.div>
-
-          {/* Medium 2x1 - E-commerce */}
-          <motion.div
+          {/* E-commerce */}
+          <motion.a
+            href={`${locale === 'en' ? '/en' : ''}/projects/ecommerce`}
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="col-span-2 row-span-1 relative group overflow-hidden rounded-3xl border border-white/20 dark:border-white/20 light:border-gray-300 hover:border-blue-400/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-500/25"
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="relative group overflow-hidden rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 hover:border-blue-400/60 dark:hover:border-blue-400/60 light:hover:border-blue-500 transition-all duration-500 hover:scale-[1.02] shadow-xl hover:shadow-2xl aspect-[4/3]"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-indigo-900/30" />
             <SmartImage
               sources={["/images/plantpol/plantpol.avif", "/images/plantpol/plantpol.webp", "/images/plantpol/plantpol.png"]}
               alt="E-commerce Plantpol"
               className="w-full h-full"
               imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-            <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-blue-500/90 backdrop-blur-xl border border-white/20 text-white text-xs font-bold shadow-lg">E-commerce</div>
-            <div className="absolute bottom-0 left-0 right-0 p-4">
-              <p className="text-white font-bold text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">Інтернет-магазин Plantpol</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+            <div className="absolute top-6 left-6 px-5 py-2.5 rounded-full bg-blue-500/90 dark:bg-blue-500/90 light:bg-blue-600 backdrop-blur-xl border border-white/40 text-white text-sm font-bold shadow-2xl">E-commerce</div>
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+              <p className="text-white font-bold text-2xl md:text-3xl drop-shadow-[0_4px_16px_rgba(0,0,0,1)]">Plantpol</p>
             </div>
-          </motion.div>
+          </motion.a>
 
-          {/* Small 1x1 - IoT */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="col-span-1 row-span-1 relative group overflow-hidden rounded-3xl border border-white/20 dark:border-white/20 light:border-gray-300 hover:border-orange-400/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-orange-500/25"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-900/30 to-red-900/30" />
-            <SmartImage
-              sources={["/images/home/equipment.avif", "/images/home/equipment.webp", "/images/home/equipment.jpg"]}
-              alt="IoT обладнання"
-              className="w-full h-full"
-              imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-            <div className="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-orange-500/90 backdrop-blur-xl border border-white/20 text-white text-[10px] font-bold shadow-lg">IoT</div>
-            <div className="absolute bottom-0 left-0 right-0 p-3">
-              <p className="text-white font-bold text-xs leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">IoT</p>
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -1006,151 +966,109 @@ const Home: React.FC<Props> = ({ locale }) => {
         </div>
       </section>
 
-      {/* CONTACT: з реальним фото з public/images */}
-      <section className="contact-section relative overflow-hidden mx-auto max-w-7xl px-6 pb-28 md:pb-32 mb-12">
-        {/* iOS 26 underlay */}
-        <div className="pointer-events-none absolute inset-0 opacity-30 -z-10">
-          <div className="absolute inset-0 bg-[radial-gradient(1000px_500px_at_0%_0%,rgba(34,211,238,0.18),transparent),radial-gradient(800px_400px_at_100%_20%,rgba(236,72,153,0.16),transparent),radial-gradient(900px_450px_at_50%_120%,rgba(56,189,248,0.12),transparent)]" />
-          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)', backgroundSize: '36px 36px'}} aria-hidden />
-        </div>
-        <h2 className="text-center text-sm tracking-widest text-gray-400 dark:text-gray-400 light:text-gray-600 mb-12 font-semibold">
+      {/* CONTACT: компактний і стильний */}
+      <section className="contact-section relative overflow-hidden mx-auto max-w-5xl px-6 pb-20">
+        <h2 className="text-center text-sm tracking-widest text-gray-400 dark:text-gray-400 light:text-gray-600 mb-8 font-semibold">
           {t('headings.contact').toUpperCase()}
         </h2>
-        <div className="grid md:grid-cols-2 gap-10">
-          <div className="contact-card rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white p-8 backdrop-blur shadow-xl">
-            <div className="relative mb-6">
-              <div className="absolute -inset-[2px] rounded-2xl bg-gradient-to-tr from-cyan-400/30 via-fuchsia-400/20 to-blue-400/30 blur-sm pointer-events-none" aria-hidden />
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur">
+
+        <div className="contact-card rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-white/[0.03] to-white/[0.08] dark:from-white/[0.03] dark:to-white/[0.08] light:from-white light:to-gray-50 p-8 md:p-10 backdrop-blur-2xl shadow-2xl">
+          {/* Header з фото та описом */}
+          <div className="flex flex-col md:flex-row gap-8 items-start mb-8">
+            <div className="relative flex-shrink-0">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-cyan-400/20 via-purple-400/15 to-blue-400/20 blur-lg" />
+              <div className="relative w-32 h-32 rounded-2xl overflow-hidden border-2 border-white/20 dark:border-white/20 light:border-blue-200">
                 <SmartImage
                   sources={["/images/team/dmytro.jpg"]}
-                  alt="Dmytro Kravets — Founder, Diwave"
-                  className="w-full h-72"
-                  sizes="(min-width:768px) 50vw, 100vw"
-                  imgClassName="w-full h-72 object-contain"
+                  alt="Dmytro Kravets"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
             </div>
-            <div>
-              <div className="text-white dark:text-white light:text-gray-900 font-bold text-xl mb-3">Dmytro Kravets — Founder, Diwave</div>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-base leading-relaxed">
+            <div className="flex-1">
+              <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-2xl mb-2">Dmytro Kravets</h3>
+              <p className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 text-sm font-semibold mb-3">Founder, Diwave</p>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm leading-relaxed">
                 {c.contact.description}
               </p>
             </div>
           </div>
-          <div className="contact-card rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/5 dark:bg-white/5 light:bg-white p-8 backdrop-blur shadow-xl flex flex-col justify-between">
-            <div>
-              <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-2xl mb-6">{c.contact.title}</h3>
-              <ul className="text-gray-300 dark:text-gray-300 light:text-gray-700 space-y-4">
-                <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
-                  <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  <a href="tel:+380505923772" className="hover:text-white dark:hover:text-white light:hover:text-blue-600 text-cyan-300 dark:text-cyan-300 light:text-blue-700 font-medium">+380 50 592 3772</a>
-                </li>
-                <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
-                  <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <a href="mailto:info@diwave.company" className="hover:text-white dark:hover:text-white light:hover:text-blue-600 text-cyan-300 dark:text-cyan-300 light:text-blue-700 font-medium">info@diwave.company</a>
-                </li>
-                <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
-                  <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                  <a href="https://linkedin.com/in/dmytrokravets" target="_blank" rel="noopener noreferrer" className="hover:text-white dark:hover:text-white light:hover:text-blue-600 text-cyan-300 dark:text-cyan-300 light:text-blue-700 font-medium">/in/dmytrokravets</a>
-                </li>
-                <li className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
-                  <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
-                  </svg>
-                  <a href="https://upwork.com/freelancers/stevark" target="_blank" rel="noopener noreferrer" className="hover:text-white dark:hover:text-white light:hover:text-blue-600 text-cyan-300 dark:text-cyan-300 light:text-blue-700 font-medium">/freelancers/stevark</a>
-                </li>
-                <li className="flex items-center gap-3 p-3 rounded-lg">
-                  <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span className="text-gray-300 dark:text-gray-300 light:text-gray-700 font-medium">Ukraine & EU</span>
-                </li>
-              </ul>
 
-              {/* Social Profiles */}
-              <div className="mt-2 grid grid-cols-1 gap-2">
-                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
-                  <svg className="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                  <a href="https://www.facebook.com/DiWave.company" target="_blank" rel="noopener noreferrer" className="hover:text-white text-blue-300 font-medium" aria-label={locale === 'en' ? 'Facebook — Diwave' : 'Facebook — Diwave'}>Facebook</a>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
-                  <svg className="w-5 h-5 text-pink-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                  <a href="https://www.instagram.com/diwave.company/" target="_blank" rel="noopener noreferrer" className="hover:text-white text-pink-300 font-medium" aria-label={locale === 'en' ? 'Instagram — Diwave' : 'Instagram — Diwave'}>Instagram</a>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-50 transition-colors">
-                  <svg className="w-5 h-5 text-red-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                  <a href="https://www.youtube.com/@DigitalWaveAI" target="_blank" rel="noopener noreferrer" className="hover:text-white text-red-300 font-medium" aria-label={locale === 'en' ? 'YouTube — DigitalWaveAI' : 'YouTube — DigitalWaveAI'}>YouTube</a>
-                </div>
-              </div>
-
-              {/* Messengers - iOS 26 Style */}
-              <div className="mt-6">
-                <p className="text-sm text-gray-400 dark:text-gray-400 light:text-gray-600 mb-3 font-medium">
-                  {locale === 'en' ? 'Or message us:' : 'Або напишіть у месенджер:'}
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href="tg://resolve?phone=380505923772"
-                    className="relative inline-flex items-center px-5 py-3 rounded-xl bg-cyan-500/[0.08] dark:bg-cyan-500/[0.08] light:bg-blue-50 border border-cyan-400/30 dark:border-cyan-400/30 light:border-blue-300 text-cyan-100 dark:text-cyan-100 light:text-blue-700 hover:bg-cyan-400/[0.15] dark:hover:bg-cyan-400/[0.15] light:hover:bg-blue-100 backdrop-blur-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-cyan-500/25 hover:scale-105 active:scale-95"
-                    title="Open Telegram"
-                  >
-                    <span className="light:text-blue-700">Telegram</span>
-                  </a>
-                  <a
-                    href={locale === 'en'
-                      ? "https://wa.me/380505923772?text=Hello%20Diwave!%20I%20want%20to%20discuss%20a%20project."
-                      : "https://wa.me/380505923772?text=%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82%20Diwave!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%D0%B8%20%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82."}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative inline-flex items-center px-5 py-3 rounded-xl bg-emerald-500/[0.08] dark:bg-emerald-500/[0.08] light:bg-emerald-50 border border-emerald-400/30 dark:border-emerald-400/30 light:border-emerald-400 text-emerald-100 dark:text-emerald-100 light:text-emerald-700 hover:bg-emerald-400/[0.15] dark:hover:bg-emerald-400/[0.15] light:hover:bg-emerald-100 backdrop-blur-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-emerald-500/25 hover:scale-105 active:scale-95"
-                    aria-label={locale === 'en' ? 'Chat on WhatsApp' : 'Написати у WhatsApp'}
-                  >
-                    <span className="light:text-emerald-700">WhatsApp</span>
-                  </a>
-                  <a
-                    href="viber://chat?number=%2B380505923772"
-                    className="relative inline-flex items-center px-5 py-3 rounded-xl bg-purple-500/[0.08] dark:bg-purple-500/[0.08] light:bg-purple-50 border border-purple-400/30 dark:border-purple-400/30 light:border-purple-400 text-purple-100 dark:text-purple-100 light:text-purple-700 hover:bg-purple-400/[0.15] dark:hover:bg-purple-400/[0.15] light:hover:bg-purple-100 backdrop-blur-xl transition-all duration-300 font-semibold shadow-lg hover:shadow-purple-500/25 hover:scale-105 active:scale-95"
-                    title="Open Viber"
-                  >
-                    <span className="light:text-purple-700">Viber</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-3 mt-6">
-              <a
-                href={`${locale === 'en' ? '/en' : ''}/contact`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 font-bold shadow-lg hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 hover:shadow-xl transition-all"
-              >
-                <span className="text-white">{t('cta.discuss')}</span>
-                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          {/* Контакти у дві колонки */}
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {/* Колонка 1: Основні контакти */}
+            <div className="space-y-3">
+              <h4 className="text-white dark:text-white light:text-gray-900 font-semibold text-sm mb-4 uppercase tracking-wide opacity-70">{locale === 'en' ? 'Contact Info' : 'Контакти'}</h4>
+              <a href="tel:+380505923772" className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-blue-50 transition-colors group">
+                <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
+                <span className="text-gray-300 dark:text-gray-300 light:text-gray-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-blue-600 text-sm">+380 50 592 3772</span>
               </a>
-              <a
-                href={locale === 'en' ? 'https://wa.me/380505923772?text=Hello%20Diwave!%20I%20want%20to%20discuss%20a%20project.' : 'https://wa.me/380505923772?text=%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82%20Diwave!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%D0%B8%20%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82.'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl border border-emerald-400/40 text-emerald-200 hover:bg-emerald-500/10 transition"
-                aria-label={locale === 'en' ? 'Chat on WhatsApp' : 'Написати у WhatsApp'}
-              >
-                <span>WhatsApp</span>
+              <a href="mailto:info@diwave.company" className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-blue-50 transition-colors group">
+                <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span className="text-gray-300 dark:text-gray-300 light:text-gray-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-blue-600 text-sm break-all">info@diwave.company</span>
+              </a>
+              <a href="https://linkedin.com/in/dmytrokravets" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-blue-50 transition-colors group">
+                <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span className="text-gray-300 dark:text-gray-300 light:text-gray-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-blue-600 text-sm">/in/dmytrokravets</span>
+              </a>
+              <a href="https://upwork.com/freelancers/stevark" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-blue-50 transition-colors group">
+                <svg className="w-5 h-5 text-cyan-400 dark:text-cyan-400 light:text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
+                </svg>
+                <span className="text-gray-300 dark:text-gray-300 light:text-gray-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-blue-600 text-sm">/freelancers/stevark</span>
+              </a>
+              <a href="https://clutch.co/profile/diwave" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-blue-50 transition-colors group">
+                <svg className="w-5 h-5 text-orange-400 dark:text-orange-400 light:text-orange-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                </svg>
+                <span className="text-gray-300 dark:text-gray-300 light:text-gray-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-blue-600 text-sm">Clutch Reviews</span>
               </a>
             </div>
+
+            {/* Колонка 2: Месенджери та соцмережі */}
+            <div className="space-y-3">
+              <h4 className="text-white dark:text-white light:text-gray-900 font-semibold text-sm mb-4 uppercase tracking-wide opacity-70">{locale === 'en' ? 'Messengers' : 'Месенджери'}</h4>
+              <a href="tg://resolve?phone=380505923772" className="flex items-center gap-3 p-3 rounded-lg bg-cyan-500/10 dark:bg-cyan-500/10 light:bg-blue-50 border border-cyan-400/20 dark:border-cyan-400/20 light:border-blue-200 hover:bg-cyan-500/20 dark:hover:bg-cyan-500/20 light:hover:bg-blue-100 transition-colors group">
+                <span className="text-cyan-300 dark:text-cyan-300 light:text-blue-700 text-sm font-semibold">Telegram</span>
+              </a>
+              <a href={locale === 'en' ? "https://wa.me/380505923772?text=Hello%20Diwave!%20I%20want%20to%20discuss%20a%20project." : "https://wa.me/380505923772?text=%D0%9F%D1%80%D0%B8%D0%B2%D1%96%D1%82%20Diwave!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%B8%D1%82%D0%B8%20%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82."} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/10 light:bg-emerald-50 border border-emerald-400/20 dark:border-emerald-400/20 light:border-emerald-300 hover:bg-emerald-500/20 dark:hover:bg-emerald-500/20 light:hover:bg-emerald-100 transition-colors group">
+                <span className="text-emerald-300 dark:text-emerald-300 light:text-emerald-700 text-sm font-semibold">WhatsApp</span>
+              </a>
+              <a href="viber://chat?number=%2B380505923772" className="flex items-center gap-3 p-3 rounded-lg bg-purple-500/10 dark:bg-purple-500/10 light:bg-purple-50 border border-purple-400/20 dark:border-purple-400/20 light:border-purple-300 hover:bg-purple-500/20 dark:hover:bg-purple-500/20 light:hover:bg-purple-100 transition-colors group">
+                <span className="text-purple-300 dark:text-purple-300 light:text-purple-700 text-sm font-semibold">Viber</span>
+              </a>
+              <div className="pt-2 flex gap-3">
+                <a href="https://www.facebook.com/DiWave.company" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 p-2 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-100 transition-colors">
+                  <span className="text-blue-400 dark:text-blue-400 light:text-blue-600 text-xs font-medium">Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/diwave.company/" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 p-2 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-100 transition-colors">
+                  <span className="text-pink-400 dark:text-pink-400 light:text-pink-600 text-xs font-medium">Instagram</span>
+                </a>
+                <a href="https://www.youtube.com/@DigitalWaveAI" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 p-2 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-gray-100 transition-colors">
+                  <span className="text-red-400 dark:text-red-400 light:text-red-600 text-xs font-medium">YouTube</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA кнопка */}
+          <div className="flex justify-center pt-4">
+            <a
+              href={`${locale === 'en' ? '/en' : ''}/contact`}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-500 dark:to-blue-600 light:from-blue-600 light:to-indigo-600 text-white font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              <span>{t('cta.discuss')}</span>
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>

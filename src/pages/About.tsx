@@ -239,128 +239,161 @@ const About: React.FC<Props> = ({ locale }) => {
         jsonLd={jsonLd}
       />
 
-      {/* Hero Section - iOS 26 Style */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0a0f1c] via-[#1a1f3a] to-[#0f1419] dark:from-[#0a0f1c] dark:via-[#1a1f3a] dark:to-[#0f1419] light:from-gray-50 light:via-white light:to-gray-100">
-        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(1200px_600px_at_20%_10%,rgba(99,102,241,0.15),transparent),radial-gradient(1000px_500px_at_80%_20%,rgba(236,72,153,0.12),transparent),radial-gradient(800px_400px_at_50%_80%,rgba(56,189,248,0.08),transparent)] dark:bg-[radial-gradient(1200px_600px_at_20%_10%,rgba(99,102,241,0.15),transparent),radial-gradient(1000px_500px_at_80%_20%,rgba(236,72,153,0.12),transparent),radial-gradient(800px_400px_at_50%_80%,rgba(56,189,248,0.08),transparent)] light:bg-none" />
-        <div className="absolute inset-0 opacity-30 dark:opacity-30 light:opacity-0" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)', backgroundSize: '40px 40px'}} aria-hidden />
+      {/* Hero Section - Gemini AI + iOS 26 + Mercedes Style */}
+      <section className="relative overflow-hidden min-h-[60vh] bg-gradient-to-br from-[#0a0f1c] via-[#1a1f3a] to-[#0f1419] dark:from-[#0a0f1c] dark:via-[#1a1f3a] dark:to-[#0f1419] light:from-white light:via-gray-50 light:to-blue-50/30">
+        {/* Gemini AI-style animated gradient mesh */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 dark:bg-blue-500/20 light:bg-blue-400/10 rounded-full blur-3xl animate-pulse" style={{animationDuration: '8s'}} />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 dark:bg-purple-500/20 light:bg-purple-400/10 rounded-full blur-3xl animate-pulse" style={{animationDuration: '10s', animationDelay: '2s'}} />
+          <div className="absolute top-1/2 left-0 w-72 h-72 bg-cyan-500/15 dark:bg-cyan-500/15 light:bg-cyan-400/8 rounded-full blur-3xl animate-pulse" style={{animationDuration: '12s', animationDelay: '4s'}} />
+        </div>
+        {/* iOS 26 grid pattern */}
+        <div className="absolute inset-0 opacity-20 dark:opacity-20 light:opacity-10" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(99,102,241,0.15) 1px, transparent 0)', backgroundSize: '48px 48px'}} aria-hidden />
 
         <div className="mx-auto max-w-7xl px-6 py-20 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
+            {/* Mercedes-Benz inspired triple diamond */}
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <svg className="w-8 h-8 text-cyan-400 dark:text-cyan-400 light:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L8 12l4 10 4-10z" opacity="0.6" />
+              </svg>
+              <svg className="w-10 h-10 text-cyan-400 dark:text-cyan-400 light:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L8 12l4 10 4-10z" />
+              </svg>
+              <svg className="w-8 h-8 text-cyan-400 dark:text-cyan-400 light:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L8 12l4 10 4-10z" opacity="0.6" />
+              </svg>
+            </div>
+
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 dark:from-cyan-400 dark:via-blue-500 dark:to-purple-600 light:from-blue-600 light:via-indigo-600 light:to-purple-600 bg-clip-text text-transparent">
               {t.heroTitle}
             </h1>
-            <p className="text-xl text-gray-300 dark:text-gray-300 light:text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 dark:text-gray-300 light:text-gray-700 max-w-3xl mx-auto leading-relaxed">
               {t.heroSubtitle}
             </p>
           </motion.div>
 
+          {/* Hero Images Gallery - iOS 26 Ultra Glass */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid md:grid-cols-3 gap-6 mb-8 items-start"
+            className="grid md:grid-cols-3 gap-6"
           >
-            {/* iOS 26 Glassmorphism Cards - Блоки підлаштовуються під фото */}
-            <div className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 backdrop-blur-3xl shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20 hover:scale-[1.02] h-fit">
-              <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 rounded-3xl" />
-              <div className="relative p-4">
+            {/* Card 1 */}
+            <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-cyan-400/40 dark:hover:border-cyan-400/40 light:hover:border-blue-400">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/80 light:via-white/60 light:to-white/80" />
+              <div className="relative">
                 <SmartImage
-                  sources={[
-                    "/images/gnizdo-team/fpv-crafting.webp",
-                    "/images/gnizdo-team/fpv-crafting.jpeg"
-                  ]}
-                  alt="FPV Drone Crafting - Assembly and Development"
-                  className="w-full"
+                  sources={["/images/gnizdo-team/fpv-crafting.webp", "/images/gnizdo-team/fpv-crafting.jpeg"]}
+                  alt="FPV Drone Crafting"
+                  className="w-full aspect-[4/3]"
                   sizes="(min-width:768px) 33vw, 100vw"
-                  imgClassName="w-full h-auto rounded-2xl"
+                  imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   priority={true}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </div>
-            <div className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 backdrop-blur-3xl shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20 hover:scale-[1.02] h-fit">
-              <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 rounded-3xl" />
-              <div className="relative p-4">
+
+            {/* Card 2 */}
+            <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-purple-400/40 dark:hover:border-purple-400/40 light:hover:border-purple-400">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/80 light:via-white/60 light:to-white/80" />
+              <div className="relative">
                 <SmartImage
-                  sources={[
-                    "/images/gnizdo-team/team-meeting.webp",
-                    "/images/gnizdo-team/team-meeting.jpeg"
-                  ]}
-                  alt="Team Planning Meeting - Strategy Session"
-                  className="w-full"
+                  sources={["/images/gnizdo-team/team-meeting.webp", "/images/gnizdo-team/team-meeting.jpeg"]}
+                  alt="Team Planning Meeting"
+                  className="w-full aspect-[4/3]"
                   sizes="(min-width:768px) 33vw, 100vw"
-                  imgClassName="w-full h-auto rounded-2xl"
+                  imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   priority={true}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </div>
-            <div className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 backdrop-blur-3xl shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20 hover:scale-[1.02] h-fit">
-              <div className="absolute inset-0 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 rounded-3xl" />
-              <div className="relative p-4">
+
+            {/* Card 3 */}
+            <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-emerald-400/40 dark:hover:border-emerald-400/40 light:hover:border-emerald-400">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/80 light:via-white/60 light:to-white/80" />
+              <div className="relative">
                 <SmartImage
-                  sources={[
-                    "/images/gnizdo-team/fpv-riding.webp",
-                    "/images/gnizdo-team/fpv-riding.jpeg"
-                  ]}
-                  alt="FPV Riding - Field Testing and Practice"
-                  className="w-full"
+                  sources={["/images/gnizdo-team/fpv-riding.webp", "/images/gnizdo-team/fpv-riding.jpeg"]}
+                  alt="FPV Riding"
+                  className="w-full aspect-[4/3]"
                   sizes="(min-width:768px) 33vw, 100vw"
-                  imgClassName="w-full h-auto rounded-2xl"
+                  imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   priority={true}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Mission & Values Section */}
+      {/* Mission & Values Section - Ultra Glass */}
       <section className="mx-auto max-w-7xl px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Mission - iOS 26 Glassmorphism */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Mission */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 overflow-hidden backdrop-blur-3xl shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20"
+            className="group relative rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 overflow-hidden backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-blue-400"
           >
-            <div className="absolute inset-0 bg-white/[0.03] dark:bg-white/[0.03] light:bg-white/90 backdrop-saturate-[180%]" />
-            <div className="relative p-8">
-              <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
-                {t.missionTitle}
-              </h2>
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/95 light:via-white/90 light:to-white/95 backdrop-saturate-[200%]" />
+            {/* Gemini mesh */}
+            <div className="absolute inset-0 opacity-10 pointer-events-none">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-cyan-500/40 to-transparent blur-2xl" />
+            </div>
+            <div className="relative p-10">
+              <div className="flex items-center gap-3 mb-6">
+                <svg className="w-8 h-8 text-cyan-400 dark:text-cyan-400 light:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L8 12l4 10 4-10z" />
+                </svg>
+                <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900">
+                  {t.missionTitle}
+                </h2>
+              </div>
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed text-lg">
                 {t.missionText}
               </p>
             </div>
           </motion.div>
 
-          {/* Values - iOS 26 Glassmorphism */}
+          {/* Values */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="group relative rounded-3xl border border-white/10 dark:border-white/10 light:border-gray-200/50 overflow-hidden backdrop-blur-3xl shadow-2xl transition-all duration-300 hover:shadow-cyan-500/20"
+            className="group relative rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 overflow-hidden backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:border-purple-400/50 dark:hover:border-purple-400/50 light:hover:border-purple-400"
           >
-            <div className="absolute inset-0 bg-white/[0.03] dark:bg-white/[0.03] light:bg-white/90 backdrop-saturate-[180%]" />
-            <div className="relative p-8">
-              <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900 mb-6">
-                {t.valuesTitle}
-              </h2>
+            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/95 light:via-white/90 light:to-white/95 backdrop-saturate-[200%]" />
+            {/* Gemini mesh */}
+            <div className="absolute inset-0 opacity-10 pointer-events-none">
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-purple-500/40 to-transparent blur-2xl" />
+            </div>
+            <div className="relative p-10">
+              <div className="flex items-center gap-3 mb-6">
+                <svg className="w-8 h-8 text-purple-400 dark:text-purple-400 light:text-purple-600" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L8 12l4 10 4-10z" />
+                </svg>
+                <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900">
+                  {t.valuesTitle}
+                </h2>
+              </div>
               <div className="space-y-4">
                 {t.values.map((value, i) => (
-                  <div key={i} className="border-l-4 border-cyan-500 dark:border-cyan-500 light:border-blue-600 pl-4">
-                    <h3 className="text-white dark:text-white light:text-gray-900 font-semibold mb-1">
+                  <div key={i} className="p-4 rounded-xl bg-white/5 dark:bg-white/5 light:bg-gray-50 border-l-4 border-purple-500 dark:border-purple-500 light:border-purple-600">
+                    <h3 className="text-white dark:text-white light:text-gray-900 font-semibold mb-2">
                       {value.title}
                     </h3>
-                    <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">
+                    <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm leading-relaxed">
                       {value.text}
                     </p>
                   </div>
@@ -421,6 +454,9 @@ const About: React.FC<Props> = ({ locale }) => {
                 </a>
                 <a href="https://linkedin.com/in/dmytrokravets" target="_blank" rel="noopener noreferrer" className="block text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-cyan-300 dark:hover:text-cyan-300 light:hover:text-blue-600 transition">
                   💼 LinkedIn
+                </a>
+                <a href="https://clutch.co/profile/diwave" target="_blank" rel="noopener noreferrer" className="block text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-cyan-300 dark:hover:text-cyan-300 light:hover:text-blue-600 transition">
+                  ⭐ Clutch Profile
                 </a>
               </div>
             </div>
@@ -513,12 +549,12 @@ const About: React.FC<Props> = ({ locale }) => {
             >
               {/* Circular photo with iOS 26 glassmorphism */}
               <div className="relative mx-auto w-40 h-40 mb-4">
-                <div className="absolute inset-0 rounded-full border-2 border-white/20 dark:border-white/20 light:border-gray-300 bg-white/5 dark:bg-white/5 light:bg-white/60 backdrop-blur-xl shadow-xl group-hover:border-cyan-400/50 dark:group-hover:border-cyan-400/50 light:group-hover:border-blue-400 group-hover:shadow-2xl transition-all duration-300">
+                <div className="absolute inset-0 rounded-full border-4 border-white/20 dark:border-white/20 light:border-gray-300 bg-white/5 dark:bg-white/5 light:bg-white/60 backdrop-blur-xl shadow-xl group-hover:border-cyan-400/60 dark:group-hover:border-cyan-400/60 light:group-hover:border-blue-400 group-hover:shadow-2xl transition-all duration-300 overflow-hidden">
                   <SmartImage
                     sources={[`/images/team/${member.fileBase}.jpg`]}
                     alt={`${member.name} — ${member.role}`}
-                    className="w-full h-full rounded-full"
-                    imgClassName="w-full h-full object-cover object-center rounded-full group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
               </div>
@@ -539,8 +575,8 @@ const About: React.FC<Props> = ({ locale }) => {
           viewport={{ once: true }}
           className="mt-12 grid md:grid-cols-3 gap-6 items-start"
         >
-          <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 h-fit">
-            <div className="p-4">
+          <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden">
+            <div className="relative w-full" style={{paddingBottom: '133%'}}>
               <SmartImage
                 sources={[
                   "/images/about/learning2025-1-nobg.avif",
@@ -548,8 +584,8 @@ const About: React.FC<Props> = ({ locale }) => {
                   "/images/about/learning2025-1-nobg.png"
                 ]}
                 alt="Diwave Team - Learning and Development 2025"
-                className="w-full"
-                imgClassName="w-full h-auto rounded-xl group-hover:scale-105 transition-transform duration-500"
+                className="absolute inset-0 w-full h-full"
+                imgClassName="w-full h-full object-contain object-center p-4 group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="p-6 text-center">
@@ -560,8 +596,8 @@ const About: React.FC<Props> = ({ locale }) => {
               </p>
             </div>
           </div>
-          <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 h-fit">
-            <div className="p-4">
+          <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden">
+            <div className="relative w-full" style={{paddingBottom: '133%'}}>
               <SmartImage
                 sources={[
                   "/images/about/learning2025-2.avif",
@@ -569,8 +605,8 @@ const About: React.FC<Props> = ({ locale }) => {
                   "/images/about/learning2025-2.jpeg"
                 ]}
                 alt="Diwave Team - Learning Session 2025"
-                className="w-full"
-                imgClassName="w-full h-auto rounded-xl group-hover:scale-105 transition-transform duration-500"
+                className="absolute inset-0 w-full h-full"
+                imgClassName="w-full h-full object-contain object-center p-4 group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="p-6 text-center">
@@ -581,8 +617,8 @@ const About: React.FC<Props> = ({ locale }) => {
               </p>
             </div>
           </div>
-          <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 h-fit">
-            <div className="p-4">
+          <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden">
+            <div className="relative w-full" style={{paddingBottom: '133%'}}>
               <SmartImage
                 sources={[
                   "/images/about/learning2025.avif",
@@ -590,8 +626,8 @@ const About: React.FC<Props> = ({ locale }) => {
                   "/images/about/learning2025.jpeg"
                 ]}
                 alt="Diwave Learning 2025 - Professional Growth"
-                className="w-full"
-                imgClassName="w-full h-auto rounded-xl group-hover:scale-105 transition-transform duration-500"
+                className="absolute inset-0 w-full h-full"
+                imgClassName="w-full h-full object-contain object-center p-4 group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="p-6 text-center">
@@ -619,7 +655,7 @@ const About: React.FC<Props> = ({ locale }) => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-gradient-to-br from-cyan-900/10 via-blue-900/5 to-purple-900/10 dark:from-cyan-900/10 dark:via-blue-900/5 dark:to-purple-900/10 light:from-blue-50 light:via-indigo-50 light:to-purple-50 p-4 backdrop-blur-xl shadow-2xl h-fit"
+            className="rounded-2xl border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-gradient-to-br from-cyan-900/10 via-blue-900/5 to-purple-900/10 dark:from-cyan-900/10 dark:via-blue-900/5 dark:to-purple-900/10 light:from-blue-50 light:via-indigo-50 light:to-purple-50 overflow-hidden backdrop-blur-xl shadow-2xl"
           >
             <SmartImage
               sources={[
@@ -627,9 +663,9 @@ const About: React.FC<Props> = ({ locale }) => {
                 "/images/gnizdo-team/team-work.jpeg"
               ]}
               alt="Diwave Team - Ready to help with your project"
-              className="w-full"
+              className="w-full h-full"
               sizes="(min-width:768px) 50vw, 100vw"
-              imgClassName="w-full h-auto rounded-xl"
+              imgClassName="w-full h-full object-cover"
             />
           </motion.div>
 
