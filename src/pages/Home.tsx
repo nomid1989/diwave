@@ -34,7 +34,7 @@ const content = {
       carWash: {
         badge: 'Популярне',
         title: 'Автомийки самообслуговування SamWash',
-        description: 'Повністю автоматизовані комплекси з EBITDA 70%. Інтеграції з готівковими, безготівковими та монетними платіжними пристроями та дистанційним керуванням і обслуговуванням. Ти спиш, а бізнес працює 24/7',
+        description: 'Інтеграції з готівковими, безготівковими та монетними платіжними пристроями та дистанційним керуванням і обслуговуванням. Ти спиш, а бізнес працює 24/7',
         cta: 'Дізнатися більше'
       },
       vacuum: {
@@ -134,7 +134,7 @@ const content = {
       carWash: {
         badge: 'Popular',
         title: 'SamWash Self-Service Car Washes',
-        description: 'Fully automated complexes with 70% EBITDA. Integrations with cash, cashless and coin payment devices with remote management and maintenance. You sleep while business runs 24/7',
+        description: 'Integrations with cash, cashless and coin payment devices with remote management and maintenance. You sleep while business runs 24/7',
         cta: 'Learn more'
       },
       vacuum: {
@@ -392,7 +392,7 @@ const Home: React.FC<Props> = ({ locale }) => {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="hero-title text-4xl md:text-6xl font-bold text-white tracking-tight"
+              className="hero-title text-4xl md:text-6xl font-bold text-white dark:text-white light:text-gray-900 tracking-tight"
             >
               {c.hero.title}
             </motion.h1>
@@ -401,7 +401,7 @@ const Home: React.FC<Props> = ({ locale }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.4 }}
-              className="hero-subtitle mt-6 text-lg md:text-xl text-white/90 max-w-3xl"
+              className="hero-subtitle mt-6 text-lg md:text-xl text-white/90 dark:text-white/90 light:text-gray-700 max-w-3xl"
             >
               {c.hero.subtitle}
             </motion.p>
@@ -489,7 +489,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <div className="bg-white/5 dark:bg-black/10 light:bg-white/90 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/5 light:border-gray-200">
-                    <h3 className=" dark:text-white light:text-gray-900 font-bold text-sm mb-1 line-clamp-2">{c.solutions.carWash.title}</h3>
+                    <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-sm mb-1 line-clamp-2">{c.solutions.carWash.title}</h3>
                     <p className="text-gray-100 dark:text-gray-100 light:text-gray-700 text-xs leading-snug line-clamp-2">{c.solutions.carWash.description}</p>
                   </div>
                 </div>
@@ -516,7 +516,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <div className="bg-white/5 dark:bg-black/10 light:bg-white/90 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/5 light:border-gray-200">
-                    <h3 className=" dark:text-white light:text-gray-900 font-bold text-sm mb-1 line-clamp-2">{c.solutions.vacuum.title}</h3>
+                    <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-sm mb-1 line-clamp-2">{c.solutions.vacuum.title}</h3>
                     <p className="text-gray-100 dark:text-gray-100 light:text-gray-700 text-xs leading-snug line-clamp-2">{c.solutions.vacuum.description}</p>
                   </div>
                 </div>
@@ -543,7 +543,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <div className="bg-white/5 dark:bg-black/10 light:bg-white/90 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/5 light:border-gray-200">
-                    <h3 className=" dark:text-white light:text-gray-900 font-bold text-sm mb-1 line-clamp-2">{c.solutions.drones.title}</h3>
+                    <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-sm mb-1 line-clamp-2">{c.solutions.drones.title}</h3>
                     <p className="text-gray-100 dark:text-gray-100 light:text-gray-700 text-xs leading-snug line-clamp-2">{c.solutions.drones.description}</p>
                   </div>
                 </div>
@@ -574,14 +574,14 @@ const Home: React.FC<Props> = ({ locale }) => {
                 sizes="(min-width:768px) 50vw, 100vw"
                 imgClassName="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent dark:from-black/90 dark:via-black/30 light:from-black/75 light:via-black/40">
                 <div className="absolute bottom-0 p-6">
-                  <h3 className="text-white text-2xl font-bold mb-2">Бізнес з EBITDA 70% - SamWash</h3>
-                  <p className="text-gray-300 text-sm mb-3">Автомийки самообслуговування з IoT/SCADA та платіжними інтеграціями</p>
+                  <h3 className="text-white dark:text-white light:text-gray-900 text-2xl font-bold mb-2">Бізнес з EBITDA 70% - SamWash</h3>
+                  <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm mb-3">Автомийки самообслуговування з IoT/SCADA та платіжними інтеграціями</p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">70% EBITDA</span>
-                    <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">IoT/SCADA</span>
-                    <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30">Telemetry</span>
+                    <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 dark:bg-emerald-500/20 light:bg-emerald-100 text-emerald-300 dark:text-emerald-300 light:text-emerald-700 border border-emerald-400/30 dark:border-emerald-400/30 light:border-emerald-400">70% EBITDA</span>
+                    <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 dark:bg-cyan-500/20 light:bg-cyan-100 text-cyan-300 dark:text-cyan-300 light:text-cyan-700 border border-cyan-400/30 dark:border-cyan-400/30 light:border-cyan-400">IoT/SCADA</span>
+                    <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 dark:bg-purple-500/20 light:bg-purple-100 text-purple-300 dark:text-purple-300 light:text-purple-700 border border-purple-400/30 dark:border-purple-400/30 light:border-purple-400">Telemetry</span>
                   </div>
                 </div>
               </div>
@@ -604,14 +604,14 @@ const Home: React.FC<Props> = ({ locale }) => {
                 sizes="(min-width:768px) 50vw, 100vw"
                 imgClassName="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent dark:from-black/90 dark:via-black/30 light:from-black/75 light:via-black/40">
                 <div className="absolute bottom-0 p-6">
-                  <h3 className="text-white text-2xl font-bold mb-2">{c.projects.ecommerce.title}</h3>
-                  <p className="text-gray-300 text-sm mb-3">{c.projects.ecommerce.description}</p>
+                  <h3 className="text-white dark:text-white light:text-gray-900 text-2xl font-bold mb-2">{c.projects.ecommerce.title}</h3>
+                  <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm mb-3">{c.projects.ecommerce.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">{c.projects.ecommerce.tag1}</span>
-                    <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">{c.projects.ecommerce.tag2}</span>
-                    <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30">{c.projects.ecommerce.tag3}</span>
+                    <span className="text-xs px-3 py-1 rounded-full bg-emerald-500/20 dark:bg-emerald-500/20 light:bg-emerald-100 text-emerald-300 dark:text-emerald-300 light:text-emerald-700 border border-emerald-400/30 dark:border-emerald-400/30 light:border-emerald-400">{c.projects.ecommerce.tag1}</span>
+                    <span className="text-xs px-3 py-1 rounded-full bg-cyan-500/20 dark:bg-cyan-500/20 light:bg-cyan-100 text-cyan-300 dark:text-cyan-300 light:text-cyan-700 border border-cyan-400/30 dark:border-cyan-400/30 light:border-cyan-400">{c.projects.ecommerce.tag2}</span>
+                    <span className="text-xs px-3 py-1 rounded-full bg-purple-500/20 dark:bg-purple-500/20 light:bg-purple-100 text-purple-300 dark:text-purple-300 light:text-purple-700 border border-purple-400/30 dark:border-purple-400/30 light:border-purple-400">{c.projects.ecommerce.tag3}</span>
                   </div>
                 </div>
               </div>
@@ -753,7 +753,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <div className="bg-white/5 dark:bg-white/5 light:bg-white/70 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/10 light:border-white/30">
-                    <h3 className=" dark:text-white light:text-black font-bold text-sm">Команда Diwave</h3>
+                    <h3 className="text-white dark:text-white light:text-black font-bold text-sm">Команда Diwave</h3>
                   </div>
                 </div>
               </div>
@@ -783,7 +783,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <div className="bg-white/5 dark:bg-white/5 light:bg-white/70 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/10 light:border-white/30">
-                    <h3 className=" dark:text-white light:text-black font-bold text-sm">Автомийки SamWash</h3>
+                    <h3 className="text-white dark:text-white light:text-black font-bold text-sm">Автомийки SamWash</h3>
                   </div>
                 </div>
               </div>
@@ -813,7 +813,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <div className="bg-white/5 dark:bg-white/5 light:bg-white/70 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/10 light:border-white/30">
-                    <h3 className=" dark:text-white light:text-black font-bold text-sm">FPV Дрони • Gnizdo</h3>
+                    <h3 className="text-white dark:text-white light:text-black font-bold text-sm">FPV Дрони • Gnizdo</h3>
                   </div>
                 </div>
               </div>
@@ -843,7 +843,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <div className="bg-white/5 dark:bg-white/5 light:bg-white/70 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/10 light:border-white/30">
-                    <h3 className=" dark:text-white light:text-black font-bold text-sm">Агрохолдинг Plantpol</h3>
+                    <h3 className="text-white dark:text-white light:text-black font-bold text-sm">Агрохолдинг Plantpol</h3>
                   </div>
                 </div>
               </div>
@@ -867,7 +867,7 @@ const Home: React.FC<Props> = ({ locale }) => {
             <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed">
               {c.about.description}
             </p>
-            <a href={`${locale === 'en' ? '/en' : ''}/about`} className="inline-flex mt-6 px-5 py-2 rounded-md border border-white/20 dark:border-white/20 light:border-blue-300 text-white dark:text-white light:text-white hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-600 transition">{c.about.cta}</a>
+            <a href={`${locale === 'en' ? '/en' : ''}/about`} className="inline-flex mt-6 px-5 py-2 rounded-md border border-white/20 dark:border-white/20 light:border-blue-400 text-white dark:text-white light:text-blue-600 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-blue-600 light:hover:text-white transition">{c.about.cta}</a>
           </div>
         </div>
       </section>

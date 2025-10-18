@@ -285,14 +285,14 @@ const About: React.FC<Props> = ({ locale }) => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="grid md:grid-cols-3 gap-6"
           >
-            {/* Card 1 */}
+            {/* Card 1 - Vertical */}
             <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-cyan-400/40 dark:hover:border-cyan-400/40 light:hover:border-blue-400">
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/80 light:via-white/60 light:to-white/80" />
               <div className="relative">
                 <SmartImage
-                  sources={["/images/gnizdo-team/fpv-crafting.webp", "/images/gnizdo-team/fpv-crafting.jpeg"]}
+                  sources={["/images/gnizdo-team/team-meeting.webp", "/images/gnizdo-team/team-meeting.jpeg"]}
                   alt="FPV Drone Crafting"
-                  className="w-full aspect-[4/3]"
+                  className="w-full aspect-[3/4]"
                   sizes="(min-width:768px) 33vw, 100vw"
                   imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   priority={true}
@@ -301,12 +301,12 @@ const About: React.FC<Props> = ({ locale }) => {
               </div>
             </div>
 
-            {/* Card 2 */}
+            {/* Card 2 - Horizontal */}
             <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-purple-400/40 dark:hover:border-purple-400/40 light:hover:border-purple-400">
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/80 light:via-white/60 light:to-white/80" />
               <div className="relative">
                 <SmartImage
-                  sources={["/images/gnizdo-team/team-meeting.webp", "/images/gnizdo-team/team-meeting.jpeg"]}
+                  sources={["/images/gnizdo-team/fpv-crafting.webp", "/images/gnizdo-team/fpv-crafting.jpeg"]}
                   alt="Team Planning Meeting"
                   className="w-full aspect-[4/3]"
                   sizes="(min-width:768px) 33vw, 100vw"
@@ -317,14 +317,14 @@ const About: React.FC<Props> = ({ locale }) => {
               </div>
             </div>
 
-            {/* Card 3 */}
+            {/* Card 3 - Vertical */}
             <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-emerald-400/40 dark:hover:border-emerald-400/40 light:hover:border-emerald-400">
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/80 light:via-white/60 light:to-white/80" />
               <div className="relative">
                 <SmartImage
                   sources={["/images/gnizdo-team/fpv-riding.webp", "/images/gnizdo-team/fpv-riding.jpeg"]}
                   alt="FPV Riding"
-                  className="w-full aspect-[4/3]"
+                  className="w-full aspect-[3/4]"
                   sizes="(min-width:768px) 33vw, 100vw"
                   imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   priority={true}
@@ -356,7 +356,7 @@ const About: React.FC<Props> = ({ locale }) => {
                 <svg className="w-8 h-8 text-cyan-400 dark:text-cyan-400 light:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2L8 12l4 10 4-10z" />
                 </svg>
-                <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900">
+                <h2 className="text-3xl font-bold  dark:text-white light:text-gray-900">
                   {t.missionTitle}
                 </h2>
               </div>
@@ -383,17 +383,17 @@ const About: React.FC<Props> = ({ locale }) => {
                 <svg className="w-8 h-8 text-purple-400 dark:text-purple-400 light:text-purple-600" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2L8 12l4 10 4-10z" />
                 </svg>
-                <h2 className="text-3xl font-bold text-white dark:text-white light:text-gray-900">
+                <h2 className="text-3xl font-bold  dark:text-white light:text-gray-900">
                   {t.valuesTitle}
                 </h2>
               </div>
               <div className="space-y-4">
                 {t.values.map((value, i) => (
                   <div key={i} className="p-4 rounded-xl bg-white/5 dark:bg-white/5 light:bg-gray-50 border-l-4 border-purple-500 dark:border-purple-500 light:border-purple-600">
-                    <h3 className="text-white dark:text-white light:text-gray-900 font-semibold mb-2">
+                    <h3 className=" dark:text-white light:text-gray-900 font-semibold mb-2">
                       {value.title}
                     </h3>
-                    <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm leading-relaxed">
+                    <p className=" dark:text-gray-300 light:text-gray-700 text-sm leading-relaxed">
                       {value.text}
                     </p>
                   </div>
@@ -412,7 +412,7 @@ const About: React.FC<Props> = ({ locale }) => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-white dark:text-white light:text-gray-900 mb-3">
+          <h2 className="text-4xl font-bold  dark:text-white light:text-gray-900 mb-3">
             {t.founderTitle}
           </h2>
         </motion.div>
@@ -439,7 +439,7 @@ const About: React.FC<Props> = ({ locale }) => {
                   priority={true}
                 />
               </div>
-              <h3 className="text-2xl font-bold text-white dark:text-white light:text-gray-900 mb-1">
+              <h3 className="text-2xl font-bold  dark:text-white light:text-gray-900 mb-1">
                 {t.founderName}
               </h3>
               <p className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 font-semibold mb-4">
@@ -474,7 +474,7 @@ const About: React.FC<Props> = ({ locale }) => {
                 {t.founderBio}
               </p>
 
-              <h4 className="text-xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
+              <h4 className="text-xl font-bold  dark:text-white light:text-gray-900 mb-4">
                 {locale === 'en' ? 'Expertise' : 'Експертиза'}
               </h4>
               <div className="grid sm:grid-cols-2 gap-3">
@@ -489,14 +489,14 @@ const About: React.FC<Props> = ({ locale }) => {
 
             {/* Key Projects */}
             <div className="rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 p-8 backdrop-blur-xl shadow-xl">
-              <h4 className="text-xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
+              <h4 className="text-xl font-bold  dark:text-white light:text-gray-900 mb-4">
                 {t.projectsTitle}
               </h4>
               <div className="space-y-4">
                 {t.projects.map((project, i) => (
                   <div key={i} className="border-l-4 border-emerald-500 dark:border-emerald-500 light:border-green-600 pl-4">
                     <div className="flex items-baseline gap-2 mb-1">
-                      <h5 className="text-white dark:text-white light:text-gray-900 font-semibold">
+                      <h5 className=" dark:text-white light:text-gray-900 font-semibold">
                         {project.name}
                       </h5>
                       {project.link && (
@@ -529,7 +529,7 @@ const About: React.FC<Props> = ({ locale }) => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-white dark:text-white light:text-gray-900 mb-3">
+          <h2 className="text-4xl font-bold  dark:text-white light:text-gray-900 mb-3">
             {t.teamTitle}
           </h2>
           <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 max-w-2xl mx-auto">
@@ -558,7 +558,7 @@ const About: React.FC<Props> = ({ locale }) => {
                   />
                 </div>
               </div>
-              <div className="text-white dark:text-white light:text-gray-900 font-semibold mb-1">
+              <div className=" dark:text-white light:text-gray-900 font-semibold mb-1">
                 {member.name}
               </div>
               <div className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 text-sm">
@@ -573,23 +573,23 @@ const About: React.FC<Props> = ({ locale }) => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 grid md:grid-cols-3 gap-6 items-start"
+          className="mt-12 grid md:grid-cols-3 gap-6"
         >
           <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden">
-            <div className="relative w-full" style={{paddingBottom: '133%'}}>
+            <div className="aspect-[3/4] overflow-hidden">
               <SmartImage
                 sources={[
-                  "/images/about/learning2025-1-nobg.avif",
-                  "/images/about/learning2025-1-nobg.webp",
-                  "/images/about/learning2025-1-nobg.png"
+                  "/images/about/learning2025-1.avif",
+                  "/images/about/learning2025-1.webp",
+                  "/images/about/learning2025-1.jpeg"
                 ]}
                 alt="Diwave Team - Learning and Development 2025"
-                className="absolute inset-0 w-full h-full"
-                imgClassName="w-full h-full object-contain object-center p-4 group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full"
+                imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <div className="p-6 text-center">
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700">
+            <div className="p-4 text-center">
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">
                 {locale === 'en'
                   ? 'Continuous learning and development — our team in 2025'
                   : 'Постійне навчання та розвиток — наша команда у 2025'}
@@ -597,7 +597,7 @@ const About: React.FC<Props> = ({ locale }) => {
             </div>
           </div>
           <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden">
-            <div className="relative w-full" style={{paddingBottom: '133%'}}>
+            <div className="aspect-[3/4] overflow-hidden">
               <SmartImage
                 sources={[
                   "/images/about/learning2025-2.avif",
@@ -605,12 +605,12 @@ const About: React.FC<Props> = ({ locale }) => {
                   "/images/about/learning2025-2.jpeg"
                 ]}
                 alt="Diwave Team - Learning Session 2025"
-                className="absolute inset-0 w-full h-full"
-                imgClassName="w-full h-full object-contain object-center p-4 group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full"
+                imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <div className="p-6 text-center">
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700">
+            <div className="p-4 text-center">
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">
                 {locale === 'en'
                   ? 'Team learning sessions and skill development'
                   : 'Командні навчальні сесії та розвиток навичок'}
@@ -618,7 +618,7 @@ const About: React.FC<Props> = ({ locale }) => {
             </div>
           </div>
           <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden">
-            <div className="relative w-full" style={{paddingBottom: '133%'}}>
+            <div className="aspect-[3/4] overflow-hidden">
               <SmartImage
                 sources={[
                   "/images/about/learning2025.avif",
@@ -626,12 +626,12 @@ const About: React.FC<Props> = ({ locale }) => {
                   "/images/about/learning2025.jpeg"
                 ]}
                 alt="Diwave Learning 2025 - Professional Growth"
-                className="absolute inset-0 w-full h-full"
-                imgClassName="w-full h-full object-contain object-center p-4 group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full"
+                imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
-            <div className="p-6 text-center">
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700">
+            <div className="p-4 text-center">
+              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">
                 {locale === 'en'
                   ? 'Professional growth and knowledge sharing'
                   : 'Професійне зростання та обмін знаннями'}
@@ -684,7 +684,7 @@ const About: React.FC<Props> = ({ locale }) => {
             </div>
 
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-white light:text-gray-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold  dark:text-white light:text-gray-900 mb-4">
                 {t.ctaTitle}
               </h2>
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-lg mb-8">
