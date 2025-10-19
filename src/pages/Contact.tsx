@@ -258,7 +258,7 @@ const Contact: React.FC<Props> = ({ locale }) => {
 
               {/* Contact Form */}
               <div className="mt-10">
-                <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-2xl mb-6 text-center">
+                <h3 className=" dark:text-white light:text-gray-900 font-bold text-2xl mb-6 text-center">
                   {locale === 'en' ? 'Send us a message' : 'Напишіть нам'}
                 </h3>
                 <ContactForm locale={locale} />

@@ -300,7 +300,23 @@ const About: React.FC<Props> = ({ locale }) => {
               </div>
             </div>
 
-            {/* Card 2 - Horizontal */}
+              {/* Card 3 - Vertical */}
+              <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/20 to-black/10 dark:from-black/20 dark:to-black/10 light:from-gray-50 light:to-white backdrop-blur-xl shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-emerald-500/20 dark:hover:shadow-emerald-500/20 light:hover:shadow-emerald-500/30 hover:border-emerald-400/60 dark:hover:border-emerald-400/60 light:hover:border-emerald-400">
+                  <div className="relative aspect-[3/4]">
+                      <SmartImage
+                          sources={["/images/about/fpv-working-testing.webp", "/images/about/fpv-working-testing.jpeg",  "/images/about/fpv-working-testing.avif"]}
+                          alt="FPV Testing and Development"
+                          className="w-full h-full"
+                          sizes="(min-width:768px) 33vw, 100vw"
+                          imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          priority={true}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent dark:from-black/70 dark:via-black/20 light:from-black/60 light:via-black/15 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                  </div>
+              </div>
+
+
+              {/* Card 2 - Horizontal */}
             <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/20 to-black/10 dark:from-black/20 dark:to-black/10 light:from-gray-50 light:to-white backdrop-blur-xl shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-purple-500/20 dark:hover:shadow-purple-500/20 light:hover:shadow-purple-500/30 hover:border-purple-400/60 dark:hover:border-purple-400/60 light:hover:border-purple-400">
               <div className="relative aspect-[4/3]">
                 <SmartImage
@@ -315,21 +331,7 @@ const About: React.FC<Props> = ({ locale }) => {
               </div>
             </div>
 
-            {/* Card 3 - Vertical */}
-            <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/20 to-black/10 dark:from-black/20 dark:to-black/10 light:from-gray-50 light:to-white backdrop-blur-xl shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-emerald-500/20 dark:hover:shadow-emerald-500/20 light:hover:shadow-emerald-500/30 hover:border-emerald-400/60 dark:hover:border-emerald-400/60 light:hover:border-emerald-400">
-              <div className="relative aspect-[3/4]">
-                <SmartImage
-                  sources={["/images/about/fpv-working-testing.webp", "/images/about/fpv-working-testing.jpeg",  "/images/about/fpv-working-testing.avif"]}
-                  alt="FPV Testing and Development"
-                  className="w-full h-full"
-                  sizes="(min-width:768px) 33vw, 100vw"
-                  imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  priority={true}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent dark:from-black/70 dark:via-black/20 light:from-black/60 light:via-black/15 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-              </div>
-            </div>
-          </motion.div>
+           </motion.div>
         </div>
       </section>
 

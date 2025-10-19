@@ -178,7 +178,7 @@ const ContactForm: React.FC<Props> = ({ locale: propLocale }) => {
 
       {/* Name */}
       <div>
-        <label className="block text-sm text-white dark:text-white light:text-gray-700 mb-1 font-medium">
+        <label className="block text-sm  dark:text-white light:text-gray-700 mb-1 font-medium">
           {locale === 'uk' ? "Ім'я" : 'Name'}
         </label>
         <input
@@ -192,7 +192,7 @@ const ContactForm: React.FC<Props> = ({ locale: propLocale }) => {
 
       {/* Contact Method */}
       <div>
-        <label className="block text-sm text-white dark:text-white light:text-gray-700 mb-2 font-medium">
+        <label className="block text-sm  dark:text-white light:text-gray-700 mb-2 font-medium">
           {locale === 'uk' ? 'Спосіб зв\'язку' : 'Contact method'}
         </label>
         <div className="flex gap-4 mb-3">
@@ -204,7 +204,7 @@ const ContactForm: React.FC<Props> = ({ locale: propLocale }) => {
               onChange={(e) => setContactType(e.target.value as 'email' | 'phone')}
               className="w-4 h-4"
             />
-            <span className="text-white dark:text-white light:text-gray-700 font-medium">Email</span>
+            <span className=" dark:text-white light:text-gray-700 font-medium">Email</span>
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -214,7 +214,7 @@ const ContactForm: React.FC<Props> = ({ locale: propLocale }) => {
               onChange={(e) => setContactType(e.target.value as 'email' | 'phone')}
               className="w-4 h-4"
             />
-            <span className="text-white dark:text-white light:text-gray-700 font-medium">{locale === 'uk' ? 'Телефон' : 'Phone'}</span>
+            <span className=" dark:text-white light:text-gray-700 font-medium">{locale === 'uk' ? 'Телефон' : 'Phone'}</span>
           </label>
         </div>
 
@@ -241,7 +241,7 @@ const ContactForm: React.FC<Props> = ({ locale: propLocale }) => {
 
       {/* Message */}
       <div>
-        <label className="block text-sm text-white dark:text-white light:text-gray-700 mb-1 font-medium">
+        <label className="block text-sm  dark:text-white light:text-gray-700 mb-1 font-medium">
           {locale === 'uk' ? 'Короткий опис' : 'Brief description'}
         </label>
         <textarea
@@ -262,7 +262,7 @@ const ContactForm: React.FC<Props> = ({ locale: propLocale }) => {
       >
         <div className="flex items-center gap-2">
           <span className="text-lg">📅</span>
-          <span className="text-sm text-white dark:text-white light:text-gray-900 font-semibold">
+          <span className="text-sm light:text-black dark:text-white light:text-gray-900 font-semibold">
             {locale === 'uk' ? 'Вказати зручний час для зв\'язку (опційно)' : 'Specify preferred contact time (optional)'}
           </span>
         </div>
@@ -302,7 +302,7 @@ const ContactForm: React.FC<Props> = ({ locale: propLocale }) => {
                     value={preferredDate}
                     onChange={(e) => setPreferredDate(e.target.value)}
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full rounded-lg bg-white/10 dark:bg-white/10 light:bg-white border border-white/20 dark:border-white/20 light:border-gray-300 px-3 py-2 text-white dark:text-white light:text-gray-900 focus:outline-none focus:border-cyan-400 dark:focus:border-cyan-400 light:focus:border-blue-500 focus:ring-2 focus:ring-cyan-400/20 dark:focus:ring-cyan-400/20 light:focus:ring-blue-500/20 backdrop-blur-sm transition-all"
+                    className="w-full rounded-lg bg-white/10 dark:bg-white/10 light:bg-white border border-white/20 dark:border-white/20 light:border-gray-300 px-3 py-2  dark:text-white light:text-gray-900 focus:outline-none focus:border-cyan-400 dark:focus:border-cyan-400 light:focus:border-blue-500 focus:ring-2 focus:ring-cyan-400/20 dark:focus:ring-cyan-400/20 light:focus:ring-blue-500/20 backdrop-blur-sm transition-all"
                   />
                 </div>
                 <div>
@@ -313,7 +313,7 @@ const ContactForm: React.FC<Props> = ({ locale: propLocale }) => {
                     type="time"
                     value={preferredTime}
                     onChange={(e) => setPreferredTime(e.target.value)}
-                    className="w-full rounded-lg bg-white/10 dark:bg-white/10 light:bg-white border border-white/20 dark:border-white/20 light:border-gray-300 px-3 py-2 text-white dark:text-white light:text-gray-900 focus:outline-none focus:border-cyan-400 dark:focus:border-cyan-400 light:focus:border-blue-500 focus:ring-2 focus:ring-cyan-400/20 dark:focus:ring-cyan-400/20 light:focus:ring-blue-500/20 backdrop-blur-sm transition-all"
+                    className="w-full rounded-lg bg-white/10 dark:bg-white/10 light:bg-white border border-white/20 dark:border-white/20 light:border-gray-300 px-3 py-2  dark:text-white light:text-gray-900 focus:outline-none focus:border-cyan-400 dark:focus:border-cyan-400 light:focus:border-blue-500 focus:ring-2 focus:ring-cyan-400/20 dark:focus:ring-cyan-400/20 light:focus:ring-blue-500/20 backdrop-blur-sm transition-all"
                   />
                 </div>
               </div>
@@ -325,7 +325,7 @@ const ContactForm: React.FC<Props> = ({ locale: propLocale }) => {
                 <select
                   value={timezone}
                   onChange={(e) => setTimezone(e.target.value)}
-                  className="w-full rounded-lg bg-white/10 dark:bg-white/10 light:bg-white border border-white/20 dark:border-white/20 light:border-gray-300 px-3 py-2 text-white dark:text-white light:text-gray-900 focus:outline-none focus:border-cyan-400 dark:focus:border-cyan-400 light:focus:border-blue-500 focus:ring-2 focus:ring-cyan-400/20 dark:focus:ring-cyan-400/20 light:focus:ring-blue-500/20 backdrop-blur-sm transition-all"
+                  className="w-full rounded-lg bg-white/10 dark:bg-white/10 light:bg-white border border-white/20 dark:border-white/20 light:border-gray-300 px-3 py-2  dark:text-white light:text-gray-900 focus:outline-none focus:border-cyan-400 dark:focus:border-cyan-400 light:focus:border-blue-500 focus:ring-2 focus:ring-cyan-400/20 dark:focus:ring-cyan-400/20 light:focus:ring-blue-500/20 backdrop-blur-sm transition-all"
                 >
                   <option value="+02:00">🇺🇦 Kyiv/Lviv (UTC+2)</option>
                   <option value="+01:00">🇪🇺 Central Europe (UTC+1)</option>
