@@ -114,7 +114,7 @@ const Solutions: React.FC<Props> = ({ locale }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 dark:from-black/60 light:from-white/40 to-transparent pointer-events-none" />
               </div>
               <div className="p-5">
-                <h3 className="text-white dark:text-white light:text-gray-900 font-semibold text-lg mb-2">{s.title}</h3>
+                <h3 className=" dark:text-white light:text-gray-900 font-semibold text-lg mb-2">{s.title}</h3>
                 <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm leading-relaxed">{s.description}</p>
                 <div className="mt-4">
                   <a

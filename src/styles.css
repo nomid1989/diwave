@@ -125,7 +125,7 @@ html.light .bg-black\/50 {
 }
 
 /* Текстові кольори - iOS 26 з WCAG AAA контрастом */
-html.light .text-white {
+html.light {
   color: #FFFFFF !important;
 }
 

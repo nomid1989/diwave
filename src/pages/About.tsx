@@ -283,53 +283,50 @@ const About: React.FC<Props> = ({ locale }) => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid md:grid-cols-3 gap-6"
+            className="grid md:grid-cols-3 gap-6 items-start"
           >
-            {/* Card 1 - Vertical */}
-            <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-cyan-400/40 dark:hover:border-cyan-400/40 light:hover:border-blue-400">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/80 light:via-white/60 light:to-white/80" />
-              <div className="relative">
+            {/* Card 1 - Horizontal */}
+            <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/20 to-black/10 dark:from-black/20 dark:to-black/10 light:from-gray-50 light:to-white backdrop-blur-xl shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-cyan-500/20 dark:hover:shadow-cyan-500/20 light:hover:shadow-blue-500/30 hover:border-cyan-400/60 dark:hover:border-cyan-400/60 light:hover:border-blue-400">
+              <div className="relative aspect-[4/3]">
                 <SmartImage
                   sources={["/images/gnizdo-team/team-meeting.webp", "/images/gnizdo-team/team-meeting.jpeg"]}
-                  alt="FPV Drone Crafting"
-                  className="w-full aspect-[3/4]"
+                  alt="Team Planning Meeting"
+                  className="w-full h-full"
                   sizes="(min-width:768px) 33vw, 100vw"
                   imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   priority={true}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent dark:from-black/70 dark:via-black/20 light:from-black/60 light:via-black/15 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
               </div>
             </div>
 
             {/* Card 2 - Horizontal */}
-            <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-purple-400/40 dark:hover:border-purple-400/40 light:hover:border-purple-400">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/80 light:via-white/60 light:to-white/80" />
-              <div className="relative">
+            <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/20 to-black/10 dark:from-black/20 dark:to-black/10 light:from-gray-50 light:to-white backdrop-blur-xl shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-purple-500/20 dark:hover:shadow-purple-500/20 light:hover:shadow-purple-500/30 hover:border-purple-400/60 dark:hover:border-purple-400/60 light:hover:border-purple-400">
+              <div className="relative aspect-[4/3]">
                 <SmartImage
                   sources={["/images/gnizdo-team/fpv-crafting.webp", "/images/gnizdo-team/fpv-crafting.jpeg"]}
-                  alt="Team Planning Meeting"
-                  className="w-full aspect-[4/3]"
+                  alt="FPV Drone Crafting"
+                  className="w-full h-full"
                   sizes="(min-width:768px) 33vw, 100vw"
                   imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   priority={true}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent dark:from-black/70 dark:via-black/20 light:from-black/60 light:via-black/15 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
               </div>
             </div>
 
             {/* Card 3 - Vertical */}
-            <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-emerald-400/40 dark:hover:border-emerald-400/40 light:hover:border-emerald-400">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/80 light:via-white/60 light:to-white/80" />
-              <div className="relative">
+            <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/20 to-black/10 dark:from-black/20 dark:to-black/10 light:from-gray-50 light:to-white backdrop-blur-xl shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-emerald-500/20 dark:hover:shadow-emerald-500/20 light:hover:shadow-emerald-500/30 hover:border-emerald-400/60 dark:hover:border-emerald-400/60 light:hover:border-emerald-400">
+              <div className="relative aspect-[3/4]">
                 <SmartImage
-                  sources={["/images/gnizdo-team/fpv-riding.webp", "/images/gnizdo-team/fpv-riding.jpeg"]}
-                  alt="FPV Riding"
-                  className="w-full aspect-[3/4]"
+                  sources={["/images/about/fpv-working-testing.webp", "/images/about/fpv-working-testing.jpeg",  "/images/about/fpv-working-testing.avif"]}
+                  alt="FPV Testing and Development"
+                  className="w-full h-full"
                   sizes="(min-width:768px) 33vw, 100vw"
                   imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   priority={true}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent dark:from-black/70 dark:via-black/20 light:from-black/60 light:via-black/15 opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
               </div>
             </div>
           </motion.div>
@@ -573,10 +570,11 @@ const About: React.FC<Props> = ({ locale }) => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 grid md:grid-cols-3 gap-6"
+          className="mt-12 grid md:grid-cols-3 gap-6 items-start"
         >
-          <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden">
-            <div className="aspect-[3/4] overflow-hidden">
+          {/* Photo 1 - Horizontal */}
+          <div className="group rounded-2xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/10 to-black/5 dark:from-black/10 dark:to-black/5 light:from-white/80 light:to-white backdrop-blur-xl shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 dark:hover:shadow-cyan-500/20 light:hover:shadow-cyan-500/30 hover:scale-[1.02] hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-cyan-400 transition-all duration-300 overflow-hidden">
+            <div className="aspect-[4/3] overflow-hidden">
               <SmartImage
                 sources={[
                   "/images/about/learning2025-1.avif",
@@ -585,18 +583,19 @@ const About: React.FC<Props> = ({ locale }) => {
                 ]}
                 alt="Diwave Team - Learning and Development 2025"
                 className="w-full h-full"
-                imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
             </div>
-            <div className="p-4 text-center">
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">
+            <div className="p-5 bg-gradient-to-b from-white/5 to-transparent dark:from-white/5 dark:to-transparent light:from-white/60 light:to-white/40">
+              <p className="text-gray-200 dark:text-gray-200 light:text-gray-800 text-sm font-medium leading-relaxed">
                 {locale === 'en'
                   ? 'Continuous learning and development — our team in 2025'
                   : 'Постійне навчання та розвиток — наша команда у 2025'}
               </p>
             </div>
           </div>
-          <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden">
+          {/* Photo 2 - Vertical */}
+          <div className="group rounded-2xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/10 to-black/5 dark:from-black/10 dark:to-black/5 light:from-white/80 light:to-white backdrop-blur-xl shadow-xl hover:shadow-2xl hover:shadow-purple-500/20 dark:hover:shadow-purple-500/20 light:hover:shadow-purple-500/30 hover:scale-[1.02] hover:border-purple-400/50 dark:hover:border-purple-400/50 light:hover:border-purple-400 transition-all duration-300 overflow-hidden">
             <div className="aspect-[3/4] overflow-hidden">
               <SmartImage
                 sources={[
@@ -606,19 +605,20 @@ const About: React.FC<Props> = ({ locale }) => {
                 ]}
                 alt="Diwave Team - Learning Session 2025"
                 className="w-full h-full"
-                imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
             </div>
-            <div className="p-4 text-center">
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">
+            <div className="p-5 bg-gradient-to-b from-white/5 to-transparent dark:from-white/5 dark:to-transparent light:from-white/60 light:to-white/40">
+              <p className="text-gray-200 dark:text-gray-200 light:text-gray-800 text-sm font-medium leading-relaxed">
                 {locale === 'en'
                   ? 'Team learning sessions and skill development'
                   : 'Командні навчальні сесії та розвиток навичок'}
               </p>
             </div>
           </div>
-          <div className="group rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/5 via-transparent to-black/5 dark:from-black/5 dark:via-transparent dark:to-black/5 light:from-white/50 light:via-white/30 light:to-white/50 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 overflow-hidden">
-            <div className="aspect-[3/4] overflow-hidden">
+          {/* Photo 3 - Horizontal */}
+          <div className="group rounded-2xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/10 to-black/5 dark:from-black/10 dark:to-black/5 light:from-white/80 light:to-white backdrop-blur-xl shadow-xl hover:shadow-2xl hover:shadow-emerald-500/20 dark:hover:shadow-emerald-500/20 light:hover:shadow-emerald-500/30 hover:scale-[1.02] hover:border-emerald-400/50 dark:hover:border-emerald-400/50 light:hover:border-emerald-400 transition-all duration-300 overflow-hidden">
+            <div className="aspect-[4/3] overflow-hidden">
               <SmartImage
                 sources={[
                   "/images/about/learning2025.avif",
@@ -627,11 +627,11 @@ const About: React.FC<Props> = ({ locale }) => {
                 ]}
                 alt="Diwave Learning 2025 - Professional Growth"
                 className="w-full h-full"
-                imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                imgClassName="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
             </div>
-            <div className="p-4 text-center">
-              <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-sm">
+            <div className="p-5 bg-gradient-to-b from-white/5 to-transparent dark:from-white/5 dark:to-transparent light:from-white/60 light:to-white/40">
+              <p className="text-gray-200 dark:text-gray-200 light:text-gray-800 text-sm font-medium leading-relaxed">
                 {locale === 'en'
                   ? 'Professional growth and knowledge sharing'
                   : 'Професійне зростання та обмін знаннями'}
