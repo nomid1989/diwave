@@ -583,11 +583,8 @@ const Home: React.FC<Props> = ({ locale }) => {
 
         {/* Великі featured проєкти */}
         <div className="grid md:grid-cols-2 gap-6 mt-8">
-          <motion.a
+          <a
             href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`}
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             className="group relative rounded-xl overflow-hidden border border-white/10 bg-gradient-to-br from-black/30 to-black/50 hover:border-cyan-300/40 transition-all backdrop-blur-sm"
           >
             <div className="relative h-80 flex items-center justify-center">
@@ -597,6 +594,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 className="w-full h-80"
                 sizes="(min-width:768px) 50vw, 100vw"
                 imgClassName="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent dark:from-black/90 dark:via-black/30 light:from-black/75 light:via-black/40">
                 <div className="absolute bottom-0 p-6">
@@ -610,14 +608,10 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
               </div>
             </div>
-          </motion.a>
+          </a>
 
-          <motion.a
+          <a
             href={`${locale === 'en' ? '/en' : ''}/projects/ecommerce`}
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
             className="group relative rounded-xl overflow-hidden border border-white/10 bg-gradient-to-br from-black/30 to-black/50 hover:border-cyan-300/40 transition-all backdrop-blur-sm"
           >
             <div className="relative h-80 flex items-center justify-center">
@@ -627,6 +621,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 className="w-full h-80"
                 sizes="(min-width:768px) 50vw, 100vw"
                 imgClassName="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent dark:from-black/90 dark:via-black/30 light:from-black/75 light:via-black/40">
                 <div className="absolute bottom-0 p-6">
@@ -640,19 +635,15 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
               </div>
             </div>
-          </motion.a>
+          </a>
         </div>
 
         {/* Менші проєкти */}
         <div className="grid md:grid-cols-3 gap-6 mt-6">
           {projects.items.slice(0, 3).map((p, idx) => (
-            <motion.a
+            <a
               key={p.slug}
               href={`${locale === 'en' ? '/en' : ''}/projects/${p.slug}`}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
               className="block rounded-xl overflow-hidden border border-white/10 bg-white/5 hover:border-cyan-300/40 transition-all group backdrop-blur-sm hover:scale-[1.02]"
             >
               <div className="relative h-48 overflow-hidden bg-gradient-to-br from-black/5 to-black/10">
@@ -662,6 +653,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                   className="w-full h-48"
                   sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
                   imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  priority={idx === 0}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               </div>
@@ -679,7 +671,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                   ))}
                 </div>
               </div>
-            </motion.a>
+            </a>
           ))}
         </div>
 

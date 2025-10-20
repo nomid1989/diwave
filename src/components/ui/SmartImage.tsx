@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
 
 type SmartImageProps = {
   srcFolder?: string; // e.g. "/images/home"
@@ -185,16 +184,15 @@ const SmartImage: React.FC<SmartImageProps> = ({
     // For backgrounds, use the best available variant that we actually probed.
     const bg = variants?.avif || variants?.webp || loadedSrc;
     return (
-      <motion.div
-        initial={{ opacity: 0.0, scale: 1.01 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
+      <div
         className={className}
         style={{
           backgroundImage: `url(${bg})`,
-          backgroundSize: 'contain', // Повне відображення без обрізання
+          backgroundSize: 'contain',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
+          opacity: isLoaded ? 1 : 0,
+          transition: 'opacity 0.4s ease-out'
         }}
         aria-label={alt}
         role="img"
@@ -203,15 +201,12 @@ const SmartImage: React.FC<SmartImageProps> = ({
   }
 
   // Render with <picture> when we have modern variants
-  // iOS 26 glassmorphism + Google Gemini Material Design 3
+  // iOS 26 + 2025 performance optimization - NO framer-motion
   return (
     <picture className="relative block w-full h-full">
       {variants?.avif && <source srcSet={variants.avif} type="image/avif" />}
       {variants?.webp && <source srcSet={variants.webp} type="image/webp" />}
-      <motion.img
-        initial={{ opacity: 0.0, scale: 1.01 }}
-        animate={{ opacity: isLoaded ? 1 : 0, scale: 1 }}
-        transition={{ duration: 0.4, ease: 'easeOut' }}
+      <img
         src={loadedSrc}
         alt={alt}
         loading={priority ? 'eager' : 'lazy'}
@@ -221,17 +216,16 @@ const SmartImage: React.FC<SmartImageProps> = ({
         sizes={sizes}
         width={width}
         height={height}
-        onLoad={() => {
+        onLoad={(e) => {
           setIsLoaded(true);
-          // Mark as loaded for critical CSS
-          const img = document.querySelector(`img[src="${loadedSrc}"]`);
-          if (img) {
-            img.setAttribute('data-loaded', 'true');
-            img.classList.add('loaded');
-          }
+          const img = e.currentTarget;
+          img.setAttribute('data-loaded', 'true');
+          img.classList.add('loaded');
         }}
         className={imgClassName || className}
         style={{
+          opacity: isLoaded ? 1 : 0,
+          transition: 'opacity 0.3s ease-out',
           willChange: 'opacity',
           transform: 'translateZ(0)',
           backfaceVisibility: 'hidden'
