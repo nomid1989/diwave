@@ -661,8 +661,9 @@ const About: React.FC<Props> = ({ locale }) => {
           >
             <SmartImage
               sources={[
-                "/images/gnizdo-team/team-work.webp",
-                "/images/gnizdo-team/team-work.jpeg"
+                "/images/about/DmytroKravetsFamaly.webp",
+                "/images/about/DmytroKravetsFamaly.jpeg",
+                "/images/about/DmytroKravetsFamaly.webp"
               ]}
               alt="Diwave Team - Ready to help with your project"
               className="w-full h-full"

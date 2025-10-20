@@ -496,26 +496,27 @@ const Home: React.FC<Props> = ({ locale }) => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* Картка 1: Автомийки SamWash */}
           <a href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`} className="group block">
-            <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-cyan-500 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20 dark:hover:shadow-cyan-500/10 light:hover:shadow-cyan-500/30">
-              <div className="aspect-[4/3] relative overflow-hidden">
+            <div className="relative">
+              <div className="aspect-[4/3] relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-cyan-500 transition-all duration-300">
                 <SmartImage
                   sources={["/images/solutions/car-washes/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.jpeg"]}
                   alt="Автомийки самообслуговування SamWash"
                   className="w-full h-full"
                   sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
                   imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent dark:from-black/90 dark:via-black/20 light:from-black/75 light:via-black/30" />
                 <div className="absolute top-3 right-3">
                   <span className="inline-block px-2.5 py-1 rounded-md bg-cyan-500 text-white text-xs font-semibold shadow-lg">
                     {c.solutions.carWash.badge}
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="bg-white/5 dark:bg-black/10 light:bg-white/90 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/5 light:border-gray-200">
-                    <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-sm mb-1 line-clamp-2">{c.solutions.carWash.title}</h3>
-                    <p className="text-gray-100 dark:text-gray-100 light:text-gray-700 text-xs leading-snug line-clamp-2">{c.solutions.carWash.description}</p>
-                  </div>
+              </div>
+              {/* Опис під фотографією з overlap */}
+              <div className="relative -mt-[6%] mx-3 z-10">
+                <div className="bg-white/10 dark:bg-black/40 light:bg-white/95 backdrop-blur-lg rounded-lg px-4 py-3 border border-white/20 dark:border-white/10 light:border-gray-200 shadow-xl">
+                  <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-base mb-1 line-clamp-2">{c.solutions.carWash.title}</h3>
+                  <p className="text-gray-200 dark:text-gray-200 light:text-gray-700 text-sm leading-snug line-clamp-2">{c.solutions.carWash.description}</p>
                 </div>
               </div>
             </div>
@@ -523,26 +524,27 @@ const Home: React.FC<Props> = ({ locale }) => {
 
           {/* Картка 2: Порохотяг - вертикальна */}
           <a href={`${locale === 'en' ? '/en' : ''}/projects/vending`} className="group block">
-            <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-purple-400/50 dark:hover:border-purple-400/50 light:hover:border-purple-500 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 dark:hover:shadow-purple-500/10 light:hover:shadow-purple-500/30">
-              <div className="aspect-[3/4] relative overflow-hidden">
+            <div className="relative">
+              <div className="aspect-[3/4] relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-purple-400/50 dark:hover:border-purple-400/50 light:hover:border-purple-500 transition-all duration-300">
                 <SmartImage
                   sources={["/images/industries/vending/vacuum-home.jpg", "/images/industries/vending/vacuum-home.webp", "/images/industries/vending/vacuum-home.jpeg"]}
                   alt="Порохотяг самообслуговування"
                   className="w-full h-full"
                   sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
                   imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent dark:from-black/90 dark:via-black/20 light:from-black/75 light:via-black/30" />
                 <div className="absolute top-3 right-3">
                   <span className="inline-block px-2.5 py-1 rounded-md bg-purple-500 text-white text-xs font-semibold shadow-lg">
                     {c.solutions.vacuum.badge}
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="bg-white/5 dark:bg-black/10 light:bg-white/90 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/5 light:border-gray-200">
-                    <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-sm mb-1 line-clamp-2">{c.solutions.vacuum.title}</h3>
-                    <p className="text-gray-100 dark:text-gray-100 light:text-gray-700 text-xs leading-snug line-clamp-2">{c.solutions.vacuum.description}</p>
-                  </div>
+              </div>
+              {/* Опис під фотографією з overlap */}
+              <div className="relative -mt-[5%] mx-3 z-10">
+                <div className="bg-white/10 dark:bg-black/40 light:bg-white/95 backdrop-blur-lg rounded-lg px-4 py-3 border border-white/20 dark:border-white/10 light:border-gray-200 shadow-xl">
+                  <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-base mb-1 line-clamp-2">{c.solutions.vacuum.title}</h3>
+                  <p className="text-gray-200 dark:text-gray-200 light:text-gray-700 text-sm leading-snug line-clamp-2">{c.solutions.vacuum.description}</p>
                 </div>
               </div>
             </div>
@@ -550,26 +552,27 @@ const Home: React.FC<Props> = ({ locale }) => {
 
           {/* Картка 3: Дрони FPV */}
           <a href={`${locale === 'en' ? '/en' : ''}/solutions/drones`} className="group block">
-            <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-emerald-400/50 dark:hover:border-emerald-400/50 light:hover:border-emerald-500 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/20 dark:hover:shadow-emerald-500/10 light:hover:shadow-emerald-500/30">
-              <div className="aspect-[4/3] relative overflow-hidden">
+            <div className="relative">
+              <div className="aspect-[4/3] relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-emerald-400/50 dark:hover:border-emerald-400/50 light:hover:border-emerald-500 transition-all duration-300">
                 <SmartImage
                   sources={["/images/gnizdo-team/team-vader.avif", "/images/gnizdo-team/team-vader.webp", "/images/gnizdo-team/team-vader.jpeg"]}
                   alt="Дрони FPV та Українська асоціація пілотів дронів"
                   className="w-full h-full"
                   sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
                   imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent dark:from-black/90 dark:via-black/20 light:from-black/75 light:via-black/30" />
                 <div className="absolute top-3 right-3">
                   <span className="inline-block px-2.5 py-1 rounded-md bg-emerald-500 text-white text-xs font-semibold shadow-lg">
                     {c.solutions.drones.badge}
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <div className="bg-white/5 dark:bg-black/10 light:bg-white/90 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 dark:border-white/5 light:border-gray-200">
-                    <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-sm mb-1 line-clamp-2">{c.solutions.drones.title}</h3>
-                    <p className="text-gray-100 dark:text-gray-100 light:text-gray-700 text-xs leading-snug line-clamp-2">{c.solutions.drones.description}</p>
-                  </div>
+              </div>
+              {/* Опис під фотографією з overlap */}
+              <div className="relative -mt-[6%] mx-3 z-10">
+                <div className="bg-white/10 dark:bg-black/40 light:bg-white/95 backdrop-blur-lg rounded-lg px-4 py-3 border border-white/20 dark:border-white/10 light:border-gray-200 shadow-xl">
+                  <h3 className="text-white dark:text-white light:text-gray-900 font-bold text-base mb-1 line-clamp-2">{c.solutions.drones.title}</h3>
+                  <p className="text-gray-200 dark:text-gray-200 light:text-gray-700 text-sm leading-snug line-clamp-2">{c.solutions.drones.description}</p>
                 </div>
               </div>
             </div>
@@ -583,11 +586,8 @@ const Home: React.FC<Props> = ({ locale }) => {
 
         {/* Великі featured проєкти */}
         <div className="grid md:grid-cols-2 gap-6 mt-8">
-          <motion.a
+          <a
             href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`}
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             className="group relative rounded-xl overflow-hidden border border-white/10 bg-gradient-to-br from-black/30 to-black/50 hover:border-cyan-300/40 transition-all backdrop-blur-sm"
           >
             <div className="relative h-80 flex items-center justify-center">
@@ -597,6 +597,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 className="w-full h-80"
                 sizes="(min-width:768px) 50vw, 100vw"
                 imgClassName="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent dark:from-black/90 dark:via-black/30 light:from-black/75 light:via-black/40">
                 <div className="absolute bottom-0 p-6">
@@ -610,23 +611,20 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
               </div>
             </div>
-          </motion.a>
+          </a>
 
-          <motion.a
+          <a
             href={`${locale === 'en' ? '/en' : ''}/projects/ecommerce`}
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
             className="group relative rounded-xl overflow-hidden border border-white/10 bg-gradient-to-br from-black/30 to-black/50 hover:border-cyan-300/40 transition-all backdrop-blur-sm"
           >
             <div className="relative h-80 flex items-center justify-center">
               <SmartImage
-                sources={['/images/agricultural-center-plantpol-ukraine/plantpol-crm-dashboard.png']}
+                sources={['/images/agricultural-center-plantpol-ukraine/plantpol-crm-dashboard.png', '/images/agricultural-center-plantpol-ukraine/plantpol-crm-dashboard.webp', '/images/agricultural-center-plantpol-ukraine/plantpol-crm-dashboard.avif']}
                 alt="E-commerce проєкти"
                 className="w-full h-80"
                 sizes="(min-width:768px) 50vw, 100vw"
                 imgClassName="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent dark:from-black/90 dark:via-black/30 light:from-black/75 light:via-black/40">
                 <div className="absolute bottom-0 p-6">
@@ -640,19 +638,15 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
               </div>
             </div>
-          </motion.a>
+          </a>
         </div>
 
         {/* Менші проєкти */}
         <div className="grid md:grid-cols-3 gap-6 mt-6">
           {projects.items.slice(0, 3).map((p, idx) => (
-            <motion.a
+            <a
               key={p.slug}
               href={`${locale === 'en' ? '/en' : ''}/projects/${p.slug}`}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
               className="block rounded-xl overflow-hidden border border-white/10 bg-white/5 hover:border-cyan-300/40 transition-all group backdrop-blur-sm hover:scale-[1.02]"
             >
               <div className="relative h-48 overflow-hidden bg-gradient-to-br from-black/5 to-black/10">
@@ -662,6 +656,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                   className="w-full h-48"
                   sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
                   imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  priority={idx === 0}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               </div>
@@ -679,7 +674,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                   ))}
                 </div>
               </div>
-            </motion.a>
+            </a>
           ))}
         </div>
 
@@ -755,12 +750,8 @@ const Home: React.FC<Props> = ({ locale }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Team Work */}
-          <motion.a
+          <a
             href={`${locale === 'en' ? '/en' : ''}/about`}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             className="group block"
           >
             <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-cyan-400/40 dark:hover:border-cyan-400/40 light:hover:border-cyan-500 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 light:hover:shadow-cyan-500/30">
@@ -770,6 +761,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                   alt="Командна робота Diwave"
                   className="w-full h-full"
                   imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent dark:from-black/90 dark:via-black/20 light:from-black/75 light:via-black/30" />
                 <div className="absolute top-3 right-3">
@@ -782,15 +774,11 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
               </div>
             </div>
-          </motion.a>
+          </a>
 
           {/* Car Wash */}
-          <motion.a
+          <a
             href={`${locale === 'en' ? '/en' : ''}/solutions/car-washes`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6 }}
             className="group block"
           >
             <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-purple-400/40 dark:hover:border-purple-400/40 light:hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 light:hover:shadow-purple-500/30">
@@ -800,6 +788,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                   alt="Автомийка SamWash"
                   className="w-full h-full"
                   imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent dark:from-black/90 dark:via-black/20 light:from-black/75 light:via-black/30" />
                 <div className="absolute top-3 right-3">
@@ -812,15 +801,11 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
               </div>
             </div>
-          </motion.a>
+          </a>
 
           {/* FPV Drones */}
-          <motion.a
+          <a
             href={`${locale === 'en' ? '/en' : ''}/solutions/drones`}
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
             className="group block"
           >
             <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-emerald-400/40 dark:hover:border-emerald-400/40 light:hover:border-emerald-500 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10 light:hover:shadow-emerald-500/30">
@@ -842,15 +827,11 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
               </div>
             </div>
-          </motion.a>
+          </a>
 
           {/* E-commerce */}
-          <motion.a
+          <a
             href={`${locale === 'en' ? '/en' : ''}/projects/ecommerce`}
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
             className="group block"
           >
             <div className="relative overflow-hidden rounded-xl border border-white/10 dark:border-white/10 light:border-gray-300 hover:border-blue-400/40 dark:hover:border-blue-400/40 light:hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 light:hover:shadow-blue-500/30">
@@ -872,7 +853,7 @@ const Home: React.FC<Props> = ({ locale }) => {
                 </div>
               </div>
             </div>
-          </motion.a>
+          </a>
         </div>
       </section>
 
