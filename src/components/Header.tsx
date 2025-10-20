@@ -187,7 +187,7 @@ const Header: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Меню пункти */}
-              <nav className="flex flex-col gap-2.5">
+              <nav className="flex flex-col gap-3">
                 {NAV.map((item) => {
                   const href = makeLink(item.to, locale);
                   const active = pathname === href;
@@ -195,7 +195,14 @@ const Header: React.FC = () => {
                     <Link
                       key={item.to}
                       to={href}
-                      onClick={() => setMobileOpen(false)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setMobileOpen(false);
+                        scrollToTop();
+                      }}
+                      onTouchEnd={(e) => {
+                        e.stopPropagation();
+                      }}
                       className={classNames(
                         'mobile-menu-item',
                         active && 'mobile-menu-item-active'
@@ -209,7 +216,14 @@ const Header: React.FC = () => {
                 {/* CTA Button */}
                 <Link
                   to={makeLink('/contact', locale)}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setMobileOpen(false);
+                    scrollToTop();
+                  }}
+                  onTouchEnd={(e) => {
+                    e.stopPropagation();
+                  }}
                   className="mobile-menu-cta"
                 >
                   {t('cta.discuss')}
