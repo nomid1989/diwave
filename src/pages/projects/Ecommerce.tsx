@@ -1,6 +1,7 @@
 import React from 'react';
 import SEO from '@/components/SEO';
 import SmartImage from '@/components/ui/SmartImage';
+import { getBreadcrumbSchema, getArticleSchema, combineSchemas } from '@/lib/structuredData';
 
 const baseUrl = (import.meta.env.VITE_SITE_URL as string) || window.location.origin;
 
@@ -213,17 +214,48 @@ export default function EcommerceProject({ locale }: Props) {
   const t = content[locale];
   const url = `${baseUrl}${locale === 'en' ? '/en' : ''}/projects/ecommerce`;
 
-  const jsonLd = [
+  const jsonLd = combineSchemas(
+    // Breadcrumb
+    getBreadcrumbSchema([
+      { name: locale === 'uk' ? 'Головна' : 'Home', url: `${baseUrl}${locale === 'en' ? '/en' : ''}` },
+      { name: locale === 'uk' ? 'Проєкти' : 'Projects', url: `${baseUrl}${locale === 'en' ? '/en' : ''}/projects` },
+      { name: 'Plantpol E-commerce', url }
+    ], locale),
+
+    // Article/Case Study schema
+    getArticleSchema({
+      headline: locale === 'uk' ? 'Plantpol: B2B-портал для агротехнологій — 75% скорочення штату' : 'Plantpol: B2B Portal for Agritech — 75% Staff Reduction',
+      description: locale === 'uk'
+        ? 'Кейс створення B2B-порталу для Plantpol з 5000+ SKU та інтеграцією 1С. Автоматизація обробки замовлень дозволила скоротити штат з 20 до 5 менеджерів, заощадивши мільйони гривень операційних витрат.'
+        : 'Case study of B2B portal creation for Plantpol with 5000+ SKU and 1C integration. Order processing automation reduced staff from 20 to 5 managers, saving millions in operational costs.',
+      image: `${baseUrl}/images/agricultural-center-plantpol-ukraine/hero.png`,
+      datePublished: '2024-01-15',
+      dateModified: '2025-01-20',
+      author: 'Diwave Solutions',
+      publisher: 'Diwave Solutions',
+      articleSection: locale === 'uk' ? 'Кейси' : 'Case Studies',
+      keywords: locale === 'uk'
+        ? 'E-commerce, B2B портал, 1С інтеграція, агротехнології, автоматизація бізнесу, ROI оптимізація, скорочення витрат'
+        : 'E-commerce, B2B portal, 1C integration, agritech, business automation, ROI optimization, cost reduction'
+    }, locale),
+
+    // About Plantpol as Organization
     {
       '@context': 'https://schema.org',
-      '@type': 'CreativeWork',
-      name: locale === 'uk' ? 'Кейс: E‑commerce інтеграції' : 'Case: E-commerce Integrations',
-      description: locale === 'uk' ? 'Впровадження e‑commerce з глибокими інтеграціями, аналітикою та оптимізацією конверсій.' : 'E-commerce implementation with deep integrations, analytics, and conversion optimization.',
-      author: { '@type': 'Organization', name: 'Diwave Solutions', url: baseUrl },
-      inLanguage: ['uk', 'en'],
-      url
+      '@type': 'Organization',
+      '@id': 'https://plantpol.com.ua/#organization',
+      name: 'Plantpol',
+      url: 'https://plantpol.com.ua',
+      description: locale === 'uk'
+        ? 'Один з найбільших українських дистрибʼюторів насіння, ЗЗР (засобів захисту рослин) та агрохімії. Інноваційна компанія у сфері агротехнологій з автоматизованим B2B-порталом.'
+        : 'One of Ukraine\'s largest distributors of seeds, PPP (plant protection products), and agrochemicals. Innovative company in agritech with automated B2B portal.',
+      industry: 'Agriculture',
+      numberOfEmployees: {
+        '@type': 'QuantitativeValue',
+        value: '50-100'
+      }
     }
-  ];
+  );
 
   return (
     <>

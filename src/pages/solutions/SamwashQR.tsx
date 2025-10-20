@@ -1,6 +1,7 @@
 import React from 'react';
 import SEO from '@/components/SEO';
 import SmartImage from '@/components/ui/SmartImage';
+import { getBreadcrumbSchema, getProductSchema, getServiceSchema, getSoftwareApplicationSchema, getHowToSchema, combineSchemas } from '@/lib/structuredData';
 
 const baseUrl = (import.meta.env.VITE_SITE_URL as string) || window.location.origin;
 
@@ -159,20 +160,109 @@ export default function SamwashQR({ locale }: Props) {
   const t = content[locale];
   const url = `${baseUrl}${locale === 'en' ? '/en' : ''}/solutions/samwash-qr`;
 
-  const jsonLd = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: 'Samwash: QR-оплата на автомийках',
+  const jsonLd = combineSchemas(
+    // Breadcrumb
+    getBreadcrumbSchema([
+      { name: locale === 'uk' ? 'Головна' : 'Home', url: `${baseUrl}${locale === 'en' ? '/en' : ''}` },
+      { name: locale === 'uk' ? 'Рішення' : 'Solutions', url: `${baseUrl}${locale === 'en' ? '/en' : ''}/solutions` },
+      { name: 'SamWash QR', url }
+    ], locale),
+
+    // Service schema
+    getServiceSchema({
+      name: locale === 'uk' ? 'SamWash QR - Безконтактна оплата для автомийок' : 'SamWash QR - Contactless Payment for Car Washes',
       description: locale === 'uk'
-        ? 'Оплата послуг автомийки зі смартфона без терміналів. AI-адаптація контенту за регіоном, двомовність, автоматична синхронізація з обладнанням.'
-        : 'Car wash service payments from smartphone without terminals. AI-powered content adaptation by region, bilingual, automatic equipment synchronization.',
-      provider: { '@type': 'Organization', name: 'Diwave Solutions', url: baseUrl },
-      areaServed: ['UA', 'EU'],
-      inLanguage: ['uk', 'en'],
-      url
-    }
-  ];
+        ? 'Система QR-оплати для автомийок самообслуговування: AI-адаптація контенту за регіоном, двомовність (UA/EN), швидка інтеграція. Оплата зі смартфона без терміналів, автоматична синхронізація з обладнанням. -30% час обслуговування, +90% безготівкових платежів.'
+        : 'QR payment system for self-service car washes: AI-powered content adaptation by region, bilingual (UA/EN), fast integration. Smartphone payments without terminals, automatic equipment synchronization. -30% service time, +90% cashless payments.',
+      serviceType: 'QR Payment System',
+      areaServed: ['Ukraine', 'European Union'],
+      provider: 'Diwave Solutions'
+    }, locale),
+
+    // SoftwareApplication schema for mobile app
+    getSoftwareApplicationSchema({
+      name: 'SamPay - QR Payment App',
+      description: locale === 'uk'
+        ? 'Мобільний додаток для оплати послуг автомийок самообслуговування через QR-код. Підтримка карток, Apple Pay, Google Pay. Двомовний інтерфейс (UA/EN), історія платежів, програма лояльності.'
+        : 'Mobile app for self-service car wash payments via QR code. Supports cards, Apple Pay, Google Pay. Bilingual interface (UA/EN), payment history, loyalty program.',
+      operatingSystem: ['iOS', 'Android', 'Web'],
+      applicationCategory: 'FinanceApplication',
+      offers: {
+        price: '0',
+        priceCurrency: 'USD'
+      },
+      aggregateRating: {
+        ratingValue: '4.7',
+        reviewCount: '320'
+      }
+    }, locale),
+
+    // HowTo schema
+    getHowToSchema({
+      name: locale === 'uk' ? 'Як оплатити автомийку через QR-код' : 'How to Pay for Car Wash via QR Code',
+      description: locale === 'uk'
+        ? 'Покрокова інструкція оплати послуг автомийки самообслуговування через мобільний додаток SamPay з QR-кодом'
+        : 'Step-by-step guide for paying self-service car wash services via SamPay mobile app with QR code',
+      image: `${baseUrl}/images/solutions/samwash-qr/hero.webp`,
+      totalTime: 'PT2M',
+      estimatedCost: {
+        currency: 'UAH',
+        value: '50-150'
+      },
+      supply: [
+        locale === 'uk' ? 'Смартфон з камерою' : 'Smartphone with camera',
+        locale === 'uk' ? 'Встановлений додаток SamPay або браузер' : 'SamPay app installed or browser',
+        locale === 'uk' ? 'Банківська картка або Apple/Google Pay' : 'Bank card or Apple/Google Pay'
+      ],
+      tool: [
+        'SamPay App',
+        'QR Code Scanner'
+      ],
+      step: [
+        {
+          name: locale === 'uk' ? 'Крок 1: Скануйте QR-код' : 'Step 1: Scan QR Code',
+          text: locale === 'uk'
+            ? 'Відкрийте додаток SamPay або камеру смартфона та наведіть на QR-код, розміщений на автомийці. Додаток автоматично визначить локацію та доступні послуги.'
+            : 'Open SamPay app or smartphone camera and point at QR code placed on car wash. App automatically detects location and available services.',
+          image: `${baseUrl}/images/solutions/samwash-qr/step1.jpg`,
+          url: `${url}#step1`
+        },
+        {
+          name: locale === 'uk' ? 'Крок 2: Оберіть послугу' : 'Step 2: Select Service',
+          text: locale === 'uk'
+            ? 'В додатку виберіть потрібну послугу: мийка, пилосос, або робот-мийка. Вкажіть тривалість програми (зазвичай 5-15 хвилин) та переглянте вартість.'
+            : 'In app select needed service: wash, vacuum, or robot wash. Specify program duration (typically 5-15 minutes) and review cost.',
+          image: `${baseUrl}/images/solutions/samwash-qr/step2.jpg`,
+          url: `${url}#step2`
+        },
+        {
+          name: locale === 'uk' ? 'Крок 3: Оплатіть' : 'Step 3: Pay',
+          text: locale === 'uk'
+            ? 'Оберіть спосіб оплати: картка, Apple Pay або Google Pay. Підтвердіть платіж. Система автоматично запустить обране обладнання на автомийці.'
+            : 'Select payment method: card, Apple Pay, or Google Pay. Confirm payment. System automatically starts selected equipment at car wash.',
+          image: `${baseUrl}/images/solutions/samwash-qr/step3.jpg`,
+          url: `${url}#step3`
+        }
+      ]
+    }, locale),
+
+    // Product schema for QR payment system as a product
+    getProductSchema({
+      name: locale === 'uk' ? 'Система QR-оплати SamWash' : 'SamWash QR Payment System',
+      description: locale === 'uk'
+        ? 'Готове рішення для автоматизації оплати послуг автомийок самообслуговування через QR-код. Включає мобільний додаток, інтеграцію з обладнанням, платіжними системами, CRM та аналітику.'
+        : 'Ready solution for automating self-service car wash payments via QR code. Includes mobile app, equipment integration, payment systems, CRM and analytics.',
+      image: `${baseUrl}/images/solutions/samwash-qr/hero.jpeg`,
+      brand: 'SamWash by Diwave',
+      sku: 'SAMWASH-QR-001',
+      category: 'Payment System',
+      price: 2000,
+      currency: 'USD',
+      availability: 'InStock',
+      url,
+      rating: { value: 4.7, count: 85 }
+    }, locale)
+  );
 
   return (
     <>

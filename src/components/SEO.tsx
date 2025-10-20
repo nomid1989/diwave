@@ -149,6 +149,41 @@ const SEO: React.FC<SEOProps> = ({
 
         {/* Modern Browser Features - 2025 */}
         <meta name="color-scheme" content="dark light" />
+
+        {/* Additional SEO enhancements */}
+        <meta name="referrer" content="origin-when-cross-origin" />
+        <meta name="application-name" content="Diwave Solutions" />
+        <meta name="msapplication-TileColor" content="#0a0a0f" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+
+        {/* Article specific (for blog/news pages) */}
+        {type === 'article' && (
+          <>
+            <meta property="article:publisher" content="https://www.facebook.com/DiWave.company" />
+            <meta property="article:author" content={author} />
+            <meta property="article:section" content="Technology" />
+            <meta property="article:tag" content={keywords} />
+          </>
+        )}
+
+        {/* Additional Open Graph */}
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:updated_time" content={new Date().toISOString()} />
+
+        {/* Additional Twitter Meta */}
+        <meta name="twitter:domain" content="diwave.com.ua" />
+        <meta name="twitter:url" content={url} />
+
+        {/* LinkedIn specific */}
+        <meta property="og:see_also" content="https://www.linkedin.com/company/diwave" />
+
+        {/* WhatsApp/Telegram preview optimization */}
+        <meta property="og:determiner" content="the" />
+
+        {/* Verification tags (add when you have them) */}
+        {/* <meta name="google-site-verification" content="your-google-verification-code" /> */}
+        {/* <meta name="yandex-verification" content="your-yandex-verification-code" /> */}
+        {/* <meta name="msvalidate.01" content="your-bing-verification-code" /> */}
       </Helmet>
 
       {/* JSON-LD Structured Data */}

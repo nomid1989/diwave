@@ -1,7 +1,8 @@
 import React from 'react';
 import SEO from '@/components/SEO';
 import SmartImage from '@/components/ui/SmartImage';
-// (цей файл уже створено вище)
+import { getBreadcrumbSchema, getServiceSchema, getSoftwareApplicationSchema, getFAQSchema, combineSchemas } from '@/lib/structuredData';
+
 const baseUrl = (import.meta.env.VITE_SITE_URL as string) || window.location.origin;
 
 export default function Ecommerce() {
@@ -10,19 +11,52 @@ export default function Ecommerce() {
     'CMS/ERP інтеграції, SEO/GEO‑SEO, оптимізація конверсій. Побудова e‑commerce під навантаження з аналітикою та автоматизацією процесів.';
   const url = `${baseUrl}/solutions/ecommerce`;
 
-  const jsonLd = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: 'E‑commerce та сайти (B2B/B2C)',
-      description:
-        'Інтеграції з CMS/ERP, SEO/GEO‑SEO, оптимізація конверсій, аналітика та автоматизація для інтернет‑магазинів.',
-      provider: { '@type': 'Organization', name: 'Diwave Solutions', url: baseUrl },
-      areaServed: ['UA', 'EU'],
-      inLanguage: ['uk', 'en'],
-      url
-    }
-  ];
+  const jsonLd = combineSchemas(
+    getBreadcrumbSchema([
+      { name: 'Головна', url: baseUrl },
+      { name: 'Рішення', url: `${baseUrl}/solutions` },
+      { name: 'E-commerce', url }
+    ], 'uk'),
+    getServiceSchema({
+      name: 'E-commerce та B2B/B2C портали',
+      description: 'Розробка інтернет-магазинів та B2B порталів з інтеграцією CMS/ERP систем (1C, SAP), SEO/GEO-SEO оптимізацією, аналітикою та автоматизацією процесів. Скорочення операційних витрат до 75%, підвищення конверсії на 25-40%.',
+      serviceType: 'E-commerce Development',
+      areaServed: ['Ukraine', 'European Union'],
+      provider: 'Diwave Solutions'
+    }, 'uk'),
+    getSoftwareApplicationSchema({
+      name: 'Custom E-commerce Platform',
+      description: 'Індивідуальна e-commerce платформа з інтеграціями: каталог товарів, кошик, чекаут, платіжні системи, CRM/ERP синхронізація, SEO-оптимізація, аналітика.',
+      operatingSystem: ['Web', 'PWA'],
+      applicationCategory: 'BusinessApplication',
+      offers: {
+        price: '10000',
+        priceCurrency: 'USD'
+      },
+      aggregateRating: {
+        ratingValue: '4.8',
+        reviewCount: '34'
+      }
+    }, 'uk'),
+    getFAQSchema([
+      {
+        question: 'Скільки коштує розробка інтернет-магазину?',
+        answer: 'Вартість залежить від складності: базовий інтернет-магазин з каталогом та оплатою - від $5,000, складний B2B портал з інтеграцією 1C/SAP та автоматизацією - від $15,000. Включає: каталог товарів, кошик, оплату, CRM інтеграції, адмін-панель, SEO.'
+      },
+      {
+        question: 'Які інтеграції з ERP/CRM підтримуються?',
+        answer: 'Повна інтеграція з 1C (бухгалтерія, склад, замовлення), SAP, Microsoft Dynamics, Salesforce, HubSpot. Двостороння синхронізація даних: товари, ціни, залишки, клієнти, замовлення, платежі. Real-time або scheduled оновлення.'
+      },
+      {
+        question: 'Як довго триває розробка e-commerce проєкту?',
+        answer: 'Залежить від складності: базовий інтернет-магазин - 6-8 тижнів, складний B2B портал - 3-4 місяці. Етапи: Discovery (2 тижні), Design (2-3 тижні), Development (4-8 тижнів), Testing (1-2 тижні), Launch та підтримка.'
+      },
+      {
+        question: 'Які результати можна очікувати від e-commerce автоматизації?',
+        answer: 'Типові результати: скорочення операційних витрат на 40-75% (приклад Plantpol: з 20 до 5 менеджерів), підвищення конверсії на 25-40%, збільшення AOV (Average Order Value) на 15-30%, окупність інвестицій за 6-18 місяців.'
+      }
+    ], 'uk')
+  );
 
   return (
     <>

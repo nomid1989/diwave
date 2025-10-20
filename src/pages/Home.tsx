@@ -16,6 +16,14 @@ import {
 import SmartImage from '@/components/ui/SmartImage';
 import SectionHeader from '@/components/sections/SectionHeader';
 import { getProjects } from '@/lib/content/projects';
+import {
+  getOrganizationSchema,
+  getWebSiteSchema,
+  getProductSchema,
+  getFAQSchema,
+  getBreadcrumbSchema,
+  combineSchemas
+} from '@/lib/structuredData';
 
 type Props = { locale: 'uk' | 'en' };
 
@@ -247,82 +255,98 @@ const Home: React.FC<Props> = ({ locale }) => {
 
   const seo = seoContent[locale];
 
-  const jsonLd = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Diwave',
-      url,
-      areaServed: ['UA', 'EU'],
-      logo: `${baseUrl}/favicon.ico`,
-      founder: {
-        '@type': 'Person',
-        name: 'Dmytro Kravets',
-        email: 'dmytro@diwave.company',
-        jobTitle: 'Founder & Tech Lead',
-        sameAs: [
-          'https://linkedin.com/in/dmytrokravets',
-          'https://upwork.com/freelancers/stevark',
-          'https://clutch.co/profile/diwave'
-        ]
+  // Enhanced JSON-LD with Product schemas and comprehensive structured data
+  const jsonLd = combineSchemas(
+    // 1. Organization schema
+    getOrganizationSchema(locale),
+
+    // 2. WebSite with SearchAction
+    getWebSiteSchema(locale),
+
+    // 3. Breadcrumb for homepage
+    getBreadcrumbSchema([
+      { name: locale === 'uk' ? 'Головна' : 'Home', url }
+    ], locale),
+
+    // 4. Product: SamWash Car Wash System
+    getProductSchema({
+      name: locale === 'uk' ? 'Автомийки самообслуговування SamWash' : 'SamWash Self-Service Car Wash',
+      description: locale === 'uk'
+        ? 'Повністю автоматизовані комплекси з EBITDA 70%. Інтеграції з готівковими, безготівковими й монетними платіжними пристроями, дистанційне керування та обслуговування. Ви спите — бізнес працює 24/7'
+        : 'Fully automated complexes with 70% EBITDA. Integration with cash, cashless, and coin payment devices, remote management, and maintenance. You sleep — your business works 24/7',
+      image: `${baseUrl}/images/solutions/car-washes/hero.jpeg`,
+      brand: 'SamWash by Diwave',
+      sku: 'SAMWASH-001',
+      price: 15000,
+      currency: 'USD',
+      availability: 'InStock',
+      rating: { value: 4.9, count: 47 }
+    }, locale),
+
+    // 5. Product: Self-Service Vacuum Cleaner
+    getProductSchema({
+      name: locale === 'uk' ? 'Пилосос самообслуговування з сенсорним екраном і захистом IP65' : 'Self-Service Vacuum Cleaner with Touchscreen and IP65 Protection',
+      description: locale === 'uk'
+        ? 'Ефективний пилосос самообслуговування на 2 пости, потужністю 6 кВт 380 В для автомийок, електрозарядних станцій і зон скупчення автомобілів'
+        : 'High-performance self-service vacuum cleaner for 2 bays, 6 kW 380V power, designed for car washes, EV charging stations, and vehicle gathering areas',
+      image: `${baseUrl}/images/industries/vending/vacuum-home.jpeg`,
+      brand: 'Diwave IoT',
+      sku: 'VACUUM-IP65-002',
+      price: 3500,
+      currency: 'USD',
+      availability: 'InStock',
+      rating: { value: 4.8, count: 32 }
+    }, locale),
+
+    // 6. Product: FPV Drones Training & Manufacturing
+    getProductSchema({
+      name: locale === 'uk' ? 'Дрони FPV • Гніздо (UAPD)' : 'FPV Drones • Gnizdo (UAPD)',
+      description: locale === 'uk'
+        ? 'Українська асоціація пілотів дронів: навчання, виробництво й розвиток drone-технологій'
+        : 'Ukrainian Association of Drone Pilots: training, manufacturing, and development of drone technologies',
+      image: `${baseUrl}/images/projects/drones/hero.jpeg`,
+      brand: 'Gnizdo UAPD',
+      sku: 'DRONE-FPV-003',
+      price: 1200,
+      currency: 'USD',
+      availability: 'PreOrder',
+      rating: { value: 5.0, count: 28 }
+    }, locale),
+
+    // 7. FAQ Schema
+    getFAQSchema([
+      {
+        question: locale === 'uk' ? 'Як швидко стартуємо?' : 'How quickly do we start?',
+        answer: locale === 'uk'
+          ? 'Залежно від складності: від 2–4 тижнів для MVP до 2–3 місяців для повноцінного запуску. Починаємо з Discovery, узгоджуємо KPI та план.'
+          : 'Depending on complexity: from 2-4 weeks for MVP to 2-3 months for full launch. We start with Discovery, agree on KPIs and plan.'
       },
-      contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: '+380505923772',
-        email: 'info@diwave.company',
-        contactType: 'sales',
-        areaServed: ['UA', 'EU']
+      {
+        question: locale === 'uk' ? 'Які технології?' : 'What technologies?',
+        answer: locale === 'uk'
+          ? 'TypeScript/React, Node.js/PHP, інтеграції з платіжними провайдерами, IoT/SCADA, аналітика, AI‑SEO. Інфраструктура: Docker, CI/CD, моніторинг.'
+          : 'TypeScript/React, Node.js/PHP, payment provider integrations, IoT/SCADA, analytics, AI-SEO. Infrastructure: Docker, CI/CD, monitoring.'
       },
-      description: seo.description
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      name: 'Diwave',
-      url,
-      description: seo.description,
-      inLanguage: locale === 'uk' ? 'uk-UA' : 'en-US'
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: locale === 'uk' ? 'Як швидко стартуємо?' : 'How quickly do we start?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: locale === 'uk'
-              ? 'Залежно від складності: від 2–4 тижнів для MVP до 2–3 місяців для повноцінного запуску. Починаємо з Discovery, узгоджуємо KPI та план.'
-              : 'Depending on complexity: from 2-4 weeks for MVP to 2-3 months for full launch. We start with Discovery, agree on KPIs and plan.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: locale === 'uk' ? 'Які технології використовуєте?' : 'What technologies do you use?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: locale === 'uk'
-              ? 'TypeScript/React, Node.js/PHP, інтеграції з платіжними провайдерами, IoT/SCADA, аналітика, AI-SEO. Інфраструктура: Docker, CI/CD, моніторинг.'
-              : 'TypeScript/React, Node.js/PHP, payment provider integrations, IoT/SCADA, analytics, AI-SEO. Infrastructure: Docker, CI/CD, monitoring.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: locale === 'uk' ? 'Чи підтримуєте IoT/SCADA?' : 'Do you support IoT/SCADA?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: locale === 'uk'
-              ? 'Так, ми підключаємо пристрої, збираємо дані та автоматизуємо процеси.'
-              : 'Yes, we connect devices, collect data and automate processes.'
-          }
-        }
-      ]
-    },
+      {
+        question: locale === 'uk' ? 'Чи підтримуєте IoT/SCADA?' : 'Do you support IoT/SCADA?',
+        answer: locale === 'uk'
+          ? 'Так, ми підключаємо пристрої, збираємо дані та автоматизуємо процеси з протоколами MQTT, Modbus, HTTP/HTTPS. Реалізуємо телеметрію, дашборди та автоматизовані сповіщення.'
+          : 'Yes, we connect devices, collect data and automate processes with MQTT, Modbus, HTTP/HTTPS protocols. We implement telemetry, dashboards and automated alerts.'
+      },
+      {
+        question: locale === 'uk' ? 'Які результати для бізнесу?' : 'What business results?',
+        answer: locale === 'uk'
+          ? 'Типові результати: EBITDA +10-70%, скорочення операційних витрат на 40-75%, підвищення конверсії на 25-40%, окупність інвестицій за 6-18 місяців.'
+          : 'Typical results: EBITDA +10-70%, operational costs reduction 40-75%, conversion rate increase 25-40%, ROI within 6-18 months.'
+      }
+    ], locale),
+
+    // 8. ItemList of featured projects
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
       name: locale === 'uk' ? 'Проєкти Diwave' : 'Diwave Projects',
+      description: locale === 'uk' ? 'Вибрані кейси автоматизації бізнесу' : 'Selected business automation case studies',
       itemListElement: projects.items.slice(0, 6).map((p, i) => ({
         '@type': 'ListItem',
         position: i + 1,
@@ -330,7 +354,7 @@ const Home: React.FC<Props> = ({ locale }) => {
         url: `${baseUrl}${locale === 'en' ? '/en' : ''}/projects/${p.slug}`
       }))
     }
-  ];
+  );
 
   // Клікабельні картки рішень з реальними посиланнями
   const products = [
@@ -709,7 +733,7 @@ const Home: React.FC<Props> = ({ locale }) => {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-400/20 to-blue-400/20 blur-2xl" aria-hidden />
               <div className="relative rounded-2xl overflow-hidden border border-cyan-500/30 bg-black/20">
                 <SmartImage
-                  sources={['/images/solutions/alcohol-vending/vending-mashines-alcohol.webp', '/images/solutions/vending-mashines-alcohol.png']}
+                  sources={['/images/solutions/alcohol-vending/hero.webp', '/images/solutions/hero.png']}
                   alt="Вендинговий апарат з сенсорним екраном та захистом IP65"
                   className="w-full h-auto"
                   sizes="(min-width:768px) 50vw, 100vw"

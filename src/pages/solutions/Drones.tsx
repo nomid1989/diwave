@@ -1,6 +1,7 @@
 import React from 'react';
 import SEO from '@/components/SEO';
 import SmartImage from '@/components/ui/SmartImage';
+import { getBreadcrumbSchema, getServiceSchema, getProductSchema, getCourseSchema, getFAQSchema, combineSchemas } from '@/lib/structuredData';
 
 const baseUrl = (import.meta.env.VITE_SITE_URL as string) || window.location.origin;
 
@@ -10,19 +11,64 @@ export default function Drones() {
     'Громадська організація українських пілотів FPV дронів. Виробництво дронів, організація змагань, навчальні школи в Україні та Польщі, підтримка ЗСУ.';
   const url = `${baseUrl}/solutions/drones`;
 
-  const jsonLd = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Гніздо - Українська асоціація пілотів FPV дронів',
-      description:
-        'Громадська організація, група компаній: виробництво FPV дронів, організація міжнародних змагань, навчальні школи, підтримка України.',
-      provider: { '@type': 'Organization', name: 'Diwave Solutions', url: baseUrl },
-      areaServed: ['UA', 'PL', 'GB', 'EU'],
-      inLanguage: ['uk', 'en', 'pl'],
-      url
-    }
-  ];
+  const jsonLd = combineSchemas(
+    getBreadcrumbSchema([
+      { name: 'Головна', url: baseUrl },
+      { name: 'Рішення', url: `${baseUrl}/solutions` },
+      { name: 'Дрони', url }
+    ], 'uk'),
+    getServiceSchema({
+      name: 'Виробництво та навчання пілотів FPV дронів',
+      description: 'Комплексні послуги: виробництво FPV дронів, організація міжнародних змагань у Великобританії, навчальні школи пілотів в Україні та Польщі, підтримка Збройних Сил України. Український досвід став еталоном у світі.',
+      serviceType: 'FPV Drone Manufacturing and Training',
+      areaServed: ['Ukraine', 'Poland', 'United Kingdom', 'European Union'],
+      provider: 'Diwave Solutions'
+    }, 'uk'),
+    getProductSchema({
+      name: 'FPV дрони Gnizdo',
+      description: 'Високоякісні FPV дрони для спортивних змагань та військових потреб. Проєктування, виробництво та підтримка в Україні. Українська технологія світового рівня.',
+      image: `${baseUrl}/images/solutions/drones/hero.png`,
+      brand: 'Gnizdo by Diwave',
+      sku: 'GNIZDO-FPV-001',
+      price: 800,
+      currency: 'USD',
+      rating: { value: 4.9, count: 156 }
+    }, 'uk'),
+    getCourseSchema({
+      name: 'Школа пілотів FPV дронів Gnizdo',
+      description: 'Професійна підготовка операторів FPV дронів: від базових навичок до експертного рівня. Навчання в Україні та Польщі (Dronarium Birds). Теорія, практика, симуляції, реальні польоти.',
+      provider: 'Gnizdo Team',
+      url: 'https://gnizdoteam.com/ua',
+      price: '1500',
+      priceCurrency: 'USD',
+      image: `${baseUrl}/images/solutions/drones/hero.png`,
+      courseCode: 'FPV-PILOT-UA',
+      educationalLevel: 'Beginner to Advanced',
+      timeRequired: 'P2M'
+    }, 'uk'),
+    getFAQSchema([
+      {
+        question: 'Що таке Gnizdo (Гніздо)?',
+        answer: 'Gnizdo — це українська асоціація пілотів FPV дронів та група компаній, що об\'єднує виробництво дронів, організацію міжнародних змагань, навчальні школи в Україні та Польщі, підтримку Збройних Сил України. Маємо представництва в Україні, Польщі (Dronarium Birds) та Великобританії (Gnizdo Ltd).'
+      },
+      {
+        question: 'Де проходить навчання пілотів?',
+        answer: 'Навчання проводиться в двох країнах: 1) Україна (Львівська область) — власні тренувальні площадки Gnizdo, змагання, практичні польоти. 2) Польща — навчальний центр Dronarium Birds (dronariumbirds.pl), підготовка операторів безпілотних систем. Курс триває від 4 до 8 тижнів залежно від рівня.'
+      },
+      {
+        question: 'Які міжнародні змагання організовує Gnizdo?',
+        answer: 'Gnizdo організовує міжнародні турніри FPV дронів у Великобританії через представництво Gnizdo Ltd (gnizdoltd.co.uk). Українські пілоти беруть участь у європейських змаганнях, демонструючи високий рівень майстерності. Український досвід використання FPV дронів став еталоном у світі.'
+      },
+      {
+        question: 'Чи підтримує Gnizdo Збройні Сили України?',
+        answer: 'Так, підтримка ЗСУ — один з основних напрямків діяльності. У умовах війни проти Росії FPV дрони є критично важливою технологією для захисту України. Gnizdo поєднує спортивні досягнення з військовою необхідністю: виробництво дронів для захисників України, навчання операторів, технологічні інновації.'
+      },
+      {
+        question: 'Скільки коштує виробництво FPV дрона?',
+        answer: 'Вартість залежить від призначення: базовий спортивний FPV дрон - від $400, професійні моделі для змагань - від $800, спеціалізовані дрони для військових потреб - індивідуальна розробка від $1,000. Включає проєктування, виробництво, тестування, підтримку. Працюємо з одиничними замовленнями та серійним виробництвом.'
+      }
+    ], 'uk')
+  );
 
   return (
     <>

@@ -1,6 +1,7 @@
 import React from 'react';
 import SEO from '@/components/SEO';
 import SmartImage from '@/components/ui/SmartImage';
+import { getBreadcrumbSchema, getProductSchema, getServiceSchema, combineSchemas } from '@/lib/structuredData';
 
 const baseUrl = (import.meta.env.VITE_SITE_URL as string) || window.location.origin;
 
@@ -51,18 +52,37 @@ export default function AlcoholVending({ locale }: Props) {
   const t = content[locale];
   const url = `${baseUrl}${locale === 'en' ? '/en' : ''}/solutions/alcohol-vending`;
 
-  const jsonLd = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: t.heading,
-      description: t.jsonDescription,
-      provider: { '@type': 'Organization', name: 'Diwave Solutions', url: baseUrl },
-      areaServed: ['UA', 'EU'],
-      inLanguage: ['uk', 'en'],
-      url
-    }
-  ];
+  const jsonLd = combineSchemas(
+    getBreadcrumbSchema([
+      { name: locale === 'uk' ? 'Головна' : 'Home', url: `${baseUrl}${locale === 'en' ? '/en' : ''}` },
+      { name: locale === 'uk' ? 'Рішення' : 'Solutions', url: `${baseUrl}${locale === 'en' ? '/en' : ''}/solutions` },
+      { name: locale === 'uk' ? 'Алко-вендинг' : 'Alcohol Vending', url }
+    ], locale),
+    getServiceSchema({
+      name: locale === 'uk' ? 'Алко-вендинг з KYC верифікацією' : 'Alcohol Vending with KYC Verification',
+      description: locale === 'uk'
+        ? 'Комплексне рішення для автоматичного продажу алкоголю: вікова верифікація (KYC), безготівкові оплати, телеметрія, IP65 захист. Інтеграції з провайдерами верифікації, платіжними системами та системами моніторингу.'
+        : 'Complete alcohol vending solution: age verification (KYC), cashless payments, telemetry, IP65 protection. Integrations with verification providers, payment systems and monitoring systems.',
+      serviceType: 'Vending Machine System',
+      areaServed: ['Ukraine', 'European Union'],
+      provider: 'Diwave Solutions'
+    }, locale),
+    getProductSchema({
+      name: locale === 'uk' ? 'Вендинговий автомат з KYC та IP65' : 'Vending Machine with KYC and IP65',
+      description: locale === 'uk'
+        ? '19" сенсорний екран високої яскравості, IP65 захист, KYC верифікація, безконтактна оплата (NFC, QR, картки), віддалений IoT-моніторинг, система охолодження/нагріву продукції.'
+        : '19" high-brightness touch screen, IP65 protection, KYC verification, contactless payment (NFC, QR, cards), remote IoT monitoring, product cooling/heating system.',
+      image: `${baseUrl}/images/solutions/alcohol-vending/hero.jpeg`,
+      brand: 'Diwave Vending',
+      sku: 'VENDING-KYC-IP65',
+      category: 'Vending Machine',
+      price: 15000,
+      currency: 'USD',
+      availability: 'PreOrder',
+      url,
+      rating: { value: 4.6, count: 23 }
+    }, locale)
+  );
 
   return (
     <>
@@ -108,7 +128,7 @@ export default function AlcoholVending({ locale }: Props) {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-400/20 to-blue-400/20 blur-2xl" aria-hidden />
               <div className="relative rounded-2xl overflow-hidden border border-cyan-500/30 bg-black/20">
                 <SmartImage
-                  sources={['/images/solutions/alcohol-vending/vending-mashines-alcohol.png']}
+                  sources={['/images/solutions/alcohol-vending/hero.png']}
                   alt={locale === 'uk' ? 'Вендинговий апарат для продажу алкоголю з KYC верифікацією' : 'Alcohol vending machine with KYC verification'}
                   className="w-full h-auto"
                   imgClassName="w-full h-auto object-contain"

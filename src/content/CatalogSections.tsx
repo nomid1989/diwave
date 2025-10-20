@@ -7,7 +7,7 @@ export const SolutionsSection: React.FC<Props> = ({ locale }) => {
   const content = {
     uk: {
       title: 'Комплексні рішення для автоматизації бізнесу',
-      intro: 'Diwave пропонує готові технологічні рішення, які покривають весь цикл автоматизації — від ідеї до впровадження. Наші продукти створені на базі реального досвіду роботи з 10+ галузями та перевірені на практиці в умовах високого навантаження. Кожне рішення модульне, масштабоване та готове до інтеграції з вашими існуючими системами.',
+      intro: 'Diwave пропонує готові технологічні рішення, які охоплюють весь цикл автоматизації — від ідеї до впровадження. Наші продукти створені на основі реального досвіду роботи з 10+ галузями й перевірені на практиці в умовах високого навантаження. Кожне рішення модульне, масштабоване та готове до інтеграції з вашими існуючими системами.',
       subtitle: 'Що ми пропонуємо:',
       items: [
         { icon: '🚗', title: 'QR-платежі Samwash', desc: 'безготівкова оплата для автомийок та вендингу з AI-адаптацією під локацію' },
@@ -16,7 +16,7 @@ export const SolutionsSection: React.FC<Props> = ({ locale }) => {
         { icon: '🤖', title: 'AI/ML сервіси', desc: 'RAG Copilot, автоматизація процесів, аналітика та прогнозування' },
         { icon: '📊', title: 'Маркетингова аналітика', desc: 'метрики конверсій, A/B тестування, Google Analytics 4, GTM' }
       ],
-      outro: 'Усі рішення розроблені з урахуванням вимог безпеки (GDPR, PCI DSS), масштабованості (10,000+ одночасних користувачів) та стабільності (99.9% uptime). Підтримуємо мультимовність (UK/EN/інші мови), white-label брендування та гнучку модель ліцензування.',
+      outro: 'Усі рішення розроблені з урахуванням вимог безпеки (GDPR, PCI DSS), масштабованості (10 000+ одночасних користувачів) і стабільності (99,9% uptime). Підтримуємо мультимовність (UK/EN/інші мови), white-label брендування та гнучку модель ліцензування.',
       links: [
         { href: '/solutions/samwash-qr', text: 'QR-платежі Samwash' },
         { href: '/solutions/car-washes', text: 'IoT для автомийок' },
@@ -36,7 +36,7 @@ export const SolutionsSection: React.FC<Props> = ({ locale }) => {
         { icon: '🤖', title: 'AI/ML Services', desc: 'RAG Copilot, process automation, analytics and forecasting' },
         { icon: '📊', title: 'Marketing Analytics', desc: 'conversion metrics, A/B testing, Google Analytics 4, GTM' }
       ],
-      outro: 'All solutions are developed with security requirements (GDPR, PCI DSS), scalability (10,000+ concurrent users), and stability (99.9% uptime) in mind. We support multilingual implementation (UK/EN/other languages), white-label branding, and flexible licensing models.',
+      outro: 'All solutions are developed with security requirements (GDPR, PCI DSS compliance), scalability (10,000+ concurrent users), and stability (99.9% uptime) in mind. We support multilingual implementation (UK/EN/other languages), white-label branding, and flexible licensing models.',
       links: [
         { href: '/en/solutions/samwash-qr', text: 'Samwash QR Payments' },
         { href: '/en/solutions/car-washes', text: 'IoT for Car Washes' },
@@ -79,11 +79,11 @@ export const ProjectsSection: React.FC<Props> = ({ locale }) => {
   const content = {
     uk: {
       title: 'Наші проєкти — від ідеї до результату',
-      intro: 'Кожен проєкт у нашому портфоліо — це реальний бізнес-кейс з вимірюваними результатами. Ми спеціалізуємося на автоматизації складних процесів: від IoT-телеметрії автомийок з EBITDA 70% до e-commerce платформ із 5000+ SKU, від алко-вендингу з KYC до операцій із дронами. Наш досвід охоплює 10+ галузей та 14+ років розробки.',
+      intro: 'Кожен проєкт у нашому портфоліо — це реальний бізнес-кейс із вимірюваними результатами. Ми спеціалізуємось на автоматизації складних процесів: від IoT-телеметрії автомийок з EBITDA 70% до e-commerce платформ із 5000+ SKU, від алко-вендингу з KYC до операцій з дронами. Наш досвід охоплює 10+ галузей та 14+ років розробки.',
       subtitle: 'Типові результати наших проєктів:',
       results: [
         { icon: '✓', title: 'Зростання EBITDA', desc: 'на 30-70% через автоматизацію та оптимізацію процесів' },
-        { icon: '✓', title: 'Скорочення операційних витрат', desc: 'на 40-75% завдяки автоматизації та зменшенню штату' },
+        { icon: '✓', title: 'Скорочення операційних витрат', desc: 'на 40–75% завдяки автоматизації й оптимізації штату' },
         { icon: '✓', title: 'Підвищення конверсії', desc: 'на 25-40% через покращення UX та інтеграції' },
         { icon: '✓', title: 'Масштабованість', desc: 'готові рішення для швидкого розгортання на нові локації' }
       ],
@@ -97,11 +97,11 @@ export const ProjectsSection: React.FC<Props> = ({ locale }) => {
     },
     en: {
       title: 'Our Projects — From Concept to Results',
-      intro: 'Each project in our portfolio is a real business case with measurable results. We specialize in automating complex processes: from IoT telemetry for car washes with 70% EBITDA to e-commerce platforms with 5000+ SKUs, from alcohol vending with KYC to drone operations. Our experience spans 10+ industries and 14+ years of development.',
+      intro: 'Each project in our portfolio is a real business case with measurable results. We specialize in automating complex processes: from IoT telemetry for car washes with 70% EBITDA to e-commerce platforms with 5,000+ SKUs, from alcohol vending with KYC to drone operations. Our experience spans 10+ industries and 14+ years of development.',
       subtitle: 'Typical project outcomes:',
       results: [
         { icon: '✓', title: 'EBITDA Growth', desc: '30-70% through automation and process optimization' },
-        { icon: '✓', title: 'Operating Cost Reduction', desc: '40-75% via automation and workforce optimization' },
+        { icon: '✓', title: 'Operating cost reduction', desc: 'of 40–75% through automation and workforce optimization' },
         { icon: '✓', title: 'Conversion Rate Increase', desc: '25-40% through UX improvements and integrations' },
         { icon: '✓', title: 'Scalability', desc: 'ready-to-deploy solutions for rapid expansion to new locations' }
       ],
@@ -147,11 +147,11 @@ export const IndustriesSection: React.FC<Props> = ({ locale }) => {
   const content = {
     uk: {
       title: 'Галузева експертиза для вашого бізнесу',
-      intro: '14+ років досвіду роботи в 15 різних індустріях дозволяють нам розуміти специфіку кожної галузі та пропонувати не просто технічні рішення, а готові бізнес-моделі. Ми знаємо виклики ринку, регуляторні вимоги та best practices кожної індустрії — від Automotive до Robotics.',
+      intro: '14+ років досвіду роботи в 15 різних індустріях дають нам змогу розуміти специфіку кожної галузі й пропонувати не просто технічні рішення, а готові бізнес-моделі. Ми знаємо виклики ринку, регуляторні вимоги та best practices кожної індустрії — від Automotive до Robotics.',
       subtitle: 'Наша галузева експертиза:',
       industries: [
         { icon: '🚗', title: 'Automotive', desc: 'автомийки з IoT/SCADA, +30% EBITDA, телеметрія обладнання, безготівкові платежі' },
-        { icon: '🍫', title: 'Vending', desc: 'KYC верифікація, cashless платежі, телеметрія запасів, моніторинг мережі 24/7' },
+        { icon: '🍫', title: 'Vending', desc: 'KYC-верифікація, безготівкові платежі, телеметрія запасів, моніторинг мережі 24/7' },
         { icon: '💳', title: 'Fintech', desc: 'платіжні шлюзи, антифрод системи, PCI DSS compliance, +8 п.п. auth rate' },
         { icon: '🛒', title: 'Retail/E-commerce', desc: 'омніканальність, ERP інтеграції, +25% конверсії, GEO-SEO' },
         { icon: '✈️', title: 'Logistics/Дрони', desc: 'Gnizdo операції, трекінг у реальному часі, геозони, автопілот' },
@@ -171,7 +171,7 @@ export const IndustriesSection: React.FC<Props> = ({ locale }) => {
     },
     en: {
       title: 'Industry Expertise for Your Business',
-      intro: '14+ years of experience across 15 different industries allow us to understand the specifics of each sector and offer not just technical solutions, but ready-made business models. We know market challenges, regulatory requirements, and best practices for every industry — from Automotive to Robotics.',
+      intro: '14+ years of experience across 15 different industries enable us to understand the specifics of each sector and offer not just technical solutions, but ready-made business models. We know market challenges, regulatory requirements, and best practices for every industry — from Automotive to Robotics.',
       subtitle: 'Our industry expertise:',
       industries: [
         { icon: '🚗', title: 'Automotive', desc: 'car wash IoT/SCADA, +30% EBITDA, equipment telemetry, cashless payments' },

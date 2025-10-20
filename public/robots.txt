@@ -1,197 +1,38 @@
-# Diwave Solutions - Robots.txt
-# Updated: 2025-01-11
-# Оптимізовано для пошукових систем, AI-боті і соцмереж
+# robots.txt for https://diwave.com.ua
+# Generated: 2025-01-20
 
-# ====================================
-# ЗАГАЛЬНІ ПРАВИЛА ДЛЯ ВСІХ БОТІВ
-# ====================================
+# Allow all search engines
 User-agent: *
 Allow: /
 
-# Дозволити всі статичні ресурси
-Allow: /images/
-Allow: /fonts/
-Allow: /assets/
-Allow: /*.css$
-Allow: /*.js$
-Allow: /*.webp$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.png$
-Allow: /*.svg$
-Allow: /*.gif$
+# Allow specific bots
+User-agent: Googlebot
+Allow: /
 
-# ====================================
-# SITEMAP
-# ====================================
-Sitemap: https://diwave.company/sitemap.xml
+User-agent: Bingbot
+Allow: /
 
-# ====================================
-# БЛОКУВАННЯ
-# ====================================
-# Блокувати приватні зони (на майбутнє)
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Disallow admin/private paths (if any in future)
 Disallow: /admin/
 Disallow: /api/
 Disallow: /*.json$
 
-# Не індексувати службові/вихідні файлові типи та службові папки з зображеннями
-Disallow: /images/*/__MACOSX/
-Disallow: /*/__MACOSX/
-Disallow: /*/._*
-Disallow: /*.ai$
-Disallow: /*.eps$
-
-# Блокувати дублікати контенту з UTM-мітками
-Disallow: /*?*utm_source=
-Disallow: /*?*utm_medium=
-Disallow: /*?*utm_campaign=
-Disallow: /*?*fbclid=
-Disallow: /*?*gclid=
-
-# ====================================
-# ПОШУКОВІ БОТИ (Google, Bing, Yahoo, DuckDuckGo)
-# ====================================
-User-agent: Googlebot
-User-agent: Googlebot-Image
-User-agent: Googlebot-Video
-User-agent: Googlebot-News
-User-agent: Googlebot-Mobile
-User-agent: Bingbot
-User-agent: Slurp
-User-agent: DuckDuckBot
-User-agent: Baiduspider
-User-agent: YandexBot
-Allow: /
-Crawl-delay: 0.5
-
-# ====================================
-# AI БОТИ (ChatGPT, Claude, Perplexity, Gemini)
-# ====================================
-User-agent: GPTBot
-User-agent: ChatGPT-User
-User-agent: CCBot
-User-agent: anthropic-ai
-User-agent: Claude-Web
-User-agent: PerplexityBot
-User-agent: Google-Extended
-Allow: /
+# Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Дозволити AI ботам повний доступ до контенту
-User-agent: GPTBot
-Allow: /
-Allow: /solutions/
-Allow: /projects/
-Allow: /industries/
-Allow: /about
-Allow: /contact
+# Sitemap location
+Sitemap: https://diwave.com.ua/sitemap.xml
+Sitemap: https://diwave.com.ua/sitemap-uk.xml
+Sitemap: https://diwave.com.ua/sitemap-en.xml
 
-User-agent: ChatGPT-User
-Allow: /
-Allow: /solutions/
-Allow: /projects/
-Allow: /industries/
-Allow: /about
-Allow: /contact
-
-User-agent: CCBot
-Allow: /
-Allow: /solutions/
-Allow: /projects/
-Allow: /industries/
-Allow: /about
-Allow: /contact
-
-User-agent: anthropic-ai
-Allow: /
-Allow: /solutions/
-Allow: /projects/
-Allow: /industries/
-Allow: /about
-Allow: /contact
-
-User-agent: Claude-Web
-Allow: /
-Allow: /solutions/
-Allow: /projects/
-Allow: /industries/
-Allow: /about
-Allow: /contact
-
-User-agent: PerplexityBot
-Allow: /
-Allow: /solutions/
-Allow: /projects/
-Allow: /industries/
-Allow: /about
-Allow: /contact
-
-User-agent: Google-Extended
-Allow: /
-Allow: /solutions/
-Allow: /projects/
-Allow: /industries/
-Allow: /about
-Allow: /contact
-
-# ====================================
-# СОЦІАЛЬНІ МЕРЕЖІ (Facebook, Twitter, LinkedIn, Pinterest)
-# ====================================
-User-agent: facebookexternalhit
-User-agent: Twitterbot
-User-agent: LinkedInBot
-User-agent: Pinterest
-User-agent: TelegramBot
-User-agent: Slackbot
-User-agent: WhatsApp
-Allow: /
-Crawl-delay: 0.2
-
-# ====================================
-# SEO & АНАЛІТИКА БОТИ
-# ====================================
-User-agent: AhrefsBot
-User-agent: SemrushBot
-User-agent: MJ12bot
-User-agent: DotBot
-User-agent: Screaming Frog SEO Spider
-Allow: /
-Crawl-delay: 2
-
-# ====================================
-# АРХІВНІ БОТИ
-# ====================================
-User-agent: ia_archiver
-User-agent: archive.org_bot
-Allow: /
-Crawl-delay: 5
-
-# ====================================
-# БЛОКУВАННЯ ШКІДЛИВИХ БОТІВ
-# ====================================
-User-agent: SemrushBot
-Crawl-delay: 5
-
-User-agent: AhrefsBot
-Crawl-delay: 5
-
-User-agent: MJ12bot
-Crawl-delay: 10
-
-# Блокувати агресивних скреперів
-User-agent: SiteSnagger
-User-agent: WebCopier
-User-agent: WebReaper
-User-agent: WebZIP
-User-agent: HTTrack
-User-agent: Offline Explorer
-User-agent: WebStripper
-Disallow: /
-
-# ====================================
-# МЕТА-ІНФОРМАЦІЯ
-# ====================================
-# Host: https://diwave.company
-# Email: info@diwave.company
-# Supported Languages: uk (default), en
-# Last Updated: 2025-01-11
+# Host preference
+Host: https://diwave.com.ua

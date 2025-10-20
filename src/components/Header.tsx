@@ -120,7 +120,7 @@ const Header: React.FC = () => {
           <ThemeToggle />
           <Link
             to={makeLink('/contact', locale)}
-            className="hidden md:inline-block px-3 py-2 rounded-md bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 text-white font-semibold shadow-[0_0_16px_rgba(16,185,129,0.5)] dark:shadow-[0_0_16px_rgba(16,185,129,0.5)] light:shadow-[0_0_16px_rgba(37,99,235,0.5)] hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] dark:hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] light:hover:shadow-[0_0_24px_rgba(37,99,235,0.7)] transition-all"
+            className="hidden lg:inline-block px-3 py-2 rounded-md bg-emerald-500 dark:bg-emerald-500 light:bg-blue-600 text-white font-semibold shadow-[0_0_16px_rgba(16,185,129,0.5)] dark:shadow-[0_0_16px_rgba(16,185,129,0.5)] light:shadow-[0_0_16px_rgba(37,99,235,0.5)] hover:bg-emerald-400 dark:hover:bg-emerald-400 light:hover:bg-blue-700 hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] dark:hover:shadow-[0_0_24px_rgba(16,185,129,0.7)] light:hover:shadow-[0_0_24px_rgba(37,99,235,0.7)] transition-all"
           >
             {t('cta.discuss')}
           </Link>

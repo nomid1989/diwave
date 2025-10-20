@@ -1,6 +1,7 @@
 import React from 'react';
 import SEO from '@/components/SEO';
 import SmartImage from '@/components/ui/SmartImage';
+import { getBreadcrumbSchema, getProductSchema, getServiceSchema, getFAQSchema, combineSchemas } from '@/lib/structuredData';
 
 const baseUrl = (import.meta.env.VITE_SITE_URL as string) || window.location.origin;
 
@@ -125,86 +126,76 @@ export default function CarWashes({ locale }: Props) {
   const t = content[locale];
   const url = `${baseUrl}${locale === 'en' ? '/en' : ''}/solutions/car-washes`;
 
-  const jsonLd = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
+  const jsonLd = combineSchemas(
+    // Breadcrumb navigation
+    getBreadcrumbSchema([
+      { name: locale === 'uk' ? 'Головна' : 'Home', url: `${baseUrl}${locale === 'en' ? '/en' : ''}` },
+      { name: locale === 'uk' ? 'Рішення' : 'Solutions', url: `${baseUrl}${locale === 'en' ? '/en' : ''}/solutions` },
+      { name: 'SamWash', url }
+    ], locale),
+
+    // Service schema
+    getServiceSchema({
       name: locale === 'uk' ? 'Автомийки самообслуговування SamWash - рішення під ключ' : 'SamWash Self-Service Car Washes - Turnkey Solution',
-      description:
-        locale === 'uk' ? 'Повний цикл від виробництва обладнання до IoT/SCADA систем управління. QR-оплата, телеметрія, енергоефективність, віддалене керування через MySamWash. Рентабельність EBITDA до 70%.' : 'Full cycle from equipment manufacturing to IoT/SCADA management systems. QR payment, telemetry, energy efficiency, remote control via MySamWash. EBITDA profitability up to 70%.',
-      provider: {
-        '@type': 'Organization',
-        name: 'Diwave Solutions',
-        url: baseUrl,
-        sameAs: [
-          'https://www.facebook.com/samwashcarwash',
-          'https://www.instagram.com/samwash_carwash/',
-          'https://www.youtube.com/@samwash',
-          'https://www.tiktok.com/@samwash.official'
-        ]
-      },
-      areaServed: ['UA', 'EU'],
-      inLanguage: ['uk', 'en'],
-      url,
-      serviceType: 'Self-Service Car Wash Equipment & IoT Solutions',
-      offers: {
-        '@type': 'Offer',
-        description: locale === 'uk' ? 'Автомийки самообслуговування під ключ з обладнанням італійського виробництва' : 'Turnkey self-service car washes with Italian-made equipment',
-        priceCurrency: 'EUR',
-        priceRange: '€6,200 - €14,000',
-        availability: 'https://schema.org/InStock'
-      }
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: locale === 'uk' ? 'Яка рентабельність бізнесу автомийок самообслуговування SamWash?' : 'What is the profitability of SamWash self-service car wash business?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: locale === 'uk' ? 'Бізнес-модель SamWash забезпечує EBITDA до 70%. Це досягається за рахунок відсутності постійного персоналу, енергоефективних технологій, віддаленого управління через IoT/SCADA систему MySamWash та оптимізованих операційних витрат.' : 'SamWash business model provides EBITDA up to 70%. This is achieved through no permanent staff, energy-efficient technologies, remote management via MySamWash IoT/SCADA system, and optimized operational costs.'
-          }
-        }
-      ]
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Product',
+      description: locale === 'uk'
+        ? 'Повний цикл від виробництва обладнання до IoT/SCADA систем управління. QR-оплата, телеметрія, енергоефективність, віддалене керування через MySamWash. Рентабельність EBITDA до 70%. Понад 120 локацій в Україні та ЄС.'
+        : 'Full cycle from equipment manufacturing to IoT/SCADA management systems. QR payment, telemetry, energy efficiency, remote control via MySamWash. EBITDA profitability up to 70%. Over 120 locations in Ukraine and EU.',
+      serviceType: 'Car Wash Equipment and Management System',
+      areaServed: ['Ukraine', 'European Union'],
+      provider: 'Diwave Solutions'
+    }, locale),
+
+    // Product schema for equipment
+    getProductSchema({
       name: locale === 'uk' ? 'Обладнання для автомийок самообслуговування SamWash' : 'SamWash Self-Service Car Wash Equipment',
-      description: locale === 'uk' ? 'Італійське обладнання для автомийок самообслуговування з інтегрованою IoT/SCADA системою управління' : 'Italian equipment for self-service car washes with integrated IoT/SCADA management system',
-      brand: {
-        '@type': 'Brand',
-        name: 'SamWash'
+      description: locale === 'uk'
+        ? 'Італійське обладнання для автомийок самообслуговування з інтегрованою IoT/SCADA системою MySamWash. Включає: італійське обладнання Schneider Electric, Omron, Ebara, QR-термінали, телеметрію, віддалене управління.'
+        : 'Italian equipment for self-service car washes with integrated MySamWash IoT/SCADA system. Includes: Italian equipment Schneider Electric, Omron, Ebara, QR terminals, telemetry, remote management.',
+      image: `${baseUrl}/images/solutions/car-washes/FEC5B102-98DA-4179-BDEE-88D3EFCC21E3_1_105_c.jpeg`,
+      brand: 'SamWash by Diwave',
+      sku: 'SAMWASH-EQUIPMENT-001',
+      category: 'Car Wash Equipment',
+      price: 9500,
+      currency: 'EUR',
+      availability: 'InStock',
+      url,
+      rating: { value: 4.9, count: 120 }
+    }, locale),
+
+    // FAQ schema
+    getFAQSchema([
+      {
+        question: locale === 'uk' ? 'Яка рентабельність бізнесу автомийок самообслуговування SamWash?' : 'What is the profitability of SamWash self-service car wash business?',
+        answer: locale === 'uk'
+          ? 'Бізнес-модель SamWash забезпечує EBITDA до 70%. Це досягається за рахунок відсутності постійного персоналу, енергоефективних технологій, віддаленого управління через IoT/SCADA систему MySamWash та оптимізованих операційних витрат. Реальні кейси показують виручку від €3,000 до €12,000 на місяць з одної локації.'
+          : 'SamWash business model provides EBITDA up to 70%. This is achieved through no permanent staff, energy-efficient technologies, remote management via MySamWash IoT/SCADA system, and optimized operational costs. Real cases show revenue from €3,000 to €12,000 per month from one location.'
       },
-      manufacturer: {
-        '@type': 'Organization',
-        name: 'SamWash / Diwave Solutions',
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'Kulparkivska St, 108',
-          addressLocality: 'Lviv',
-          addressRegion: 'Lviv Oblast',
-          postalCode: '79000',
-          addressCountry: 'UA'
-        }
+      {
+        question: locale === 'uk' ? 'Скільки коштує обладнання для автомийки на 3 пости?' : 'How much does equipment cost for a 3-bay car wash?',
+        answer: locale === 'uk'
+          ? 'Базова комплектація на 3 мийних пости коштує від €18,600 (обладнання + накриття + пилосос + термінал). Ціна включає італійське обладнання, IoT систему MySamWash, 2 роки гарантії. Додатково розраховуються: підготовка майданчика, підключення комунікацій, доставка.'
+          : 'Basic configuration for 3 wash bays costs from €18,600 (equipment + canopy + vacuum + terminal). The price includes Italian equipment, MySamWash IoT system, 2-year warranty. Additionally calculated: site preparation, utility connections, delivery.'
       },
-      offers: {
-        '@type': 'AggregateOffer',
-        priceCurrency: 'EUR',
-        lowPrice: '6200',
-        highPrice: '14000',
-        offerCount: '6',
-        availability: 'https://schema.org/InStock'
+      {
+        question: locale === 'uk' ? 'Що входить в IoT систему MySamWash?' : 'What is included in the MySamWash IoT system?',
+        answer: locale === 'uk'
+          ? 'MySamWash - повна IoT/SCADA екосистема: віддалене управління обладнанням, QR-оплата та інтеграція з платіжними системами, телеметрія в реальному часі, аналітика та звіти, CRM для клієнтів, моніторинг 24/7, сповіщення про несправності.'
+          : 'MySamWash is a complete IoT/SCADA ecosystem: remote equipment management, QR payment and payment system integration, real-time telemetry, analytics and reports, customer CRM, 24/7 monitoring, malfunction notifications.'
       },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.5',
-        reviewCount: '120'
+      {
+        question: locale === 'uk' ? 'Скільки часу займає окупність інвестицій?' : 'How long does it take to recoup the investment?',
+        answer: locale === 'uk'
+          ? 'Середній термін окупності автомийки SamWash - 12-24 місяці залежно від локації, трафіку та рівня конкуренції. В топових локаціях з великим трафіком окупність може становити 8-12 місяців. Ключові фактори: локація, кількість постів, маркетинг, якість обслуговування.'
+          : 'Average payback period for SamWash car wash is 12-24 months depending on location, traffic, and competition level. In top locations with high traffic, payback can be 8-12 months. Key factors: location, number of bays, marketing, service quality.'
+      },
+      {
+        question: locale === 'uk' ? 'Чи потрібен персонал для роботи автомийки?' : 'Is staff required to operate the car wash?',
+        answer: locale === 'uk'
+          ? 'Автомийки SamWash працюють 24/7 БЕЗ постійного персоналу завдяки повній автоматизації через MySamWash. Необхідне тільки періодичне обслуговування (1-2 рази на тиждень): прибирання, перевірка обладнання, заправка хімії. Один працівник може обслуговувати 5-10 локацій.'
+          : 'SamWash car washes operate 24/7 WITHOUT permanent staff thanks to full automation via MySamWash. Only periodic maintenance required (1-2 times per week): cleaning, equipment check, chemistry refill. One employee can service 5-10 locations.'
       }
-    }
-  ];
+    ], locale)
+  );
 
   return (
     <>

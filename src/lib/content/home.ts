@@ -110,8 +110,8 @@ export const getHomeContent = (locale: Locale): HomeContent => {
         keywords: 'Diwave автоматизація бізнесу, IoT SCADA Україна, автомийки SamWash, вендинг з сенсорним екраном, e-commerce CRM інтеграції, платіжні системи, AI SEO оптимізація, дрони FPV Gnizdo, телеметрія обладнання, безготівкові платежі'
       },
       hero: {
-        title: 'Автоматизуємо бізнес та підключаємо обладнання до інтернету.',
-        subtitle: 'E-commerce, CRM/SCADA, IoT, AI-SEO, платіжні інтеграції та аналітика.',
+        title: 'Автоматизуємо бізнес і підключаємо обладнання до інтернету',
+        subtitle: 'E-commerce, CRM/SCADA, IoT, AI-SEO, платіжні інтеграції й аналітика',
         cta: {
           primary: 'Обговорити проєкт',
           secondary: 'Переглянути рішення'
@@ -125,19 +125,19 @@ export const getHomeContent = (locale: Locale): HomeContent => {
         items: [
           {
             title: 'Автомийки самообслуговування SamWash',
-            description: 'Повністю автоматизовані комплекси з EBITDA 70%. Інтеграції з готівковими, безготівковими та монетними платіжними пристроями та дистанційним керуванням і обслуговуванням. Ти спиш, а бізнес працює 24/7',
+            description: 'Повністю автоматизовані комплекси з EBITDA 70%. Інтеграції з готівковими, безготівковими й монетними платіжними пристроями, дистанційне керування та обслуговування. Ви спите — бізнес працює 24/7',
             badge: 'Популярне',
             cta: 'Дізнатися більше'
           },
           {
-            title: 'Порохотяг самообслуговування з сенсорним екраном та ступенем захисту IP 65',
-            description: 'Ефективний порохотяг самообслуговування на 2 поста, потужністю 6 кВт 380V для автомийок, електро зарядних станцій та зон скупчення автомобілей',
+            title: 'Пилосос самообслуговування з сенсорним екраном і захистом IP65',
+            description: 'Ефективний пилосос самообслуговування на 2 пости, потужністю 6 кВт 380 В для автомийок, електрозарядних станцій і зон скупчення автомобілів',
             badge: 'IoT',
             cta: 'Дізнатися більше'
           },
           {
             title: 'Дрони FPV • Гніздо (UAPD)',
-            description: 'Українська асоціація пілотів дронів: навчання, виробництво та розвиток drone-технологій',
+            description: 'Українська асоціація пілотів дронів: навчання, виробництво й розвиток drone-технологій',
             badge: 'Новинка',
             cta: 'Дізнатися більше'
           }
@@ -160,7 +160,7 @@ export const getHomeContent = (locale: Locale): HomeContent => {
       vending: {
         badge: 'Вендингові рішення',
         title: 'Вендингові апарати з сенсорним екраном',
-        description: 'Захист IP65 — повна захищеність від пилу та водяних бризок. Ідеально підходить для зовнішньої установки у будь-яких погодних умовах.',
+        description: 'Захист IP65 — повний захист від пилу й водяних бризок. Ідеально підходить для зовнішнього встановлення в будь-яких погодних умовах.',
         features: [
           'Сенсорний екран 19" високої яскравості для роботи на вулиці',
           'Безконтактна оплата (NFC, QR-коди, картки)',
@@ -184,7 +184,7 @@ export const getHomeContent = (locale: Locale): HomeContent => {
       },
       about: {
         title: 'Хто ми?',
-        description: 'Diwave — інженерна команда, що поєднує апаратні рішення, програмне забезпечення та аналітику. Ми автоматизуємо бізнес‑процеси, підключаємо обладнання (IoT/SCADA), інтегруємо платежі та запускаємо e‑commerce, CRM/лояльність і AI‑SEO. Працюємо від Discovery і дизайну до запуску та подальшого зростання.',
+        description: 'Diwave — інженерна команда, яка поєднує апаратні рішення, програмне забезпечення й аналітику. Ми автоматизуємо бізнес-процеси, підключаємо обладнання (IoT/SCADA), інтегруємо платежі та запускаємо e-commerce, CRM/лояльність і AI-SEO. Працюємо від Discovery й дизайну до запуску та подальшого зростання.',
         cta: 'Дізнатися про нас більше'
       },
       faq: {
@@ -200,7 +200,7 @@ export const getHomeContent = (locale: Locale): HomeContent => {
           }
         ],
         cta: {
-          question: 'Готові розв\'язати вузьке місце у вашому бізнесі?',
+          question: 'Готові вирішити вузьке місце у вашому бізнесі?',
           button: 'Зв\'язатися'
         }
       },
@@ -223,7 +223,7 @@ export const getHomeContent = (locale: Locale): HomeContent => {
         founder: {
           name: 'Dmytro Kravets',
           title: 'Founder, Diwave',
-          bio: 'Ми поєднуємо апаратні рішення, програмне забезпечення та аналітику: автомийки, вендинг, дрони, e‑commerce, платежі, лояльність та енергетику. Автоматизуємо процеси за допомогою AI, щоб бізнес працював ефективніше.'
+          bio: 'Ми поєднуємо апаратні рішення, програмне забезпечення й аналітику: автомийки, вендинг, дрони, e-commerce, платежі, лояльність та енергетику. Автоматизуємо процеси за допомогою AI, щоб бізнес працював ефективніше.'
         },
         form: {
           title: 'Зв\'язатися з нами',
@@ -239,8 +239,8 @@ export const getHomeContent = (locale: Locale): HomeContent => {
         keywords: 'Diwave business automation, IoT SCADA Ukraine, SamWash car wash, touchscreen vending, e-commerce CRM integrations, payment systems, AI SEO optimization, FPV drones Gnizdo, equipment telemetry, cashless payments'
       },
       hero: {
-        title: 'We automate business and connect equipment to the internet.',
-        subtitle: 'E-commerce, CRM/SCADA, IoT, AI-SEO, payment integrations and analytics.',
+        title: 'We automate businesses and connect equipment to the internet',
+        subtitle: 'E-commerce, CRM/SCADA, IoT, AI-SEO, payment integrations, and analytics',
         cta: {
           primary: 'Discuss project',
           secondary: 'Explore solutions'
@@ -254,19 +254,19 @@ export const getHomeContent = (locale: Locale): HomeContent => {
         items: [
           {
             title: 'SamWash Self-Service Car Wash',
-            description: 'Fully automated complexes with 70% EBITDA. Integrations with cash, cashless and coin payment devices with remote management and maintenance. You sleep, business works 24/7',
+            description: 'Fully automated complexes with 70% EBITDA. Integration with cash, cashless, and coin payment devices, remote management, and maintenance. You sleep — your business works 24/7',
             badge: 'Popular',
             cta: 'Learn more'
           },
           {
             title: 'Self-Service Vacuum Cleaner with Touchscreen and IP65 Protection',
-            description: 'Efficient self-service vacuum cleaner for 2 bays, 6 kW 380V power for car washes, EV charging stations and vehicle gathering areas',
+            description: 'High-performance self-service vacuum cleaner for 2 bays, 6 kW 380V power, designed for car washes, EV charging stations, and vehicle gathering areas',
             badge: 'IoT',
             cta: 'Learn more'
           },
           {
             title: 'FPV Drones • Gnizdo (UAPD)',
-            description: 'Ukrainian Association of Drone Pilots: training, manufacturing and development of drone technologies',
+            description: 'Ukrainian Association of Drone Pilots: training, manufacturing, and development of drone technologies',
             badge: 'New',
             cta: 'Learn more'
           }
@@ -289,7 +289,7 @@ export const getHomeContent = (locale: Locale): HomeContent => {
       vending: {
         badge: 'Vending Solutions',
         title: 'Vending machines with touchscreen',
-        description: 'IP65 protection — complete protection from dust and water splashes. Ideal for outdoor installation in any weather conditions.',
+        description: 'IP65 protection — complete protection against dust and water splashes. Ideal for outdoor installation in any weather conditions.',
         features: [
           '19" high brightness touchscreen for outdoor operation',
           'Contactless payment (NFC, QR codes, cards)',
@@ -313,7 +313,7 @@ export const getHomeContent = (locale: Locale): HomeContent => {
       },
       about: {
         title: 'Who we are?',
-        description: 'Diwave is an engineering team that combines hardware solutions, software and analytics. We automate business processes, connect equipment (IoT/SCADA), integrate payments and launch e-commerce, CRM/loyalty and AI-SEO. We work from Discovery and design to launch and further growth.',
+        description: 'Diwave is an engineering team that combines hardware solutions, software, and analytics. We automate business processes, connect equipment (IoT/SCADA), integrate payments, and launch e-commerce, CRM/loyalty, and AI-SEO solutions. We work from discovery and design through to launch and sustained growth.',
         cta: 'Learn more about us'
       },
       faq: {
@@ -352,7 +352,7 @@ export const getHomeContent = (locale: Locale): HomeContent => {
         founder: {
           name: 'Dmytro Kravets',
           title: 'Founder, Diwave',
-          bio: 'We combine hardware solutions, software and analytics: car washes, vending, drones, e-commerce, payments, loyalty and energy. We automate processes using AI to make business work more efficiently.'
+          bio: 'We combine hardware solutions, software, and analytics: car washes, vending, drones, e-commerce, payments, loyalty, and energy. We automate processes using AI to make businesses work more efficiently.'
         },
         form: {
           title: 'Contact us',

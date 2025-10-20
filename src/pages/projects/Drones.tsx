@@ -200,7 +200,7 @@ export default function DronesProject({ locale }: Props) {
               const images = [
                 '3361D8C0-36B5-44B3-90F7-0B2A7D558300_1_105_c.jpeg',
                 '741ADB82-E672-4F57-95E6-790CD07D8C92_1_105_c.jpeg',
-                'C23FC16A-3AB2-466E-A477-E7407FC5ACFB_1_105_c.jpeg',
+                'hero.jpeg',
                 '3696655F-B429-4D7B-BC47-A9E554ABDC70_4_5005_c.jpeg'
               ];
               return (

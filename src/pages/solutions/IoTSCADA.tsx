@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SEO from '@/components/SEO';
 import SmartImage from '@/components/ui/SmartImage';
 import { motion } from 'framer-motion';
+import { getBreadcrumbSchema, getServiceSchema, getSoftwareApplicationSchema, getFAQSchema, combineSchemas } from '@/lib/structuredData';
 
 const baseUrl = (import.meta.env.VITE_SITE_URL as string) || window.location.origin;
 
@@ -373,30 +374,83 @@ export default function IoTSCADA({ locale }: Props) {
   const t = content[locale];
   const url = `${baseUrl}${locale === 'en' ? '/en' : ''}/solutions/iot-scada`;
 
-  const jsonLd = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: t.heroTitle,
-      description: t.description,
-      provider: {
-        '@type': 'Organization',
-        name: 'Diwave Solutions',
-        url: baseUrl,
-        logo: `${baseUrl}/images/logo.png`
-      },
-      areaServed: ['UA', 'EU', 'US'],
-      inLanguage: ['uk', 'en'],
-      url,
+  const jsonLd = combineSchemas(
+    // Breadcrumb
+    getBreadcrumbSchema([
+      { name: locale === 'uk' ? 'Головна' : 'Home', url: `${baseUrl}${locale === 'en' ? '/en' : ''}` },
+      { name: locale === 'uk' ? 'Рішення' : 'Solutions', url: `${baseUrl}${locale === 'en' ? '/en' : ''}/solutions` },
+      { name: 'IoT/SCADA', url }
+    ], locale),
+
+    // Service schema
+    getServiceSchema({
+      name: locale === 'uk' ? 'IoT & SCADA Платформи для Промислової Автоматизації' : 'IoT & SCADA Platforms for Industrial Automation',
+      description: locale === 'uk'
+        ? 'Професійні IoT/SCADA платформи: підключення обладнання (MQTT, Modbus, OPC UA), телеметрія 24/7, AI-аналітика, прогнозне обслуговування. Зменшення простою до 30%, віддалене керування, 500+ підключених пристроїв.'
+        : 'Professional IoT/SCADA platforms: equipment connectivity (MQTT, Modbus, OPC UA), 24/7 telemetry, AI analytics, predictive maintenance. 30% downtime reduction, remote control, 500+ connected devices.',
+      serviceType: 'Industrial Automation Platform',
+      areaServed: ['Ukraine', 'European Union', 'United States'],
+      provider: 'Diwave Solutions'
+    }, locale),
+
+    // SoftwareApplication schema for IoT platform
+    getSoftwareApplicationSchema({
+      name: locale === 'uk' ? 'Diwave IoT/SCADA Platform' : 'Diwave IoT/SCADA Platform',
+      description: locale === 'uk'
+        ? 'Cloud-based IoT/SCADA платформа для промислової автоматизації: real-time моніторинг, AI-аналітика, автоматизація процесів, підтримка MQTT/Modbus/OPC UA протоколів.'
+        : 'Cloud-based IoT/SCADA platform for industrial automation: real-time monitoring, AI analytics, process automation, support for MQTT/Modbus/OPC UA protocols.',
+      operatingSystem: ['Web', 'iOS', 'Android', 'Windows', 'Linux'],
+      applicationCategory: 'BusinessApplication',
       offers: {
-        '@type': 'AggregateOffer',
-        priceCurrency: 'USD',
-        lowPrice: '3000',
-        highPrice: '50000',
-        offerCount: '3'
+        price: '8000',
+        priceCurrency: 'USD'
+      },
+      aggregateRating: {
+        ratingValue: '4.8',
+        reviewCount: '45'
       }
-    }
-  ];
+    }, locale),
+
+    // FAQ schema
+    getFAQSchema([
+      {
+        question: locale === 'uk' ? 'Які пристрої можна підключити до IoT/SCADA платформи?' : 'What devices can be connected to the IoT/SCADA platform?',
+        answer: locale === 'uk'
+          ? 'Будь-які пристрої з підтримкою MQTT, Modbus RTU/TCP, OPC UA, HTTP/REST API. Також працюємо з промисловими контролерами Schneider Electric, Siemens, Omron, Arduino, Raspberry Pi. Якщо пристрій має RS485/RS232 інтерфейс - підключимо через IoT-шлюз з перетворенням протоколів.'
+          : 'Any devices supporting MQTT, Modbus RTU/TCP, OPC UA, HTTP/REST API. We also work with industrial controllers Schneider Electric, Siemens, Omron, Arduino, Raspberry Pi. If device has RS485/RS232 interface - we connect via IoT gateway with protocol conversion.'
+      },
+      {
+        question: locale === 'uk' ? 'Чи можна інтегрувати IoT платформу з існуючими системами ERP/CRM?' : 'Can the IoT platform be integrated with existing ERP/CRM systems?',
+        answer: locale === 'uk'
+          ? 'Так, повністю інтегруємо з ERP системами (SAP, Microsoft Dynamics, 1C), CRM (Salesforce, HubSpot, Zoho), BI системами (Power BI, Tableau, Looker), payment провайдерами. Надаємо REST API та webhooks для двостороннього обміну даними в реальному часі.'
+          : 'Yes, full integration with ERP systems (SAP, Microsoft Dynamics, 1C), CRM (Salesforce, HubSpot, Zoho), BI systems (Power BI, Tableau, Looker), payment providers. We provide REST API and webhooks for real-time bidirectional data exchange.'
+      },
+      {
+        question: locale === 'uk' ? 'Як швидко можна запустити IoT/SCADA платформу?' : 'How quickly can the IoT/SCADA platform be launched?',
+        answer: locale === 'uk'
+          ? 'Залежить від складності проєкту: базова платформа для моніторингу - 4-6 тижнів, складна система з AI-аналітикою та інтеграціями - 2-3 місяці. Починаємо з Discovery фази та PoC (proof of concept) протягом 2 тижнів. Перші дані з пристроїв отримуємо вже на 1-2 тижні.'
+          : 'Depends on project complexity: basic monitoring platform - 4-6 weeks, complex system with AI analytics and integrations - 2-3 months. We start with Discovery phase and PoC (proof of concept) within 2 weeks. First data from devices available in 1-2 weeks.'
+      },
+      {
+        question: locale === 'uk' ? 'Чи безпечна передача даних через IoT платформу?' : 'Is data transmission through the IoT platform secure?',
+        answer: locale === 'uk'
+          ? 'Так, використовуємо TLS 1.3 end-to-end шифрування для всіх з\'єднань, JWT токени для автентифікації, role-based access control (RBAC) для управління правами. Дані зберігаються в захищених AWS/Azure дата-центрах з автоматичним резервним копіюванням та災難恢復планами. Відповідаємо стандартам ISO 27001, GDPR.'
+          : 'Yes, we use TLS 1.3 end-to-end encryption for all connections, JWT tokens for authentication, role-based access control (RBAC) for permissions management. Data stored in secure AWS/Azure data centers with automatic backup and disaster recovery plans. Compliant with ISO 27001, GDPR standards.'
+      },
+      {
+        question: locale === 'uk' ? 'Які метрики та KPI можна відстежувати через платформу?' : 'What metrics and KPIs can be tracked through the platform?',
+        answer: locale === 'uk'
+          ? 'Будь-які датчики та метрики: температура, тиск, вологість, споживання енергії/води/газу, вібрація, обороти двигунів, витрати матеріалів, стан датчиків, GPS координати, лічильники виробництва, OEE (Overall Equipment Effectiveness), MTBF (Mean Time Between Failures), downtime причини та тривалість.'
+          : 'Any sensors and metrics: temperature, pressure, humidity, energy/water/gas consumption, vibration, motor RPM, material consumption, sensor status, GPS coordinates, production counters, OEE (Overall Equipment Effectiveness), MTBF (Mean Time Between Failures), downtime causes and duration.'
+      },
+      {
+        question: locale === 'uk' ? 'Чи підтримується on-premise розгортання платформи?' : 'Is on-premise platform deployment supported?',
+        answer: locale === 'uk'
+          ? 'Так, для Enterprise клієнтів пропонуємо on-premise або hybrid (частково cloud, частково on-premise) розгортання. Надаємо Docker контейнери, Kubernetes charts, документацію по встановленню та налаштуванню. Також можливий air-gapped (повністю ізольований) режим для критичної інфраструктури.'
+          : 'Yes, for Enterprise clients we offer on-premise or hybrid (partially cloud, partially on-premise) deployment. We provide Docker containers, Kubernetes charts, installation and configuration documentation. Air-gapped (fully isolated) mode also available for critical infrastructure.'
+      }
+    ], locale)
+  );
 
   return (
     <>

@@ -1,6 +1,7 @@
 import React from 'react';
 import SEO from '@/components/SEO';
 import SmartImage from '@/components/ui/SmartImage';
+import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, combineSchemas } from '@/lib/structuredData';
 
 const baseUrl = (import.meta.env.VITE_SITE_URL as string) || window.location.origin;
 
@@ -10,19 +11,42 @@ export default function Marketing() {
     'Органіка, локальне SEO, таргетинг у соцмережах, performance‑реклама та end‑to‑end аналітика для зростання бізнесу.';
   const url = `${baseUrl}/solutions/marketing`;
 
-  const jsonLd = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Service',
-      name: 'SEO/GEO‑SEO, SMM, Ads, аналітика',
-      description:
-        'Локальне та технічне SEO, контент, реклама, SMM і наскрізна аналітика для B2C/B2B.',
-      provider: { '@type': 'Organization', name: 'Diwave Solutions', url: baseUrl },
-      areaServed: ['UA', 'EU'],
-      inLanguage: ['uk', 'en'],
-      url
-    }
-  ];
+  const jsonLd = combineSchemas(
+    getBreadcrumbSchema([
+      { name: 'Головна', url: baseUrl },
+      { name: 'Рішення', url: `${baseUrl}/solutions` },
+      { name: 'Маркетинг', url }
+    ], 'uk'),
+    getServiceSchema({
+      name: 'SEO/GEO-SEO, SMM, Ads і Аналітика',
+      description: 'Комплексний digital-маркетинг: технічне та локальне SEO, контент-маркетинг, SMM (Facebook/Instagram/TikTok), Google/Facebook Ads, end-to-end аналітика. Підвищення органічного трафіку на 150-300%, ROI 300-500%, ROAS 4-8x.',
+      serviceType: 'Digital Marketing',
+      areaServed: ['Ukraine', 'European Union', 'United States'],
+      provider: 'Diwave Solutions'
+    }, 'uk'),
+    getFAQSchema([
+      {
+        question: 'Які послуги входять в digital-маркетинг від Diwave?',
+        answer: 'Комплекс послуг: технічне SEO (швидкість, структура, мікророзмітка), контент-маркетинг, локальне GEO-SEO, SMM (соцмережі: Facebook, Instagram, TikTok, LinkedIn), performance-реклама (Google Ads, Facebook Ads, TikTok Ads), end-to-end аналітика (GA4, GTM, BigQuery), CRO (оптимізація конверсій).'
+      },
+      {
+        question: 'Скільки коштує SEO просування сайту?',
+        answer: 'Залежить від конкуренції та цілей: базове технічне SEO аудит - від $500, комплексне SEO просування (технічна оптимізація + контент + посилання) - від $2,000/міс, локальне GEO-SEO для бізнесу - від $1,000/міс. Перші результати через 2-3 місяці, стійкі результати через 6-9 місяців.'
+      },
+      {
+        question: 'Який ROI від контекстної реклами Google Ads?',
+        answer: 'Типовий ROI від Google Ads кампаній: e-commerce - 300-500%, B2B послуги - 200-400%, локальний бізнес - 400-600%. ROAS (Return on Ad Spend) зазвичай 4-8x. Залежить від ніші, конкуренції, якості посадкових сторінок, CRO оптимізації. Мінімальний бюджет для тесту - від $500/міс.'
+      },
+      {
+        question: 'Як виміряти ефективність маркетингу через end-to-end аналітику?',
+        answer: 'End-to-end аналітика відстежує весь шлях клієнта від першого дотику до покупки: джерело трафіку (Google/Facebook/Direct), взаємодія на сайті, конверсії, CRM дані, фактичний дохід. Інструменти: Google Analytics 4, Google Tag Manager, BigQuery, CRM інтеграції. Дає повне розуміння ROI кожного каналу та attribution моделі.'
+      },
+      {
+        question: 'Чи можна поєднати SEO та контекстну рекламу?',
+        answer: 'Так, це найефективніша стратегія! SEO дає довгостроковий безкоштовний трафік (результати через 3-6 місяців, стабільні), Google Ads - миттєві результати (сьогодні запустили - завтра продажі), але платно. Поєднання дає: швидкий старт через Ads + органічне зростання через SEO = максимальне охоплення SERP та нижча ціна за лід.'
+      }
+    ], 'uk')
+  );
 
   return (
     <>
