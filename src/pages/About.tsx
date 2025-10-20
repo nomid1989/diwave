@@ -1,7 +1,6 @@
 import React from 'react';
 import SEO from '@/components/SEO';
 import SmartImage from '@/components/ui/SmartImage';
-import { motion } from 'framer-motion';
 
 type Props = { locale: 'uk' | 'en' };
 
@@ -251,12 +250,7 @@ const About: React.FC<Props> = ({ locale }) => {
         <div className="absolute inset-0 opacity-20 dark:opacity-20 light:opacity-10" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(99,102,241,0.15) 1px, transparent 0)', backgroundSize: '48px 48px'}} aria-hidden />
 
         <div className="mx-auto max-w-7xl px-6 py-20 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             {/* Mercedes-Benz inspired triple diamond */}
             <div className="flex items-center justify-center gap-3 mb-8">
               <svg className="w-8 h-8 text-cyan-400 dark:text-cyan-400 light:text-blue-600" viewBox="0 0 24 24" fill="currentColor">
@@ -276,15 +270,10 @@ const About: React.FC<Props> = ({ locale }) => {
             <p className="text-xl text-gray-300 dark:text-gray-300 light:text-gray-700 max-w-3xl mx-auto leading-relaxed">
               {t.heroSubtitle}
             </p>
-          </motion.div>
+          </div>
 
           {/* Hero Images Gallery - iOS 26 Ultra Glass */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid md:grid-cols-3 gap-6 items-start"
-          >
+          <div className="grid md:grid-cols-3 gap-6 items-start">
             {/* Card 1 - Horizontal */}
             <div className="group relative rounded-2xl overflow-hidden border-2 border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/20 to-black/10 dark:from-black/20 dark:to-black/10 light:from-gray-50 light:to-white backdrop-blur-xl shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-cyan-500/20 dark:hover:shadow-cyan-500/20 light:hover:shadow-blue-500/30 hover:border-cyan-400/60 dark:hover:border-cyan-400/60 light:hover:border-blue-400">
               <div className="relative aspect-[4/3]">
@@ -331,7 +320,7 @@ const About: React.FC<Props> = ({ locale }) => {
               </div>
             </div>
 
-           </motion.div>
+           </div>
         </div>
       </section>
 
@@ -339,12 +328,7 @@ const About: React.FC<Props> = ({ locale }) => {
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Mission */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="group relative rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 overflow-hidden backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-blue-400"
-          >
+          <div className="group relative rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 overflow-hidden backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-blue-400">
             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/95 light:via-white/90 light:to-white/95 backdrop-saturate-[200%]" />
             {/* Gemini mesh */}
             <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -363,15 +347,10 @@ const About: React.FC<Props> = ({ locale }) => {
                 {t.missionText}
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Values */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="group relative rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 overflow-hidden backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:border-purple-400/50 dark:hover:border-purple-400/50 light:hover:border-purple-400"
-          >
+          <div className="group relative rounded-3xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 overflow-hidden backdrop-blur-3xl shadow-xl transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:border-purple-400/50 dark:hover:border-purple-400/50 light:hover:border-purple-400">
             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-white/[0.02] to-white/[0.05] dark:from-white/[0.05] dark:via-white/[0.02] dark:to-white/[0.05] light:from-white/95 light:via-white/90 light:to-white/95 backdrop-saturate-[200%]" />
             {/* Gemini mesh */}
             <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -399,31 +378,21 @@ const About: React.FC<Props> = ({ locale }) => {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Founder Section - Featured */}
       <section className="mx-auto max-w-7xl px-6 py-20 bg-gradient-to-br from-cyan-900/10 via-blue-900/5 to-purple-900/10 dark:from-cyan-900/10 dark:via-blue-900/5 dark:to-purple-900/10 light:from-blue-50 light:via-indigo-50 light:to-purple-50">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold  dark:text-white light:text-gray-900 mb-3">
             {t.founderTitle}
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-5 gap-8">
           {/* Founder Photo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="md:col-span-2"
-          >
+          <div className="md:col-span-2">
             <div className="rounded-2xl border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-gradient-to-br from-cyan-900/10 via-blue-900/5 to-purple-900/10 dark:from-cyan-900/10 dark:via-blue-900/5 dark:to-purple-900/10 light:from-blue-50 light:via-indigo-50 light:to-purple-50 p-6 backdrop-blur-xl shadow-2xl h-fit">
               <div className="rounded-xl mb-4 w-full">
                 <SmartImage
@@ -459,15 +428,10 @@ const About: React.FC<Props> = ({ locale }) => {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Founder Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="md:col-span-3 space-y-6"
-          >
+          <div className="md:col-span-3 space-y-6">
             <div className="rounded-2xl border border-white/10 dark:border-white/10 light:border-gray-200 bg-white/3 dark:bg-white/3 light:bg-white/80 p-8 backdrop-blur-xl shadow-xl">
               <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed mb-6">
                 {t.founderBio}
@@ -516,34 +480,25 @@ const About: React.FC<Props> = ({ locale }) => {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Team Section */}
       <section className="mx-auto max-w-7xl px-6 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold  dark:text-white light:text-gray-900 mb-3">
             {t.teamTitle}
           </h2>
           <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 max-w-2xl mx-auto">
             {t.teamSubtitle}
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {teamMembers.filter(m => !m.featured).map((member, i) => (
-            <motion.div
+          {teamMembers.filter(m => !m.featured).map((member) => (
+            <div
               key={member.fileBase}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
               className="group text-center"
             >
               {/* Circular photo with iOS 26 glassmorphism */}
@@ -563,17 +518,12 @@ const About: React.FC<Props> = ({ locale }) => {
               <div className="text-cyan-300 dark:text-cyan-300 light:text-blue-600 text-sm">
                 {member.role}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Team Photos Grid - Блоки підлаштовуються під фото */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12 grid md:grid-cols-3 gap-6 items-start"
-        >
+        <div className="mt-12 grid md:grid-cols-3 gap-6 items-start">
           {/* Photo 1 - Horizontal */}
           <div className="group rounded-2xl border-2 border-white/10 dark:border-white/10 light:border-gray-200 bg-gradient-to-br from-black/10 to-black/5 dark:from-black/10 dark:to-black/5 light:from-white/80 light:to-white backdrop-blur-xl shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 dark:hover:shadow-cyan-500/20 light:hover:shadow-cyan-500/30 hover:scale-[1.02] hover:border-cyan-400/50 dark:hover:border-cyan-400/50 light:hover:border-cyan-400 transition-all duration-300 overflow-hidden">
             <div className="aspect-[4/3] overflow-hidden">
@@ -640,7 +590,7 @@ const About: React.FC<Props> = ({ locale }) => {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
         <div className="mt-8 flex items-center gap-4">
           <span className="text-gray-400 text-sm">{locale === 'en' ? 'Social:' : 'Соцмережі:'}</span>
           <a href="https://www.facebook.com/DiWave.company" className="text-blue-400 hover:text-blue-300 text-sm" target="_blank" rel="noopener noreferrer">Facebook</a>
@@ -653,12 +603,7 @@ const About: React.FC<Props> = ({ locale }) => {
       <section className="mx-auto max-w-7xl px-6 py-20">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Team Contact Photo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="rounded-2xl border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-gradient-to-br from-cyan-900/10 via-blue-900/5 to-purple-900/10 dark:from-cyan-900/10 dark:via-blue-900/5 dark:to-purple-900/10 light:from-blue-50 light:via-indigo-50 light:to-purple-50 overflow-hidden backdrop-blur-xl shadow-2xl"
-          >
+          <div className="rounded-2xl border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-gradient-to-br from-cyan-900/10 via-blue-900/5 to-purple-900/10 dark:from-cyan-900/10 dark:via-blue-900/5 dark:to-purple-900/10 light:from-blue-50 light:via-indigo-50 light:to-purple-50 overflow-hidden backdrop-blur-xl shadow-2xl">
             <SmartImage
               sources={[
                 "/images/about/DmytroKravetsFamaly.webp",
@@ -670,15 +615,10 @@ const About: React.FC<Props> = ({ locale }) => {
               sizes="(min-width:768px) 50vw, 100vw"
               imgClassName="w-full h-full object-cover"
             />
-          </motion.div>
+          </div>
 
           {/* CTA Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative overflow-hidden rounded-3xl border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 dark:from-cyan-500/10 dark:via-blue-500/10 dark:to-purple-500/10 light:from-blue-100 light:via-indigo-100 light:to-purple-100 p-8 md:p-10 backdrop-blur-xl shadow-2xl"
-          >
+          <div className="relative overflow-hidden rounded-3xl border border-cyan-500/30 dark:border-cyan-500/30 light:border-blue-400 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 dark:from-cyan-500/10 dark:via-blue-500/10 dark:to-purple-500/10 light:from-blue-100 light:via-indigo-100 light:to-purple-100 p-8 md:p-10 backdrop-blur-xl shadow-2xl">
             {/* iOS 26 mesh gradient */}
             <div className="absolute inset-0 opacity-30 dark:opacity-30 light:opacity-20 pointer-events-none">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.3),transparent_50%)]" />
@@ -714,7 +654,7 @@ const About: React.FC<Props> = ({ locale }) => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </>
