@@ -12,6 +12,86 @@
     <title>Diwave — Автоматизуємо бізнес та підключаємо обладнання до інтернету</title>
     <meta name="description" content="E-commerce, CRM/SCADA, IoT, AI-SEO, платіжні інтеграції та аналітика. Автомийки SamWash, пилососи-вендінги, алкогольний вендинг." />
 
+    <!-- Critical CSS - Anti-FOUC (Flash of Unstyled Content) -->
+    <style>
+      /* Prevent layout shift and flickering on initial load */
+      html {
+        background: #000000;
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      html.light {
+        background: #FFFFFF;
+        color: #1C1C1E;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        min-height: 100vh;
+        background: inherit;
+        color: inherit;
+        opacity: 0;
+        animation: fadeIn 0.3s ease-in forwards;
+      }
+
+      @keyframes fadeIn {
+        to { opacity: 1; }
+      }
+
+      /* Prevent cumulative layout shift (CLS) */
+      #root {
+        min-height: 100vh;
+        isolation: isolate;
+      }
+
+      /* Loading skeleton to prevent content jumping */
+      #root:empty::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 64px;
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      html.light #root:empty::before {
+        background: rgba(0, 0, 0, 0.02);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      /* Smooth image loading - prevent flash */
+      img {
+        opacity: 0;
+        transition: opacity 0.3s ease-in;
+      }
+
+      img.loaded,
+      img[data-loaded="true"] {
+        opacity: 1;
+      }
+
+      /* Prevent scroll jump during navigation */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Hardware acceleration for smooth animations */
+      * {
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+    </style>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1Y1X7V5T0"></script>
     <script>

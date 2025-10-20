@@ -98,6 +98,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
 
   const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
   const [variants, setVariants] = useState<{ avif?: string; webp?: string; base?: string } | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -109,6 +110,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
           const ok = await probe(c);
           if (cancelled) return;
           setLoadedSrc(ok);
+          setIsLoaded(true);
 
           // Derive siblings (avif/webp) for <picture> or image-set
           const m = ok.match(/^(.*)\.(avif|webp|jpe?g|png|gif|svg)$/i);
@@ -143,7 +145,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
   }, [candidates]);
 
   if (!loadedSrc) {
-    // graceful placeholder gradient + dev notice
+    // Skeleton loader with shimmer animation
     if ((import.meta as any).env?.DEV) {
       // eslint-disable-next-line no-console
       console.warn('SmartImage: no image found for', { srcFolder, sources, tried: candidates });
@@ -154,10 +156,28 @@ const SmartImage: React.FC<SmartImageProps> = ({
         aria-label={alt}
         role="img"
         style={{
-          background:
-            'linear-gradient(135deg, rgba(34,211,238,0.12) 0%, rgba(16,185,129,0.10) 40%, rgba(0,0,0,0.35) 100%)'
+          position: 'relative',
+          background: 'linear-gradient(135deg, rgba(34,211,238,0.12) 0%, rgba(16,185,129,0.10) 40%, rgba(0,0,0,0.35) 100%)',
+          overflow: 'hidden'
         }}
-      />
+      >
+        {/* Shimmer effect skeleton */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)',
+            backgroundSize: '200% 100%',
+            animation: 'shimmer 2s infinite'
+          }}
+        />
+        <style>{`
+          @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+          }
+        `}</style>
+      </div>
     );
   }
 
@@ -190,8 +210,8 @@ const SmartImage: React.FC<SmartImageProps> = ({
       {variants?.webp && <source srcSet={variants.webp} type="image/webp" />}
       <motion.img
         initial={{ opacity: 0.0, scale: 1.01 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
+        animate={{ opacity: isLoaded ? 1 : 0, scale: 1 }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
         src={loadedSrc}
         alt={alt}
         loading={priority ? 'eager' : 'lazy'}
@@ -201,7 +221,21 @@ const SmartImage: React.FC<SmartImageProps> = ({
         sizes={sizes}
         width={width}
         height={height}
+        onLoad={() => {
+          setIsLoaded(true);
+          // Mark as loaded for critical CSS
+          const img = document.querySelector(`img[src="${loadedSrc}"]`);
+          if (img) {
+            img.setAttribute('data-loaded', 'true');
+            img.classList.add('loaded');
+          }
+        }}
         className={imgClassName || className}
+        style={{
+          willChange: 'opacity',
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden'
+        }}
       />
     </picture>
   );

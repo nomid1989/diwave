@@ -55,19 +55,22 @@ export const getOrganizationSchema = (locale: Locale) => {
     // Address
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Шевченка 1',
+      streetAddress: 'вулиця Володимира Винниченка, 30',
       addressLocality: 'Львів',
       addressRegion: 'Львівська область',
-      postalCode: '79000',
+      postalCode: '79014',
       addressCountry: 'UA'
     },
-    
-    // Geographic coordinates (Lviv)
+
+    // Geographic coordinates (Lviv, Vynnychenka Street)
     geo: {
       '@type': 'GeoCoordinates',
       latitude: 49.8397,
       longitude: 24.0297
     },
+
+    // Price range
+    priceRange: '$$',
     
     // Business hours
     openingHoursSpecification: {
